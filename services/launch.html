@@ -95,8 +95,13 @@
       z-index: 100;
       border-bottom: 1px solid var(--line);
     }
-    .nav-brand { color: var(--navy); font-weight: 800; font-size: 19px; letter-spacing: -0.01em; }
-    .nav-brand em { color: var(--amber); font-style: normal; }
+    .nav-brand {
+      display: inline-flex;
+      align-items: center;
+      height: clamp(56px, 5.4vw, 76px);
+      flex-shrink: 0;
+    }
+    .nav-brand svg { height: 100%; width: auto; display: block; }
     .nav-links { display: flex; gap: 36px; align-items: center; }
     .nav-links > a, .nav-dd > .nav-dd-trigger {
       color: var(--ink-soft); font-size: 14px; font-weight: 500;
@@ -182,7 +187,7 @@
 
     /* Hero */
     .hero {
-      background: var(--bone);
+      background: var(--navy);
       padding: 70px 48px 60px;
       position: relative;
       overflow: hidden;
@@ -215,22 +220,21 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: white;
-      border: 1px solid var(--line);
-      padding: 7px 16px 7px 12px;
+      background: var(--amber);
+      padding: 8px 18px 8px 14px;
       border-radius: 100px;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      font-weight: 600;
+      font-size: 11.5px;
+      font-weight: 800;
       color: var(--navy);
-      letter-spacing: 0.1em;
+      letter-spacing: 0.14em;
       margin-bottom: 28px;
-      box-shadow: 0 1px 2px rgba(15, 35, 64, 0.04);
+      box-shadow: 0 8px 24px -8px rgba(245, 130, 32, 0.5);
     }
     .hero-tag .dot {
       width: 8px; height: 8px;
       border-radius: 50%;
-      background: var(--amber);
+      background: var(--navy);
       animation: pulse 2.4s ease-in-out infinite;
     }
     @keyframes pulse {
@@ -242,14 +246,14 @@
       font-weight: 800;
       letter-spacing: -0.04em;
       line-height: 0.98;
-      color: var(--navy);
+      color: white;
       margin-bottom: 24px;
     }
     .hero h1 em { font-style: normal; color: var(--amber); }
     .hero .lede {
       font-size: 18px;
       line-height: 1.65;
-      color: var(--muted);
+      color: rgba(255,255,255,0.78);
       max-width: 540px;
       margin-bottom: 36px;
     }
@@ -1040,9 +1044,15 @@
       align-items: center;
       gap: 40px;
     }
-    .footer-brand { color: white; font-weight: 800; font-size: 18px; letter-spacing: -0.01em; }
+    .footer-brand {
+      color: white;
+      font-weight: 800;
+      font-size: clamp(38px, 4.6vw, 56px);
+      letter-spacing: -0.035em;
+      line-height: 1;
+    }
     .footer-brand em { color: var(--amber); font-style: normal; }
-    .footer-tag { font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 6px; }
+    .footer-tag { font-size: 14.5px; color: rgba(255,255,255,0.55); margin-top: 14px; letter-spacing: 0.01em; }
     .footer-links { display: flex; gap: 28px; }
     .footer-links a:hover { color: var(--amber); }
     .footer-bottom {
@@ -1076,29 +1086,26 @@
   </defs>
 </svg>
 
-<!-- Top bar -->
-<div class="topbar">
-  PILOT IN PROGRESS · <span class="accent">1 FREE SPOT · 4 FOUNDER SPOTS OPENING</span> · NZ + AU TRADIES ONLY
-</div>
-
 <!-- Nav -->
 <nav class="nav">
-  <a href="/" class="nav-brand">TRADIE<em>BACK</em></a>
+  <a href="../index.html" class="nav-brand" aria-label="TradieBack — NZ · AU">
+    <svg viewBox="0 0 780 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <text x="20" y="92" font-family="Arial Black, Helvetica, sans-serif" font-weight="900" font-size="80" fill="#0F2340" letter-spacing="1">TRADIE</text>
+      <text x="378" y="92" font-family="Arial Black, Helvetica, sans-serif" font-weight="900" font-size="80" fill="#F58220" letter-spacing="1">BACK</text>
+      <text x="22" y="120" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-weight="500" font-size="14" fill="#94A3B8" letter-spacing="1.2">// NZ · AU</text>
+    </svg>
+  </a>
   <div class="nav-links">
     <div class="nav-dd active">
-      <span class="nav-dd-trigger">Services <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5l3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <a href="launch.html" class="nav-dd-trigger">Services <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5l3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <div class="nav-dd-menu">
-        <div class="nav-dd-label">// THE 4-SERVICE ROADMAP</div>
-        <a href="/services/launch" class="nav-dd-item active"><strong>Tradie Launch</strong><span>Operating platform · live now</span></a>
-        <a href="/services/leads" class="nav-dd-item"><strong>Tradie Leads</strong><span>Growth engine · live now</span></a>
-        <a href="/roadmap#admin" class="nav-dd-item disabled"><strong>Tradie Admin <span style="color:var(--amber);font-size:10px;">SOON</span></strong><span>Books + collections · Q4 2026</span></a>
-        <a href="/roadmap#copilot" class="nav-dd-item disabled"><strong>Tradie Co-Pilot <span style="color:var(--amber);font-size:10px;">SOON</span></strong><span>AI agents · Q4 2027</span></a>
-        <a href="/roadmap" class="nav-dd-item" style="border-top:1px solid var(--line);margin-top:8px;padding-top:14px;"><strong style="color:var(--amber);">See the full roadmap →</strong></a>
+        <div class="nav-dd-label">// WHAT YOU CAN BUY</div>
+        <a href="launch.html" class="nav-dd-item active"><strong>Tradie Launch</strong><span>The 7-day install · live now</span></a>
+        <a href="leads.html" class="nav-dd-item"><strong>Tradie Leads <span style="color:var(--amber);font-size:10px;">BETA</span></strong><span>Growth engine · in test mode</span></a>
       </div>
     </div>
-    <a href="/pricing">Pricing</a>
-    <a href="/about">About</a>
-    <a href="/book-a-yarn" class="btn btn-primary sm">Book a yarn →</a>
+    <a href="../about.html">About</a>
+    <a href="../book-a-yarn.html" class="btn btn-primary sm">Book a yarn →</a>
   </div>
 </nav>
 
@@ -1107,12 +1114,12 @@
   <div class="hero-inner">
     <div>
       <div class="reveal in">
-        <span class="hero-tag"><span class="dot"></span>// SERVICE 01 · TRADIE LAUNCH</span>
+        <span class="hero-tag"><span class="dot"></span>2 FREE PILOT SPOTS · LIVE JUNE 17</span>
       </div>
       <h1 class="reveal in">The operating platform <em>for your trade business.</em></h1>
-      <p class="lede reveal in" style="--delay: 0.1s">Tradie Launch is the one-off install that gets your business set up online. Custom website, CRM, calendar, invoicing, auto-text-back, review automation — built and live in 7 days. Yours forever. We hand it over · you run it.</p>
+      <p class="lede reveal in" style="--delay: 0.1s">Custom website, CRM, calendar, invoicing, auto-text-back + review automation — built and live in 7 days. We hand it over · you run it.</p>
       <div class="hero-actions reveal in" style="--delay: 0.2s">
-        <a href="/book-a-yarn" class="btn btn-primary">Book a yarn →</a>
+        <a href="../book-a-yarn.html" class="btn btn-primary">Book a yarn →</a>
         <a href="#whats-in" class="btn btn-ghost">See what's included</a>
       </div>
     </div>
@@ -1363,7 +1370,7 @@
         <div class="fc-result"><span class="pulse"></span>Built once · runs forever</div>
       </div>
     </div>
-    <p class="section-foot">Launch ends at Day-14. The platform keeps running forever. Want monthly reviews + active management? That's <a href="/services/leads" style="color: var(--amber); border-bottom: 1px solid var(--amber);">Tradie Leads</a>.</p>
+    <p class="section-foot">Launch ends at Day-14. The platform keeps running forever. Want monthly reviews + active management? That's <a href="leads.html" style="color: var(--amber); border-bottom: 1px solid var(--amber);">Tradie Leads</a>.</p>
   </div>
 </section>
 
@@ -1444,71 +1451,27 @@
   </div>
 </section>
 
-<!-- Pricing -->
+<!-- Pilot offer -->
 <section class="section bone-warm">
-  <div class="section-inner">
-    <div class="section-head reveal">
-      <div class="eyebrow">// Pricing</div>
-      <h2 class="h2">Three doors. <em>Walk through one.</em></h2>
-      <p>Tradie Launch is a one-off install. After it's live, the platform stays running with light maintenance included. Add Tradie Leads only if you want the recurring lead engine.</p>
+  <div class="section-inner" style="max-width: 920px;">
+    <div class="section-head reveal" style="text-align:center;">
+      <div class="eyebrow" style="background:rgba(245,130,32,0.10);color:var(--amber);display:inline-block;padding:7px 14px;border-radius:100px;letter-spacing:0.16em;font-size:11px;font-weight:700;margin-bottom:22px;">// Pilot offer</div>
+      <h2 class="h2">Two free pilot spots. <em>Before June 17.</em></h2>
+      <p style="max-width:640px;margin:18px auto 0;">Pre-launch, we're taking on two NZ + AU tradies as our first case studies. Full Tradie Launch · free 7-day install · 3 months free hosting + maintenance + software · 1 month free Tradie Leads beta · in exchange for a real case study + testimonial.</p>
     </div>
-    <div class="pricing-grid">
-      <div class="pc reveal">
-        <div class="pc-tag">// Pilot</div>
-        <h3>Free 7-day install</h3>
-        <div class="pc-sub">One NZ tradie. Case study client.</div>
-        <div class="pc-price">
-          <span class="pc-price-num accent">$0</span>
-          <span class="pc-price-unit">install</span>
-        </div>
-        <div class="pc-meta">// 1 spot · in recruitment</div>
-        <ul class="pc-list">
-          <li><span class="check">✓</span>Full Tradie Launch — free</li>
-          <li><span class="check">✓</span>Customer data migration</li>
-          <li><span class="check">✓</span>WhatsApp Mathieson 90 days</li>
-          <li><span class="check">✓</span>In return — case study + testimonial</li>
-        </ul>
-        <a href="/book-a-yarn" class="btn btn-ghost">Apply →</a>
-      </div>
 
-      <div class="pc featured reveal" style="--delay: 0.05s">
-        <div class="pc-flag">FOUNDER · 4 SPOTS</div>
-        <div class="pc-tag">// Founder</div>
-        <h3>Founder install</h3>
-        <div class="pc-sub">Locked-in pricing. 12 months.</div>
-        <div class="pc-price">
-          <span class="strike">$5,000</span>
-          <span class="pc-price-num accent">$2,997</span>
-          <span class="pc-price-unit">one-off</span>
-        </div>
-        <div class="pc-meta">// $2,003 saved · 4 spots only</div>
-        <ul class="pc-list">
-          <li><span class="check">✓</span>Live in 7 days · or it's free</li>
-          <li><span class="check">✓</span>Custom website + CRM + calendar + invoicing</li>
-          <li><span class="check">✓</span>Auto-text-back · review + follow-up automation</li>
-          <li><span class="check">✓</span>Welcome · daily install · Day-14 check-in</li>
-          <li><span class="check">✓</span>12 months hosting + maintenance · 1 month Leads free</li>
-          <li><span class="check">✓</span>Customer data migration · WhatsApp Mathieson 30 days</li>
-        </ul>
-        <a href="/book-a-yarn" class="btn btn-primary">Take a founder spot →</a>
+    <div class="reveal" style="--delay:0.1s; background:white; border:2px solid var(--amber); border-radius:20px; padding:36px 40px; margin-top:48px; max-width:760px; margin-left:auto; margin-right:auto;">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px 32px; margin-bottom:28px;">
+        <div style="display:flex;align-items:flex-start;gap:10px;font-size:14.5px;color:var(--ink);"><span style="flex-shrink:0;width:18px;height:18px;border-radius:50%;background:var(--amber);color:white;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;margin-top:2px;">✓</span>Free 7-day install — full Tradie Launch</div>
+        <div style="display:flex;align-items:flex-start;gap:10px;font-size:14.5px;color:var(--ink);"><span style="flex-shrink:0;width:18px;height:18px;border-radius:50%;background:var(--amber);color:white;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;margin-top:2px;">✓</span>3 months free hosting + maintenance + software</div>
+        <div style="display:flex;align-items:flex-start;gap:10px;font-size:14.5px;color:var(--ink);"><span style="flex-shrink:0;width:18px;height:18px;border-radius:50%;background:var(--amber);color:white;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;margin-top:2px;">✓</span>1 month free Tradie Leads beta</div>
+        <div style="display:flex;align-items:flex-start;gap:10px;font-size:14.5px;color:var(--ink);"><span style="flex-shrink:0;width:18px;height:18px;border-radius:50%;background:var(--amber);color:white;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;margin-top:2px;">✓</span>Customer data migration included</div>
+        <div style="display:flex;align-items:flex-start;gap:10px;font-size:14.5px;color:var(--ink);"><span style="flex-shrink:0;width:18px;height:18px;border-radius:50%;background:var(--amber);color:white;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;margin-top:2px;">✓</span>WhatsApp Mathieson direct · 90 days</div>
+        <div style="display:flex;align-items:flex-start;gap:10px;font-size:14.5px;color:var(--ink);"><span style="flex-shrink:0;width:18px;height:18px;border-radius:50%;background:var(--amber);color:white;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;margin-top:2px;">✓</span>After 3 months: $99/mo Tradie Care · cancel anytime</div>
       </div>
-
-      <div class="pc reveal" style="--delay: 0.1s">
-        <div class="pc-tag">// Public</div>
-        <h3>Standard install</h3>
-        <div class="pc-sub">Once founder spots are filled.</div>
-        <div class="pc-price">
-          <span class="pc-price-num">$5,000</span>
-          <span class="pc-price-unit">one-off</span>
-        </div>
-        <div class="pc-meta">// Once founder rate gone</div>
-        <ul class="pc-list">
-          <li><span class="check">✓</span>Same install · same 7-day promise</li>
-          <li><span class="check">✓</span>Same operating platform + lifecycle</li>
-          <li><span class="check">✓</span>12 months hosting + maintenance</li>
-          <li><span class="check">✓</span>You own everything · no exit fees</li>
-        </ul>
-        <a href="/pricing" class="btn btn-ghost">See full pricing →</a>
+      <div style="text-align:center;padding-top:24px;border-top:1px solid var(--line);">
+        <a href="../book-a-yarn.html" class="btn btn-primary" style="margin-bottom:12px;">Apply for a pilot spot →</a>
+        <div style="font-size:12px;color:var(--muted);font-family:'JetBrains Mono',monospace;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;margin-top:14px;">// Standard pricing opens June 17 · founder rates locked for the first 4 clients</div>
       </div>
     </div>
   </div>
@@ -1551,10 +1514,10 @@
   <div class="bridge-inner reveal">
     <div class="bridge-icon"><svg><use href="#i-megaphone"/></svg></div>
     <div class="bridge-content">
-      <div class="eyebrow" style="margin-bottom:14px;">// What comes next</div>
-      <h3>Once the website's sorted, it's time to <em>get noticed.</em></h3>
-      <p>Your new site's the foundation. The next step is <strong>Tradie Leads</strong> — Google Ads, conversion landing page, lead qualification, and weekly optimisation that takes you from "nice website" to "phone ringing every week".</p>
-      <a href="/services/leads" class="bridge-link">Explore Tradie Leads <svg width="16" height="16"><use href="#i-arrow"/></svg></a>
+      <div class="eyebrow" style="margin-bottom:14px;">// Optional add-on · BETA</div>
+      <h3>Want active lead generation? <em>Tradie Leads is in beta.</em></h3>
+      <p>Once Launch is live, <strong>Tradie Leads</strong> plugs in — Google + Meta Ads, lead qualification, monthly review. Currently in test mode · pilot clients get 1 month free.</p>
+      <a href="leads.html" class="bridge-link">See Tradie Leads (beta) <svg width="16" height="16"><use href="#i-arrow"/></svg></a>
     </div>
   </div>
 </section>
@@ -1565,7 +1528,7 @@
     <div class="cta-head">
       <div class="eyebrow reveal">// Book a yarn</div>
       <h2 class="reveal" style="--delay: 0.05s">Ready for a <em>free yarn?</em></h2>
-      <p class="reveal" style="--delay: 0.1s">30 minutes. No pitch. Straight talk about your business and what's next.</p>
+      <p class="reveal" style="--delay: 0.1s">20 minutes. No pitch. Straight talk about your business and what's next.</p>
     </div>
     <div class="cta-wa reveal" style="--delay: 0.15s">
       <a href="https://wa.me/message/SONH7ANNNV2GK1" target="_blank" rel="noopener" class="btn-wa">
@@ -1589,20 +1552,19 @@
       <div class="footer-tag">The platform built only for NZ + AU tradies</div>
     </div>
     <div class="footer-links">
-      <a href="/">Home</a>
-      <a href="/services/launch">Launch</a>
-      <a href="/services/leads">Leads</a>
-      <a href="/pricing">Pricing</a>
-      <a href="/about">About</a>
+      <a href="../index.html">Home</a>
+      <a href="launch.html">Launch</a>
+      <a href="leads.html">Leads</a>
+      <a href="../about.html">About</a>
       <a href="https://wa.me/message/SONH7ANNNV2GK1" target="_blank" rel="noopener">WhatsApp</a>
     </div>
   </div>
   <div class="footer-bottom">
     <span>© 2026 TradieBack · Built only for NZ + AU tradies</span>
     <span class="footer-legal">
-      <a href="/privacy">Privacy</a>
-      <a href="/terms">Terms</a>
-      <a href="/feedback">Client feedback</a>
+      <a href="../privacy.html">Privacy</a>
+      <a href="../terms.html">Terms</a>
+      <a href="../feedback.html">Client feedback</a>
     </span>
   </div>
 </footer>
