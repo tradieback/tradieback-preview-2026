@@ -1,0 +1,7 @@
+# Force noindex on every page during the preview phase.
+# Belt-and-braces — basic auth already blocks crawlers, but this stops anything that slips past.
+
+/*
+  X-Robots-Tag: noindex, nofollow, noarchive, nosnippet
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin

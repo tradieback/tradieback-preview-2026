@@ -1,0 +1,1630 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F8F6F1">
+
+  <title>Tradie Launch — Website + Platform · live in 7 days · TradieBack</title>
+  <meta name="description" content="Tradie Launch — a flash trade website plus the software platform (CRM, calendar, invoicing, hosting) all built in. Live in 7 days. Built only for tradies in NZ + AU.">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="TradieBack">
+  <meta property="og:title" content="Tradie Launch — Website + Platform · TradieBack">
+  <meta property="og:description" content="Website + software platform for NZ + AU tradies. Live in 7 days. CRM, calendar, invoicing, hosting — all in.">
+  <meta property="og:url" content="https://tradieback.com/services/launch">
+  <link rel="canonical" href="https://tradieback.com/services/launch">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230F2340'/%3E%3Crect y='0' width='64' height='6' fill='%23F58220'/%3E%3Cpath d='M20 16 L44 32 L20 48' stroke='%23F58220' stroke-width='9' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap">
+
+  <style>
+    :root {
+      --navy: #0F2340;
+      --navy-deep: #081428;
+      --navy-soft: #1A3158;
+      --amber: #F58220;
+      --amber-warm: #FF9D3F;
+      --amber-soft: rgba(245, 130, 32, 0.08);
+      --green: #2ECC71;
+      --red: #E55353;
+      --ink: #0F1419;
+      --ink-soft: #1F2937;
+      --muted: #5B6573;
+      --muted-light: #8B95A5;
+      --bone: #F8F6F1;
+      --bone-warm: #F1EDE3;
+      --bone-deep: #E8E2D2;
+      --white: #FFFFFF;
+      --line: rgba(15, 35, 64, 0.06);
+      --line-warm: rgba(15, 35, 64, 0.1);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--ink);
+      background: var(--bone);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ::selection { background: var(--amber); color: white; }
+
+    .accent { color: var(--amber); }
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.9s cubic-bezier(0.22, 0.61, 0.36, 1),
+                  transform 0.9s cubic-bezier(0.22, 0.61, 0.36, 1);
+      transition-delay: var(--delay, 0s);
+    }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+
+    /* Top bar */
+    .topbar {
+      background: var(--navy-deep);
+      color: rgba(255,255,255,0.72);
+      text-align: center;
+      padding: 11px 20px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+    }
+    .topbar .accent { color: var(--amber); }
+
+    /* Nav */
+    .nav {
+      background: rgba(248, 246, 241, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 22px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-brand { color: var(--navy); font-weight: 800; font-size: 19px; letter-spacing: -0.01em; }
+    .nav-brand em { color: var(--amber); font-style: normal; }
+    .nav-links { display: flex; gap: 36px; align-items: center; }
+    .nav-links > a, .nav-dd > .nav-dd-trigger {
+      color: var(--ink-soft); font-size: 14px; font-weight: 500;
+      transition: color 0.2s; cursor: pointer; display: inline-flex; align-items: center; gap: 5px;
+    }
+    .nav-links a:hover, .nav-dd:hover .nav-dd-trigger { color: var(--amber); }
+    .nav-links a.active, .nav-dd.active > .nav-dd-trigger { color: var(--amber); }
+    .nav-dd { position: relative; }
+    .nav-dd-menu {
+      position: absolute;
+      top: calc(100% + 12px);
+      left: -14px;
+      min-width: 280px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px;
+      box-shadow: 0 20px 50px -16px rgba(15,35,64,0.18);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-6px);
+      transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+    }
+    .nav-dd:hover .nav-dd-menu, .nav-dd:focus-within .nav-dd-menu {
+      opacity: 1; visibility: visible; transform: translateY(0);
+    }
+    .nav-dd-label {
+      font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--amber);
+      letter-spacing: 0.16em; font-weight: 700; padding: 6px 10px; text-transform: uppercase;
+    }
+    .nav-dd-item {
+      display: block; padding: 12px 12px; border-radius: 10px;
+      transition: background 0.2s;
+    }
+    .nav-dd-item:hover { background: var(--amber-soft); }
+    .nav-dd-item strong { display: block; font-weight: 700; color: var(--navy); font-size: 14px; }
+    .nav-dd-item span { display: block; font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+    .nav-dd-item.active { background: var(--amber-soft); }
+    .nav-dd-item.disabled { opacity: 0.5; cursor: not-allowed; }
+    @media (max-width: 800px) {
+      .nav { padding: 18px 24px; }
+      .nav-links { gap: 14px; }
+      .nav-links > a:not(.btn), .nav-dd { display: none; }
+    }
+
+    /* Buttons */
+    .btn {
+      padding: 16px 32px;
+      border-radius: 100px;
+      font-weight: 700;
+      font-size: 14.5px;
+      transition: transform 0.25s cubic-bezier(0.22, 0.61, 0.36, 1),
+                  box-shadow 0.25s, background 0.25s, color 0.25s, border-color 0.25s;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      border: 1.5px solid transparent;
+      font-family: inherit;
+      white-space: nowrap;
+      justify-content: center;
+    }
+    .btn-primary {
+      background: var(--amber);
+      color: var(--navy);
+      box-shadow: 0 8px 24px -8px rgba(245, 130, 32, 0.5);
+    }
+    .btn-primary:hover {
+      background: var(--amber-warm);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px -8px rgba(245, 130, 32, 0.6);
+    }
+    .btn-ghost {
+      background: transparent;
+      color: var(--navy);
+      border-color: var(--line-warm);
+    }
+    .btn-ghost:hover {
+      border-color: var(--navy);
+      background: rgba(15, 35, 64, 0.04);
+    }
+    .btn.sm { padding: 11px 22px; font-size: 13px; }
+
+    /* Hero */
+    .hero {
+      background: var(--bone);
+      padding: 70px 48px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -10%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80vw;
+      height: 50vw;
+      max-width: 1000px;
+      background: radial-gradient(ellipse at center, rgba(245,130,32,0.08), transparent 60%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      position: relative;
+    }
+    @media (max-width: 960px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 56px; }
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: white;
+      border: 1px solid var(--line);
+      padding: 7px 16px 7px 12px;
+      border-radius: 100px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: 0.1em;
+      margin-bottom: 28px;
+      box-shadow: 0 1px 2px rgba(15, 35, 64, 0.04);
+    }
+    .hero-tag .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--amber);
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(0.85); }
+    }
+    .hero h1 {
+      font-size: clamp(40px, 5.4vw, 72px);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 0.98;
+      color: var(--navy);
+      margin-bottom: 24px;
+    }
+    .hero h1 em { font-style: normal; color: var(--amber); }
+    .hero .lede {
+      font-size: 18px;
+      line-height: 1.65;
+      color: var(--muted);
+      max-width: 540px;
+      margin-bottom: 36px;
+    }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    .hero-visual {
+      position: relative;
+      aspect-ratio: 5 / 4;
+      border-radius: 20px;
+      overflow: hidden;
+      background: var(--bone-warm);
+      box-shadow: 0 30px 80px -20px rgba(15, 35, 64, 0.25);
+    }
+    .hero-visual img { width: 100%; height: 100%; object-fit: cover; }
+    .hv-stamp {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      background: var(--amber);
+      color: var(--navy);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      padding: 6px 12px;
+      border-radius: 100px;
+      text-transform: uppercase;
+    }
+    .hv-float {
+      position: absolute;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 18px;
+      box-shadow: 0 16px 40px -12px rgba(15, 35, 64, 0.2);
+      animation: bob 6s ease-in-out infinite;
+    }
+    .hv-float-tr { top: 28px; right: -28px; animation-delay: 0.4s; }
+    .hv-float-bl { bottom: 28px; left: -28px; animation-delay: 1.6s; }
+    @media (max-width: 960px) {
+      .hv-float-tr { right: 8px; }
+      .hv-float-bl { left: 8px; }
+    }
+    .hv-float .num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      color: var(--amber);
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .hv-float .text {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+      margin-top: 2px;
+    }
+    @keyframes bob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-7px); }
+    }
+
+    /* Numbers band */
+    .numbers {
+      background: var(--white);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 40px 48px;
+    }
+    .numbers-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+    }
+    @media (max-width: 800px) {
+      .numbers-inner { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    }
+    .num-stat { text-align: center; }
+    .num-num {
+      font-size: clamp(28px, 3.2vw, 38px);
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .num-num .accent { color: var(--amber); }
+    .num-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    /* Problem split */
+    .problem {
+      padding: 110px 48px;
+      background: var(--bone);
+    }
+    .problem-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 80px;
+      align-items: center;
+    }
+    @media (max-width: 900px) {
+      .problem-inner { grid-template-columns: 1fr; gap: 48px; }
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--amber-soft);
+      color: var(--amber);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 7px 14px;
+      border-radius: 100px;
+      margin-bottom: 22px;
+    }
+    .h2 {
+      font-size: clamp(32px, 4.2vw, 56px);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.05;
+      color: var(--navy);
+      margin-bottom: 20px;
+    }
+    .h2 em { font-style: normal; color: var(--amber); }
+    .lede-p {
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+    .lede-p strong { color: var(--ink); font-weight: 700; }
+    .lede-p + .lede-p { margin-top: 14px; }
+    .problem-visual {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      border-radius: 18px;
+      overflow: hidden;
+      background: var(--bone-warm);
+      border: 1px solid var(--line);
+    }
+    .problem-visual img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(40%); }
+    .pv-tag {
+      position: absolute; top: 16px; left: 16px;
+      background: rgba(229, 83, 83, 0.92);
+      color: white;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.14em;
+      padding: 6px 11px;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+    .pv-status {
+      position: absolute; bottom: 16px; left: 16px;
+      background: rgba(15, 35, 64, 0.92);
+      color: white;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      padding: 7px 12px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Cost of inaction (dark) */
+    .cost {
+      background: var(--navy-deep);
+      color: white;
+      padding: 110px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    .cost::before {
+      content: '';
+      position: absolute;
+      top: 0; right: -10%;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(229,83,83,0.08), transparent 65%);
+    }
+    .cost-inner {
+      max-width: 880px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .cost-head { text-align: center; margin-bottom: 56px; }
+    .cost-head .eyebrow { background: rgba(245,130,32,0.16); }
+    .cost-head .h2 { color: white; }
+    .cost-head .lede-p { color: rgba(255,255,255,0.65); margin: 16px auto 0; max-width: 600px; }
+    .cost-rows {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .cost-row {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 20px;
+      padding: 22px 28px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      align-items: center;
+    }
+    .cost-row:last-of-type { border-bottom: none; }
+    @media (max-width: 700px) {
+      .cost-row { grid-template-columns: 1fr; gap: 4px; padding: 16px 20px; }
+    }
+    .cost-label { font-size: 15px; color: rgba(255,255,255,0.78); }
+    .cost-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 22px;
+      color: var(--amber);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      text-align: right;
+    }
+    @media (max-width: 700px) { .cost-value { text-align: left; font-size: 20px; } }
+    .cost-note { font-size: 12px; color: rgba(255,255,255,0.4); text-align: right; }
+    @media (max-width: 700px) { .cost-note { text-align: left; } }
+    .cost-total {
+      background: linear-gradient(135deg, rgba(245,130,32,0.18), rgba(245,130,32,0.06));
+      border-top: 1px solid var(--amber);
+      padding: 28px;
+      text-align: center;
+    }
+    .cost-total-label {
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 8px;
+    }
+    .cost-total-value {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 800;
+      color: var(--amber);
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+    .cost-total-sub {
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+      margin-top: 12px;
+    }
+    .cost-total-sub strong { color: white; font-weight: 700; }
+
+    /* Section common */
+    .section {
+      padding: 110px 48px;
+    }
+    .section.bone { background: var(--bone); }
+    .section.bone-warm { background: var(--bone-warm); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .section.white { background: var(--white); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-head {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .section-head .h2 { margin-bottom: 14px; }
+    .section-head p {
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 620px;
+      margin: 0 auto;
+      line-height: 1.65;
+    }
+
+    /* Feature card grid */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    @media (max-width: 900px) { .grid-3 { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .grid-3 { grid-template-columns: 1fr; } }
+    .fc {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 32px 28px;
+      transition: transform 0.4s, box-shadow 0.4s, border-color 0.4s;
+      position: relative;
+    }
+    .fc:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 60px -22px rgba(15, 35, 64, 0.16);
+      border-color: var(--amber);
+    }
+    .fc.featured {
+      background: linear-gradient(180deg, white, var(--bone));
+      border: 2px solid var(--amber);
+      box-shadow: 0 24px 60px -20px rgba(245, 130, 32, 0.18);
+    }
+    .fc-flag {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--amber);
+      color: var(--navy);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.18em;
+      font-weight: 700;
+      padding: 5px 14px;
+      border-radius: 100px;
+      box-shadow: 0 4px 12px -2px rgba(245, 130, 32, 0.5);
+    }
+    .fc-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--amber);
+      letter-spacing: 0.16em;
+      font-weight: 700;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+    .fc-icon {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      background: var(--amber-soft);
+      color: var(--amber);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 18px;
+    }
+    .fc-icon svg { width: 22px; height: 22px; }
+    .fc h3 {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+    .fc p {
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .fc-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 18px;
+    }
+    .fc-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 7px 0;
+      font-size: 13.5px;
+      color: var(--ink);
+      line-height: 1.5;
+      font-weight: 500;
+    }
+    .fc-list .check {
+      flex: 0 0 16px; width: 16px; height: 16px;
+      border-radius: 50%;
+      background: var(--amber);
+      color: white;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 9px; font-weight: 800;
+      margin-top: 3px;
+    }
+    .fc-result {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--amber);
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .fc-result .pulse {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--amber);
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+    .section-foot {
+      text-align: center;
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 40px;
+      font-style: italic;
+    }
+
+    /* Under the hood (dark accordion) */
+    .deep {
+      background: var(--navy-deep);
+      color: white;
+      padding: 110px 48px;
+    }
+    .deep-inner { max-width: 880px; margin: 0 auto; }
+    .deep .section-head .h2 { color: white; }
+    .deep .section-head p { color: rgba(255,255,255,0.62); }
+    .deep .section-head .eyebrow { background: rgba(245,130,32,0.16); }
+    .tier-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin: 40px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .tier-label.green { color: #22C55E; border-color: rgba(34,197,94,0.3); }
+    .tier-label.amber { color: var(--amber); border-color: rgba(245,130,32,0.3); }
+    .tier-label.gray { color: #94A3B8; border-color: rgba(148,163,184,0.2); }
+    .acc {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      margin-bottom: 10px;
+      overflow: hidden;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .acc:hover { border-color: rgba(255,255,255,0.15); }
+    .acc[open] { border-color: rgba(245,130,32,0.4); background: rgba(245,130,32,0.04); }
+    .acc summary {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 22px;
+      cursor: pointer;
+      list-style: none;
+      font-size: 15.5px;
+      font-weight: 700;
+      color: white;
+      gap: 14px;
+    }
+    .acc summary::-webkit-details-marker { display: none; }
+    .acc summary::after {
+      content: '+';
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.55);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; font-weight: 600;
+      flex-shrink: 0;
+      transition: all 0.2s;
+    }
+    .acc[open] summary::after {
+      content: '−';
+      background: var(--amber);
+      color: var(--navy);
+    }
+    .acc-left { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .impact {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9.5px;
+      letter-spacing: 0.1em;
+      font-weight: 700;
+      padding: 3px 7px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+    .impact.very-high { background: rgba(34,197,94,0.15); color: #22C55E; }
+    .impact.high { background: rgba(245,130,32,0.15); color: var(--amber); }
+    .impact.medium { background: rgba(148,163,184,0.15); color: #94A3B8; }
+    .acc-body {
+      padding: 0 22px 20px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.7;
+    }
+    .acc-body p + p { margin-top: 10px; }
+    .acc-body strong { color: white; font-weight: 700; }
+
+    /* Pricing cards */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    @media (max-width: 900px) { .pricing-grid { grid-template-columns: 1fr; } }
+    .pc {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 36px 30px;
+      position: relative;
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+    .pc:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 60px -22px rgba(15, 35, 64, 0.18);
+    }
+    .pc.featured {
+      background: linear-gradient(180deg, white, var(--bone));
+      border: 2px solid var(--amber);
+      box-shadow: 0 24px 60px -20px rgba(245, 130, 32, 0.22);
+    }
+    .pc-flag {
+      position: absolute;
+      top: -14px; left: 50%;
+      transform: translateX(-50%);
+      background: var(--amber);
+      color: var(--navy);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.18em;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 100px;
+    }
+    .pc-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--amber);
+      letter-spacing: 0.16em;
+      font-weight: 700;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+    .pc h3 {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+    .pc-sub {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+    .pc-price {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+    .pc-price .strike {
+      text-decoration: line-through;
+      color: var(--muted-light);
+      font-size: 16px;
+      margin-right: 4px;
+    }
+    .pc-price-num {
+      font-size: 38px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+    .pc-price-num.accent { color: var(--amber); }
+    .pc-price-unit {
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .pc-meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      margin-bottom: 22px;
+      text-transform: uppercase;
+    }
+    .pc-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 24px;
+    }
+    .pc-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 8px 0;
+      font-size: 14px;
+      color: var(--ink);
+      line-height: 1.5;
+      font-weight: 500;
+    }
+    .pc-list .check {
+      flex: 0 0 16px; width: 16px; height: 16px;
+      border-radius: 50%;
+      background: var(--amber);
+      color: white;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 9px; font-weight: 800;
+      margin-top: 3px;
+    }
+    .pc .btn { width: 100%; }
+
+    /* FAQ */
+    .faq-list { display: grid; gap: 12px; max-width: 760px; margin: 0 auto; }
+    .faq-item {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .faq-item[open] {
+      border-color: var(--amber);
+      box-shadow: 0 8px 24px -8px rgba(15, 35, 64, 0.08);
+    }
+    .faq-item summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 22px 26px;
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--navy);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: '+';
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--amber-soft);
+      color: var(--amber);
+      flex: 0 0 28px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; font-weight: 600;
+    }
+    .faq-item[open] summary::after { content: '−'; }
+    .faq-item .faq-body {
+      padding: 0 26px 22px;
+      font-size: 14.5px;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    /* Next step bridge */
+    .bridge {
+      padding: 100px 48px;
+      background: var(--bone);
+    }
+    .bridge-inner {
+      max-width: 980px; margin: 0 auto;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 56px 56px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 40px;
+      align-items: center;
+      box-shadow: 0 30px 70px -28px rgba(15, 35, 64, 0.18);
+    }
+    @media (max-width: 800px) {
+      .bridge-inner { grid-template-columns: 1fr; padding: 36px 30px; gap: 24px; text-align: center; }
+    }
+    .bridge-icon {
+      width: 96px; height: 96px;
+      background: var(--amber-soft);
+      color: var(--amber);
+      border-radius: 24px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .bridge-icon svg { width: 48px; height: 48px; }
+    @media (max-width: 800px) {
+      .bridge-icon { margin: 0 auto; }
+    }
+    .bridge-content h3 {
+      font-size: clamp(22px, 2.6vw, 32px);
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+    .bridge-content h3 em { font-style: normal; color: var(--amber); }
+    .bridge-content p {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+    .bridge-content p strong { color: var(--ink); }
+    .bridge-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--amber);
+      font-weight: 700;
+      font-size: 14.5px;
+    }
+    .bridge-link:hover { text-decoration: underline; }
+
+    /* Final CTA + calendar */
+    .cta {
+      background: var(--navy);
+      color: white;
+      padding: 110px 48px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at center top, rgba(245,130,32,0.13), transparent 60%);
+      pointer-events: none;
+    }
+    .cta-inner { max-width: 880px; margin: 0 auto; position: relative; }
+    .cta-head { text-align: center; margin-bottom: 44px; }
+    .cta-head .eyebrow { background: rgba(245,130,32,0.16); }
+    .cta-head h2 {
+      font-size: clamp(34px, 4.4vw, 56px);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.05;
+      color: white;
+      margin-bottom: 16px;
+    }
+    .cta-head h2 em { font-style: normal; color: var(--amber); }
+    .cta-head p {
+      font-size: 16.5px;
+      color: rgba(255,255,255,0.65);
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .cta-wa {
+      display: flex; justify-content: center; margin: 28px 0;
+    }
+    .btn-wa {
+      background: #25D366;
+      color: white;
+      padding: 16px 28px;
+      border-radius: 100px;
+      font-weight: 700;
+      font-size: 15px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 8px 24px -8px rgba(37,211,102,0.4);
+      transition: transform 0.2s, background 0.2s;
+    }
+    .btn-wa:hover { background: #1FB955; transform: translateY(-2px); }
+    .cta-divider {
+      display: flex; align-items: center; gap: 16px;
+      max-width: 600px; margin: 24px auto 28px;
+    }
+    .cta-divider div {
+      flex: 1; height: 1px; background: rgba(255,255,255,0.12);
+    }
+    .cta-divider span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px; letter-spacing: 0.18em;
+      color: rgba(255,255,255,0.4);
+    }
+    .cta-cal {
+      max-width: 720px; margin: 0 auto;
+      background: white;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 30px 70px -20px rgba(0,0,0,0.4);
+    }
+    .cta-cal iframe {
+      width: 100%; min-height: 700px; border: none; display: block;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--navy-deep);
+      color: rgba(255,255,255,0.5);
+      padding: 60px 32px 36px;
+      font-size: 13px;
+    }
+    .footer-inner {
+      max-width: 1180px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 40px;
+    }
+    .footer-brand { color: white; font-weight: 800; font-size: 18px; letter-spacing: -0.01em; }
+    .footer-brand em { color: var(--amber); font-style: normal; }
+    .footer-tag { font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 6px; }
+    .footer-links { display: flex; gap: 28px; }
+    .footer-links a:hover { color: var(--amber); }
+    .footer-bottom {
+      max-width: 1180px; margin: 32px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex; justify-content: space-between; gap: 20px;
+      font-size: 12px; color: rgba(255,255,255,0.32);
+    }
+    .footer-legal { display: flex; gap: 18px; }
+    @media (max-width: 700px) {
+      .footer-inner { grid-template-columns: 1fr; gap: 24px; }
+      .footer-links { flex-wrap: wrap; gap: 18px; }
+      .footer-bottom { flex-direction: column; gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- SVG sprite -->
+<svg style="display:none" aria-hidden="true">
+  <defs>
+    <symbol id="i-monitor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4M2 8h20"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L3 6v6c0 5 4 9 9 10 5-1 9-5 9-10V6l-9-4z"/><path d="M9 12l2 2 4-4"/></symbol>
+    <symbol id="i-calc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></symbol>
+    <symbol id="i-megaphone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v2a1 1 0 001 1h2l5 4V6L6 10H4a1 1 0 00-1 1zM15 8a4 4 0 010 8M18 5a8 8 0 010 14"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  </defs>
+</svg>
+
+<!-- Top bar -->
+<div class="topbar">
+  PILOT IN PROGRESS · <span class="accent">1 FREE SPOT · 4 FOUNDER SPOTS OPENING</span> · NZ + AU TRADIES ONLY
+</div>
+
+<!-- Nav -->
+<nav class="nav">
+  <a href="/" class="nav-brand">TRADIE<em>BACK</em></a>
+  <div class="nav-links">
+    <div class="nav-dd active">
+      <span class="nav-dd-trigger">Services <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5l3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <div class="nav-dd-menu">
+        <div class="nav-dd-label">// THE 4-SERVICE ROADMAP</div>
+        <a href="/services/launch" class="nav-dd-item active"><strong>Tradie Launch</strong><span>Operating platform · live now</span></a>
+        <a href="/services/leads" class="nav-dd-item"><strong>Tradie Leads</strong><span>Growth engine · live now</span></a>
+        <a href="/roadmap#admin" class="nav-dd-item disabled"><strong>Tradie Admin <span style="color:var(--amber);font-size:10px;">SOON</span></strong><span>Books + collections · Q4 2026</span></a>
+        <a href="/roadmap#copilot" class="nav-dd-item disabled"><strong>Tradie Co-Pilot <span style="color:var(--amber);font-size:10px;">SOON</span></strong><span>AI agents · Q4 2027</span></a>
+        <a href="/roadmap" class="nav-dd-item" style="border-top:1px solid var(--line);margin-top:8px;padding-top:14px;"><strong style="color:var(--amber);">See the full roadmap →</strong></a>
+      </div>
+    </div>
+    <a href="/pricing">Pricing</a>
+    <a href="/about">About</a>
+    <a href="/book-a-yarn" class="btn btn-primary sm">Book a yarn →</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="reveal in">
+        <span class="hero-tag"><span class="dot"></span>// SERVICE 01 · TRADIE LAUNCH</span>
+      </div>
+      <h1 class="reveal in">The operating platform <em>for your trade business.</em></h1>
+      <p class="lede reveal in" style="--delay: 0.1s">Tradie Launch is the one-off install that gets your business set up online. Custom website, CRM, calendar, invoicing, auto-text-back, review automation — built and live in 7 days. Yours forever. We hand it over · you run it.</p>
+      <div class="hero-actions reveal in" style="--delay: 0.2s">
+        <a href="/book-a-yarn" class="btn btn-primary">Book a yarn →</a>
+        <a href="#whats-in" class="btn btn-ghost">See what's included</a>
+      </div>
+    </div>
+    <div class="reveal in" style="--delay: 0.15s">
+      <div class="hero-visual">
+        <img src="../assets/hero-website.jpg" alt="A modern TradieBack-built website on a laptop">
+        <div class="hv-stamp">// LIVE IN 7 DAYS</div>
+        <div class="hv-float hv-float-tr">
+          <div class="num">// LIGHTHOUSE</div>
+          <div class="text">90+ on mobile</div>
+        </div>
+        <div class="hv-float hv-float-bl">
+          <div class="num">// LOAD TIME</div>
+          <div class="text">Under 2 seconds</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Numbers band -->
+<section class="numbers">
+  <div class="numbers-inner">
+    <div class="num-stat reveal">
+      <div class="num-num">7<span class="accent"> days</span></div>
+      <div class="num-label">From handshake<br>to live</div>
+    </div>
+    <div class="num-stat reveal" style="--delay: 0.05s">
+      <div class="num-num">&lt;2<span class="accent">s</span></div>
+      <div class="num-label">Page load<br>on a tradie's 4G</div>
+    </div>
+    <div class="num-stat reveal" style="--delay: 0.1s">
+      <div class="num-num">100<span class="accent">%</span></div>
+      <div class="num-label">Yours to keep<br>code · domain · content</div>
+    </div>
+    <div class="num-stat reveal" style="--delay: 0.15s">
+      <div class="num-num">All<span class="accent">-in-1</span></div>
+      <div class="num-label">Hosting · CRM · calendar<br>invoicing — bundled</div>
+    </div>
+  </div>
+</section>
+
+<!-- Problem split -->
+<section class="problem">
+  <div class="problem-inner">
+    <div class="reveal">
+      <div class="eyebrow">// The problem</div>
+      <h2 class="h2">Your website is costing you jobs <em>right now.</em></h2>
+      <p class="lede-p">Your competitor — probably half the tradie you are — has a site that looks the goods, loads fast, and ranks on Google. Customers don't know who's better. They call whoever looks more legit.</p>
+      <p class="lede-p"><strong>That's the gap. And it's costing you every single day.</strong></p>
+    </div>
+    <div class="reveal" style="--delay: 0.1s">
+      <div class="problem-visual">
+        <img src="../assets/bad-website.jpg" alt="A dated trade business website from 2016">
+        <div class="pv-tag">// LEGACY.SITE.v1</div>
+        <div class="pv-status"><svg width="12" height="12"><use href="#i-x"/></svg> Last updated: 2016</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Cost of inaction -->
+<section class="cost">
+  <div class="cost-inner">
+    <div class="cost-head reveal">
+      <div class="eyebrow">// The real number</div>
+      <h2 class="h2">Doing nothing isn't free.<br><em>Your dodgy website is losing jobs right now.</em></h2>
+      <p class="lede-p">Here's the maths nobody shows you. Not a scare tactic — just what actually happens when customers Google your trade and find someone else.</p>
+    </div>
+    <div class="cost-rows reveal" style="--delay: 0.1s">
+      <div class="cost-row">
+        <div class="cost-label">Customers searching for your trade every month</div>
+        <div class="cost-value">~800</div>
+        <div class="cost-note">Google Keyword Planner · NZ / AU suburb avg</div>
+      </div>
+      <div class="cost-row">
+        <div class="cost-label">Bouncing off your dodgy site before calling</div>
+        <div class="cost-value">~284</div>
+        <div class="cost-note">53% bounce on slow sites · Google data</div>
+      </div>
+      <div class="cost-row">
+        <div class="cost-label">Jobs lost per month at a 5% conversion (conservative)</div>
+        <div class="cost-value">~14</div>
+        <div class="cost-note">Avg job value $2,500 · NZ / AU trade avg</div>
+      </div>
+      <div class="cost-total">
+        <div class="cost-total-label">Revenue walking past your dodgy website every month</div>
+        <div class="cost-total-value">$35,000</div>
+        <div class="cost-total-sub">A proper Tradie Launch pays itself back in <strong>the first week</strong> of proper conversion.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- The website side -->
+<section class="section bone" id="whats-in">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <div class="eyebrow">// The website side</div>
+      <h2 class="h2">Three things in your <em>website foundation.</em></h2>
+      <p>Not a template. Not WordPress with 47 plugins. Three things built properly — then the software platform sits behind it.</p>
+    </div>
+    <div class="grid-3">
+      <div class="fc reveal">
+        <div class="fc-tag">// 01 · FOUNDATION</div>
+        <div class="fc-icon"><svg><use href="#i-monitor"/></svg></div>
+        <h3>Built to convert</h3>
+        <p>Loads fast, works on phones, one tap to call or WhatsApp.</p>
+        <ul class="fc-list">
+          <li><span class="check">✓</span>Mobile-first — 85% of searches are on phones</li>
+          <li><span class="check">✓</span>Click-to-call + WhatsApp on every page</li>
+          <li><span class="check">✓</span>Under 2 seconds load — hand-built, no bloat</li>
+        </ul>
+        <div class="fc-result"><span class="pulse"></span>Customers call, not bounce</div>
+      </div>
+
+      <div class="fc featured reveal" style="--delay: 0.05s">
+        <div class="fc-flag">★ THE FOUNDATION</div>
+        <div class="fc-tag">// 02 · SEO</div>
+        <div class="fc-icon"><svg><use href="#i-search"/></svg></div>
+        <h3>SEO-ready from day one</h3>
+        <p>Everything Google needs to rank you for your trade + your suburbs. No retrofitting later.</p>
+        <ul class="fc-list">
+          <li><span class="check">✓</span>Schema markup — tells Google your trade + location</li>
+          <li><span class="check">✓</span>Suburb pages — rank for "[trade] in [suburb]"</li>
+          <li><span class="check">✓</span>Google Business Profile linked + integrated</li>
+        </ul>
+        <div class="fc-result"><span class="pulse"></span>Visible on Google from launch</div>
+      </div>
+
+      <div class="fc reveal" style="--delay: 0.1s">
+        <div class="fc-tag">// 03 · TRUST</div>
+        <div class="fc-icon"><svg><use href="#i-shield"/></svg></div>
+        <h3>Trust built in</h3>
+        <p>Real reviews, real photos, real people. Customers decide you're legit before they even call.</p>
+        <ul class="fc-list">
+          <li><span class="check">✓</span>Google reviews pulled onto your site</li>
+          <li><span class="check">✓</span>Real job photos — before/after that sells for you</li>
+          <li><span class="check">✓</span>SSL, privacy policy, about page — pro details</li>
+        </ul>
+        <div class="fc-result"><span class="pulse"></span>Looks legit, is legit</div>
+      </div>
+    </div>
+    <p class="section-foot">All three included in every build. You own the code, the domain, everything.</p>
+  </div>
+</section>
+
+<!-- Plus the software -->
+<section class="section white">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <div class="eyebrow">// Plus the software</div>
+      <h2 class="h2">The platform <em>behind the site.</em></h2>
+      <p>Most agencies hand you a website then disappear. We hand you the website plus a CRM, calendar, and invoicing built in — all included with Tradie Launch.</p>
+    </div>
+    <div class="grid-3">
+      <div class="fc reveal">
+        <div class="fc-tag">// 04 · CRM</div>
+        <div class="fc-icon"><svg><use href="#i-search"/></svg></div>
+        <h3>Built-in CRM</h3>
+        <p>Every lead, quote, and job tracked in one place. No spreadsheets, no Post-its.</p>
+        <ul class="fc-list">
+          <li><span class="check">✓</span>Form submissions logged automatically</li>
+          <li><span class="check">✓</span>Pipeline stages: lead → quote → job → won</li>
+          <li><span class="check">✓</span>SMS + email + WhatsApp from inside the CRM</li>
+        </ul>
+        <div class="fc-result"><span class="pulse"></span>Nothing falls through</div>
+      </div>
+
+      <div class="fc featured reveal" style="--delay: 0.05s">
+        <div class="fc-flag">★ THE BIG ONE</div>
+        <div class="fc-tag">// 05 · BOOK + BILL</div>
+        <div class="fc-icon"><svg><use href="#i-calc"/></svg></div>
+        <h3>Calendar + invoicing</h3>
+        <p>Customers book directly from your site. You bill them from the same dashboard.</p>
+        <ul class="fc-list">
+          <li><span class="check">✓</span>Online booking synced to your calendar</li>
+          <li><span class="check">✓</span>Stripe payments built in — tap, pay, done</li>
+          <li><span class="check">✓</span>Auto reminders + receipts to clients</li>
+        </ul>
+        <div class="fc-result"><span class="pulse"></span>Book + bill in one</div>
+      </div>
+
+      <div class="fc reveal" style="--delay: 0.1s">
+        <div class="fc-tag">// 06 · HOSTING</div>
+        <div class="fc-icon"><svg><use href="#i-shield"/></svg></div>
+        <h3>Hosting + maintenance</h3>
+        <p>Hosting, SSL, uptime, and small content swaps — sorted, no extra fees.</p>
+        <ul class="fc-list">
+          <li><span class="check">✓</span>99.9% uptime, SSL forever</li>
+          <li><span class="check">✓</span>15 min/mo of text + image swaps included</li>
+          <li><span class="check">✓</span>No "ticket queue", no hourly rate</li>
+        </ul>
+        <div class="fc-result"><span class="pulse"></span>Sorted forever</div>
+      </div>
+    </div>
+    <p class="section-foot">All bundled into Tradie Launch from day one. Your data, your domain, your site — yours.</p>
+  </div>
+</section>
+
+<!-- The lifecycle (NEW) -->
+<section class="section bone-warm">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <div class="eyebrow">// The lifecycle</div>
+      <h2 class="h2">Day 1 to year 1. <em>You're never alone.</em></h2>
+      <p>The build is the start. What makes Launch an operating platform is what happens after — the structured lifecycle that runs every Launch client through onboarding, go-live, and recurring reviews.</p>
+    </div>
+    <div class="grid-3">
+      <div class="fc reveal">
+        <div class="fc-tag">// 07 · ONBOARDING</div>
+        <div class="fc-icon"><svg><use href="#i-monitor"/></svg></div>
+        <h3>Welcome + intake</h3>
+        <p>The moment your install is paid, the lifecycle starts.</p>
+        <ul class="fc-list">
+          <li><span class="check">✓</span>Welcome email + payment receipt</li>
+          <li><span class="check">✓</span>Intake form: brand assets, suburbs, services, photos</li>
+          <li><span class="check">✓</span>Gated reminders at 24h / 48h / 72h to keep you on schedule</li>
+        </ul>
+        <div class="fc-result"><span class="pulse"></span>Install starts when you're ready</div>
+      </div>
+
+      <div class="fc featured reveal" style="--delay: 0.05s">
+        <div class="fc-flag">★ THE 7 DAYS</div>
+        <div class="fc-tag">// 08 · INSTALL</div>
+        <div class="fc-icon"><svg><use href="#i-clock"/></svg></div>
+        <h3>Daily progress + go-live</h3>
+        <p>You see the build happen. No black box, no "we'll let you know."</p>
+        <ul class="fc-list">
+          <li><span class="check">✓</span>Daily progress email through the 7-day install</li>
+          <li><span class="check">✓</span>Day-7 go-live email + dashboard handover</li>
+          <li><span class="check">✓</span>Day-14 check-in once you've used it</li>
+          <li><span class="check">✓</span>7-day post-launch monitoring on our side</li>
+        </ul>
+        <div class="fc-result"><span class="pulse"></span>Live · with everything explained</div>
+      </div>
+
+      <div class="fc reveal" style="--delay: 0.1s">
+        <div class="fc-tag">// 09 · KEEPS RUNNING</div>
+        <div class="fc-icon"><svg><use href="#i-search"/></svg></div>
+        <h3>Automations on autopilot</h3>
+        <p>Set up at install · run forever. No human input needed · zero ongoing fees on the platform automations.</p>
+        <ul class="fc-list">
+          <li><span class="check">✓</span>Auto-text-back fires on every form fill · forever</li>
+          <li><span class="check">✓</span>Review request auto-fires 3 days after every closed job</li>
+          <li><span class="check">✓</span>Referral asks · 6 + 12-month customer check-ins · all auto-fire</li>
+        </ul>
+        <div class="fc-result"><span class="pulse"></span>Built once · runs forever</div>
+      </div>
+    </div>
+    <p class="section-foot">Launch ends at Day-14. The platform keeps running forever. Want monthly reviews + active management? That's <a href="/services/leads" style="color: var(--amber); border-bottom: 1px solid var(--amber);">Tradie Leads</a>.</p>
+  </div>
+</section>
+
+<!-- Under the hood -->
+<section class="deep">
+  <div class="deep-inner">
+    <div class="section-head reveal">
+      <div class="eyebrow">// Under the hood</div>
+      <h2 class="h2">What's in your website <em>and why it matters.</em></h2>
+      <p>Not all websites are equal. Click any feature to learn why it's there and what it does for your business.</p>
+    </div>
+
+    <div class="tier-label green reveal">The essentials — these win the job</div>
+    <details class="acc reveal">
+      <summary><span class="acc-left">Mobile-first design <span class="impact very-high">VERY HIGH</span></span></summary>
+      <div class="acc-body"><p><strong>85% of people searching for a tradie are on their phone.</strong> If your site takes more than 3 seconds to load on mobile, 53% leave before they see your name. We design for the phone first, desktop second.</p></div>
+    </details>
+    <details class="acc reveal">
+      <summary><span class="acc-left">Click-to-call + WhatsApp <span class="impact very-high">VERY HIGH</span></span></summary>
+      <div class="acc-body"><p>One tap to call. One tap to WhatsApp. <strong>If a customer has to copy your phone number and paste it, you've lost half of them.</strong> WhatsApp is even better — tradies can read messages at smoko without stopping work.</p></div>
+    </details>
+    <details class="acc reveal">
+      <summary><span class="acc-left">Speed (under 2 seconds) <span class="impact very-high">VERY HIGH</span></span></summary>
+      <div class="acc-body"><p>Google confirmed speed is a ranking factor. <strong>Every second of load time costs you customers.</strong> Most tradie sites load in 6–8 seconds. Ours load in under 2. Hand-built code, no WordPress bloat.</p></div>
+    </details>
+    <details class="acc reveal">
+      <summary><span class="acc-left">SEO foundation <span class="impact very-high">VERY HIGH</span></span></summary>
+      <div class="acc-body"><p>Schema markup, title tags, meta descriptions, internal linking, NAP consistency. <strong>This tells Google exactly what you do and where you do it.</strong> Without it, the best-looking site in the country won't rank. Done once during the build.</p></div>
+    </details>
+
+    <div class="tier-label amber reveal">Trust builders — these convert visitors into callers</div>
+    <details class="acc reveal">
+      <summary><span class="acc-left">Google reviews on your site <span class="impact high">HIGH</span></span></summary>
+      <div class="acc-body"><p>Customers check reviews before calling. Pulling them <strong>directly onto your website</strong> keeps them on your page instead of leaving to find your Google profile. Can increase enquiry rates by 15–20%.</p></div>
+    </details>
+    <details class="acc reveal">
+      <summary><span class="acc-left">Real job photos <span class="impact high">HIGH</span></span></summary>
+      <div class="acc-body"><p>Stock photos scream "template." <strong>Before/after photos of your actual work</strong> do more selling than any paragraph of text. A kitchen renovation, a switchboard upgrade, a landscaped garden — these photos close the deal.</p></div>
+    </details>
+    <details class="acc reveal">
+      <summary><span class="acc-left">Service pages (not a list) <span class="impact high">HIGH</span></span></summary>
+      <div class="acc-body"><p>Most tradies list services as bullet points on one page. A <strong>dedicated page per service</strong> — "Bathroom Renovations Wellington" — gives customers detail and gives Google a specific page to rank. One page can generate 5–10 calls/month.</p></div>
+    </details>
+    <details class="acc reveal">
+      <summary><span class="acc-left">Suburb pages <span class="impact high">HIGH</span></span></summary>
+      <div class="acc-body"><p>A page targeting "electrician in Karori" ranks for that specific search. <strong>5 suburb pages = 5 fishing lines in the water from day one.</strong> Most competitors have one generic services page. You have 5+.</p></div>
+    </details>
+
+    <div class="tier-label amber reveal">Software platform — what's included after launch</div>
+    <details class="acc reveal">
+      <summary><span class="acc-left">Built-in CRM <span class="impact very-high">VERY HIGH</span></span></summary>
+      <div class="acc-body">
+        <p>Every lead, quote, and job in one place — no spreadsheets, no Post-its, no "where did that customer's number go?" Form submissions land in the CRM automatically. Email, SMS, and WhatsApp threads sit in the same record so the next person who picks it up has the full history.</p>
+        <p><strong>Pipeline stages built for tradies:</strong> New Lead → Quoted → Booked → Job Done → Paid. Every stage is a board you can drag jobs through, with reminders firing automatically so nothing slips. Tags on every contact for trade type, suburb, source — so when you want a list of every Karori plumber lead from the last 90 days, that's two clicks.</p>
+      </div>
+    </details>
+    <details class="acc reveal">
+      <summary><span class="acc-left">Online booking calendar <span class="impact very-high">VERY HIGH</span></span></summary>
+      <div class="acc-body">
+        <p>Customers book directly from your website — no phone tag, no "let me check my schedule and get back to you." The calendar syncs with your Google or Outlook calendar so you never get double-booked. Set buffer times between jobs (drive time, lunch, smoko) and the calendar respects them automatically.</p>
+        <p><strong>Auto-confirmations + reminders:</strong> Customer gets an email + SMS the moment they book, then a reminder the day before. <strong>Tradies who use online booking get 30–40% more bookings</strong> than those who only take phone calls — because most enquiries happen after 5pm when nobody's answering the phone.</p>
+      </div>
+    </details>
+    <details class="acc reveal">
+      <summary><span class="acc-left">Invoicing + Stripe payments <span class="impact very-high">VERY HIGH</span></span></summary>
+      <div class="acc-body">
+        <p>Send invoices straight from the CRM with one tap on your phone. Customer gets a payment link — tap, pay with card, done. Money lands in your bank in 1–2 days via Stripe. <strong>Tradies using payment-link invoicing get paid 2–3 weeks faster</strong> than those still emailing PDF invoices with "bank transfer to..." at the bottom.</p>
+        <p>Includes recurring invoices (great for monthly maintenance contracts), partial payments, deposits, and automatic GST. Receipts auto-generated and sent. Reconciles cleanly with Xero when your accountant gets the books.</p>
+      </div>
+    </details>
+    <details class="acc reveal">
+      <summary><span class="acc-left">Hosting + maintenance <span class="impact high">HIGH</span></span></summary>
+      <div class="acc-body">
+        <p>99.9% uptime, SSL renewed forever, daily backups, security patches. Hosted on the same global CDN that runs Netflix — so your site loads under 2 seconds whether your customer's in Auckland or Brisbane.</p>
+        <p><strong>Light maintenance included:</strong> 15 minutes a month of small content swaps. New phone number, updated price list, swap a hero photo, add a service to a list — done same-day, no hourly rate, no "ticket queue".</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section class="section bone-warm">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <div class="eyebrow">// Pricing</div>
+      <h2 class="h2">Three doors. <em>Walk through one.</em></h2>
+      <p>Tradie Launch is a one-off install. After it's live, the platform stays running with light maintenance included. Add Tradie Leads only if you want the recurring lead engine.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pc reveal">
+        <div class="pc-tag">// Pilot</div>
+        <h3>Free 7-day install</h3>
+        <div class="pc-sub">One NZ tradie. Case study client.</div>
+        <div class="pc-price">
+          <span class="pc-price-num accent">$0</span>
+          <span class="pc-price-unit">install</span>
+        </div>
+        <div class="pc-meta">// 1 spot · in recruitment</div>
+        <ul class="pc-list">
+          <li><span class="check">✓</span>Full Tradie Launch — free</li>
+          <li><span class="check">✓</span>Customer data migration</li>
+          <li><span class="check">✓</span>WhatsApp Mathieson 90 days</li>
+          <li><span class="check">✓</span>In return — case study + testimonial</li>
+        </ul>
+        <a href="/book-a-yarn" class="btn btn-ghost">Apply →</a>
+      </div>
+
+      <div class="pc featured reveal" style="--delay: 0.05s">
+        <div class="pc-flag">FOUNDER · 4 SPOTS</div>
+        <div class="pc-tag">// Founder</div>
+        <h3>Founder install</h3>
+        <div class="pc-sub">Locked-in pricing. 12 months.</div>
+        <div class="pc-price">
+          <span class="strike">$5,000</span>
+          <span class="pc-price-num accent">$2,997</span>
+          <span class="pc-price-unit">one-off</span>
+        </div>
+        <div class="pc-meta">// $2,003 saved · 4 spots only</div>
+        <ul class="pc-list">
+          <li><span class="check">✓</span>Live in 7 days · or it's free</li>
+          <li><span class="check">✓</span>Custom website + CRM + calendar + invoicing</li>
+          <li><span class="check">✓</span>Auto-text-back · review + follow-up automation</li>
+          <li><span class="check">✓</span>Welcome · daily install · Day-14 check-in</li>
+          <li><span class="check">✓</span>12 months hosting + maintenance · 1 month Leads free</li>
+          <li><span class="check">✓</span>Customer data migration · WhatsApp Mathieson 30 days</li>
+        </ul>
+        <a href="/book-a-yarn" class="btn btn-primary">Take a founder spot →</a>
+      </div>
+
+      <div class="pc reveal" style="--delay: 0.1s">
+        <div class="pc-tag">// Public</div>
+        <h3>Standard install</h3>
+        <div class="pc-sub">Once founder spots are filled.</div>
+        <div class="pc-price">
+          <span class="pc-price-num">$5,000</span>
+          <span class="pc-price-unit">one-off</span>
+        </div>
+        <div class="pc-meta">// Once founder rate gone</div>
+        <ul class="pc-list">
+          <li><span class="check">✓</span>Same install · same 7-day promise</li>
+          <li><span class="check">✓</span>Same operating platform + lifecycle</li>
+          <li><span class="check">✓</span>12 months hosting + maintenance</li>
+          <li><span class="check">✓</span>You own everything · no exit fees</li>
+        </ul>
+        <a href="/pricing" class="btn btn-ghost">See full pricing →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section bone">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <div class="eyebrow">// Fair questions</div>
+      <h2 class="h2">The 5 things every tradie asks <em>on the call.</em></h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item reveal">
+        <summary>Do I need to provide all the content and photos?</summary>
+        <div class="faq-body">Nah. Send us what you've got — even if it's a mess of phone snaps from old jobs. We write the copy, lay out the structure, and tell you exactly which photos we still need. Most tradies hand over a folder and a logo, that's it.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Can I move it to my own host later?</summary>
+        <div class="faq-body">Yep. You own the lot — site, code, content, domain. If you ever want to walk, the whole thing walks with you. None of that "we'll hold your domain hostage" rubbish the cowboys pull.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>What if I'm not on WordPress?</summary>
+        <div class="faq-body">Good — we don't build on WordPress. Too slow, too bloated, too many plugins to break. We hand-code the lot so it loads in under a second on a tradie's 4G. If you're currently on WordPress, Wix, Squarespace, or some old GoDaddy template, we migrate you off it as part of the build.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>What happens after launch — am I on my own?</summary>
+        <div class="faq-body">Nah. Tradie Launch keeps running with the platform — included from day one. Hosting, the CRM (every lead and quote tracked), online booking, invoicing + payments, and light maintenance (text/image swaps). No hourly rate, no "ticket queue", no "we'll get to it next quarter". For ongoing lead generation — SEO, Google ads, suburb pages — that's Tradie Leads.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>What if I don't like the design?</summary>
+        <div class="faq-body">You get one round of feedback after the draft (day 3), and changes happen same-day. If you genuinely hate it after that — we keep working until you don't. We've never had a tradie sack us at draft stage and we don't plan to start now.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- Bridge to Leads -->
+<section class="bridge">
+  <div class="bridge-inner reveal">
+    <div class="bridge-icon"><svg><use href="#i-megaphone"/></svg></div>
+    <div class="bridge-content">
+      <div class="eyebrow" style="margin-bottom:14px;">// What comes next</div>
+      <h3>Once the website's sorted, it's time to <em>get noticed.</em></h3>
+      <p>Your new site's the foundation. The next step is <strong>Tradie Leads</strong> — Google Ads, conversion landing page, lead qualification, and weekly optimisation that takes you from "nice website" to "phone ringing every week".</p>
+      <a href="/services/leads" class="bridge-link">Explore Tradie Leads <svg width="16" height="16"><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA + calendar -->
+<section class="cta">
+  <div class="cta-inner">
+    <div class="cta-head">
+      <div class="eyebrow reveal">// Book a yarn</div>
+      <h2 class="reveal" style="--delay: 0.05s">Ready for a <em>free yarn?</em></h2>
+      <p class="reveal" style="--delay: 0.1s">30 minutes. No pitch. Straight talk about your business and what's next.</p>
+    </div>
+    <div class="cta-wa reveal" style="--delay: 0.15s">
+      <a href="https://wa.me/message/SONH7ANNNV2GK1" target="_blank" rel="noopener" class="btn-wa">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.28-.1-.48-.15-.68.15s-.78.97-.96 1.17c-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.49-.9-.8-1.5-1.78-1.67-2.08-.18-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.58c-.2 0-.52.07-.8.38-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.08 4.49.71.31 1.27.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.42-.07-.12-.28-.2-.58-.34zM12.05 21.8a9.86 9.86 0 01-5.03-1.38l-.36-.21-3.74.98.99-3.64-.24-.38A9.86 9.86 0 012.16 12c0-5.46 4.44-9.9 9.9-9.9 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 012.9 6.99c0 5.46-4.44 9.9-9.9 9.9zM12.05 0C5.42 0 .05 5.37.05 12c0 2.12.55 4.17 1.6 5.99L0 24l6.16-1.62A11.94 11.94 0 0012.05 24c6.63 0 12-5.37 12-12s-5.37-12-12-12z"/></svg>
+        WhatsApp Mathieson
+      </a>
+    </div>
+    <div class="cta-divider reveal" style="--delay: 0.2s"><div></div><span>OR BOOK A TIME</span><div></div></div>
+    <div class="cta-cal reveal" style="--delay: 0.25s">
+      <iframe src="https://api.tradieback.com/widget/booking/Wae48zz1IXiYQyTo94N8" scrolling="no"></iframe>
+      <script src="https://api.tradieback.com/js/form_embed.js" type="text/javascript"></script>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">TRADIE<em>BACK</em></div>
+      <div class="footer-tag">The platform built only for NZ + AU tradies</div>
+    </div>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/services/launch">Launch</a>
+      <a href="/services/leads">Leads</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/about">About</a>
+      <a href="https://wa.me/message/SONH7ANNNV2GK1" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 TradieBack · Built only for NZ + AU tradies</span>
+    <span class="footer-legal">
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+      <a href="/feedback">Client feedback</a>
+    </span>
+  </div>
+</footer>
+
+<!-- Reveal script -->
+<script>
+  (function () {
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+      document.querySelectorAll('.reveal:not(.in)').forEach(el => io.observe(el));
+    } else {
+      document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+    }
+  })();
+</script>
+
+</body>
+</html>

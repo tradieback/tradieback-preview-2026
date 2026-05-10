@@ -1,0 +1,6 @@
+# TradieBack — preview deploy (no auth · obscure URL only)
+# Privacy via: random URL not promoted + noindex headers + robots.txt disallow
+# Add basic auth back later via netlify/edge-functions/auth.ts and [[edge_functions]] block.
+
+[build]
+  publish = "."

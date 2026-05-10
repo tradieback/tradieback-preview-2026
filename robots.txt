@@ -1,0 +1,8 @@
+# Preview phase — block all crawlers until launch.
+# When ready to go public, restore:
+#   User-agent: *
+#   Allow: /
+#   Sitemap: https://tradieback.com/sitemap.xml
+
+User-agent: *
+Disallow: /

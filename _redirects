@@ -1,0 +1,7 @@
+# 301 redirects — old service URLs to renamed canonical URLs
+# Updated 2026-04-28: Tradie Website → Tradie Launch, Tradie Marketing → Tradie Leads
+
+/services/website         /services/launch         301
+/services/website/        /services/launch         301
+/services/marketing       /services/leads          301
+/services/marketing/      /services/leads          301

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0F2340">
+  <meta name="robots" content="noindex,nofollow">
+
+  <title>Sample Google Business Audit — TradieBack</title>
+  <meta name="description" content="Sample Google Business Profile audit showing what a real TradieBack audit report looks like. Fictional business, realistic findings.">
+
+  <meta property="og:image" content="https://tradieback.com/brand/png/social/got-your-back/banner-1200x630.png">
+  <link rel="canonical" href="https://tradieback.com/audit-sample-gmb">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230F2340'/%3E%3Crect y='0' width='64' height='6' fill='%23F58220'/%3E%3Cpath d='M20 16 L44 32 L20 48' stroke='%23F58220' stroke-width='9' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap">
+
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/main.js"></script>
+</head>
+<body>
+
+<!-- ═══════════════ SVG ICON SPRITE ═══════════════ -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <defs>
+    <symbol id="i-monitor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4M2 8h20"/><circle cx="5" cy="5.5" r=".5" fill="currentColor"/><circle cx="7" cy="5.5" r=".5" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/>
+    </symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+    </symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12l5 5L20 7"/>
+    </symbol>
+    <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 6l12 12M18 6L6 18"/>
+    </symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14M13 5l7 7-7 7"/>
+    </symbol>
+    <symbol id="i-star" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+      <path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/>
+    </symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/>
+    </symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+    </symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M3 6h18M3 12h18M3 18h18"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ═══════════════ MINIMAL NAV ═══════════════ -->
+<nav class="nav nav-minimal" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" aria-label="TradieBack home">
+      <div class="nav-logo-text">
+        <span class="nl-name">TRADIE<em>BACK</em></span>
+        <span class="nl-tag">// SAMPLE REPORT</span>
+      </div>
+    </a>
+
+    <div class="nav-links" id="navLinks">
+      <a href="/audit" class="nav-link">← Back to audit</a>
+      <div class="nav-actions">
+        <a href="/audit#request" class="nav-cta">
+          Get Your Free Audit
+          <svg width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <button class="nav-mobile-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <svg width="24" height="24" aria-hidden="true"><use href="#i-menu"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- ═══════════════ SAMPLE REPORT ═══════════════ -->
+<main class="sample-report-page">
+  <div class="sr-container">
+
+    <!-- Document header -->
+    <header class="sr-doc-header">
+      <div class="sr-doc-meta">
+        <div class="sr-doc-brand">
+          
+          <span>TRADIEBACK · VISIBILITY AUDIT</span>
+        </div>
+        <div class="sr-doc-right">
+          <div class="sr-doc-date">10 APR 2026</div>
+          <div class="sr-doc-conf">// SAMPLE · FICTIONAL BUSINESS</div>
+        </div>
+      </div>
+
+      <div class="sr-doc-title">
+        <div class="sr-doc-subject">
+          <div class="sr-doc-label">PREPARED FOR</div>
+          <div class="sr-doc-business">Capital Plumbing · Wellington</div>
+          <div class="sr-doc-url">capitalplumbing.co.nz</div>
+        </div>
+        <div class="sr-doc-part">
+          <div class="sr-doc-part-num">PART 03 / 03</div>
+          <div class="sr-doc-part-name">Google Business Audit</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Tabs -->
+    <nav class="sr-tabs">
+      <a href="/audit-sample-website" class="sr-tab">
+        <svg><use href="#i-monitor"/></svg>
+        <span>01 · Website</span>
+      </a>
+      <a href="/audit-sample-seo" class="sr-tab">
+        <svg><use href="#i-search"/></svg>
+        <span>02 · SEO</span>
+      </a>
+      <a href="/audit-sample-gmb" class="sr-tab active">
+        <svg><use href="#i-pin"/></svg>
+        <span>03 · Google Business</span>
+      </a>
+    </nav>
+
+    <!-- Overall score hero -->
+    <section class="sr-score-hero">
+      <div class="sr-score-left">
+        <div class="sr-score-tag">// OVERALL GBP SCORE</div>
+        <div class="sr-score-huge">
+          <span class="sr-score-num">51</span><span class="sr-score-max">/100</span>
+        </div>
+        <div class="sr-score-verdict mid">⚠ Half-built profile · bleeding map pack traffic</div>
+        <div class="sr-score-bar">
+          <div class="sr-score-bar-fill mid" style="width:51%"></div>
+          <div class="sr-score-bar-mark" style="left:86%">
+            <span class="sr-score-mark-label">Top competitor: 91</span>
+          </div>
+        </div>
+      </div>
+      <div class="sr-score-summary">
+        <div class="sr-summary-title">Executive Summary</div>
+        <p>Capital Plumbing's Google Business Profile is claimed and partially filled out — but it's haemorrhaging map-pack visibility. The profile has <strong>no posts since August 2024</strong>, only 47 reviews versus the competitor's 284, and 3 photos versus their 67. Google's algorithm treats dormant profiles as low-quality, which is why you sit below cowboys on the map pack.</p>
+        <div class="sr-summary-impact">
+          <strong>Estimated monthly cost:</strong> 6–9 lost jobs · <strong class="accent">$18K–$27K/mo in lost revenue</strong>
+        </div>
+      </div>
+    </section>
+
+    <!-- Profile snapshot -->
+    <section class="sr-section">
+      <div class="sr-section-head">
+        <h2>Profile Snapshot</h2>
+        <p>Side-by-side comparison with your top local competitor. This is what Google sees when it decides who to show in the map pack.</p>
+      </div>
+
+      <div class="sr-compare">
+        <!-- YOUR profile -->
+        <div class="sr-compare-col you">
+          <div class="sr-compare-tag">// CAPITAL PLUMBING</div>
+          <div class="sr-compare-head">
+            <div class="sr-compare-avatar you-bg">CP</div>
+            <div class="sr-compare-name">
+              <strong>Capital Plumbing</strong>
+              <span>Plumber · Wellington</span>
+            </div>
+          </div>
+          <div class="sr-compare-rating">
+            <div class="sr-stars">
+              <svg><use href="#i-star"/></svg>
+              <svg><use href="#i-star"/></svg>
+              <svg><use href="#i-star"/></svg>
+              <svg><use href="#i-star"/></svg>
+              <svg class="dim"><use href="#i-star"/></svg>
+            </div>
+            <div class="sr-rating-num">4.2 · 47 reviews</div>
+          </div>
+          <div class="sr-compare-stats">
+            <div class="sr-cs-row"><span>Profile completeness</span><strong class="mid">68%</strong></div>
+            <div class="sr-cs-row bad"><span>Photos uploaded</span><strong class="bad">3</strong></div>
+            <div class="sr-cs-row bad"><span>Posts in last 90 days</span><strong class="bad">0</strong></div>
+            <div class="sr-cs-row bad"><span>Q&amp;A answered</span><strong class="bad">0 of 4</strong></div>
+            <div class="sr-cs-row mid"><span>Services listed</span><strong class="mid">6</strong></div>
+            <div class="sr-cs-row bad"><span>Review reply rate</span><strong class="bad">12%</strong></div>
+            <div class="sr-cs-row bad"><span>Last review replied to</span><strong class="bad">Nov 2024</strong></div>
+          </div>
+          <div class="sr-compare-verdict bad">
+            <svg><use href="#i-x"/></svg>
+            Map pack rank: <strong>#7 · "plumber wellington"</strong>
+          </div>
+        </div>
+
+        <!-- COMPETITOR profile -->
+        <div class="sr-compare-col them">
+          <div class="sr-compare-tag">// WELLINGTON PIPE PROS</div>
+          <div class="sr-compare-head">
+            <div class="sr-compare-avatar them-bg">WP</div>
+            <div class="sr-compare-name">
+              <strong>Wellington Pipe Pros</strong>
+              <span>Plumber · Wellington</span>
+            </div>
+          </div>
+          <div class="sr-compare-rating">
+            <div class="sr-stars good">
+              <svg><use href="#i-star"/></svg>
+              <svg><use href="#i-star"/></svg>
+              <svg><use href="#i-star"/></svg>
+              <svg><use href="#i-star"/></svg>
+              <svg><use href="#i-star"/></svg>
+            </div>
+            <div class="sr-rating-num good">4.9 · 284 reviews</div>
+          </div>
+          <div class="sr-compare-stats">
+            <div class="sr-cs-row good"><span>Profile completeness</span><strong class="good">100%</strong></div>
+            <div class="sr-cs-row good"><span>Photos uploaded</span><strong class="good">67</strong></div>
+            <div class="sr-cs-row good"><span>Posts in last 90 days</span><strong class="good">12</strong></div>
+            <div class="sr-cs-row good"><span>Q&amp;A answered</span><strong class="good">All</strong></div>
+            <div class="sr-cs-row good"><span>Services listed</span><strong class="good">18</strong></div>
+            <div class="sr-cs-row good"><span>Review reply rate</span><strong class="good">100%</strong></div>
+            <div class="sr-cs-row good"><span>Last review replied to</span><strong class="good">Yesterday</strong></div>
+          </div>
+          <div class="sr-compare-verdict good">
+            <svg><use href="#i-check"/></svg>
+            Map pack rank: <strong>#1 · "plumber wellington"</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Review velocity chart -->
+    <section class="sr-section">
+      <div class="sr-section-head">
+        <h2>Review Velocity (Last 12 Months)</h2>
+        <p>How many new reviews each business added per month. Google weights review velocity heavily — a steady stream beats a sudden burst every time.</p>
+      </div>
+
+      <div class="sr-velocity">
+        <div class="sr-velocity-legend">
+          <div class="sr-legend-item"><span class="sr-legend-dot you-bg"></span>Capital Plumbing (you)</div>
+          <div class="sr-legend-item"><span class="sr-legend-dot them-bg"></span>Wellington Pipe Pros</div>
+        </div>
+        <div class="sr-velocity-chart">
+          <div class="sr-velocity-months">
+            <!-- Each month: YOU bar vs THEM bar -->
+            <div class="sr-vm"><div class="sr-vm-bar them" style="height:60%"></div><div class="sr-vm-bar you" style="height:8%"></div><span class="sr-vm-label">MAY</span></div>
+            <div class="sr-vm"><div class="sr-vm-bar them" style="height:75%"></div><div class="sr-vm-bar you" style="height:12%"></div><span class="sr-vm-label">JUN</span></div>
+            <div class="sr-vm"><div class="sr-vm-bar them" style="height:68%"></div><div class="sr-vm-bar you" style="height:4%"></div><span class="sr-vm-label">JUL</span></div>
+            <div class="sr-vm"><div class="sr-vm-bar them" style="height:82%"></div><div class="sr-vm-bar you" style="height:16%"></div><span class="sr-vm-label">AUG</span></div>
+            <div class="sr-vm"><div class="sr-vm-bar them" style="height:78%"></div><div class="sr-vm-bar you" style="height:0%"></div><span class="sr-vm-label">SEP</span></div>
+            <div class="sr-vm"><div class="sr-vm-bar them" style="height:92%"></div><div class="sr-vm-bar you" style="height:8%"></div><span class="sr-vm-label">OCT</span></div>
+            <div class="sr-vm"><div class="sr-vm-bar them" style="height:85%"></div><div class="sr-vm-bar you" style="height:4%"></div><span class="sr-vm-label">NOV</span></div>
+            <div class="sr-vm"><div class="sr-vm-bar them" style="height:88%"></div><div class="sr-vm-bar you" style="height:0%"></div><span class="sr-vm-label">DEC</span></div>
+            <div class="sr-vm"><div class="sr-vm-bar them" style="height:72%"></div><div class="sr-vm-bar you" style="height:4%"></div><span class="sr-vm-label">JAN</span></div>
+            <div class="sr-vm"><div class="sr-vm-bar them" style="height:80%"></div><div class="sr-vm-bar you" style="height:0%"></div><span class="sr-vm-label">FEB</span></div>
+            <div class="sr-vm"><div class="sr-vm-bar them" style="height:90%"></div><div class="sr-vm-bar you" style="height:8%"></div><span class="sr-vm-label">MAR</span></div>
+            <div class="sr-vm"><div class="sr-vm-bar them" style="height:95%"></div><div class="sr-vm-bar you" style="height:0%"></div><span class="sr-vm-label">APR</span></div>
+          </div>
+        </div>
+        <div class="sr-velocity-summary">
+          <div class="sr-vs-stat">
+            <div class="sr-vs-num bad">~0.5</div>
+            <div class="sr-vs-label">Your avg reviews/month</div>
+          </div>
+          <div class="sr-vs-stat">
+            <div class="sr-vs-num good">~9.4</div>
+            <div class="sr-vs-label">Their avg reviews/month</div>
+          </div>
+          <div class="sr-vs-stat">
+            <div class="sr-vs-num">19×</div>
+            <div class="sr-vs-label">Velocity gap</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Top issues -->
+    <section class="sr-section">
+      <div class="sr-section-head">
+        <h2>What's Killing Your Map Pack Position</h2>
+        <p>Every one of these is free to fix and takes less than an hour. Most tradies ignore them because nobody's told them they matter.</p>
+      </div>
+
+      <div class="sr-issues">
+        <article class="sr-issue critical">
+          <div class="sr-issue-head">
+            <div class="sr-issue-num">01</div>
+            <div class="sr-issue-severity critical">CRITICAL</div>
+            <div class="sr-issue-cost">Biggest lever</div>
+          </div>
+          <h3>No posts since August 2024</h3>
+          <p>Google treats profiles that haven't posted in 3+ months as dormant and deprioritises them in the map pack. Your competitor posts 3–4 times a week (jobs done, offers, photos from site, FAQs). <strong>This alone would move you 3–5 positions up the map pack in 60 days.</strong></p>
+          <div class="sr-issue-foot">
+            <span class="sr-fix-tag">FIX: Post 2–4× per week · photos, offers, job updates, FAQs</span>
+          </div>
+        </article>
+
+        <article class="sr-issue critical">
+          <div class="sr-issue-head">
+            <div class="sr-issue-num">02</div>
+            <div class="sr-issue-severity critical">CRITICAL</div>
+            <div class="sr-issue-cost">Trust signal</div>
+          </div>
+          <h3>47 reviews vs 284 — and you're not asking</h3>
+          <p>Google's algorithm weights review count AND velocity. Your top competitor adds ~9 new reviews a month; you add 0–1. They're not getting lucky — they have an automated review request system that triggers the moment a job is marked complete in their job-management software. You have no request system at all.</p>
+          <div class="sr-issue-foot">
+            <span class="sr-fix-tag">FIX: Automated review requests after every closed job</span>
+          </div>
+        </article>
+
+        <article class="sr-issue critical">
+          <div class="sr-issue-head">
+            <div class="sr-issue-num">03</div>
+            <div class="sr-issue-severity critical">CRITICAL</div>
+            <div class="sr-issue-cost">Easy win</div>
+          </div>
+          <h3>Only 3 photos uploaded · competitor has 67</h3>
+          <p>Photos are one of the strongest visual ranking signals in the map pack. Google literally shows them above your business name in search results. Your 3 photos are a generic logo, a stock photo of a pipe, and a team photo from 2021. Your competitor has photos of every job type, every team member, and before/after shots of recent work.</p>
+          <div class="sr-issue-foot">
+            <span class="sr-fix-tag">FIX: Upload 30+ photos from recent jobs · all service categories</span>
+          </div>
+        </article>
+
+        <article class="sr-issue high">
+          <div class="sr-issue-head">
+            <div class="sr-issue-num">04</div>
+            <div class="sr-issue-severity high">HIGH</div>
+            <div class="sr-issue-cost">Hidden damage</div>
+          </div>
+          <h3>12% review reply rate · last reply Nov 2024</h3>
+          <p>Not replying to reviews — especially negative ones — signals to Google that you don't actively manage the profile. You have 3 unanswered 2-star reviews from late 2024 that are still visible to every potential customer who searches for you. Each one is a silent pitch for the competition.</p>
+          <div class="sr-issue-foot">
+            <span class="sr-fix-tag">FIX: Reply to every review within 24 hours · draft responses ready</span>
+          </div>
+        </article>
+
+        <article class="sr-issue high">
+          <div class="sr-issue-head">
+            <div class="sr-issue-num">05</div>
+            <div class="sr-issue-severity high">HIGH</div>
+            <div class="sr-issue-cost">Q&amp;A gap</div>
+          </div>
+          <h3>4 customer questions · 0 answered</h3>
+          <p>Your profile has 4 unanswered questions from potential customers — "do you do emergency callouts", "what areas do you cover", "do you accept Afterpay", "are you licensed". <strong>Google lets anyone answer these if you don't</strong> — which means a random stranger could have misinformed a would-be customer. Your competitor answered all 18 of their Q&amp;A entries.</p>
+          <div class="sr-issue-foot">
+            <span class="sr-fix-tag">FIX: Answer all open questions · pre-populate common Q&amp;A</span>
+          </div>
+        </article>
+
+        <article class="sr-issue med">
+          <div class="sr-issue-head">
+            <div class="sr-issue-num">06</div>
+            <div class="sr-issue-severity med">MEDIUM</div>
+            <div class="sr-issue-cost">Services list</div>
+          </div>
+          <h3>Only 6 services listed · competitor has 18</h3>
+          <p>The Services section of your GBP is another ranking signal. You've listed 6 generic categories ("plumbing", "gas fitting"). Your competitor lists 18 specific services ("hot water cylinder replacement", "emergency blocked drain", "gas hot water install") — which means they rank for 18× more specific searches than you.</p>
+          <div class="sr-issue-foot">
+            <span class="sr-fix-tag">FIX: Add 12+ specific services · use exact customer language</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- The fix plan -->
+    <section class="sr-section sr-fix-plan">
+      <div class="sr-section-head">
+        <h2>The 3-Week Rebuild Plan</h2>
+        <p>Exactly what we'd do to get your profile from 51/100 to 90+. Every step is free to run yourself — or we do the lot for you weekly.</p>
+      </div>
+
+      <div class="sr-plan-grid">
+        <div class="sr-plan-card priority">
+          <div class="sr-plan-tag">// WEEK 1</div>
+          <h3>Profile Rebuild</h3>
+          <p class="sr-plan-sub">3–4 hours · instant impact</p>
+          <ul>
+            <li><svg><use href="#i-check"/></svg>Answer all 4 pending Q&amp;A</li>
+            <li><svg><use href="#i-check"/></svg>Reply to every unanswered review</li>
+            <li><svg><use href="#i-check"/></svg>Add 12 specific services</li>
+            <li><svg><use href="#i-check"/></svg>Upload 20 photos from recent jobs</li>
+          </ul>
+          <div class="sr-plan-impact">Impact: <strong>+10 points / week 1</strong></div>
+        </div>
+
+        <div class="sr-plan-card">
+          <div class="sr-plan-tag">// WEEK 2</div>
+          <h3>Automation</h3>
+          <p class="sr-plan-sub">1 day · runs forever</p>
+          <ul>
+            <li><svg><use href="#i-check"/></svg>Wire review requests to job completion</li>
+            <li><svg><use href="#i-check"/></svg>Draft templates for review replies</li>
+            <li><svg><use href="#i-check"/></svg>Schedule 3 GBP posts/week</li>
+            <li><svg><use href="#i-check"/></svg>Set up photo upload workflow</li>
+          </ul>
+          <div class="sr-plan-impact">Impact: <strong>Stacking visibility</strong></div>
+        </div>
+
+        <div class="sr-plan-card">
+          <div class="sr-plan-tag">// ONGOING</div>
+          <h3>Weekly Management</h3>
+          <p class="sr-plan-sub">Every week · forever</p>
+          <ul>
+            <li><svg><use href="#i-check"/></svg>3–4 new posts per week</li>
+            <li><svg><use href="#i-check"/></svg>Same-day review replies (drafted)</li>
+            <li><svg><use href="#i-check"/></svg>Photo + Q&amp;A monitoring</li>
+            <li><svg><use href="#i-check"/></svg>Competitor movement tracking</li>
+          </ul>
+          <div class="sr-plan-impact">Impact: <strong>#1 in map pack by day 90</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="sr-cta">
+      <div class="sr-cta-card">
+        <div class="sr-cta-content">
+          <div class="mono-label amber">// WANT THIS FOR YOUR BUSINESS?</div>
+          <h2>This is a sample<br><span class="accent">Yours would be real</span></h2>
+          <p>Every stat, review count, and competitor above is fictional. If you want a real three-part audit of your actual Google Business profile — delivered in 24 hours, free — request one below.</p>
+          <div class="sr-cta-actions">
+            <a href="/audit#request" class="btn-primary big">
+              Get My Real Audit
+              <svg width="18" height="18" aria-hidden="true"><use href="#i-arrow"/></svg>
+            </a>
+            <a href="/audit-sample-website" class="btn-ghost">
+              ← Back to Part 01: Website
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand-block">
+        <div class="footer-brand">
+          <span>TRADIE<em>BACK</em></span>
+        </div>
+        <p class="footer-tagline">We get tradies jobs. And we get tradies paid. NZ &amp; Australia.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/tradieback" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07c0 6.02 4.39 11.01 10.13 11.93v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.79-4.7 4.53-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.89v2.26h3.33l-.53 3.49h-2.8v8.44C19.61 23.08 24 18.09 24 12.07z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/tradieback" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85C2.38 3.86 3.9 2.31 7.15 2.23 8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.7.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.63-6.78-6.98-6.98C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1018.16 12 6.16 6.16 0 0012 5.84zM12 16a4 4 0 110-8 4 4 0 010 8zm6.41-11.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/tradieback" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>// SAMPLE REPORTS</h4>
+          <a href="/audit-sample-website">01 · Website</a>
+          <a href="/audit-sample-seo">02 · SEO</a>
+          <a href="/audit-sample-gmb">03 · Google Business</a>
+        </div>
+        <div class="footer-col">
+          <h4>// OFFERS</h4>
+          <a href="/audit">Free Audit</a>
+          <a href="/#cta">Free Yarn</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-legal"><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div>
+      <div class="footer-copy">© 2026 TradieBack · Sample report · Fictional business for demonstration only</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

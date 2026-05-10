@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F8F6F1">
+
+  <title>About — TradieBack · Built only for NZ + AU tradies</title>
+  <meta name="description" content="Mathieson Moller — nearly a decade in NZ construction, ex-PM on $50M+ builds. TradieBack is the platform he wished tradies had. NZ + AU only.">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="TradieBack">
+  <meta property="og:title" content="About TradieBack">
+  <meta property="og:description" content="Built by an ex-construction PM, only for NZ + AU tradies. The platform Mathieson wished tradies had when he was running $50M+ projects.">
+  <meta property="og:url" content="https://tradieback.com/about">
+  <link rel="canonical" href="https://tradieback.com/about">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230F2340'/%3E%3Crect y='0' width='64' height='6' fill='%23F58220'/%3E%3Cpath d='M20 16 L44 32 L20 48' stroke='%23F58220' stroke-width='9' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap">
+
+  <style>
+    :root {
+      --navy: #0F2340;
+      --navy-deep: #081428;
+      --navy-soft: #1A3158;
+      --amber: #F58220;
+      --amber-warm: #FF9D3F;
+      --amber-soft: rgba(245, 130, 32, 0.08);
+      --green: #2ECC71;
+      --ink: #0F1419;
+      --ink-soft: #1F2937;
+      --muted: #5B6573;
+      --muted-light: #8B95A5;
+      --bone: #F8F6F1;
+      --bone-warm: #F1EDE3;
+      --bone-deep: #E8E2D2;
+      --white: #FFFFFF;
+      --line: rgba(15, 35, 64, 0.06);
+      --line-warm: rgba(15, 35, 64, 0.1);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--ink);
+      background: var(--bone);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ::selection { background: var(--amber); color: white; }
+
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--amber);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+    .accent { color: var(--amber); }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.9s cubic-bezier(0.22, 0.61, 0.36, 1),
+                  transform 0.9s cubic-bezier(0.22, 0.61, 0.36, 1);
+      transition-delay: var(--delay, 0s);
+    }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+
+    /* Top bar */
+    .topbar {
+      background: var(--navy-deep);
+      color: rgba(255,255,255,0.72);
+      text-align: center;
+      padding: 11px 20px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+    }
+    .topbar .accent { color: var(--amber); }
+
+    /* Nav */
+    .nav {
+      background: rgba(248, 246, 241, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 22px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-brand { color: var(--navy); font-weight: 800; font-size: 19px; letter-spacing: -0.01em; }
+    .nav-brand em { color: var(--amber); font-style: normal; }
+    .nav-links { display: flex; gap: 36px; align-items: center; }
+    .nav-links > a, .nav-dd > .nav-dd-trigger {
+      color: var(--ink-soft); font-size: 14px; font-weight: 500;
+      transition: color 0.2s; cursor: pointer; display: inline-flex; align-items: center; gap: 5px;
+    }
+    .nav-links a:hover, .nav-dd:hover .nav-dd-trigger { color: var(--amber); }
+    .nav-links a.active, .nav-dd.active > .nav-dd-trigger { color: var(--amber); }
+    .nav-dd { position: relative; }
+    .nav-dd-menu {
+      position: absolute;
+      top: calc(100% + 12px);
+      left: -14px;
+      min-width: 280px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px;
+      box-shadow: 0 20px 50px -16px rgba(15,35,64,0.18);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-6px);
+      transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+    }
+    .nav-dd:hover .nav-dd-menu, .nav-dd:focus-within .nav-dd-menu {
+      opacity: 1; visibility: visible; transform: translateY(0);
+    }
+    .nav-dd-label {
+      font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--amber);
+      letter-spacing: 0.16em; font-weight: 700; padding: 6px 10px; text-transform: uppercase;
+    }
+    .nav-dd-item {
+      display: block; padding: 12px 12px; border-radius: 10px;
+      transition: background 0.2s;
+    }
+    .nav-dd-item:hover { background: var(--amber-soft); }
+    .nav-dd-item strong { display: block; font-weight: 700; color: var(--navy); font-size: 14px; }
+    .nav-dd-item span { display: block; font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+    .nav-dd-item.active { background: var(--amber-soft); }
+    @media (max-width: 800px) {
+      .nav { padding: 18px 24px; }
+      .nav-links { gap: 14px; }
+      .nav-links > a:not(.btn), .nav-dd { display: none; }
+    }
+
+    /* Buttons */
+    .btn {
+      padding: 16px 32px;
+      border-radius: 100px;
+      font-weight: 700;
+      font-size: 14.5px;
+      transition: transform 0.25s cubic-bezier(0.22, 0.61, 0.36, 1),
+                  box-shadow 0.25s, background 0.25s, color 0.25s, border-color 0.25s;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      border: 1.5px solid transparent;
+      font-family: inherit;
+      white-space: nowrap;
+      justify-content: center;
+    }
+    .btn-primary {
+      background: var(--amber);
+      color: var(--navy);
+      box-shadow: 0 8px 24px -8px rgba(245, 130, 32, 0.5);
+    }
+    .btn-primary:hover {
+      background: var(--amber-warm);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px -8px rgba(245, 130, 32, 0.6);
+    }
+    .btn-ghost {
+      background: transparent;
+      color: var(--navy);
+      border-color: var(--line-warm);
+    }
+    .btn-ghost:hover {
+      border-color: var(--navy);
+      background: rgba(15, 35, 64, 0.04);
+    }
+    .btn.sm { padding: 11px 22px; font-size: 13px; }
+
+    /* Hero */
+    .hero {
+      background: var(--bone);
+      padding: 70px 48px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -10%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80vw;
+      height: 50vw;
+      max-width: 1000px;
+      background: radial-gradient(ellipse at center, rgba(245,130,32,0.07), transparent 60%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 80px;
+      align-items: center;
+    }
+    @media (max-width: 960px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 56px; }
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: white;
+      border: 1px solid var(--line);
+      padding: 7px 16px 7px 12px;
+      border-radius: 100px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: 0.1em;
+      margin-bottom: 28px;
+      box-shadow: 0 1px 2px rgba(15, 35, 64, 0.04);
+    }
+    .hero-tag .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--amber);
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(0.85); }
+    }
+    .hero h1 {
+      font-size: clamp(40px, 5.4vw, 72px);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 0.98;
+      color: var(--navy);
+      margin-bottom: 24px;
+    }
+    .hero h1 em { font-style: normal; color: var(--amber); }
+    .hero .lede {
+      font-size: 18px;
+      line-height: 1.65;
+      color: var(--muted);
+      max-width: 540px;
+      margin-bottom: 32px;
+    }
+    .hero-meta {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    .hero-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .hero-meta-item .label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+    .hero-meta-item .value {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+    }
+
+    /* Hero portrait card */
+    .hero-portrait {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px -20px rgba(15, 35, 64, 0.28);
+      background: var(--bone-warm);
+    }
+    .hero-portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+    }
+    .hero-portrait::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 50%, rgba(15, 35, 64, 0.55) 100%);
+      pointer-events: none;
+    }
+    .hp-caption {
+      position: absolute;
+      left: 24px;
+      bottom: 24px;
+      z-index: 2;
+      color: white;
+    }
+    .hp-name { font-size: 18px; font-weight: 800; letter-spacing: -0.015em; }
+    .hp-role {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.78);
+      margin-top: 2px;
+      text-transform: uppercase;
+    }
+    .hp-float {
+      position: absolute;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px 18px;
+      box-shadow: 0 16px 40px -12px rgba(15, 35, 64, 0.18);
+      animation: bob 6s ease-in-out infinite;
+      z-index: 3;
+    }
+    .hp-float-tl {
+      top: 24px;
+      left: -24px;
+      animation-delay: 0.2s;
+    }
+    .hp-float-br {
+      bottom: 80px;
+      right: -28px;
+      animation-delay: 1.4s;
+    }
+    @media (max-width: 960px) {
+      .hp-float-tl { left: 8px; }
+      .hp-float-br { right: 8px; bottom: 100px; }
+    }
+    .hp-float .num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      color: var(--amber);
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .hp-float .text {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+      margin-top: 2px;
+    }
+    @keyframes bob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-7px); }
+    }
+
+    /* Pull quote band */
+    .quote-band {
+      background: var(--bone-warm);
+      padding: 80px 48px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .quote-inner {
+      max-width: 920px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .quote-mono {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--amber);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .quote-text {
+      font-size: clamp(24px, 3.2vw, 38px);
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: -0.025em;
+      color: var(--navy);
+    }
+    .quote-text em { font-style: normal; color: var(--amber); }
+    .quote-attribution {
+      margin-top: 28px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    /* Story */
+    .story {
+      background: var(--bone);
+      padding: 110px 48px;
+    }
+    .story-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .section-head {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .section-head .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--amber-soft);
+      color: var(--amber);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 7px 14px;
+      border-radius: 100px;
+      margin-bottom: 22px;
+    }
+    .section-head h2 {
+      font-size: clamp(32px, 4.2vw, 56px);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.05;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+    .section-head h2 em { font-style: normal; color: var(--amber); }
+    .section-head p {
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--muted);
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .story-blocks {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+    @media (max-width: 800px) {
+      .story-blocks { grid-template-columns: 1fr; }
+    }
+    .story-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 34px 32px;
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+    .story-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 60px -22px rgba(15, 35, 64, 0.16);
+    }
+    .story-card .num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--amber);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .story-card h3 {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--navy);
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+    .story-card p {
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+    .story-card p + p { margin-top: 12px; }
+    .story-card strong { color: var(--ink); font-weight: 700; }
+
+    /* Timeline */
+    .timeline-section {
+      background: var(--bone-warm);
+      padding: 110px 48px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .timeline-inner { max-width: 920px; margin: 0 auto; }
+    .timeline {
+      position: relative;
+      margin-top: 56px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 12px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--amber), var(--amber) 70%, transparent);
+    }
+    .tl-row {
+      position: relative;
+      padding-left: 56px;
+      padding-bottom: 36px;
+    }
+    .tl-row:last-child { padding-bottom: 0; }
+    .tl-dot {
+      position: absolute;
+      left: 4px;
+      top: 4px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: white;
+      border: 3px solid var(--amber);
+      box-shadow: 0 0 0 4px var(--bone-warm);
+    }
+    .tl-row.now .tl-dot {
+      background: var(--amber);
+    }
+    .tl-year {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--amber);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .tl-title {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.015em;
+      margin-bottom: 6px;
+    }
+    .tl-detail {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* Principles — dark navy */
+    .principles {
+      background: var(--navy-deep);
+      color: white;
+      padding: 110px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    .principles::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(245,130,32,0.13), transparent 65%);
+      pointer-events: none;
+    }
+    .principles-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .principles .section-head h2 { color: white; }
+    .principles .section-head .eyebrow {
+      background: rgba(245, 130, 32, 0.14);
+    }
+    .principles .section-head p { color: rgba(255,255,255,0.62); }
+    .p-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    @media (max-width: 900px) {
+      .p-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .p-grid { grid-template-columns: 1fr; }
+    }
+    .p-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 18px;
+      padding: 32px 28px;
+      transition: border-color 0.3s, background 0.3s, transform 0.3s;
+    }
+    .p-card:hover {
+      border-color: var(--amber);
+      background: rgba(245, 130, 32, 0.05);
+      transform: translateY(-3px);
+    }
+    .p-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--amber);
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 18px;
+    }
+    .p-card h3 {
+      font-size: 19px;
+      font-weight: 800;
+      color: white;
+      letter-spacing: -0.015em;
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+    .p-card p {
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.65);
+    }
+
+    /* Direct line — founder block */
+    .direct {
+      background: var(--bone);
+      padding: 110px 48px;
+    }
+    .direct-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 64px;
+      align-items: center;
+    }
+    @media (max-width: 900px) {
+      .direct-inner { grid-template-columns: 1fr; gap: 40px; }
+    }
+    .direct-photo {
+      aspect-ratio: 1 / 1;
+      border-radius: 22px;
+      overflow: hidden;
+      background: var(--bone-warm);
+      border: 1px solid var(--line);
+      box-shadow: 0 24px 60px -20px rgba(15, 35, 64, 0.18);
+    }
+    .direct-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .direct-content .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--amber-soft);
+      color: var(--amber);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 7px 14px;
+      border-radius: 100px;
+      margin-bottom: 22px;
+    }
+    .direct-content h2 {
+      font-size: clamp(30px, 3.6vw, 44px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.08;
+      color: var(--navy);
+      margin-bottom: 20px;
+    }
+    .direct-content h2 em { font-style: normal; color: var(--amber); }
+    .direct-content p {
+      font-size: 16.5px;
+      line-height: 1.7;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .direct-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 28px;
+      margin-bottom: 28px;
+    }
+    .direct-list .row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 18px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      font-size: 14.5px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .direct-list .row:hover {
+      border-color: var(--amber);
+      transform: translateX(2px);
+    }
+    .direct-list .ico {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--amber-soft);
+      color: var(--amber);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .direct-list .row strong {
+      color: var(--navy);
+      font-weight: 700;
+      display: block;
+      font-size: 14.5px;
+    }
+    .direct-list .row span {
+      color: var(--muted);
+      font-size: 13px;
+      display: block;
+      margin-top: 2px;
+    }
+
+    /* Final CTA */
+    .final-cta {
+      background: var(--navy);
+      color: white;
+      padding: 110px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .final-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(245,130,32,0.13), transparent 65%);
+      pointer-events: none;
+    }
+    .final-cta-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .final-cta .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(245, 130, 32, 0.14);
+      color: var(--amber);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 7px 14px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+    }
+    .final-cta h2 {
+      font-size: clamp(32px, 4.2vw, 54px);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.05;
+      margin-bottom: 18px;
+    }
+    .final-cta h2 em { font-style: normal; color: var(--amber); }
+    .final-cta p {
+      font-size: 17px;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 36px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .final-actions {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .final-cta .btn-ghost {
+      color: white;
+      border-color: rgba(255,255,255,0.2);
+    }
+    .final-cta .btn-ghost:hover {
+      border-color: var(--amber);
+      background: rgba(245, 130, 32, 0.08);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--navy-deep);
+      color: rgba(255,255,255,0.5);
+      padding: 60px 32px 36px;
+      font-size: 13px;
+    }
+    .footer-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 40px;
+    }
+    .footer-brand { color: white; font-weight: 800; font-size: 18px; letter-spacing: -0.01em; }
+    .footer-brand em { color: var(--amber); font-style: normal; }
+    .footer-tag { font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 6px; }
+    .footer-links { display: flex; gap: 28px; }
+    .footer-links a:hover { color: var(--amber); }
+    .footer-bottom {
+      max-width: 1180px;
+      margin: 32px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.32);
+    }
+    .footer-legal { display: flex; gap: 18px; }
+    @media (max-width: 700px) {
+      .footer-inner { grid-template-columns: 1fr; gap: 24px; }
+      .footer-links { flex-wrap: wrap; gap: 18px; }
+      .footer-bottom { flex-direction: column; gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Top bar -->
+<div class="topbar">
+  PILOT IN PROGRESS · <span class="accent">1 FREE SPOT · 4 FOUNDER SPOTS OPENING</span> · NZ + AU TRADIES ONLY
+</div>
+
+<!-- Nav -->
+<nav class="nav">
+  <a href="/" class="nav-brand">TRADIE<em>BACK</em></a>
+  <div class="nav-links">
+    <div class="nav-dd">
+      <span class="nav-dd-trigger">Services <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5l3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <div class="nav-dd-menu">
+        <div class="nav-dd-label">// THE 4-SERVICE ROADMAP</div>
+        <a href="/services/launch" class="nav-dd-item"><strong>Tradie Launch</strong><span>Operating platform · live now</span></a>
+        <a href="/services/leads" class="nav-dd-item"><strong>Tradie Leads</strong><span>Growth engine · live now</span></a>
+        <a href="/roadmap#admin" class="nav-dd-item disabled"><strong>Tradie Admin <span style="color:var(--amber);font-size:10px;">SOON</span></strong><span>Books + collections · Q4 2026</span></a>
+        <a href="/roadmap#copilot" class="nav-dd-item disabled"><strong>Tradie Co-Pilot <span style="color:var(--amber);font-size:10px;">SOON</span></strong><span>AI agents · Q4 2027</span></a>
+        <a href="/roadmap" class="nav-dd-item" style="border-top:1px solid var(--line);margin-top:8px;padding-top:14px;"><strong style="color:var(--amber);">See the full roadmap →</strong></a>
+      </div>
+    </div>
+    <a href="/pricing">Pricing</a>
+    <a href="/about" class="active">About</a>
+    <a href="/book-a-yarn" class="btn btn-primary sm">Book a yarn →</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="reveal in">
+        <span class="hero-tag"><span class="dot"></span>// ABOUT · TRADIEBACK · EST. 2026</span>
+      </div>
+      <h1 class="reveal in">Built by someone who's <em>actually</em> been on site.</h1>
+      <p class="lede reveal in" style="--delay: 0.1s">Mathieson Moller spent nearly a decade in NZ construction — labourer to foreman to project manager on $50M+ builds. TradieBack is the platform he wished tradies had back then. Built only for NZ + AU.</p>
+      <div class="hero-meta reveal in" style="--delay: 0.2s">
+        <div class="hero-meta-item">
+          <span class="label">// Founded</span>
+          <span class="value">2026 · Wellington, NZ</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="label">// Built for</span>
+          <span class="value">NZ + AU tradies only</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="label">// Founder</span>
+          <span class="value">Ex-construction PM</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal in" style="--delay: 0.15s">
+      <div class="hero-portrait">
+        <img src="assets/founder/mathieson.jpg" alt="Mathieson Moller — Founder of TradieBack">
+        <div class="hp-caption">
+          <div class="hp-name">Mathieson Moller</div>
+          <div class="hp-role">// Founder · TradieBack</div>
+        </div>
+        <div class="hp-float hp-float-tl">
+          <div class="num">// 10 YEARS</div>
+          <div class="text">Construction</div>
+        </div>
+        <div class="hp-float hp-float-br">
+          <div class="num">// $50M+</div>
+          <div class="text">Projects run</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pull quote -->
+<section class="quote-band">
+  <div class="quote-inner reveal">
+    <div class="quote-mono">// THE THESIS</div>
+    <blockquote class="quote-text">
+      "Tradies are <em>brilliant</em> on the tools and drowning everywhere else. TradieBack is the platform I wished tradies had when I was running $50M projects."
+    </blockquote>
+    <div class="quote-attribution">— Mathieson Moller · Founder</div>
+  </div>
+</section>
+
+<!-- Story -->
+<section class="story">
+  <div class="story-inner">
+    <div class="section-head reveal">
+      <span class="eyebrow">// The story</span>
+      <h2>Why TradieBack <em>exists.</em></h2>
+      <p>Two things became obvious from a decade on NZ construction sites. The platform is the answer to both.</p>
+    </div>
+
+    <div class="story-blocks">
+      <div class="story-card reveal">
+        <div class="num">// 01 · The problem</div>
+        <h3>Brilliant tradies, broken back-office.</h3>
+        <p>The best tradies I worked with on site weren't winning more work because they were better tradesmen. They were <strong>worse off</strong> — too busy, too good to advertise, too tired at 8pm to send a quote.</p>
+        <p>Their phone rang once a week from word-of-mouth. The Google search results showed five other companies before theirs. Their books were a kitchen-table mess of receipts and unpaid invoices.</p>
+      </div>
+
+      <div class="story-card reveal" style="--delay: 0.1s">
+        <div class="num">// 02 · The agency trap</div>
+        <h3>Marketing agencies don't speak tradie.</h3>
+        <p>Every "marketing solution" I saw a tradie sign up for was the same — $5,000 cookie-cutter website, generic SEO package, six-month lock-in, and a 22-year-old account manager who couldn't tell a sparkie from a chippie.</p>
+        <p>Three months in, the tradie cancelled, ate the loss, and went back to word-of-mouth. <strong>The whole industry was set up to fail them.</strong></p>
+      </div>
+
+      <div class="story-card reveal" style="--delay: 0.2s">
+        <div class="num">// 03 · What I knew</div>
+        <h3>Construction PM discipline. Applied to small business.</h3>
+        <p>Running $50M+ builds taught me one thing — the <strong>system runs the project</strong>, not the people. When the system is right, mediocre operators ship great work. When it's wrong, the best foreman in the country burns out.</p>
+        <p>Same with trade businesses. The tradie isn't the bottleneck. The system around them is.</p>
+      </div>
+
+      <div class="story-card reveal" style="--delay: 0.3s">
+        <div class="num">// 04 · The build</div>
+        <h3>One platform. Built once. Rolled out to every tradie.</h3>
+        <p>TradieBack is the system I'd want if I went back to my mate Wayne — third-generation Wellington plumber, $800K/yr, drowning in admin — and told him "let me fix this for you."</p>
+        <p>Tradie Launch installs the platform in 7 days. Tradie Leads gets the phone ringing. <strong>You stay on the tools. The system runs the rest.</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Timeline -->
+<section class="timeline-section">
+  <div class="timeline-inner">
+    <div class="section-head reveal">
+      <span class="eyebrow">// The credibility</span>
+      <h2>From labourer at 17 <em>to here.</em></h2>
+      <p>Why I'm the right person to build this — the short version.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-row reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-year">// CHAPTER 01 · LABOURER</div>
+        <div class="tl-title">Started on the tools at 17.</div>
+        <div class="tl-detail">First job out of school — Wellington commercial site. Carried block, dug trenches, learned what hard work actually looks like before I learned anything else about the industry.</div>
+      </div>
+      <div class="tl-row reveal" style="--delay: 0.1s">
+        <div class="tl-dot"></div>
+        <div class="tl-year">// CHAPTER 02 · FOREMAN</div>
+        <div class="tl-title">Foreman on residential + commercial builds.</div>
+        <div class="tl-detail">Ran crews of 8–15. Learned that managing tradies isn't about telling them what to do — it's about removing the friction so they can do their best work.</div>
+      </div>
+      <div class="tl-row reveal" style="--delay: 0.2s">
+        <div class="tl-dot"></div>
+        <div class="tl-year">// CHAPTER 03 · PROJECT MANAGER</div>
+        <div class="tl-title">PM at one of NZ's largest property developers.</div>
+        <div class="tl-detail">Ran $50M+ projects across NZ. Coordinated 30+ subcontractor trade businesses per build. Saw firsthand how the great ones won — and how the talented ones got eaten by the admin.</div>
+      </div>
+      <div class="tl-row now reveal" style="--delay: 0.3s">
+        <div class="tl-dot"></div>
+        <div class="tl-year">// CHAPTER 04 · FOUNDER · NOW</div>
+        <div class="tl-title">Building TradieBack.</div>
+        <div class="tl-detail">Same problems I watched destroy good tradies for nearly a decade. Different angle — instead of being the PM running their build, I'm the operator running their back-office. The platform stays. The tradies don't burn out.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Principles -->
+<section class="principles">
+  <div class="principles-inner">
+    <div class="section-head reveal">
+      <span class="eyebrow">// How we work</span>
+      <h2>Six principles. <em>Non-negotiable.</em></h2>
+      <p>The rules I refuse to break. They're why TradieBack works — and why you'll never see us pivot to "but we also do cafés."</p>
+    </div>
+
+    <div class="p-grid">
+      <div class="p-card reveal">
+        <div class="p-num">01</div>
+        <h3>NZ + AU tradies. That's it.</h3>
+        <p>No cafés. No lawyers. No "we also do dentists." The platform works because every decision in it was made for one type of business — yours.</p>
+      </div>
+      <div class="p-card reveal" style="--delay: 0.05s">
+        <div class="p-num">02</div>
+        <h3>You own everything.</h3>
+        <p>Your domain, your customer data, your content, your phone number. If we're not pulling our weight after the 6-month minimum — sack us, walk with everything, no exit fees.</p>
+      </div>
+      <div class="p-card reveal" style="--delay: 0.1s">
+        <div class="p-num">03</div>
+        <h3>Plain English. Always.</h3>
+        <p>No "synergies." No "thought leadership." No "let's circle back." Monthly report tells you how many calls came in and how much money came out. Done.</p>
+      </div>
+      <div class="p-card reveal" style="--delay: 0.15s">
+        <div class="p-num">04</div>
+        <h3>Outcomes over technology.</h3>
+        <p>You don't need to know what's running under the hood. You need the phone to ring, the quotes to go out fast, and the cash to land on time. We worry about the rest.</p>
+      </div>
+      <div class="p-card reveal" style="--delay: 0.2s">
+        <div class="p-num">05</div>
+        <h3>You talk to the founder.</h3>
+        <p>No account managers, no junior sales reps, no offshore support tickets. WhatsApp goes straight to my phone. If I can't pick up, you'll hear back the same day.</p>
+      </div>
+      <div class="p-card reveal" style="--delay: 0.25s">
+        <div class="p-num">06</div>
+        <h3>Ship in 7 days. Or it's free.</h3>
+        <p>If we don't have you live within 7 days of contract, your install is on us. No "design rounds," no "feedback cycles." The platform is built. Your name goes on it. Done.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Direct line -->
+<section class="direct">
+  <div class="direct-inner">
+    <div class="reveal">
+      <div class="direct-photo">
+        <img src="assets/founder/mathieson.jpg" alt="Mathieson Moller">
+      </div>
+    </div>
+    <div class="direct-content reveal" style="--delay: 0.1s">
+      <span class="eyebrow">// Direct line</span>
+      <h2>You'll be talking to <em>me.</em></h2>
+      <p>TradieBack is small on purpose. There are 4 founder spots and 1 free pilot spot — that's the round. Every install in 2026 runs through me directly.</p>
+      <p>If you've got a question that doesn't fit a sales call, the fastest way to me is below.</p>
+
+      <div class="direct-list">
+        <a href="https://wa.me/message/SONH7ANNNV2GK1" target="_blank" rel="noopener" class="row">
+          <div class="ico">💬</div>
+          <div>
+            <strong>WhatsApp Mathieson</strong>
+            <span>Fastest · usually replied within the hour</span>
+          </div>
+        </a>
+        <a href="mailto:mathieson@tradieback.com?subject=Direct enquiry" class="row">
+          <div class="ico">✉</div>
+          <div>
+            <strong>mathieson@tradieback.com</strong>
+            <span>Direct inbox · 24-hr response</span>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/in/mathieson-moller" target="_blank" rel="noopener" class="row">
+          <div class="ico">in</div>
+          <div>
+            <strong>LinkedIn</strong>
+            <span>Connect with me · Wellington-based</span>
+          </div>
+        </a>
+      </div>
+
+      <a href="/book-a-yarn" class="btn btn-primary">Book a 30-min yarn →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="final-cta">
+  <div class="final-cta-inner">
+    <span class="eyebrow reveal">// Take the spot</span>
+    <h2 class="reveal" style="--delay: 0.05s">Five spots. <em>Round one.</em></h2>
+    <p class="reveal" style="--delay: 0.1s">One free pilot. Four founder seats locked at the founder rate for 12 months. After that, we go to public pricing — and the founder rate disappears for good.</p>
+    <div class="final-actions reveal" style="--delay: 0.2s">
+      <a href="/book-a-yarn" class="btn btn-primary">Book a yarn →</a>
+      <a href="/pricing" class="btn btn-ghost">See pricing</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">TRADIE<em>BACK</em></div>
+      <div class="footer-tag">The platform built only for NZ + AU tradies</div>
+    </div>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/services/launch">Launch</a>
+      <a href="/services/leads">Leads</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/about">About</a>
+      <a href="https://wa.me/message/SONH7ANNNV2GK1" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 TradieBack · Built only for NZ + AU tradies</span>
+    <span class="footer-legal">
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+      <a href="/feedback">Client feedback</a>
+    </span>
+  </div>
+</footer>
+
+<!-- Reveal script -->
+<script>
+  (function () {
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+      document.querySelectorAll('.reveal:not(.in)').forEach(el => io.observe(el));
+    } else {
+      document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+    }
+  })();
+</script>
+
+</body>
+</html>
