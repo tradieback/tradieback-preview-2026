@@ -89,9 +89,17 @@
       top: 0;
       z-index: 100;
       border-bottom: 1px solid var(--line);
+      transition: transform 0.3s ease-out;
+      will-change: transform;
     }
-    .nav-brand { color: var(--navy); font-weight: 800; font-size: 19px; letter-spacing: -0.01em; }
-    .nav-brand em { color: var(--amber); font-style: normal; }
+    .nav.nav-hidden { transform: translateY(-100%); }
+    .nav-brand {
+      display: inline-flex;
+      align-items: center;
+      height: clamp(44px, 4vw, 60px);
+      flex-shrink: 0;
+    }
+    .nav-brand svg { height: 100%; width: auto; display: block; }
     .nav-links { display: flex; gap: 36px; align-items: center; }
     .nav-links > a, .nav-dd > .nav-dd-trigger {
       color: var(--ink-soft); font-size: 14px; font-weight: 500;
@@ -174,7 +182,7 @@
 
     /* Hero */
     .hero {
-      background: var(--bone);
+      background: var(--navy);
       padding: 80px 48px 60px;
       text-align: center;
       position: relative;
@@ -197,22 +205,21 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: white;
-      border: 1px solid var(--line);
-      padding: 7px 16px 7px 12px;
+      background: var(--amber);
+      padding: 8px 18px 8px 14px;
       border-radius: 100px;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      font-weight: 600;
+      font-size: 11.5px;
+      font-weight: 800;
       color: var(--navy);
-      letter-spacing: 0.1em;
+      letter-spacing: 0.14em;
       margin-bottom: 32px;
-      box-shadow: 0 1px 2px rgba(15, 35, 64, 0.04);
+      box-shadow: 0 8px 24px -8px rgba(245, 130, 32, 0.5);
     }
     .hero-tag .dot {
       width: 8px; height: 8px;
       border-radius: 50%;
-      background: var(--amber);
+      background: var(--navy);
       animation: pulse 2.4s ease-in-out infinite;
     }
     @keyframes pulse {
@@ -224,14 +231,14 @@
       font-weight: 800;
       letter-spacing: -0.04em;
       line-height: 0.98;
-      color: var(--navy);
+      color: white;
       margin-bottom: 24px;
     }
     .hero h1 em { font-style: normal; color: var(--amber); }
     .hero .lede {
       font-size: 19px;
       line-height: 1.6;
-      color: var(--muted);
+      color: rgba(255,255,255,0.78);
       max-width: 720px;
       margin: 0 auto 36px;
     }
@@ -677,9 +684,15 @@
       align-items: center;
       gap: 40px;
     }
-    .footer-brand { color: white; font-weight: 800; font-size: 18px; letter-spacing: -0.01em; }
+    .footer-brand {
+      color: white;
+      font-weight: 800;
+      font-size: clamp(38px, 4.6vw, 56px);
+      letter-spacing: -0.035em;
+      line-height: 1;
+    }
     .footer-brand em { color: var(--amber); font-style: normal; }
-    .footer-tag { font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 6px; }
+    .footer-tag { font-size: 14.5px; color: rgba(255,255,255,0.55); margin-top: 14px; letter-spacing: 0.01em; }
     .footer-links { display: flex; gap: 28px; }
     .footer-links a:hover { color: var(--amber); }
     .footer-bottom {
@@ -712,29 +725,27 @@
   </defs>
 </svg>
 
-<!-- Top bar -->
-<div class="topbar">
-  PILOT IN PROGRESS · <span class="accent">FOUNDER ROUND OPEN · ALL 4 SERVICES LOCKED AT FOUNDER PRICING AS THEY SHIP</span> · NZ + AU
-</div>
-
 <!-- Nav -->
 <nav class="nav">
-  <a href="/" class="nav-brand">TRADIE<em>BACK</em></a>
+  <a href="index.html" class="nav-brand" aria-label="TradieBack — NZ · AU">
+    <svg viewBox="0 0 720 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <text x="20" y="92" font-family="Arial Black, Helvetica, sans-serif" font-weight="900" font-size="80" letter-spacing="1"><tspan fill="#0F2340">TRADIE</tspan><tspan fill="#F58220">BACK</tspan></text>
+      <text x="22" y="120" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-weight="500" font-size="14" fill="#94A3B8" letter-spacing="1.2">// NZ · AU</text>
+    </svg>
+  </a>
   <div class="nav-links">
     <div class="nav-dd active">
-      <span class="nav-dd-trigger">Services <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5l3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <a href="services/launch.html" class="nav-dd-trigger">Services <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5l3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <div class="nav-dd-menu">
-        <div class="nav-dd-label">// THE 4-SERVICE ROADMAP</div>
-        <a href="/services/launch" class="nav-dd-item"><strong>Tradie Launch</strong><span>Operating platform · live now</span></a>
-        <a href="/services/leads" class="nav-dd-item"><strong>Tradie Leads</strong><span>Growth engine · live now</span></a>
-        <a href="/roadmap#admin" class="nav-dd-item disabled"><strong>Tradie Admin <span style="color:var(--amber);font-size:10px;">SOON</span></strong><span>Books + collections · Q4 2026</span></a>
-        <a href="/roadmap#copilot" class="nav-dd-item disabled"><strong>Tradie Co-Pilot <span style="color:var(--amber);font-size:10px;">SOON</span></strong><span>AI agents · Q4 2027</span></a>
-        <a href="/roadmap" class="nav-dd-item active" style="border-top:1px solid var(--line);margin-top:8px;padding-top:14px;"><strong style="color:var(--amber);">See the full roadmap →</strong></a>
+        <div class="nav-dd-label">// WHAT YOU CAN BUY</div>
+        <a href="services/launch.html" class="nav-dd-item"><strong>Tradie Launch</strong><span>The 7-day install · live now</span></a>
+        <a href="services/leads.html" class="nav-dd-item"><strong>Tradie Leads <span style="color:var(--amber);font-size:10px;">BETA</span></strong><span>Growth engine · in test mode</span></a>
+        <a href="roadmap.html" class="nav-dd-item active" style="border-top:1px solid var(--line);margin-top:8px;padding-top:14px;"><strong style="color:var(--amber);">See the full roadmap →</strong><span>Tradie Admin · Co-Pilot · what's coming</span></a>
       </div>
     </div>
-    <a href="/pricing">Pricing</a>
-    <a href="/about">About</a>
-    <a href="/book-a-yarn" class="btn btn-primary sm">Book a yarn →</a>
+    <a href="about.html">About</a>
+    <a href="audit.html">Free audit</a>
+    <a href="book-a-yarn.html" class="btn btn-primary sm">Book a yarn →</a>
   </div>
 </nav>
 
@@ -742,12 +753,12 @@
 <section class="hero">
   <div class="hero-inner">
     <div class="reveal in">
-      <span class="hero-tag"><span class="dot"></span>// THE 4-SERVICE ROADMAP · 2026 — 2027</span>
+      <span class="hero-tag"><span class="dot"></span>THE 4-SERVICE ROADMAP · 2026 — 2027</span>
     </div>
-    <h1 class="reveal in">Two services live now. <em>Two more on the way.</em></h1>
-    <p class="lede reveal in" style="--delay: 0.1s">Tradie Launch and Tradie Leads are running today. Tradie Admin ships Q4 2026 — books + collections + GST. Tradie Co-Pilot ships Q4 2027 — AI agents that answer your phone, draft your quotes, and run your books. Founders who lock in now get every service at founder pricing as it ships.</p>
+    <h1 class="reveal in">One live. One in beta. <em>Two more on the way.</em></h1>
+    <p class="lede reveal in" style="--delay: 0.1s">Tradie Launch is live now. Tradie Leads is in beta — pilot Launch clients get 1 month free. Tradie Admin ships Q4 2026 (books + collections + GST). Tradie Co-Pilot ships Q4 2027 (AI agents that answer your phone, draft quotes, run your books). Founders who lock in get every service at founder pricing as it ships.</p>
     <div class="hero-actions reveal in" style="--delay: 0.2s">
-      <a href="/book-a-yarn" class="btn btn-primary">Take a founder spot →</a>
+      <a href="book-a-yarn.html" class="btn btn-primary">Apply for a pilot spot →</a>
       <a href="#launch" class="btn btn-ghost">See what's live now</a>
     </div>
   </div>
@@ -763,11 +774,11 @@
         <div class="ts-name">Tradie Launch</div>
         <div class="ts-role">Operating platform</div>
       </a>
-      <a href="#leads" class="ts-stop live reveal" style="--delay:0.05s">
+      <a href="#leads" class="ts-stop future reveal" style="--delay:0.05s">
         <div class="ts-dot">02</div>
-        <div class="ts-when">// LIVE NOW</div>
+        <div class="ts-when">// BETA</div>
         <div class="ts-name">Tradie Leads</div>
-        <div class="ts-role">Growth engine</div>
+        <div class="ts-role">Growth engine · in test mode</div>
       </a>
       <a href="#admin" class="ts-stop future reveal" style="--delay:0.1s">
         <div class="ts-dot">03</div>
@@ -795,11 +806,11 @@
         <h2 class="service-name">Tradie <em>Launch.</em></h2>
         <div class="service-role">// The operating platform</div>
         <div class="service-pricing">
-          <div class="service-pricing-line"><strong>Founder</strong> · $2,997 one-off install</div>
-          <div class="service-pricing-line"><strong>Public</strong> · $5,000 one-off install</div>
-          <div class="service-pricing-line"><strong>Pilot</strong> · free in exchange for case study</div>
+          <div class="service-pricing-line"><strong>Pilot</strong> · free 7-day install in exchange for a case study · 2 spots before June 17</div>
+          <div class="service-pricing-line"><strong>Founder</strong> · founder pricing locked when 4 spots open June 17</div>
+          <div class="service-pricing-line"><strong>Public</strong> · standard pricing once founder cohort fills</div>
         </div>
-        <a href="/services/launch" class="service-cta">See full Launch page <svg width="14" height="14"><use href="#i-arrow"/></svg></a>
+        <a href="services/launch.html" class="service-cta">See full Launch page <svg width="14" height="14"><use href="#i-arrow"/></svg></a>
       </div>
       <div class="service-content reveal" style="--delay: 0.1s">
         <h3>Built once. We hand it over.</h3>
@@ -839,15 +850,15 @@
     <div class="service">
       <div class="service-meta reveal">
         <div class="service-num">02</div>
-        <div class="service-status"><span class="pulse-dot"></span>Live now</div>
+        <div class="service-status" style="background:rgba(245,130,32,0.12);color:var(--amber);"><span class="pulse-dot"></span>BETA · in test mode</div>
         <h2 class="service-name">Tradie <em>Leads.</em></h2>
         <div class="service-role">// The growth engine</div>
         <div class="service-pricing">
-          <div class="service-pricing-line"><strong>Founder</strong> · $1,197/mo · locked 12 months</div>
-          <div class="service-pricing-line"><strong>Public</strong> · $1,497/mo · 6-mo min</div>
-          <div class="service-pricing-line"><strong>Pilot</strong> · free 90 days for case study client</div>
+          <div class="service-pricing-line"><strong>Status</strong> · currently in beta · 1 pilot client</div>
+          <div class="service-pricing-line"><strong>Pilot bonus</strong> · 1 month free for Tradie Launch pilot clients</div>
+          <div class="service-pricing-line"><strong>Public</strong> · month-to-month pricing opens once Leads exits beta</div>
         </div>
-        <a href="/services/leads" class="service-cta">See full Leads page <svg width="14" height="14"><use href="#i-arrow"/></svg></a>
+        <a href="services/leads.html" class="service-cta">See full Leads page <svg width="14" height="14"><use href="#i-arrow"/></svg></a>
       </div>
       <div class="service-content reveal" style="--delay: 0.1s">
         <h3>Where the relationship lives.</h3>
@@ -999,13 +1010,13 @@
     <div class="founder-grid">
       <div class="founder-perk reveal">
         <div class="num">// 01 · LAUNCH</div>
-        <strong>$2,003 saved on install</strong>
-        <span>$2,997 founder vs $5,000 public</span>
+        <strong>Founder install rate</strong>
+        <span>Locked when founder spots open · June 17</span>
       </div>
       <div class="founder-perk reveal" style="--delay: 0.05s">
         <div class="num">// 02 · LEADS</div>
-        <strong>$3,600 saved Year 1</strong>
-        <span>$1,197/mo locked 12 months vs $1,497/mo public</span>
+        <strong>Founder month-to-month rate</strong>
+        <span>Locked when Leads exits beta</span>
       </div>
       <div class="founder-perk reveal" style="--delay: 0.1s">
         <div class="num">// 03 · ADMIN · Q4 2026</div>
@@ -1020,8 +1031,8 @@
     </div>
 
     <div class="founder-actions reveal" style="--delay: 0.2s">
-      <a href="/book-a-yarn" class="btn btn-primary">Take a founder spot →</a>
-      <a href="/pricing" class="btn btn-ghost">See current pricing</a>
+      <a href="book-a-yarn.html" class="btn btn-primary">Apply for a pilot spot →</a>
+      <a href="audit.html" class="btn btn-ghost">Get a free audit first</a>
     </div>
   </div>
 </section>
@@ -1034,21 +1045,20 @@
       <div class="footer-tag">The platform built only for NZ + AU tradies</div>
     </div>
     <div class="footer-links">
-      <a href="/">Home</a>
-      <a href="/services/launch">Launch</a>
-      <a href="/services/leads">Leads</a>
-      <a href="/pricing">Pricing</a>
-      <a href="/about">About</a>
-      <a href="/roadmap">Roadmap</a>
+      <a href="index.html">Home</a>
+      <a href="services/launch.html">Launch</a>
+      <a href="services/leads.html">Leads</a>
+      <a href="about.html">About</a>
+      <a href="roadmap.html">Roadmap</a>
       <a href="https://wa.me/message/SONH7ANNNV2GK1" target="_blank" rel="noopener">WhatsApp</a>
     </div>
   </div>
   <div class="footer-bottom">
     <span>© 2026 TradieBack · Built only for NZ + AU tradies</span>
     <span class="footer-legal">
-      <a href="/privacy">Privacy</a>
-      <a href="/terms">Terms</a>
-      <a href="/feedback">Client feedback</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="feedback.html">Client feedback</a>
     </span>
   </div>
 </footer>
@@ -1069,6 +1079,29 @@
     } else {
       document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
     }
+  })();
+
+  // ─────────── SCROLL-AWARE NAV ───────────
+  (function () {
+    const nav = document.querySelector('.nav');
+    if (!nav) return;
+    let lastY = window.scrollY;
+    let ticking = false;
+    const HIDE_THRESHOLD = 80;
+    window.addEventListener('scroll', () => {
+      if (ticking) return;
+      window.requestAnimationFrame(() => {
+        const y = window.scrollY;
+        if (y > lastY && y > HIDE_THRESHOLD) {
+          nav.classList.add('nav-hidden');
+        } else if (y < lastY) {
+          nav.classList.remove('nav-hidden');
+        }
+        lastY = y;
+        ticking = false;
+      });
+      ticking = true;
+    }, { passive: true });
   })();
 </script>
 
