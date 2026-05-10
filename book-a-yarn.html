@@ -98,17 +98,57 @@
       top: 0;
       z-index: 100;
       border-bottom: 1px solid var(--line);
+      transition: transform 0.3s ease-out;
+      will-change: transform;
     }
-    .nav-brand { color: var(--navy); font-weight: 800; font-size: 19px; letter-spacing: -0.01em; }
-    .nav-brand em { color: var(--amber); font-style: normal; }
+    .nav.nav-hidden { transform: translateY(-100%); }
+    .nav-brand {
+      display: inline-flex;
+      align-items: center;
+      height: clamp(44px, 4vw, 60px);
+      flex-shrink: 0;
+    }
+    .nav-brand svg { height: 100%; width: auto; display: block; }
     .nav-links { display: flex; gap: 36px; align-items: center; }
-    .nav-links a { color: var(--ink-soft); font-size: 14px; font-weight: 500; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--amber); }
-    .nav-links a.active { color: var(--amber); }
+    .nav-links > a, .nav-dd > .nav-dd-trigger {
+      color: var(--navy); font-size: 16px; font-weight: 700; letter-spacing: -0.005em;
+      transition: color 0.2s; cursor: pointer; display: inline-flex; align-items: center; gap: 5px;
+    }
+    .nav-links a:hover, .nav-dd:hover .nav-dd-trigger { color: var(--amber); }
+    .nav-links a.active, .nav-dd.active > .nav-dd-trigger { color: var(--amber); }
+    .nav-dd { position: relative; }
+    .nav-dd-menu {
+      position: absolute;
+      top: calc(100% + 12px);
+      left: -14px;
+      min-width: 320px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px;
+      box-shadow: 0 20px 50px -16px rgba(15,35,64,0.18);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-6px);
+      transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+    }
+    .nav-dd:hover .nav-dd-menu, .nav-dd:focus-within .nav-dd-menu {
+      opacity: 1; visibility: visible; transform: translateY(0);
+    }
+    .nav-dd-label {
+      font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--amber);
+      letter-spacing: 0.16em; font-weight: 700; text-transform: uppercase;
+      padding: 6px 12px 12px; border-bottom: 1px solid var(--line);
+      margin-bottom: 6px;
+    }
+    .nav-dd-item { display: block; padding: 12px 12px; border-radius: 10px; transition: background 0.2s; }
+    .nav-dd-item:hover { background: rgba(245,130,32,0.08); }
+    .nav-dd-item strong { display: block; font-weight: 700; color: var(--navy); font-size: 14px; }
+    .nav-dd-item span { display: block; font-size: 12.5px; color: var(--muted); margin-top: 2px; }
     @media (max-width: 800px) {
       .nav { padding: 18px 24px; }
       .nav-links { gap: 14px; }
-      .nav-links a:not(.btn) { display: none; }
+      .nav-links > a:not(.btn), .nav-dd { display: none; }
     }
 
     /* Buttons */
@@ -160,7 +200,7 @@
 
     /* Hero */
     .hero {
-      background: var(--bone);
+      background: var(--navy);
       padding: 80px 48px 60px;
       position: relative;
       overflow: hidden;
@@ -188,22 +228,21 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: white;
-      border: 1px solid var(--line);
-      padding: 7px 16px 7px 12px;
+      background: var(--amber);
+      padding: 8px 18px 8px 14px;
       border-radius: 100px;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      font-weight: 600;
+      font-size: 11.5px;
+      font-weight: 800;
       color: var(--navy);
-      letter-spacing: 0.1em;
+      letter-spacing: 0.14em;
       margin-bottom: 32px;
-      box-shadow: 0 1px 2px rgba(15, 35, 64, 0.04);
+      box-shadow: 0 8px 24px -8px rgba(245, 130, 32, 0.5);
     }
     .hero-tag .dot {
       width: 8px; height: 8px;
       border-radius: 50%;
-      background: var(--amber);
+      background: var(--navy);
       animation: pulse 2.4s ease-in-out infinite;
     }
     @keyframes pulse {
@@ -215,14 +254,14 @@
       font-weight: 800;
       letter-spacing: -0.04em;
       line-height: 0.98;
-      color: var(--navy);
+      color: white;
       margin-bottom: 24px;
     }
     .hero h1 em { font-style: normal; color: var(--amber); }
     .hero .lede {
       font-size: 19px;
       line-height: 1.55;
-      color: var(--muted);
+      color: rgba(255,255,255,0.78);
       max-width: 640px;
       margin: 0 auto;
     }
@@ -564,9 +603,15 @@
       align-items: center;
       gap: 40px;
     }
-    .footer-brand { color: white; font-weight: 800; font-size: 18px; letter-spacing: -0.01em; }
+    .footer-brand {
+      color: white;
+      font-weight: 800;
+      font-size: clamp(38px, 4.6vw, 56px);
+      letter-spacing: -0.035em;
+      line-height: 1;
+    }
     .footer-brand em { color: var(--amber); font-style: normal; }
-    .footer-tag { font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 6px; }
+    .footer-tag { font-size: 14.5px; color: rgba(255,255,255,0.55); margin-top: 14px; letter-spacing: 0.01em; }
     .footer-links { display: flex; gap: 28px; }
     .footer-links a:hover { color: var(--amber); }
     .footer-bottom {
@@ -590,19 +635,27 @@
 </head>
 <body>
 
-<!-- Top bar -->
-<div class="topbar">
-  PILOT IN PROGRESS · <span class="accent">1 FREE SPOT · 4 FOUNDER SPOTS OPENING</span> · NZ + AU TRADIES ONLY
-</div>
-
 <!-- Nav -->
 <nav class="nav">
-  <a href="/" class="nav-brand">TRADIE<em>BACK</em></a>
+  <a href="index.html" class="nav-brand" aria-label="TradieBack — NZ · AU">
+    <svg viewBox="0 0 720 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <text x="20" y="92" font-family="Arial Black, Helvetica, sans-serif" font-weight="900" font-size="80" letter-spacing="1"><tspan fill="#0F2340">TRADIE</tspan><tspan fill="#F58220">BACK</tspan></text>
+      <text x="22" y="120" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-weight="500" font-size="14" fill="#94A3B8" letter-spacing="1.2">// NZ · AU</text>
+    </svg>
+  </a>
   <div class="nav-links">
-    <a href="/features">Features</a>
-    <a href="/pricing">Pricing</a>
-    <a href="/about">About</a>
-    <a href="/book-a-yarn" class="active btn btn-primary sm">Book a yarn →</a>
+    <div class="nav-dd">
+      <a href="services/launch.html" class="nav-dd-trigger">Services <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5l3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="nav-dd-menu">
+        <div class="nav-dd-label">// WHAT YOU CAN BUY</div>
+        <a href="services/launch.html" class="nav-dd-item"><strong>Tradie Launch</strong><span>The 7-day install · live now</span></a>
+        <a href="services/leads.html" class="nav-dd-item"><strong>Tradie Leads <span style="color:var(--amber);font-size:10px;">BETA</span></strong><span>Growth engine · in test mode</span></a>
+        <a href="roadmap.html" class="nav-dd-item" style="border-top:1px solid var(--line);margin-top:8px;padding-top:14px;"><strong style="color:var(--amber);">See the full roadmap →</strong><span>Tradie Admin · Co-Pilot · what's coming</span></a>
+      </div>
+    </div>
+    <a href="about.html">About</a>
+    <a href="audit.html">Free audit</a>
+    <a href="book-a-yarn.html" class="active btn btn-primary sm">Book a yarn →</a>
   </div>
 </nav>
 
@@ -610,10 +663,10 @@
 <section class="hero">
   <div class="hero-inner">
     <div class="reveal in">
-      <span class="hero-tag"><span class="dot"></span>1 FREE PILOT SPOT · 4 FOUNDER SPOTS</span>
+      <span class="hero-tag"><span class="dot"></span>2 FREE PILOT SPOTS · LIVE JUNE 17</span>
     </div>
-    <h1 class="reveal in">Get one of the <em>spots.</em></h1>
-    <p class="lede reveal in" style="--delay: 0.15s">One NZ tradie gets the whole platform free for 90 days as our pilot client. Four more get the founder rate locked for 12 months. Book a 30-min yarn — no pitch, just a conversation.</p>
+    <h1 class="reveal in">Get one of the <em>pilot spots.</em></h1>
+    <p class="lede reveal in" style="--delay: 0.15s">Two NZ + AU tradies get the full Tradie Launch install free, plus 3 months free hosting + maintenance, plus 1 month free Leads beta — in exchange for a real case study. Book a 20-min yarn or WhatsApp Mathieson direct.</p>
   </div>
 </section>
 
@@ -623,36 +676,38 @@
     <div class="spots-grid">
 
       <div class="spot-card featured reveal">
-        <div class="spot-flag">FREE · 1 SPOT</div>
+        <div class="spot-flag">FREE · 2 SPOTS</div>
         <div class="spot-tag">// The Pilot</div>
-        <div class="spot-headline">Free 90 days.<br>Case study client.</div>
-        <p class="spot-sub">One NZ tradie. We build your platform free in 7 days, run your Tradie Leads free for 90 days. You become our case study.</p>
-        <div class="spot-deal">$0 · 1 spot only</div>
+        <div class="spot-headline">Free 7-day install.<br>Before June 17.</div>
+        <p class="spot-sub">Two NZ + AU tradies. We build your platform free in 7 days. You become our case study.</p>
+        <div class="spot-deal">$0 install · 2 spots only</div>
         <ul class="spot-features">
-          <li><span class="check">✓</span> Tradie Launch — free 7-day install ($5,000 value)</li>
-          <li><span class="check">✓</span> Tradie Leads — free 90 days running ($1,497/mo value)</li>
+          <li><span class="check">✓</span> Tradie Launch — free 7-day install</li>
+          <li><span class="check">✓</span> 3 months free hosting + maintenance + software access</li>
+          <li><span class="check">✓</span> 1 month free Tradie Leads beta access</li>
           <li><span class="check">✓</span> Customer data migration from your current tools</li>
           <li><span class="check">✓</span> Direct WhatsApp to Mathieson for 90 days</li>
-          <li><span class="check">✓</span> At day 90 — convert at founder rate or walk with your domain + data</li>
+          <li><span class="check">✓</span> After 3 months — $99/mo Tradie Care, cancel anytime</li>
           <li><span class="check">✓</span> In exchange — case study + 5-min video testimonial</li>
         </ul>
-        <div class="spot-status active">// In recruitment now</div>
+        <div class="spot-status active">// In recruitment now · before June 17</div>
       </div>
 
       <div class="spot-card reveal" style="--delay: 0.1s">
         <div class="spot-tag">// Founder spots</div>
-        <div class="spot-headline">Locked-in pricing.<br>4 spots.</div>
-        <p class="spot-sub">Four more NZ + AU tradies. Founder pricing locked for 12 months. Same install + Leads service. Open after the pilot validates.</p>
-        <div class="spot-deal">Founder rate · 4 spots</div>
+        <div class="spot-headline">Founder pricing.<br>4 spots.</div>
+        <p class="spot-sub">Four NZ + AU tradies get founder pricing locked when the cohort opens June 17. Same Launch install + access to every future TradieBack service at founder rate as it ships.</p>
+        <div class="spot-deal">Founder rate · 4 spots · opens June 17</div>
         <ul class="spot-features">
-          <li><span class="check">✓</span> Tradie Launch — discounted founder rate</li>
-          <li><span class="check">✓</span> Tradie Leads — discounted recurring rate · locked 12 months</li>
-          <li><span class="check">✓</span> 7-day install · 6-month minimum on Leads</li>
-          <li><span class="check">✓</span> Customer data migration · 7-day post-launch monitoring</li>
-          <li><span class="check">✓</span> Direct WhatsApp to Mathieson for 90 days</li>
-          <li><span class="check">✓</span> Saves thousands in Year 1 vs public pricing</li>
+          <li><span class="check">✓</span> Tradie Launch — founder install rate locked</li>
+          <li><span class="check">✓</span> Tradie Leads — founder rate locked when it exits beta</li>
+          <li><span class="check">✓</span> Tradie Admin (Q4 2026) — founder discount or free</li>
+          <li><span class="check">✓</span> Tradie Co-Pilot (Q4 2027) — bundled free</li>
+          <li><span class="check">✓</span> Customer data migration included</li>
+          <li><span class="check">✓</span> Direct WhatsApp to Mathieson</li>
+          <li><span class="check">✓</span> Cancel anytime · keep your domain, data, customers</li>
         </ul>
-        <div class="spot-status">// Opening once pilot validates · NZ + AU only · <a href="/pricing" style="color: var(--amber); text-decoration: underline;">See pricing</a></div>
+        <div class="spot-status">// Opens June 17 · NZ + AU only</div>
       </div>
 
     </div>
@@ -664,9 +719,24 @@
   <div class="booking-inner">
     <div class="booking-head reveal">
       <span class="eyebrow">// Step 1 — Book a yarn</span>
-      <h2>30 minutes. <em>No pitch.</em></h2>
-      <p>Pick a time that works. We'll talk through your business, see if we're a fit, and if it lands — sort the install.</p>
+      <h2>20 minutes. <em>No pitch.</em></h2>
+      <p>Pick a time that works — or WhatsApp Mathieson direct for the fastest reply.</p>
     </div>
+
+    <div class="reveal" style="--delay: 0.1s; display: flex; flex-direction: column; align-items: center; gap: 12px; margin-bottom: 36px;">
+      <a href="https://wa.me/message/SONH7ANNNV2GK1" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:12px;background:#25D366;color:white;padding:18px 38px;border-radius:100px;font-weight:800;font-size:16px;letter-spacing:-0.01em;text-decoration:none;box-shadow:0 18px 44px -10px rgba(37,211,102,0.5);transition:transform .3s, box-shadow .3s;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.4.5-.5.2-.2.2-.3.3-.5.1-.2.1-.4 0-.5-.1-.2-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .2.2 2.1 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.2-.3-.2-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.4c1.4.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+        WhatsApp Mathieson
+      </a>
+      <span style="font-family:'JetBrains Mono', monospace;font-size:11px;color:var(--muted);letter-spacing:0.16em;font-weight:600;text-transform:uppercase;">// Fastest way · usually replied to within the hour</span>
+    </div>
+
+    <div class="reveal" style="--delay:0.15s; display:flex;align-items:center;gap:18px;max-width:520px;margin:0 auto 28px;color:var(--muted);font-family:'JetBrains Mono', monospace;font-size:12px;letter-spacing:0.18em;font-weight:600;text-transform:uppercase;">
+      <div style="flex:1;height:1px;background:var(--line);"></div>
+      <span>OR BOOK A TIME</span>
+      <div style="flex:1;height:1px;background:var(--line);"></div>
+    </div>
+
     <div class="booking-cal reveal" style="--delay: 0.2s">
       <iframe src="https://api.tradieback.com/widget/booking/Wae48zz1IXiYQyTo94N8" scrolling="no"></iframe>
       <script src="https://api.tradieback.com/js/form_embed.js" type="text/javascript"></script>
@@ -716,7 +786,7 @@
     </details>
     <details class="faq-item">
       <summary>Are the founder spots also free?</summary>
-      <div class="faq-body">No — founder spots are paid (at the discounted founder rate, locked 12 months). The free pilot is one spot only. Founder spots open after the pilot validates the platform. <a href="/pricing" style="color: var(--amber);">See pricing for the full breakdown.</a></div>
+      <div class="faq-body">No — founder spots are paid (at the discounted founder rate). Two free pilot spots are open before June 17. Founder spots open June 17 after the pilots validate the platform.</div>
     </details>
     <details class="faq-item">
       <summary>I'm not sure if I'm a fit. Should I still book a yarn?</summary>
@@ -733,19 +803,19 @@
       <div class="footer-tag">The platform built only for NZ + AU tradies</div>
     </div>
     <div class="footer-links">
-      <a href="/">Home</a>
-      <a href="/features">Features</a>
-      <a href="/pricing">Pricing</a>
-      <a href="/about">About</a>
+      <a href="index.html">Home</a>
+      <a href="services/launch.html">Launch</a>
+      <a href="services/leads.html">Leads</a>
+      <a href="about.html">About</a>
       <a href="https://wa.me/message/SONH7ANNNV2GK1" target="_blank" rel="noopener">WhatsApp</a>
     </div>
   </div>
   <div class="footer-bottom">
     <span>© 2026 TradieBack · Built only for NZ + AU tradies</span>
     <span class="footer-legal">
-      <a href="/privacy">Privacy</a>
-      <a href="/terms">Terms</a>
-      <a href="/feedback">Client feedback</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="feedback.html">Client feedback</a>
     </span>
   </div>
 </footer>
@@ -766,6 +836,29 @@
     } else {
       document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
     }
+  })();
+
+  // ─────────── SCROLL-AWARE NAV ───────────
+  (function () {
+    const nav = document.querySelector('.nav');
+    if (!nav) return;
+    let lastY = window.scrollY;
+    let ticking = false;
+    const HIDE_THRESHOLD = 80;
+    window.addEventListener('scroll', () => {
+      if (ticking) return;
+      window.requestAnimationFrame(() => {
+        const y = window.scrollY;
+        if (y > lastY && y > HIDE_THRESHOLD) {
+          nav.classList.add('nav-hidden');
+        } else if (y < lastY) {
+          nav.classList.remove('nav-hidden');
+        }
+        lastY = y;
+        ticking = false;
+      });
+      ticking = true;
+    }, { passive: true });
   })();
 </script>
 
