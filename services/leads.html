@@ -92,9 +92,17 @@
       top: 0;
       z-index: 100;
       border-bottom: 1px solid var(--line);
+      transition: transform 0.3s ease-out;
+      will-change: transform;
     }
-    .nav-brand { color: var(--navy); font-weight: 800; font-size: 19px; letter-spacing: -0.01em; }
-    .nav-brand em { color: var(--amber); font-style: normal; }
+    .nav.nav-hidden { transform: translateY(-100%); }
+    .nav-brand {
+      display: inline-flex;
+      align-items: center;
+      height: clamp(44px, 4vw, 60px);
+      flex-shrink: 0;
+    }
+    .nav-brand svg { height: 100%; width: auto; display: block; }
     .nav-links { display: flex; gap: 36px; align-items: center; }
     .nav-links > a, .nav-dd > .nav-dd-trigger {
       color: var(--ink-soft); font-size: 14px; font-weight: 500;
@@ -177,7 +185,7 @@
     .btn.sm { padding: 11px 22px; font-size: 13px; }
 
     .hero {
-      background: var(--bone);
+      background: var(--navy);
       padding: 70px 48px 60px;
       position: relative;
       overflow: hidden;
@@ -210,22 +218,21 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: white;
-      border: 1px solid var(--line);
-      padding: 7px 16px 7px 12px;
+      background: var(--amber);
+      padding: 8px 18px 8px 14px;
       border-radius: 100px;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      font-weight: 600;
+      font-size: 11.5px;
+      font-weight: 800;
       color: var(--navy);
-      letter-spacing: 0.1em;
+      letter-spacing: 0.14em;
       margin-bottom: 28px;
-      box-shadow: 0 1px 2px rgba(15, 35, 64, 0.04);
+      box-shadow: 0 8px 24px -8px rgba(245, 130, 32, 0.5);
     }
     .hero-tag .dot {
       width: 8px; height: 8px;
       border-radius: 50%;
-      background: var(--amber);
+      background: var(--navy);
       animation: pulse 2.4s ease-in-out infinite;
     }
     @keyframes pulse {
@@ -237,14 +244,14 @@
       font-weight: 800;
       letter-spacing: -0.04em;
       line-height: 0.98;
-      color: var(--navy);
+      color: white;
       margin-bottom: 24px;
     }
     .hero h1 em { font-style: normal; color: var(--amber); }
     .hero .lede {
       font-size: 18px;
       line-height: 1.65;
-      color: var(--muted);
+      color: rgba(255,255,255,0.78);
       max-width: 540px;
       margin-bottom: 36px;
     }
@@ -1099,9 +1106,15 @@
       align-items: center;
       gap: 40px;
     }
-    .footer-brand { color: white; font-weight: 800; font-size: 18px; letter-spacing: -0.01em; }
+    .footer-brand {
+      color: white;
+      font-weight: 800;
+      font-size: clamp(38px, 4.6vw, 56px);
+      letter-spacing: -0.035em;
+      line-height: 1;
+    }
     .footer-brand em { color: var(--amber); font-style: normal; }
-    .footer-tag { font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 6px; }
+    .footer-tag { font-size: 14.5px; color: rgba(255,255,255,0.55); margin-top: 14px; letter-spacing: 0.01em; }
     .footer-links { display: flex; gap: 28px; }
     .footer-links a:hover { color: var(--amber); }
     .footer-bottom {
@@ -1133,29 +1146,28 @@
   </defs>
 </svg>
 
-<!-- Top bar -->
-<div class="topbar">
-  PILOT IN PROGRESS · <span class="accent">1 FREE SPOT · 4 FOUNDER SPOTS OPENING</span> · NZ + AU TRADIES ONLY
-</div>
-
 <!-- Nav -->
 <nav class="nav">
-  <a href="/" class="nav-brand">TRADIE<em>BACK</em></a>
+  <a href="../index.html" class="nav-brand" aria-label="TradieBack — NZ · AU">
+    <svg viewBox="0 0 780 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <text x="20" y="92" font-family="Arial Black, Helvetica, sans-serif" font-weight="900" font-size="80" fill="#0F2340" letter-spacing="1">TRADIE</text>
+      <text x="378" y="92" font-family="Arial Black, Helvetica, sans-serif" font-weight="900" font-size="80" fill="#F58220" letter-spacing="1">BACK</text>
+      <text x="22" y="120" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-weight="500" font-size="14" fill="#94A3B8" letter-spacing="1.2">// NZ · AU</text>
+    </svg>
+  </a>
   <div class="nav-links">
     <div class="nav-dd active">
-      <span class="nav-dd-trigger">Services <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5l3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <a href="leads.html" class="nav-dd-trigger">Services <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5l3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <div class="nav-dd-menu">
-        <div class="nav-dd-label">// THE 4-SERVICE ROADMAP</div>
-        <a href="/services/launch" class="nav-dd-item"><strong>Tradie Launch</strong><span>Operating platform · live now</span></a>
-        <a href="/services/leads" class="nav-dd-item active"><strong>Tradie Leads</strong><span>Growth engine · live now</span></a>
-        <a href="/roadmap#admin" class="nav-dd-item disabled"><strong>Tradie Admin <span style="color:var(--amber);font-size:10px;">SOON</span></strong><span>Books + collections · Q4 2026</span></a>
-        <a href="/roadmap#copilot" class="nav-dd-item disabled"><strong>Tradie Co-Pilot <span style="color:var(--amber);font-size:10px;">SOON</span></strong><span>AI agents · Q4 2027</span></a>
-        <a href="/roadmap" class="nav-dd-item" style="border-top:1px solid var(--line);margin-top:8px;padding-top:14px;"><strong style="color:var(--amber);">See the full roadmap →</strong></a>
+        <div class="nav-dd-label">// WHAT YOU CAN BUY</div>
+        <a href="launch.html" class="nav-dd-item"><strong>Tradie Launch</strong><span>The 7-day install · live now</span></a>
+        <a href="leads.html" class="nav-dd-item active"><strong>Tradie Leads <span style="color:var(--amber);font-size:10px;">BETA</span></strong><span>Growth engine · in test mode</span></a>
+        <a href="../roadmap.html" class="nav-dd-item" style="border-top:1px solid var(--line);margin-top:8px;padding-top:14px;"><strong style="color:var(--amber);">See the full roadmap →</strong><span>Tradie Admin · Co-Pilot · what's coming</span></a>
       </div>
     </div>
-    <a href="/pricing">Pricing</a>
-    <a href="/about">About</a>
-    <a href="/book-a-yarn" class="btn btn-primary sm">Book a yarn →</a>
+    <a href="../about.html">About</a>
+    <a href="../audit.html">Free audit</a>
+    <a href="../book-a-yarn.html" class="btn btn-primary sm">Book a yarn →</a>
   </div>
 </nav>
 
@@ -1164,12 +1176,12 @@
   <div class="hero-inner">
     <div>
       <div class="reveal in">
-        <span class="hero-tag"><span class="dot"></span>// SERVICE 02 · TRADIE LEADS</span>
+        <span class="hero-tag"><span class="dot"></span>BETA · IN TEST MODE · PILOT ACCESS</span>
       </div>
-      <h1 class="reveal in">The growth engine <em>for tradies who already operate.</em></h1>
-      <p class="lede reveal in" style="--delay: 0.1s">Tradie Leads is the recurring service where the relationship lives. Google Ads, Meta Ads, local SEO, social posts, blog, lead qualification — running every week. Plus a monthly review with Mathieson · Month 6 + Month 11 strategic reviews · WhatsApp direct line. Launch sets it up. Leads runs it.</p>
+      <h1 class="reveal in">The growth engine — <em>currently in beta.</em></h1>
+      <p class="lede reveal in" style="--delay: 0.1s">Google Ads, Meta Ads, local SEO, lead qualification, social, blog — running every week, plus a monthly review with Mathieson. Currently in test mode with one pilot client. Tradie Launch pilot clients get 1 month of Leads beta free.</p>
       <div class="hero-actions reveal in" style="--delay: 0.2s">
-        <a href="/book-a-yarn" class="btn btn-primary">Book a yarn →</a>
+        <a href="../book-a-yarn.html" class="btn btn-primary">Book a yarn →</a>
         <a href="#whats-in" class="btn btn-ghost">See the system</a>
       </div>
     </div>
@@ -1202,8 +1214,8 @@
       <div class="num-label">Auto-text-back<br>on every lead</div>
     </div>
     <div class="num-stat reveal" style="--delay: 0.1s">
-      <div class="num-num">6<span class="accent">-mo</span></div>
-      <div class="num-label">Minimum term<br>then month-to-month</div>
+      <div class="num-num">BETA<span class="accent"></span></div>
+      <div class="num-label">In test mode<br>month-to-month when it launches</div>
     </div>
     <div class="num-stat reveal" style="--delay: 0.15s">
       <div class="num-num">1<span class="accent"> team</span></div>
@@ -1493,71 +1505,27 @@
   </div>
 </section>
 
-<!-- Pricing -->
+<!-- Beta access -->
 <section class="section bone-warm">
-  <div class="section-inner">
-    <div class="section-head reveal">
-      <div class="eyebrow">// Pricing</div>
-      <h2 class="h2">Three doors. <em>Walk through one.</em></h2>
-      <p>Tradie Leads is recurring. 6-month minimum so we can build the ranking signals — then month-to-month forever after. You own everything you walk away with.</p>
+  <div class="section-inner" style="max-width: 920px;">
+    <div class="section-head reveal" style="text-align:center;">
+      <div class="eyebrow" style="background:rgba(245,130,32,0.10);color:var(--amber);display:inline-block;padding:7px 14px;border-radius:100px;letter-spacing:0.16em;font-size:11px;font-weight:700;margin-bottom:22px;">// Beta access</div>
+      <h2 class="h2">Want in on the beta? <em>Pilot Launch clients get 1 month free.</em></h2>
+      <p style="max-width:640px;margin:18px auto 0;">Tradie Leads is currently in test mode with one pilot client. The fastest way in is to take a Tradie Launch pilot spot — it includes 1 month of free Leads beta access. Standard month-to-month pricing opens once Leads exits beta.</p>
     </div>
-    <div class="pricing-grid">
-      <div class="pc reveal">
-        <div class="pc-tag">// Pilot</div>
-        <h3>Free 90 days</h3>
-        <div class="pc-sub">One NZ tradie. Case study client.</div>
-        <div class="pc-price">
-          <span class="pc-price-num accent">$0</span>
-          <span class="pc-price-unit">90 days</span>
-        </div>
-        <div class="pc-meta">// 1 spot · in recruitment</div>
-        <ul class="pc-list">
-          <li><span class="check">✓</span>Full Tradie Leads — free 90 days</li>
-          <li><span class="check">✓</span>Google Ads campaign built + run</li>
-          <li><span class="check">✓</span>Lead qualification + booking</li>
-          <li><span class="check">✓</span>Monthly review · WhatsApp Mathieson</li>
-        </ul>
-        <a href="/book-a-yarn" class="btn btn-ghost">Apply →</a>
-      </div>
 
-      <div class="pc featured reveal" style="--delay: 0.05s">
-        <div class="pc-flag">FOUNDER · 4 SPOTS</div>
-        <div class="pc-tag">// Founder</div>
-        <h3>Locked 12 months</h3>
-        <div class="pc-sub">Founder rate. 12-month lock.</div>
-        <div class="pc-price">
-          <span class="strike">$1,497</span>
-          <span class="pc-price-num accent">$1,197</span>
-          <span class="pc-price-unit">/ month</span>
-        </div>
-        <div class="pc-meta">// $3,600 saved Y1 · 6-mo min · then m/m</div>
-        <ul class="pc-list">
-          <li><span class="check">✓</span>First qualified lead in 30 days · or free</li>
-          <li><span class="check">✓</span>Google Ads + Meta Ads + conversion landing page</li>
-          <li><span class="check">✓</span>Lead qualification + auto-booking + quote follow-ups</li>
-          <li><span class="check">✓</span>Local SEO + GBP + 2 social posts/wk + 1 blog/mo</li>
-          <li><span class="check">✓</span><strong>Monthly Operating Review + Loom from Mathieson</strong></li>
-          <li><span class="check">✓</span>Month 6 retention + Month 11 annual review</li>
-        </ul>
-        <a href="/book-a-yarn" class="btn btn-primary">Take a founder spot →</a>
+    <div class="reveal" style="--delay:0.1s; background:white; border:2px solid var(--amber); border-radius:20px; padding:36px 40px; margin-top:48px; max-width:760px; margin-left:auto; margin-right:auto;">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px 32px; margin-bottom:28px;">
+        <div style="display:flex;align-items:flex-start;gap:10px;font-size:14.5px;color:var(--ink);"><span style="flex-shrink:0;width:18px;height:18px;border-radius:50%;background:var(--amber);color:white;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;margin-top:2px;">✓</span>Google Ads + Meta Ads campaigns</div>
+        <div style="display:flex;align-items:flex-start;gap:10px;font-size:14.5px;color:var(--ink);"><span style="flex-shrink:0;width:18px;height:18px;border-radius:50%;background:var(--amber);color:white;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;margin-top:2px;">✓</span>Conversion landing page</div>
+        <div style="display:flex;align-items:flex-start;gap:10px;font-size:14.5px;color:var(--ink);"><span style="flex-shrink:0;width:18px;height:18px;border-radius:50%;background:var(--amber);color:white;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;margin-top:2px;">✓</span>Lead qualification + auto-booking</div>
+        <div style="display:flex;align-items:flex-start;gap:10px;font-size:14.5px;color:var(--ink);"><span style="flex-shrink:0;width:18px;height:18px;border-radius:50%;background:var(--amber);color:white;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;margin-top:2px;">✓</span>Quote follow-ups · day 1 · 3 · 7</div>
+        <div style="display:flex;align-items:flex-start;gap:10px;font-size:14.5px;color:var(--ink);"><span style="flex-shrink:0;width:18px;height:18px;border-radius:50%;background:var(--amber);color:white;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;margin-top:2px;">✓</span>2 social posts/wk · 1 blog/mo</div>
+        <div style="display:flex;align-items:flex-start;gap:10px;font-size:14.5px;color:var(--ink);"><span style="flex-shrink:0;width:18px;height:18px;border-radius:50%;background:var(--amber);color:white;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;margin-top:2px;">✓</span><strong>Monthly Operating Review + Loom from Mathieson</strong></div>
       </div>
-
-      <div class="pc reveal" style="--delay: 0.1s">
-        <div class="pc-tag">// Public</div>
-        <h3>Standard rate</h3>
-        <div class="pc-sub">Once founder spots are filled.</div>
-        <div class="pc-price">
-          <span class="pc-price-num">$1,497</span>
-          <span class="pc-price-unit">/ month</span>
-        </div>
-        <div class="pc-meta">// 6-mo min · then month-to-month</div>
-        <ul class="pc-list">
-          <li><span class="check">✓</span>Same channels · same 30-day lead promise</li>
-          <li><span class="check">✓</span>Same monthly review + Loom</li>
-          <li><span class="check">✓</span>You own everything · walk after 6 months</li>
-          <li><span class="check">✓</span>Pair with Tradie Launch optional</li>
-        </ul>
-        <a href="/pricing" class="btn btn-ghost">See full pricing →</a>
+      <div style="text-align:center;padding-top:24px;border-top:1px solid var(--line);">
+        <a href="launch.html" class="btn btn-primary" style="margin-bottom:12px;">Get Launch + 1mo Leads beta free →</a>
+        <div style="font-size:12px;color:var(--muted);font-family:'JetBrains Mono',monospace;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;margin-top:14px;">// Currently in beta · month-to-month when it launches · cancel anytime · no lock-in</div>
       </div>
     </div>
   </div>
@@ -1581,7 +1549,7 @@
       </details>
       <details class="faq-item reveal">
         <summary>What's the lock-in?</summary>
-        <div class="faq-body">6-month minimum to start, then month-to-month forever after. The 6 months is so we can actually build the ranking signals — SEO and Google Business take time to compound. After 6 months, sack us anytime with 30 days notice. No exit fees, you walk with everything.</div>
+        <div class="faq-body">No lock-in. Tradie Leads is in beta — pilot clients get 1 month free, then month-to-month when it officially launches. Cancel anytime, keep your domain, data, and customers, no exit fees, ever.</div>
       </details>
       <details class="faq-item reveal">
         <summary>Who pays the Google + Meta ad spend?</summary>
@@ -1600,10 +1568,10 @@
   <div class="bridge-inner reveal">
     <div class="bridge-icon"><svg><use href="#i-monitor"/></svg></div>
     <div class="bridge-content">
-      <div class="eyebrow" style="margin-bottom:14px;">// What comes next</div>
-      <h3>Phone ringing — but is your <em>website pulling its weight?</em></h3>
-      <p>Leads brings the customers. <strong>Tradie Launch</strong> makes sure they convert — flash website, software platform, and the foundation to handle every lead properly. Most tradies pair the two from day one.</p>
-      <a href="/services/launch" class="bridge-link">Explore Tradie Launch <svg width="16" height="16"><use href="#i-arrow"/></svg></a>
+      <div class="eyebrow" style="margin-bottom:14px;">// Start here first</div>
+      <h3>Leads is the optional add-on. <em>Tradie Launch is the foundation.</em></h3>
+      <p>Every TradieBack client starts with <strong>Tradie Launch</strong> — the 7-day install that gets the website + CRM + invoicing live. Leads only kicks in once Launch is sorted. Pilot Launch clients get 1 month of Leads beta free.</p>
+      <a href="launch.html" class="bridge-link">See Tradie Launch <svg width="16" height="16"><use href="#i-arrow"/></svg></a>
     </div>
   </div>
 </section>
@@ -1614,7 +1582,7 @@
     <div class="cta-head">
       <div class="eyebrow reveal">// Book a yarn</div>
       <h2 class="reveal" style="--delay: 0.05s">Ready for a <em>free yarn?</em></h2>
-      <p class="reveal" style="--delay: 0.1s">30 minutes. No pitch. Straight talk about your business and what's next.</p>
+      <p class="reveal" style="--delay: 0.1s">20 minutes. No pitch. Straight talk about your business and what's next.</p>
     </div>
     <div class="cta-wa reveal" style="--delay: 0.15s">
       <a href="https://wa.me/message/SONH7ANNNV2GK1" target="_blank" rel="noopener" class="btn-wa">
@@ -1638,20 +1606,19 @@
       <div class="footer-tag">The platform built only for NZ + AU tradies</div>
     </div>
     <div class="footer-links">
-      <a href="/">Home</a>
-      <a href="/services/launch">Launch</a>
-      <a href="/services/leads">Leads</a>
-      <a href="/pricing">Pricing</a>
-      <a href="/about">About</a>
+      <a href="../index.html">Home</a>
+      <a href="launch.html">Launch</a>
+      <a href="leads.html">Leads</a>
+      <a href="../about.html">About</a>
       <a href="https://wa.me/message/SONH7ANNNV2GK1" target="_blank" rel="noopener">WhatsApp</a>
     </div>
   </div>
   <div class="footer-bottom">
     <span>© 2026 TradieBack · Built only for NZ + AU tradies</span>
     <span class="footer-legal">
-      <a href="/privacy">Privacy</a>
-      <a href="/terms">Terms</a>
-      <a href="/feedback">Client feedback</a>
+      <a href="../privacy.html">Privacy</a>
+      <a href="../terms.html">Terms</a>
+      <a href="../feedback.html">Client feedback</a>
     </span>
   </div>
 </footer>
@@ -1672,6 +1639,29 @@
     } else {
       document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
     }
+  })();
+
+  // ─────────── SCROLL-AWARE NAV ───────────
+  (function () {
+    const nav = document.querySelector('.nav');
+    if (!nav) return;
+    let lastY = window.scrollY;
+    let ticking = false;
+    const HIDE_THRESHOLD = 80;
+    window.addEventListener('scroll', () => {
+      if (ticking) return;
+      window.requestAnimationFrame(() => {
+        const y = window.scrollY;
+        if (y > lastY && y > HIDE_THRESHOLD) {
+          nav.classList.add('nav-hidden');
+        } else if (y < lastY) {
+          nav.classList.remove('nav-hidden');
+        }
+        lastY = y;
+        ticking = false;
+      });
+      ticking = true;
+    }, { passive: true });
   })();
 </script>
 
