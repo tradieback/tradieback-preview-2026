@@ -1087,8 +1087,28 @@
     }
     .how-steps {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 0;
+    }
+    .how-step-icon {
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      background: rgba(245,130,32,0.10);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 22px;
+      color: var(--amber);
+      transition: all 0.4s;
+    }
+    .how-step-icon svg { width: 26px; height: 26px; stroke: currentColor; stroke-width: 1.8; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .how-step:hover .how-step-icon { background: var(--amber); color: white; transform: translateY(-2px); }
+    .how-step-mono {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--amber);
+      letter-spacing: 0.16em;
+      font-weight: 700;
+      margin-bottom: 12px;
+      text-transform: uppercase;
     }
     .how-step {
       padding: 0 28px;
@@ -1122,11 +1142,8 @@
     }
     @media (max-width: 900px) {
       .how { padding: 90px 24px; }
-      .how-steps { grid-template-columns: 1fr 1fr; gap: 56px 24px; }
+      .how-steps { grid-template-columns: 1fr; gap: 56px 0; }
       .how-step { padding: 0; border-left: none; }
-    }
-    @media (max-width: 600px) {
-      .how-steps { grid-template-columns: 1fr; }
     }
 
     /* ─────────── CONTRAST (WITHOUT vs WITH) ─────────── */
@@ -1755,11 +1772,10 @@
   <div style="max-width: 1180px; margin: 0 auto;">
     <div class="reveal" style="text-align: center; margin-bottom: 64px;">
       <span class="mono" style="display:inline-block;background:rgba(245,130,32,0.08);color:var(--amber);padding:7px 14px;border-radius:100px;font-size:11px;font-weight:600;letter-spacing:0.16em;margin-bottom:22px;">// Start here</span>
-      <h2 style="font-size: clamp(36px, 5vw, 64px); font-weight: 800; letter-spacing: -0.038em; line-height: 1.02; color: var(--navy); margin-bottom: 18px;">Start with <em style="font-style:normal;color:var(--amber);">Tradie Launch</em>.<br>Add Leads when you're ready.</h2>
-      <p style="font-size: 17px; color: var(--muted); max-width: 680px; margin: 0 auto 18px; line-height: 1.65;">Launch is the 7-day install — site, CRM, calendar, invoicing, follow-ups. It's the front door of your business and what every TradieBack client starts with. Tradie Leads (BETA) plugs in once Launch is live.</p>
+      <h2 style="font-size: clamp(36px, 5vw, 64px); font-weight: 800; letter-spacing: -0.038em; line-height: 1.02; color: var(--navy); margin-bottom: 22px;">Start with <em style="font-style:normal;color:var(--amber);">Tradie Launch</em>.<br>Add Leads when you're ready.</h2>
       <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(245,130,32,0.10);border:1.5px solid var(--amber);color:var(--navy);padding:10px 18px;border-radius:100px;font-size:14px;font-weight:700;letter-spacing:-0.01em;">
         <span style="width:8px;height:8px;border-radius:50%;background:var(--amber);animation:pulse 2.4s ease-in-out infinite;"></span>
-        We're taking 2 free pilot clients before June 17 — full 7-day install free, plus 3 months hosting & maintenance, plus 1 month free Leads beta.
+        2 free pilot clients before June 17 · install + 3mo hosting + 1mo Leads beta — free.
       </div>
     </div>
 
@@ -1901,39 +1917,6 @@
   }
 </style>
 
-<!-- ─────────── HOW IT WORKS ─────────── -->
-<section class="how">
-  <div class="how-inner">
-    <div class="how-head reveal">
-      <span class="eyebrow">// The path</span>
-      <h2>From yarn to <em>running itself</em></h2>
-      <p>Four steps. 7 days from contract to live. The system runs itself from there.</p>
-    </div>
-    <div class="how-steps">
-      <div class="how-step reveal">
-        <div class="how-step-num">01</div>
-        <h3>Book a yarn</h3>
-        <p>30-min call. No pitch. We see if it's a fit · you see if we're it. We don't take everyone.</p>
-      </div>
-      <div class="how-step reveal" style="--delay: 0.1s">
-        <div class="how-step-num">02</div>
-        <h3>Tradie Launch</h3>
-        <p>7-day install: site, CRM, calendar, invoicing — all built and live. ~3 hours of your time across the install.</p>
-      </div>
-      <div class="how-step reveal" style="--delay: 0.2s">
-        <div class="how-step-num">03</div>
-        <h3>Tradie Leads <span style="font-size:11px;color:var(--amber);font-family:'JetBrains Mono',monospace;letter-spacing:0.1em;font-weight:700;">· OPTIONAL</span></h3>
-        <p>Add it when you're ready: Google Ads + Meta Ads + qualification + social. Phone ringing within 30 days · or your next month's free.</p>
-      </div>
-      <div class="how-step reveal" style="--delay: 0.3s">
-        <div class="how-step-num">04</div>
-        <h3>Monthly review</h3>
-        <p>1-page report + 5-min Loom from Mathieson. What's working, what's not, what to fix.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ─────────── GUARANTEES ─────────── -->
 <section class="guarantee">
   <div class="guarantee-inner">
@@ -2029,6 +2012,45 @@
 
     <div class="reveal" style="--delay: 0.6s">
       <a href="/pricing" class="btn btn-primary">See the full offer →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────── HOW IT WORKS ─────────── -->
+<section class="how">
+  <div class="how-inner">
+    <div class="how-head reveal">
+      <span class="eyebrow">// The path</span>
+      <h2>Three steps. <em>No mucking around</em></h2>
+    </div>
+    <div class="how-steps">
+      <div class="how-step reveal">
+        <div class="how-step-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6a3 3 0 013-3h12a3 3 0 013 3v8a3 3 0 01-3 3h-8l-5 4v-4H6a3 3 0 01-3-3V6z"/><path d="M8 9h8M8 12h5"/></svg>
+        </div>
+        <div class="how-step-mono">// STEP_01 · 20_MINUTES</div>
+        <div class="how-step-num">01</div>
+        <h3>Jump on a Free Yarn</h3>
+        <p>20 minutes. Live audit of your Google ranking and debtor ageing. No sales pitch.</p>
+      </div>
+      <div class="how-step reveal" style="--delay: 0.1s">
+        <div class="how-step-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <div class="how-step-mono">// STEP_02 · 7_DAYS</div>
+        <div class="how-step-num">02</div>
+        <h3>We crack on</h3>
+        <p>First deliverable live inside a week. Website, leads, or both — wherever you need it most.</p>
+      </div>
+      <div class="how-step reveal" style="--delay: 0.2s">
+        <div class="how-step-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4a2 2 0 012-2h2.5a1 1 0 011 .76l1 4a1 1 0 01-.27.95L9.5 9.5a11 11 0 005 5l1.79-1.73a1 1 0 01.95-.27l4 1A1 1 0 0122 14.5V17a2 2 0 01-2 2 16 16 0 01-15-15z"/><path d="M16 5l2 2 4-4"/></svg>
+        </div>
+        <div class="how-step-mono">// STEP_03 · 30_DAYS</div>
+        <div class="how-step-num">03</div>
+        <h3>Phone rings. Sorted</h3>
+        <p>Monthly report — what we did, what it got you. No jargon. Not pulling our weight? Sack us.</p>
+      </div>
     </div>
   </div>
 </section>
