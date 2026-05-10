@@ -2038,28 +2038,65 @@
 </section>
 
 <!-- ─────────── FOOTER ─────────── -->
+<style>
+  .footer-social-link:hover { background: var(--amber) !important; color: white !important; }
+  .footer-col-link:hover { color: var(--amber) !important; }
+  .footer-legal-link:hover { color: rgba(255,255,255,0.7) !important; }
+  @media (max-width: 900px) {
+    .footer-top { grid-template-columns: 1fr 1fr !important; gap: 40px !important; }
+  }
+  @media (max-width: 540px) {
+    .footer-top { grid-template-columns: 1fr !important; gap: 36px !important; }
+    .footer-bottom-row { flex-direction: column !important; align-items: flex-start !important; gap: 14px !important; }
+  }
+</style>
 <footer>
-  <div class="footer-inner">
-    <div>
-      <div class="footer-brand">TRADIE<em>BACK</em></div>
-      <div class="footer-tag">The operating system for trade businesses · NZ + AU</div>
+  <div class="footer-inner" style="display:block; max-width: 1180px; margin: 0 auto;">
+    <div class="footer-top" style="display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 56px; padding-bottom: 56px; border-bottom: 1px solid rgba(255,255,255,0.08);">
+      <div>
+        <div class="footer-brand">TRADIE<em>BACK</em></div>
+        <p class="footer-tag" style="max-width: 280px; line-height: 1.5; margin-bottom: 22px;">We get tradies jobs. And we get tradies paid. NZ &amp; Australia.</p>
+        <div style="display: flex; gap: 10px; margin-bottom: 22px;">
+          <a href="https://www.facebook.com/tradieback" target="_blank" rel="noopener" aria-label="Facebook" class="footer-social-link" style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.7);transition:background 0.2s, color 0.2s;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07c0 6.02 4.39 11.01 10.13 11.93v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.79-4.7 4.53-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.89v2.26h3.33l-.53 3.49h-2.8v8.44C19.61 23.08 24 18.09 24 12.07z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/tradieback" target="_blank" rel="noopener" aria-label="Instagram" class="footer-social-link" style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.7);transition:background 0.2s, color 0.2s;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85C2.38 3.86 3.9 2.31 7.15 2.23 8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.7.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.63-6.78-6.98-6.98C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1018.16 12 6.16 6.16 0 0012 5.84zM12 16a4 4 0 110-8 4 4 0 010 8zm6.41-11.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/tradieback" target="_blank" rel="noopener" aria-label="LinkedIn" class="footer-social-link" style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.7);transition:background 0.2s, color 0.2s;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
+          </a>
+        </div>
+        <div style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; background: rgba(46, 204, 113, 0.12); border-radius: 100px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #2ECC71; letter-spacing: 0.14em; font-weight: 600;">
+          <span style="width: 7px; height: 7px; border-radius: 50%; background: #2ECC71; animation: pulse 2.4s ease-in-out infinite;"></span>
+          // SYSTEM ONLINE · NZ &amp; AU
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <h4 style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--amber); letter-spacing: 0.16em; font-weight: 700; text-transform: uppercase; margin-bottom: 8px;">// SERVICES</h4>
+        <a href="services/launch.html" class="footer-col-link" style="color: rgba(255,255,255,0.65); font-size: 14.5px; transition: color 0.2s;">Tradie Launch</a>
+        <a href="services/leads.html" class="footer-col-link" style="color: rgba(255,255,255,0.65); font-size: 14.5px; transition: color 0.2s;">Tradie Leads <span style="color:var(--amber);font-size:10px;font-weight:700;letter-spacing:0.1em;">BETA</span></a>
+        <a href="roadmap.html" class="footer-col-link" style="color: rgba(255,255,255,0.65); font-size: 14.5px; transition: color 0.2s;">See the full roadmap</a>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <h4 style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--amber); letter-spacing: 0.16em; font-weight: 700; text-transform: uppercase; margin-bottom: 8px;">// COMPANY</h4>
+        <a href="about.html" class="footer-col-link" style="color: rgba(255,255,255,0.65); font-size: 14.5px; transition: color 0.2s;">About</a>
+        <a href="audit.html" class="footer-col-link" style="color: rgba(255,255,255,0.65); font-size: 14.5px; transition: color 0.2s;">Free audit</a>
+        <a href="book-a-yarn.html" class="footer-col-link" style="color: rgba(255,255,255,0.65); font-size: 14.5px; transition: color 0.2s;">Book a yarn</a>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <h4 style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--amber); letter-spacing: 0.16em; font-weight: 700; text-transform: uppercase; margin-bottom: 8px;">// CONTACT</h4>
+        <a href="mailto:hello@tradieback.com" class="footer-col-link" style="color: rgba(255,255,255,0.65); font-size: 14.5px; transition: color 0.2s; word-break: break-all;">hello@tradieback.com</a>
+        <a href="https://wa.me/message/SONH7ANNNV2GK1" target="_blank" rel="noopener" class="footer-col-link" style="color: rgba(255,255,255,0.65); font-size: 14.5px; transition: color 0.2s;">WhatsApp Us</a>
+      </div>
     </div>
-    <div class="footer-links">
-      <a href="services/launch.html">Launch</a>
-      <a href="services/leads.html">Leads</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="about.html">About</a>
-      <a href="roadmap.html">Roadmap</a>
-      <a href="https://wa.me/message/SONH7ANNNV2GK1" target="_blank" rel="noopener">WhatsApp</a>
+    <div class="footer-bottom-row" style="display: flex; justify-content: space-between; align-items: center; padding-top: 28px; gap: 20px; flex-wrap: wrap;">
+      <span style="font-size: 13px; color: rgba(255,255,255,0.4);">© 2026 TradieBack · We get tradies jobs. And we get tradies paid.</span>
+      <span style="display: flex; gap: 18px;">
+        <a href="privacy.html" class="footer-legal-link" style="font-size: 13px; color: rgba(255,255,255,0.4); transition: color 0.2s;">Privacy</a>
+        <a href="terms.html" class="footer-legal-link" style="font-size: 13px; color: rgba(255,255,255,0.4); transition: color 0.2s;">Terms</a>
+      </span>
     </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2026 TradieBack · The operating system for trade businesses</span>
-    <span class="footer-legal">
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-      <a href="feedback.html">Client feedback</a>
-    </span>
   </div>
 </footer>
 
