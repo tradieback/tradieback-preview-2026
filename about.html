@@ -102,12 +102,20 @@
       top: 0;
       z-index: 100;
       border-bottom: 1px solid var(--line);
+      transition: transform 0.3s ease-out;
+      will-change: transform;
     }
-    .nav-brand { color: var(--navy); font-weight: 800; font-size: 19px; letter-spacing: -0.01em; }
-    .nav-brand em { color: var(--amber); font-style: normal; }
+    .nav.nav-hidden { transform: translateY(-100%); }
+    .nav-brand {
+      display: inline-flex;
+      align-items: center;
+      height: clamp(44px, 4vw, 60px);
+      flex-shrink: 0;
+    }
+    .nav-brand svg { height: 100%; width: auto; display: block; }
     .nav-links { display: flex; gap: 36px; align-items: center; }
     .nav-links > a, .nav-dd > .nav-dd-trigger {
-      color: var(--ink-soft); font-size: 14px; font-weight: 500;
+      color: var(--navy); font-size: 16px; font-weight: 700; letter-spacing: -0.005em;
       transition: color 0.2s; cursor: pointer; display: inline-flex; align-items: center; gap: 5px;
     }
     .nav-links a:hover, .nav-dd:hover .nav-dd-trigger { color: var(--amber); }
@@ -189,7 +197,7 @@
 
     /* Hero */
     .hero {
-      background: var(--bone);
+      background: var(--navy);
       padding: 70px 48px 60px;
       position: relative;
       overflow: hidden;
@@ -222,22 +230,21 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: white;
-      border: 1px solid var(--line);
-      padding: 7px 16px 7px 12px;
+      background: var(--amber);
+      padding: 8px 18px 8px 14px;
       border-radius: 100px;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      font-weight: 600;
+      font-size: 11.5px;
+      font-weight: 800;
       color: var(--navy);
-      letter-spacing: 0.1em;
+      letter-spacing: 0.14em;
       margin-bottom: 28px;
-      box-shadow: 0 1px 2px rgba(15, 35, 64, 0.04);
+      box-shadow: 0 8px 24px -8px rgba(245, 130, 32, 0.5);
     }
     .hero-tag .dot {
       width: 8px; height: 8px;
       border-radius: 50%;
-      background: var(--amber);
+      background: var(--navy);
       animation: pulse 2.4s ease-in-out infinite;
     }
     @keyframes pulse {
@@ -249,14 +256,14 @@
       font-weight: 800;
       letter-spacing: -0.04em;
       line-height: 0.98;
-      color: var(--navy);
+      color: white;
       margin-bottom: 24px;
     }
     .hero h1 em { font-style: normal; color: var(--amber); }
     .hero .lede {
       font-size: 18px;
       line-height: 1.65;
-      color: var(--muted);
+      color: rgba(255,255,255,0.78);
       max-width: 540px;
       margin-bottom: 32px;
     }
@@ -276,13 +283,13 @@
       font-size: 10.5px;
       font-weight: 600;
       letter-spacing: 0.14em;
-      color: var(--muted);
+      color: rgba(255,255,255,0.55);
       text-transform: uppercase;
     }
     .hero-meta-item .value {
       font-size: 16px;
       font-weight: 700;
-      color: var(--navy);
+      color: white;
       letter-spacing: -0.01em;
     }
 
@@ -823,9 +830,15 @@
       align-items: center;
       gap: 40px;
     }
-    .footer-brand { color: white; font-weight: 800; font-size: 18px; letter-spacing: -0.01em; }
+    .footer-brand {
+      color: white;
+      font-weight: 800;
+      font-size: clamp(38px, 4.6vw, 56px);
+      letter-spacing: -0.035em;
+      line-height: 1;
+    }
     .footer-brand em { color: var(--amber); font-style: normal; }
-    .footer-tag { font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 6px; }
+    .footer-tag { font-size: 14.5px; color: rgba(255,255,255,0.55); margin-top: 14px; letter-spacing: 0.01em; }
     .footer-links { display: flex; gap: 28px; }
     .footer-links a:hover { color: var(--amber); }
     .footer-bottom {
@@ -849,29 +862,27 @@
 </head>
 <body>
 
-<!-- Top bar -->
-<div class="topbar">
-  PILOT IN PROGRESS · <span class="accent">1 FREE SPOT · 4 FOUNDER SPOTS OPENING</span> · NZ + AU TRADIES ONLY
-</div>
-
 <!-- Nav -->
 <nav class="nav">
-  <a href="/" class="nav-brand">TRADIE<em>BACK</em></a>
+  <a href="index.html" class="nav-brand" aria-label="TradieBack — NZ · AU">
+    <svg viewBox="0 0 720 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <text x="20" y="92" font-family="Arial Black, Helvetica, sans-serif" font-weight="900" font-size="80" letter-spacing="1"><tspan fill="#0F2340">TRADIE</tspan><tspan fill="#F58220">BACK</tspan></text>
+      <text x="22" y="120" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-weight="500" font-size="14" fill="#94A3B8" letter-spacing="1.2">// NZ · AU</text>
+    </svg>
+  </a>
   <div class="nav-links">
     <div class="nav-dd">
-      <span class="nav-dd-trigger">Services <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5l3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <a href="services/launch.html" class="nav-dd-trigger">Services <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5l3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <div class="nav-dd-menu">
-        <div class="nav-dd-label">// THE 4-SERVICE ROADMAP</div>
-        <a href="/services/launch" class="nav-dd-item"><strong>Tradie Launch</strong><span>Operating platform · live now</span></a>
-        <a href="/services/leads" class="nav-dd-item"><strong>Tradie Leads</strong><span>Growth engine · live now</span></a>
-        <a href="/roadmap#admin" class="nav-dd-item disabled"><strong>Tradie Admin <span style="color:var(--amber);font-size:10px;">SOON</span></strong><span>Books + collections · Q4 2026</span></a>
-        <a href="/roadmap#copilot" class="nav-dd-item disabled"><strong>Tradie Co-Pilot <span style="color:var(--amber);font-size:10px;">SOON</span></strong><span>AI agents · Q4 2027</span></a>
-        <a href="/roadmap" class="nav-dd-item" style="border-top:1px solid var(--line);margin-top:8px;padding-top:14px;"><strong style="color:var(--amber);">See the full roadmap →</strong></a>
+        <div class="nav-dd-label">// WHAT YOU CAN BUY</div>
+        <a href="services/launch.html" class="nav-dd-item"><strong>Tradie Launch</strong><span>The 7-day install · live now</span></a>
+        <a href="services/leads.html" class="nav-dd-item"><strong>Tradie Leads <span style="color:var(--amber);font-size:10px;">BETA</span></strong><span>Growth engine · in test mode</span></a>
+        <a href="roadmap.html" class="nav-dd-item" style="border-top:1px solid var(--line);margin-top:8px;padding-top:14px;"><strong style="color:var(--amber);">See the full roadmap →</strong><span>Tradie Admin · Co-Pilot · what's coming</span></a>
       </div>
     </div>
-    <a href="/pricing">Pricing</a>
-    <a href="/about" class="active">About</a>
-    <a href="/book-a-yarn" class="btn btn-primary sm">Book a yarn →</a>
+    <a href="about.html" class="active">About</a>
+    <a href="audit.html">Free audit</a>
+    <a href="book-a-yarn.html" class="btn btn-primary sm">Book a yarn →</a>
   </div>
 </nav>
 
@@ -880,7 +891,7 @@
   <div class="hero-inner">
     <div>
       <div class="reveal in">
-        <span class="hero-tag"><span class="dot"></span>// ABOUT · TRADIEBACK · EST. 2026</span>
+        <span class="hero-tag"><span class="dot"></span>ABOUT · TRADIEBACK · EST. 2026</span>
       </div>
       <h1 class="reveal in">Built by someone who's <em>actually</em> been on site.</h1>
       <p class="lede reveal in" style="--delay: 0.1s">Mathieson Moller spent nearly a decade in NZ construction — labourer to foreman to project manager on $50M+ builds. TradieBack is the platform he wished tradies had back then. Built only for NZ + AU.</p>
@@ -1092,7 +1103,7 @@
         </a>
       </div>
 
-      <a href="/book-a-yarn" class="btn btn-primary">Book a 30-min yarn →</a>
+      <a href="book-a-yarn.html" class="btn btn-primary">Book a 20-min yarn →</a>
     </div>
   </div>
 </section>
@@ -1101,11 +1112,11 @@
 <section class="final-cta">
   <div class="final-cta-inner">
     <span class="eyebrow reveal">// Take the spot</span>
-    <h2 class="reveal" style="--delay: 0.05s">Five spots. <em>Round one.</em></h2>
-    <p class="reveal" style="--delay: 0.1s">One free pilot. Four founder seats locked at the founder rate for 12 months. After that, we go to public pricing — and the founder rate disappears for good.</p>
+    <h2 class="reveal" style="--delay: 0.05s">Two free pilots. <em>Before June 17.</em></h2>
+    <p class="reveal" style="--delay: 0.1s">Pre-launch, we're taking on two NZ + AU tradies as the first case studies. Free 7-day install · 3 months free hosting + maintenance · 1 month free Leads beta. Founder spots open June 17 with locked-in rates for the first 4 clients.</p>
     <div class="final-actions reveal" style="--delay: 0.2s">
-      <a href="/book-a-yarn" class="btn btn-primary">Book a yarn →</a>
-      <a href="/pricing" class="btn btn-ghost">See pricing</a>
+      <a href="book-a-yarn.html" class="btn btn-primary">Apply for a pilot spot →</a>
+      <a href="audit.html" class="btn btn-ghost">Get a free audit first</a>
     </div>
   </div>
 </section>
@@ -1118,20 +1129,19 @@
       <div class="footer-tag">The platform built only for NZ + AU tradies</div>
     </div>
     <div class="footer-links">
-      <a href="/">Home</a>
-      <a href="/services/launch">Launch</a>
-      <a href="/services/leads">Leads</a>
-      <a href="/pricing">Pricing</a>
-      <a href="/about">About</a>
+      <a href="index.html">Home</a>
+      <a href="services/launch.html">Launch</a>
+      <a href="services/leads.html">Leads</a>
+      <a href="about.html">About</a>
       <a href="https://wa.me/message/SONH7ANNNV2GK1" target="_blank" rel="noopener">WhatsApp</a>
     </div>
   </div>
   <div class="footer-bottom">
     <span>© 2026 TradieBack · Built only for NZ + AU tradies</span>
     <span class="footer-legal">
-      <a href="/privacy">Privacy</a>
-      <a href="/terms">Terms</a>
-      <a href="/feedback">Client feedback</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="feedback.html">Client feedback</a>
     </span>
   </div>
 </footer>
@@ -1152,6 +1162,29 @@
     } else {
       document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
     }
+  })();
+
+  // ─────────── SCROLL-AWARE NAV ───────────
+  (function () {
+    const nav = document.querySelector('.nav');
+    if (!nav) return;
+    let lastY = window.scrollY;
+    let ticking = false;
+    const HIDE_THRESHOLD = 80;
+    window.addEventListener('scroll', () => {
+      if (ticking) return;
+      window.requestAnimationFrame(() => {
+        const y = window.scrollY;
+        if (y > lastY && y > HIDE_THRESHOLD) {
+          nav.classList.add('nav-hidden');
+        } else if (y < lastY) {
+          nav.classList.remove('nav-hidden');
+        }
+        lastY = y;
+        ticking = false;
+      });
+      ticking = true;
+    }, { passive: true });
   })();
 </script>
 
