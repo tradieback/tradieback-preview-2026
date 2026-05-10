@@ -1701,10 +1701,15 @@
     <div class="product-grid" style="display: grid; grid-template-columns: 1fr; gap: 20px;">
 
       <!-- TRADIE LAUNCH CARD -->
-      <a href="/services/launch" class="product-card reveal" style="display:block;background:var(--navy);text-decoration:none;color:white;border-radius:24px;padding:0;position:relative;overflow:hidden;transition:transform 0.4s, box-shadow 0.4s;">
-        <!-- giant number watermark -->
-        <div style="position:absolute;top:24px;right:36px;font-family:'JetBrains Mono', monospace;font-size:180px;font-weight:800;color:rgba(245,130,32,0.10);letter-spacing:-0.05em;line-height:0.8;z-index:0;pointer-events:none;">01</div>
-        <div style="padding:34px 44px 38px;position:relative;">
+      <a href="/services/launch" class="product-card card-launch reveal" style="background:var(--navy);text-decoration:none;color:white;border-radius:24px;padding:0;position:relative;overflow:hidden;transition:transform 0.4s, box-shadow 0.4s;display:grid;grid-template-columns:340px 1fr;">
+        <!-- LEFT: image side -->
+        <div style="position:relative;background:var(--navy-deep);overflow:hidden;min-height:420px;">
+          <img src="assets/services/website.png" alt="Tradie Launch — custom website + branded CRM" style="width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.95;">
+          <div style="position:absolute;inset:0;background:linear-gradient(90deg, transparent 40%, var(--navy) 100%);pointer-events:none;"></div>
+          <div style="position:absolute;top:18px;left:22px;font-family:'JetBrains Mono', monospace;font-size:96px;font-weight:800;color:rgba(245,130,32,0.22);letter-spacing:-0.05em;line-height:0.8;z-index:1;">01</div>
+        </div>
+        <!-- RIGHT: content side -->
+        <div style="padding:30px 36px 32px;position:relative;">
           <div style="position:absolute;top:-40px;right:-50px;width:240px;height:240px;background:radial-gradient(circle, rgba(245,130,32,0.18), transparent 65%);pointer-events:none;"></div>
           <div style="position:relative;z-index:1;">
           <div style="display:inline-flex;align-items:center;gap:8px;background:var(--amber);color:var(--navy);font-family:'JetBrains Mono', monospace;font-size:11px;letter-spacing:0.14em;font-weight:800;padding:7px 14px;border-radius:100px;margin-bottom:24px;">
