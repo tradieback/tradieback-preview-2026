@@ -97,9 +97,17 @@
       top: 0;
       z-index: 100;
       border-bottom: 1px solid var(--line);
+      transition: transform 0.3s ease-out;
+      will-change: transform;
     }
-    .nav-brand { color: var(--navy); font-weight: 800; font-size: 19px; letter-spacing: -0.01em; }
-    .nav-brand em { color: var(--amber); font-style: normal; }
+    .nav.nav-hidden { transform: translateY(-100%); }
+    .nav-brand {
+      display: inline-flex;
+      align-items: center;
+      height: clamp(44px, 4vw, 60px);
+      flex-shrink: 0;
+    }
+    .nav-brand svg { height: 100%; width: auto; display: block; }
     .nav-links { display: flex; gap: 36px; align-items: center; }
     .nav-links > a, .nav-dd > .nav-dd-trigger {
       color: var(--ink-soft); font-size: 14px; font-weight: 500;
@@ -183,7 +191,7 @@
 
     /* Hero */
     .hero {
-      background: var(--bone);
+      background: var(--navy);
       padding: 70px 48px 80px;
       position: relative;
       overflow: hidden;
@@ -216,22 +224,21 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: white;
-      border: 1px solid var(--line);
-      padding: 7px 16px 7px 12px;
+      background: var(--amber);
+      padding: 8px 18px 8px 14px;
       border-radius: 100px;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      font-weight: 600;
+      font-size: 11.5px;
+      font-weight: 800;
       color: var(--navy);
-      letter-spacing: 0.1em;
+      letter-spacing: 0.14em;
       margin-bottom: 28px;
-      box-shadow: 0 1px 2px rgba(15, 35, 64, 0.04);
+      box-shadow: 0 8px 24px -8px rgba(245, 130, 32, 0.5);
     }
     .hero-tag .dot {
       width: 8px; height: 8px;
       border-radius: 50%;
-      background: var(--amber);
+      background: var(--navy);
       animation: pulse 2.4s ease-in-out infinite;
     }
     @keyframes pulse {
@@ -243,14 +250,14 @@
       font-weight: 800;
       letter-spacing: -0.04em;
       line-height: 0.98;
-      color: var(--navy);
+      color: white;
       margin-bottom: 24px;
     }
     .hero h1 em { font-style: normal; color: var(--amber); }
     .hero .lede {
       font-size: 18px;
       line-height: 1.65;
-      color: var(--muted);
+      color: rgba(255,255,255,0.78);
       max-width: 540px;
       margin-bottom: 32px;
     }
@@ -961,9 +968,15 @@
       align-items: center;
       gap: 40px;
     }
-    .footer-brand { color: white; font-weight: 800; font-size: 18px; letter-spacing: -0.01em; }
+    .footer-brand {
+      color: white;
+      font-weight: 800;
+      font-size: clamp(38px, 4.6vw, 56px);
+      letter-spacing: -0.035em;
+      line-height: 1;
+    }
     .footer-brand em { color: var(--amber); font-style: normal; }
-    .footer-tag { font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 6px; }
+    .footer-tag { font-size: 14.5px; color: rgba(255,255,255,0.55); margin-top: 14px; letter-spacing: 0.01em; }
     .footer-links { display: flex; gap: 28px; }
     .footer-links a:hover { color: var(--amber); }
     .footer-bottom {
@@ -1001,29 +1014,28 @@
   </defs>
 </svg>
 
-<!-- Top bar -->
-<a href="#request" class="topbar">
-  // FROM THE TEAM BEHIND TRADIE LAUNCH + LEADS · <span class="accent">FREE AUDIT · 24-HR TURNAROUND · NO PITCH</span> · NZ + AU TRADIES ONLY
-</a>
-
 <!-- Nav -->
 <nav class="nav">
-  <a href="/" class="nav-brand">TRADIE<em>BACK</em></a>
+  <a href="index.html" class="nav-brand" aria-label="TradieBack — NZ · AU">
+    <svg viewBox="0 0 780 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <text x="20" y="92" font-family="Arial Black, Helvetica, sans-serif" font-weight="900" font-size="80" fill="#0F2340" letter-spacing="1">TRADIE</text>
+      <text x="378" y="92" font-family="Arial Black, Helvetica, sans-serif" font-weight="900" font-size="80" fill="#F58220" letter-spacing="1">BACK</text>
+      <text x="22" y="120" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-weight="500" font-size="14" fill="#94A3B8" letter-spacing="1.2">// NZ · AU</text>
+    </svg>
+  </a>
   <div class="nav-links">
     <div class="nav-dd">
-      <span class="nav-dd-trigger">Services <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5l3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <a href="services/launch.html" class="nav-dd-trigger">Services <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5l3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <div class="nav-dd-menu">
-        <div class="nav-dd-label">// THE 4-SERVICE ROADMAP</div>
-        <a href="/services/launch" class="nav-dd-item"><strong>Tradie Launch</strong><span>Operating platform · live now</span></a>
-        <a href="/services/leads" class="nav-dd-item"><strong>Tradie Leads</strong><span>Growth engine · live now</span></a>
-        <a href="/roadmap#admin" class="nav-dd-item disabled"><strong>Tradie Admin <span style="color:var(--amber);font-size:10px;">SOON</span></strong><span>Books + collections · Q4 2026</span></a>
-        <a href="/roadmap#copilot" class="nav-dd-item disabled"><strong>Tradie Co-Pilot <span style="color:var(--amber);font-size:10px;">SOON</span></strong><span>AI agents · Q4 2027</span></a>
-        <a href="/roadmap" class="nav-dd-item" style="border-top:1px solid var(--line);margin-top:8px;padding-top:14px;"><strong style="color:var(--amber);">See the full roadmap →</strong></a>
+        <div class="nav-dd-label">// WHAT YOU CAN BUY</div>
+        <a href="services/launch.html" class="nav-dd-item"><strong>Tradie Launch</strong><span>The 7-day install · live now</span></a>
+        <a href="services/leads.html" class="nav-dd-item"><strong>Tradie Leads <span style="color:var(--amber);font-size:10px;">BETA</span></strong><span>Growth engine · in test mode</span></a>
+        <a href="roadmap.html" class="nav-dd-item" style="border-top:1px solid var(--line);margin-top:8px;padding-top:14px;"><strong style="color:var(--amber);">See the full roadmap →</strong><span>Tradie Admin · Co-Pilot · what's coming</span></a>
       </div>
     </div>
-    <a href="/pricing">Pricing</a>
-    <a href="/about">About</a>
-    <a href="#request" class="btn btn-primary sm">Get my audit →</a>
+    <a href="about.html">About</a>
+    <a href="audit.html" class="active">Free audit</a>
+    <a href="book-a-yarn.html" class="btn btn-primary sm">Book a yarn →</a>
   </div>
 </nav>
 
@@ -1032,7 +1044,7 @@
   <div class="hero-inner">
     <div>
       <div class="reveal in">
-        <span class="hero-tag"><span class="dot"></span>// FREE · 24 HOURS · NO CATCH</span>
+        <span class="hero-tag"><span class="dot"></span>FREE · 24-HOUR TURNAROUND · NO PITCH</span>
       </div>
       <h1 class="reveal in">Your website, SEO, and Google Business — <em>scored in 24 hours.</em></h1>
       <p class="lede reveal in" style="--delay: 0.1s">Three reports. Benchmarked against your top local competitor. Free, no pitch, yours to keep. Take it and fix it yourself if you want — we don't mind.</p>
@@ -1042,7 +1054,7 @@
       </div>
     </div>
 
-    <a href="/audit-sample-website" class="reveal in" style="--delay: 0.15s; text-decoration: none;">
+    <a href="audit-sample-website.html" class="reveal in" style="--delay: 0.15s; text-decoration: none;">
       <div class="report-card">
         <div class="report-stamp">// SAMPLE REPORT</div>
         <div class="report-head">
@@ -1142,7 +1154,7 @@
     </div>
 
     <div class="grid-3">
-      <a href="/audit-sample-website" class="sample-card reveal">
+      <a href="audit-sample-website.html" class="sample-card reveal">
         <div class="sample-num">// 01 · Website audit</div>
         <div class="sample-icon"><svg><use href="#i-monitor"/></svg></div>
         <h3>Website audit</h3>
@@ -1150,7 +1162,7 @@
         <div class="sample-cta">See sample <svg width="14" height="14"><use href="#i-arrow"/></svg></div>
       </a>
 
-      <a href="/audit-sample-seo" class="sample-card reveal" style="--delay: 0.05s">
+      <a href="audit-sample-seo.html" class="sample-card reveal" style="--delay: 0.05s">
         <div class="sample-num">// 02 · SEO audit</div>
         <div class="sample-icon"><svg><use href="#i-search"/></svg></div>
         <h3>SEO audit</h3>
@@ -1158,7 +1170,7 @@
         <div class="sample-cta">See sample <svg width="14" height="14"><use href="#i-arrow"/></svg></div>
       </a>
 
-      <a href="/audit-sample-gmb" class="sample-card reveal" style="--delay: 0.1s">
+      <a href="audit-sample-gmb.html" class="sample-card reveal" style="--delay: 0.1s">
         <div class="sample-num">// 03 · Google Business audit</div>
         <div class="sample-icon"><svg><use href="#i-pin"/></svg></div>
         <h3>Google Business audit</h3>
@@ -1265,10 +1277,10 @@
   <div class="final-inner">
     <span class="eyebrow reveal">// Two paths</span>
     <h2 class="reveal" style="--delay: 0.05s">Get the numbers first. <em>Or just have a yarn.</em></h2>
-    <p class="reveal" style="--delay: 0.1s">If you want to know where you stand before talking to anyone — get the audit. If you'd rather just chat about the business — book a 30-min yarn. Either path is free.</p>
+    <p class="reveal" style="--delay: 0.1s">If you want to know where you stand before talking to anyone — get the audit. If you'd rather just chat about the business — book a 20-min yarn. Either path is free.</p>
     <div class="final-actions reveal" style="--delay: 0.2s">
       <a href="#request" class="btn btn-primary">Get my free audit →</a>
-      <a href="/book-a-yarn" class="btn btn-ghost">Book a yarn instead</a>
+      <a href="book-a-yarn.html" class="btn btn-ghost">Book a yarn instead</a>
     </div>
   </div>
 </section>
@@ -1281,20 +1293,19 @@
       <div class="footer-tag">The platform built only for NZ + AU tradies</div>
     </div>
     <div class="footer-links">
-      <a href="/">Home</a>
-      <a href="/services/launch">Launch</a>
-      <a href="/services/leads">Leads</a>
-      <a href="/pricing">Pricing</a>
-      <a href="/about">About</a>
+      <a href="index.html">Home</a>
+      <a href="services/launch.html">Launch</a>
+      <a href="services/leads.html">Leads</a>
+      <a href="about.html">About</a>
       <a href="https://wa.me/message/SONH7ANNNV2GK1" target="_blank" rel="noopener">WhatsApp</a>
     </div>
   </div>
   <div class="footer-bottom">
     <span>© 2026 TradieBack · Built only for NZ + AU tradies</span>
     <span class="footer-legal">
-      <a href="/privacy">Privacy</a>
-      <a href="/terms">Terms</a>
-      <a href="/feedback">Client feedback</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="feedback.html">Client feedback</a>
     </span>
   </div>
 </footer>
@@ -1315,6 +1326,29 @@
     } else {
       document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
     }
+  })();
+
+  // ─────────── SCROLL-AWARE NAV ───────────
+  (function () {
+    const nav = document.querySelector('.nav');
+    if (!nav) return;
+    let lastY = window.scrollY;
+    let ticking = false;
+    const HIDE_THRESHOLD = 80;
+    window.addEventListener('scroll', () => {
+      if (ticking) return;
+      window.requestAnimationFrame(() => {
+        const y = window.scrollY;
+        if (y > lastY && y > HIDE_THRESHOLD) {
+          nav.classList.add('nav-hidden');
+        } else if (y < lastY) {
+          nav.classList.remove('nav-hidden');
+        }
+        lastY = y;
+        ticking = false;
+      });
+      ticking = true;
+    }, { passive: true });
   })();
 </script>
 
