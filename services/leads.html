@@ -1144,7 +1144,10 @@
       box-shadow: 0 30px 70px -20px rgba(0,0,0,0.4);
     }
     .cta-cal iframe {
-      width: 100%; min-height: 700px; border: none; display: block;
+      width: 100%; max-width: 100%; min-height: 700px; border: none; display: block;
+    }
+    @media (max-width: 600px) {
+      .cta-cal iframe { min-height: 620px; }
     }
 
     footer {

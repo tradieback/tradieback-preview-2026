@@ -1961,9 +1961,9 @@
     </div>
 
     <!-- Bottom line band -->
-    <div class="reveal" style="--delay:0.2s; max-width: 1000px; margin: 36px auto 0; background: var(--navy); border-radius: 16px; padding: 24px 32px; display: flex; align-items: center; justify-content: center; gap: 20px 28px; flex-wrap: wrap; text-align: center;">
+    <div class="bottom-line reveal" style="--delay:0.2s; max-width: 1000px; margin: 36px auto 0; background: var(--navy); border-radius: 16px; padding: 22px 28px; display: flex; align-items: center; justify-content: center; gap: 12px 24px; flex-wrap: wrap; text-align: center;">
       <span style="font-family:'JetBrains Mono', monospace;font-size:11px;color:var(--amber);letter-spacing:0.16em;font-weight:700;text-transform:uppercase;flex-shrink:0;">// The bottom line</span>
-      <span style="font-size:15.5px;color:white;font-weight:600;letter-spacing:-0.01em;">~$320/mo cheaper · 5+ hrs/wk back · phone rings less, books more.</span>
+      <span class="bottom-line-text" style="font-size:15.5px;color:white;font-weight:600;letter-spacing:-0.01em;">~$320/mo cheaper · 5+ hrs/wk back · phone rings less, books more.</span>
     </div>
   </div>
 </section>
@@ -1971,6 +1971,10 @@
 <style>
   @media (max-width: 800px) {
     .contrast-tight { grid-template-columns: 1fr !important; }
+  }
+  @media (max-width: 540px) {
+    .bottom-line { padding: 18px 22px !important; gap: 10px !important; }
+    .bottom-line-text { font-size: 14px !important; line-height: 1.5; }
   }
 </style>
 
@@ -2116,7 +2120,7 @@
   @media (max-width: 900px) {
     .product-grid { grid-template-columns: 1fr !important; }
     .card-launch, .card-leads { grid-template-columns: 1fr !important; }
-    .card-launch > div:first-child, .card-leads > div:first-child { min-height: 200px !important; }
+    .card-launch > div:first-child, .card-leads > div:first-child { min-height: 240px !important; }
   }
 </style>
 

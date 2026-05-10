@@ -500,9 +500,13 @@
     }
     .booking-cal iframe {
       width: 100%;
+      max-width: 100%;
       min-height: 700px;
       border: none;
       display: block;
+    }
+    @media (max-width: 600px) {
+      .booking-cal iframe { min-height: 620px; }
     }
 
     /* Alt paths */
