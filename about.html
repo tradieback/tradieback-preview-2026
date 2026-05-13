@@ -351,10 +351,15 @@
     .hero-portrait {
       position: relative;
       aspect-ratio: 4 / 5;
+      max-width: 380px;
+      margin-left: auto;
       border-radius: 20px;
       overflow: hidden;
       box-shadow: 0 30px 80px -20px rgba(15, 35, 64, 0.28);
       background: var(--bone-warm);
+    }
+    @media (max-width: 960px) {
+      .hero-portrait { margin: 0 auto; max-width: 320px; }
     }
     .hero-portrait img {
       width: 100%;
