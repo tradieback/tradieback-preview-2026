@@ -347,19 +347,22 @@
       letter-spacing: -0.01em;
     }
 
-    /* Hero portrait card */
+    /* Hero portrait card — matches home page hero photo dimensions */
     .hero-portrait {
       position: relative;
-      aspect-ratio: 4 / 5;
-      max-width: 380px;
-      margin-left: auto;
-      border-radius: 20px;
+      aspect-ratio: 1 / 1;
+      max-width: 480px;
+      width: 100%;
+      margin: 0 0 0 auto;
+      border-radius: 24px;
       overflow: hidden;
-      box-shadow: 0 30px 80px -20px rgba(15, 35, 64, 0.28);
+      box-shadow:
+        0 30px 80px -24px rgba(15, 35, 64, 0.22),
+        0 12px 32px -12px rgba(15, 35, 64, 0.10);
       background: var(--bone-warm);
     }
     @media (max-width: 960px) {
-      .hero-portrait { margin: 0 auto; max-width: 320px; }
+      .hero-portrait { margin: 0 auto; max-width: 400px; }
     }
     .hero-portrait img {
       width: 100%;
