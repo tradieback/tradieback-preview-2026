@@ -80,8 +80,27 @@
     }
     .topbar .accent { color: var(--amber); }
 
+    .announcement {
+      background: var(--navy-deep);
+      color: rgba(255,255,255,0.9);
+      text-align: center;
+      padding: 9px 20px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      border-bottom: 1px solid rgba(245,130,32,0.25);
+      position: sticky;
+      top: 0;
+      z-index: 101;
+    }
+    .announcement a {
+      color: var(--amber);
+      border-bottom: 1px solid rgba(245,130,32,0.5);
+      padding-bottom: 1px;
+      margin-left: 4px;
+    }
     .nav {
-      background: rgba(248, 246, 241, 0.88);
+      background: var(--navy);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       padding: 22px 48px;
@@ -89,9 +108,9 @@
       align-items: center;
       justify-content: space-between;
       position: sticky;
-      top: 0;
+      top: 38px;
       z-index: 100;
-      border-bottom: 1px solid var(--line);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
       transition: transform 0.3s ease-out;
       will-change: transform;
     }
@@ -105,7 +124,7 @@
     .nav-brand svg { height: 100%; width: auto; display: block; }
     .nav-links { display: flex; gap: 36px; align-items: center; }
     .nav-links > a, .nav-dd > .nav-dd-trigger {
-      color: var(--navy); font-size: 16px; font-weight: 700; letter-spacing: -0.005em;
+      color: white; font-size: 16px; font-weight: 700; letter-spacing: -0.005em;
       transition: color 0.2s; cursor: pointer; display: inline-flex; align-items: center; gap: 5px;
     }
     .nav-links a:hover, .nav-dd:hover .nav-dd-trigger { color: var(--amber); }
@@ -153,12 +172,12 @@
     }
     .nav-burger {
       display: none; width: 42px; height: 42px;
-      background: transparent; border: 1.5px solid var(--line-warm); border-radius: 10px;
+      background: transparent; border: 1.5px solid rgba(255,255,255,0.2); border-radius: 10px;
       flex-direction: column; justify-content: center; align-items: center; gap: 4px;
       cursor: pointer; padding: 0; transition: border-color 0.2s, background 0.2s;
     }
-    .nav-burger:hover { border-color: var(--amber); background: rgba(245,130,32,0.06); }
-    .nav-burger span { display: block; width: 18px; height: 2px; background: var(--navy); border-radius: 2px; }
+    .nav-burger:hover { border-color: var(--amber); background: rgba(245,130,32,0.12); }
+    .nav-burger span { display: block; width: 18px; height: 2px; background: white; border-radius: 2px; }
     @media (max-width: 800px) { .nav-burger { display: flex; } }
     .mobile-menu {
       position: fixed; inset: 0; background: var(--navy); z-index: 200;
@@ -350,7 +369,6 @@
       .hv-float-bl { left: 8px; }
     }
     .hv-float .num {
-      font-family: 'JetBrains Mono', monospace;
       font-size: 11px;
       letter-spacing: 0.14em;
       color: var(--amber);
@@ -395,7 +413,6 @@
     }
     .num-num .accent { color: var(--amber); }
     .num-label {
-      font-family: 'JetBrains Mono', monospace;
       font-size: 11px;
       color: var(--muted);
       letter-spacing: 0.12em;
@@ -425,7 +442,6 @@
       gap: 8px;
       background: var(--amber-soft);
       color: var(--amber);
-      font-family: 'JetBrains Mono', monospace;
       font-size: 11px;
       font-weight: 600;
       letter-spacing: 0.16em;
@@ -700,7 +716,6 @@
       box-shadow: 0 4px 12px -2px rgba(245, 130, 32, 0.5);
     }
     .fc-tag {
-      font-family: 'JetBrains Mono', monospace;
       font-size: 11px;
       color: var(--amber);
       letter-spacing: 0.16em;
@@ -1155,6 +1170,7 @@
       color: rgba(255,255,255,0.5);
       padding: 60px 32px 36px;
       font-size: 13px;
+      border-top: 1px solid var(--amber);
     }
     .footer-inner {
       max-width: 1180px; margin: 0 auto;
@@ -1166,7 +1182,7 @@
     .footer-brand {
       color: white;
       font-weight: 800;
-      font-size: clamp(38px, 4.6vw, 56px);
+      font-size: clamp(22px, 2.4vw, 28px);
       letter-spacing: -0.035em;
       line-height: 1;
     }
@@ -1203,12 +1219,16 @@
   </defs>
 </svg>
 
+<!-- Announcement strip -->
+<div class="announcement">
+  Live in NZ + AU · Founder cohort open —<a href="../audit.html">grab a free audit →</a>
+</div>
+
 <!-- Nav -->
 <nav class="nav">
   <a href="../index.html" class="nav-brand" aria-label="TradieBack — NZ · AU">
-    <svg viewBox="0 0 720 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <text x="20" y="92" font-family="Arial Black, Helvetica, sans-serif" font-weight="900" font-size="80" letter-spacing="1"><tspan fill="#0F2340">TRADIE</tspan><tspan fill="#F58220">BACK</tspan></text>
-      <text x="22" y="120" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-weight="500" font-size="14" fill="#94A3B8" letter-spacing="1.2">// NZ · AU</text>
+    <svg viewBox="0 0 720 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <text x="20" y="80" font-family="Arial Black, Helvetica, sans-serif" font-weight="900" font-size="80" letter-spacing="1"><tspan fill="#FFFFFF">TRADIE</tspan><tspan fill="#F58220">BACK</tspan></text>
     </svg>
   </a>
   <div class="nav-links">
@@ -1274,13 +1294,13 @@
     <div class="reveal in" style="--delay: 0.15s">
       <div class="hero-visual">
         <img src="../assets/marketing-hero.jpg" alt="Top of the map pack — Watts On Electrical">
-        <div class="hv-stamp">// PHONE RINGING</div>
+        <div class="hv-stamp">PHONE RINGING</div>
         <div class="hv-float hv-float-tr">
-          <div class="num">// FIRST LEAD</div>
+          <div class="num">FIRST LEAD</div>
           <div class="text">In 30 days</div>
         </div>
         <div class="hv-float hv-float-bl">
-          <div class="num">// 2 CHANNELS</div>
+          <div class="num">2 CHANNELS</div>
           <div class="text">Google + Meta</div>
         </div>
       </div>
@@ -1314,7 +1334,7 @@
 <section class="problem">
   <div class="problem-inner">
     <div class="reveal">
-      <div class="eyebrow">// The problem</div>
+      <div class="eyebrow">The problem</div>
       <h2 class="h2">A flash website is useless if <em>nobody finds it.</em></h2>
       <p class="lede-p">Your competitor has 80 reviews, posts to Google Business every week, and ranks for every search worth ranking for. You've got 12 reviews and a profile nobody's touched since 2022. It's not your skill — nobody's running your visibility.</p>
       <p class="lede-p"><strong>That's the gap. And the cowboys are cleaning up because of it.</strong></p>
@@ -1322,7 +1342,7 @@
     <div class="reveal" style="--delay: 0.1s">
       <div class="dead-card">
         <div class="dead-rank">PAGE 3 OF GOOGLE<span>Where the cowboys live</span></div>
-        <div class="dead-tag">// DEAD.PROFILE</div>
+        <div class="dead-tag">DEAD.PROFILE</div>
         <div class="dead-head">
           <div class="dead-logo">⚡</div>
           <div class="dead-name">
@@ -1346,7 +1366,7 @@
 <section class="cost">
   <div class="cost-inner">
     <div class="cost-head reveal">
-      <div class="eyebrow">// The real number</div>
+      <div class="eyebrow">The real number</div>
       <h2 class="h2">Doing nothing isn't free.<br><em>The tradie above you is taking your calls.</em></h2>
       <p class="lede-p">Here's the maths nobody shows you. Not a scare tactic — just what actually happens every month you're not in the top 3 on Google.</p>
     </div>
@@ -1379,13 +1399,13 @@
 <section class="section bone" id="whats-in">
   <div class="section-inner">
     <div class="section-head reveal">
-      <div class="eyebrow">// Three problems</div>
+      <div class="eyebrow">Three problems</div>
       <h2 class="h2">Three problems most tradies hit. <em>Three things we solve.</em></h2>
       <p>Once your website's up and the operating platform is running, you'll hit one of three problems. Tradie Leads is built to solve them in order.</p>
     </div>
     <div class="grid-3">
       <div class="fc reveal">
-        <div class="fc-tag">// PROBLEM 01</div>
+        <div class="fc-tag">PROBLEM 01</div>
         <div class="fc-icon"><svg><use href="#i-megaphone"/></svg></div>
         <h3>"I get leads but they're tyre-kickers."</h3>
         <p>Every "I'll think about it" call costs you 20 minutes. We screen leads before they reach you.</p>
@@ -1399,7 +1419,7 @@
 
       <div class="fc featured reveal" style="--delay: 0.05s">
         <div class="fc-flag">★ THE BIG WIN</div>
-        <div class="fc-tag">// PROBLEM 02</div>
+        <div class="fc-tag">PROBLEM 02</div>
         <div class="fc-icon"><svg><use href="#i-sheet"/></svg></div>
         <h3>"I don't know what to do with the leads I do get."</h3>
         <p>Quoted but no answer. Booked but no-show. We close the loop after the lead lands.</p>
@@ -1412,7 +1432,7 @@
       </div>
 
       <div class="fc reveal" style="--delay: 0.1s">
-        <div class="fc-tag">// PROBLEM 03</div>
+        <div class="fc-tag">PROBLEM 03</div>
         <div class="fc-icon"><svg><use href="#i-search"/></svg></div>
         <h3>"I don't have enough leads."</h3>
         <p>Word-of-mouth tapped out. Google Business dormant. We turn the volume up — paid + organic.</p>
@@ -1432,13 +1452,13 @@
 <section class="section white">
   <div class="section-inner">
     <div class="section-head reveal">
-      <div class="eyebrow">// The channels we run</div>
+      <div class="eyebrow">The channels we run</div>
       <h2 class="h2">Six channels. <em>One operator.</em></h2>
       <p>Paid + organic working together. Paid rings the phone in week 2. Organic compounds for years. We run both — same Loom-led monthly review across all of it.</p>
     </div>
     <div class="grid-3">
       <div class="fc reveal">
-        <div class="fc-tag">// 01 · GOOGLE ADS</div>
+        <div class="fc-tag">01 · GOOGLE ADS</div>
         <div class="fc-icon"><svg><use href="#i-search"/></svg></div>
         <h3>Google Ads</h3>
         <p>Search campaigns + Local Services Ads where eligible. Targeting tuned to your trade + suburbs.</p>
@@ -1451,7 +1471,7 @@
       </div>
 
       <div class="fc reveal" style="--delay: 0.05s">
-        <div class="fc-tag">// 02 · META ADS · NEW</div>
+        <div class="fc-tag">02 · META ADS · NEW</div>
         <div class="fc-icon"><svg><use href="#i-megaphone"/></svg></div>
         <h3>Facebook + Instagram Ads</h3>
         <p>Targeting homeowner mums in your suburbs — the people Google searches less but Facebook scrolls more.</p>
@@ -1464,7 +1484,7 @@
       </div>
 
       <div class="fc reveal" style="--delay: 0.1s">
-        <div class="fc-tag">// 03 · LOCAL SEO</div>
+        <div class="fc-tag">03 · LOCAL SEO</div>
         <div class="fc-icon"><svg><use href="#i-pin"/></svg></div>
         <h3>Local SEO + GBP</h3>
         <p>Compounds for years. Suburb pages, schema, NAP consistency, weekly Google Business posts.</p>
@@ -1477,7 +1497,7 @@
       </div>
 
       <div class="fc reveal" style="--delay: 0.15s">
-        <div class="fc-tag">// 04 · SOCIAL</div>
+        <div class="fc-tag">04 · SOCIAL</div>
         <div class="fc-icon"><svg><use href="#i-sheet"/></svg></div>
         <h3>2 social posts/week</h3>
         <p>Facebook + Instagram, from real job photos you WhatsApp over. Stops the "are they still trading?" doubt.</p>
@@ -1490,7 +1510,7 @@
       </div>
 
       <div class="fc reveal" style="--delay: 0.2s">
-        <div class="fc-tag">// 05 · BLOG</div>
+        <div class="fc-tag">05 · BLOG</div>
         <div class="fc-icon"><svg><use href="#i-monitor"/></svg></div>
         <h3>1 blog post/month</h3>
         <p>Long-tail SEO that compounds. "How much does a [trade] cost in [suburb]" type articles that capture customers at research stage.</p>
@@ -1504,7 +1524,7 @@
 
       <div class="fc featured reveal" style="--delay: 0.25s">
         <div class="fc-flag">★ THE RELATIONSHIP</div>
-        <div class="fc-tag">// 06 · MONTHLY OPERATING REVIEW</div>
+        <div class="fc-tag">06 · MONTHLY OPERATING REVIEW</div>
         <div class="fc-icon"><svg><use href="#i-pin"/></svg></div>
         <h3>Mathieson reviews your business · every month</h3>
         <p>1-page report + 5-min Loom video from Mathieson · plus Month 6 retention check + Month 11 annual refresh. The human-led layer over the platform.</p>
@@ -1524,7 +1544,7 @@
 <section class="deep">
   <div class="deep-inner">
     <div class="section-head reveal">
-      <div class="eyebrow">// Under the hood</div>
+      <div class="eyebrow">Under the hood</div>
       <h2 class="h2">What each lever does <em>and why it matters.</em></h2>
       <p>If you've never done marketing before — or you've been burned by an agency that couldn't explain what they were actually doing — this is for you. Plain English, no jargon.</p>
     </div>
@@ -1621,7 +1641,7 @@
 <section class="section bone">
   <div class="section-inner">
     <div class="section-head reveal">
-      <div class="eyebrow">// Fair questions</div>
+      <div class="eyebrow">Fair questions</div>
       <h2 class="h2">The 5 things every tradie asks <em>on the call.</em></h2>
     </div>
     <div class="faq-list">
@@ -1654,7 +1674,7 @@
   <div class="bridge-inner reveal">
     <div class="bridge-icon"><svg><use href="#i-monitor"/></svg></div>
     <div class="bridge-content">
-      <div class="eyebrow" style="margin-bottom:14px;">// Start here first</div>
+      <div class="eyebrow" style="margin-bottom:14px;">Start here first</div>
       <h3>Leads is the optional add-on. <em>Tradie Launch is the foundation.</em></h3>
       <p>Every TradieBack client starts with <strong>Tradie Launch</strong> — the 7-day install that gets the website + CRM + invoicing live. Leads only kicks in once Launch is sorted. Pilot Launch clients get 1 month of Leads beta free.</p>
       <a href="launch.html" class="bridge-link">See Tradie Launch <svg width="16" height="16"><use href="#i-arrow"/></svg></a>
@@ -1666,7 +1686,7 @@
 <section class="cta">
   <div class="cta-inner">
     <div class="cta-head">
-      <div class="eyebrow reveal">// Book a yarn</div>
+      <div class="eyebrow reveal">Book a yarn</div>
       <h2 class="reveal" style="--delay: 0.05s">Ready for a <em>free yarn?</em></h2>
       <p class="reveal" style="--delay: 0.1s">20 minutes. No pitch. Straight talk about your business and what's next.</p>
     </div>
