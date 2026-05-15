@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0F2340">
+  <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+  <meta name="googlebot" content="noindex,nofollow,noarchive,nosnippet">
+
+  <title>TradieBack — Private context page</title>
+  <meta name="description" content="Private context page for TradieBack. Not for public distribution.">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230F2340'/%3E%3Crect y='0' width='64' height='6' fill='%23F58220'/%3E%3Cpath d='M20 16 L44 32 L20 48' stroke='%23F58220' stroke-width='9' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap">
+
+  <style>
+    :root {
+      --navy: #0F2340;
+      --navy-deep: #081428;
+      --amber: #F58220;
+      --amber-warm: #E37418;
+      --amber-soft: rgba(245, 130, 32, 0.08);
+      --bone: #F8F6F1;
+      --bone-warm: #F1EDE3;
+      --ink: #1A2238;
+      --muted: #5A6373;
+      --muted-light: #8892A0;
+      --line: rgba(15, 35, 64, 0.07);
+      --line-warm: rgba(15, 35, 64, 0.1);
+      --white: #FFFFFF;
+      --green: #2ECC71;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--ink);
+      background: var(--bone);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* Private banner */
+    .private-banner {
+      background: var(--navy-deep);
+      color: rgba(255,255,255,0.85);
+      text-align: center;
+      padding: 11px 20px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(245,130,32,0.25);
+    }
+    .private-banner .dot {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--amber);
+      margin-right: 8px;
+      vertical-align: middle;
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(0.85); }
+    }
+
+    /* Minimal nav */
+    .nav {
+      background: var(--navy);
+      padding: 22px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .nav-brand {
+      display: inline-flex;
+      align-items: center;
+      height: clamp(40px, 4vw, 54px);
+    }
+    .nav-brand svg { height: 100%; width: auto; display: block; }
+    .nav-meta {
+      font-size: 12px;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    /* Cover */
+    .cover {
+      background: var(--navy);
+      color: white;
+      padding: 100px 48px 110px;
+      position: relative;
+      overflow: hidden;
+    }
+    .cover::before {
+      content: '';
+      position: absolute;
+      top: -10%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80vw;
+      height: 50vw;
+      max-width: 1100px;
+      background: radial-gradient(ellipse at center, rgba(245,130,32,0.12), transparent 60%);
+      pointer-events: none;
+    }
+    .cover-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      position: relative;
+      text-align: center;
+    }
+    .cover-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: rgba(245,130,32,0.14);
+      color: var(--amber);
+      padding: 7px 14px;
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+    .cover h1 {
+      font-size: clamp(38px, 6vw, 88px);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 0.98;
+      margin-bottom: 22px;
+    }
+    .cover h1 em { font-style: normal; color: var(--amber); }
+    .cover .sub {
+      font-size: clamp(17px, 2vw, 22px);
+      color: rgba(255,255,255,0.78);
+      line-height: 1.5;
+      max-width: 680px;
+      margin: 0 auto 28px;
+    }
+    .cover-meta {
+      display: inline-flex;
+      gap: 22px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .cover-meta .dot-sep { color: var(--amber); }
+
+    /* Sections */
+    .section {
+      padding: 100px 48px;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .section.white { background: white; }
+    .section.bone { background: var(--bone); }
+    .section.bone-warm { background: var(--bone-warm); }
+    .section.navy {
+      background: var(--navy-deep);
+      color: white;
+      max-width: none;
+      padding-left: 48px;
+      padding-right: 48px;
+    }
+    .section.navy .section-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .section-band {
+      max-width: none;
+      padding-left: 48px;
+      padding-right: 48px;
+    }
+    .section-band .section-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .accent-bar {
+      width: 56px;
+      height: 2px;
+      background: var(--amber);
+      margin-bottom: 24px;
+    }
+    h2.section-h {
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.05;
+      color: var(--navy);
+      margin-bottom: 18px;
+    }
+    h2.section-h em { font-style: normal; color: var(--amber); }
+    .section.navy h2.section-h { color: white; }
+    p.section-lede {
+      font-size: 17.5px;
+      line-height: 1.65;
+      color: var(--muted);
+      max-width: 720px;
+      margin-bottom: 40px;
+    }
+    .section.navy p.section-lede { color: rgba(255,255,255,0.7); }
+
+    /* Stat band */
+    .stat-band {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      padding: 56px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      margin: 40px 0 8px;
+    }
+    .stat-band.navy {
+      border-color: rgba(255,255,255,0.1);
+    }
+    .stat-num {
+      font-size: clamp(40px, 5vw, 64px);
+      font-weight: 900;
+      color: var(--amber);
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+    .stat-label {
+      font-size: 14.5px;
+      color: var(--muted);
+      line-height: 1.5;
+      max-width: 240px;
+    }
+    .section.navy .stat-label { color: rgba(255,255,255,0.65); }
+
+    /* Problem list */
+    .pain-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 32px;
+    }
+    .pain-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 20px 22px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+    }
+    .pain-item .x {
+      flex: 0 0 28px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(229,83,83,0.1);
+      color: #B85040;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 800;
+      margin-top: 2px;
+    }
+    .pain-item-body strong {
+      display: block;
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 15.5px;
+      margin-bottom: 3px;
+    }
+    .pain-item-body span {
+      color: var(--muted);
+      font-size: 14.5px;
+      line-height: 1.55;
+    }
+
+    /* Two columns: who is / who isn't */
+    .who-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-top: 32px;
+    }
+    .who-col {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 30px 28px;
+    }
+    .who-col.yes { border-color: rgba(46,204,113,0.3); }
+    .who-col.no { border-color: rgba(229,83,83,0.25); }
+    .who-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .who-col.yes .who-head { color: var(--green); }
+    .who-col.no .who-head { color: #B85040; }
+    .who-col ul { list-style: none; }
+    .who-col li {
+      padding: 9px 0;
+      font-size: 15px;
+      color: var(--ink);
+      line-height: 1.5;
+      border-bottom: 1px dashed var(--line);
+    }
+    .who-col li:last-child { border-bottom: none; }
+
+    /* Phases timeline */
+    .phase-list {
+      max-width: 760px;
+      margin: 40px 0 0;
+      position: relative;
+    }
+    .phase-list::before {
+      content: '';
+      position: absolute;
+      left: 29px;
+      top: 50px;
+      bottom: 50px;
+      width: 2px;
+      background: rgba(245,130,32,0.25);
+    }
+    .phase {
+      display: flex;
+      gap: 28px;
+      padding: 22px 0;
+      position: relative;
+    }
+    .phase-num {
+      flex: 0 0 60px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: white;
+      border: 2px solid var(--amber);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--amber);
+      position: relative;
+      z-index: 1;
+    }
+    .phase.now .phase-num {
+      background: var(--amber);
+      color: var(--navy);
+      box-shadow: 0 12px 28px -8px rgba(245,130,32,0.45);
+    }
+    .phase-body { padding-top: 8px; flex: 1; }
+    .phase-tag {
+      font-size: 10px;
+      color: var(--amber);
+      letter-spacing: 0.18em;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+    .phase-body h3 {
+      font-size: 21px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+    .phase-body p {
+      font-size: 15.5px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .phase-body p + p { margin-top: 8px; }
+    .phase-body strong { color: var(--navy); }
+
+    /* Plan card */
+    .plan-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 36px 38px;
+      margin-top: 32px;
+    }
+    .plan-card-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--line);
+    }
+    .plan-card-head h3 {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+    }
+    .plan-card-head .tag {
+      font-size: 10.5px;
+      letter-spacing: 0.18em;
+      font-weight: 800;
+      color: var(--amber);
+      text-transform: uppercase;
+    }
+    .plan-card p {
+      font-size: 15.5px;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 14px;
+    }
+    .plan-card p strong { color: var(--navy); font-weight: 700; }
+
+    /* Solution split */
+    .sol-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 32px;
+    }
+    .sol-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 32px 28px;
+    }
+    .sol-card .tag {
+      display: inline-block;
+      font-size: 10.5px;
+      letter-spacing: 0.18em;
+      font-weight: 800;
+      color: var(--amber);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .sol-card h3 {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+    .sol-card p {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+    .sol-card .price {
+      font-size: 14px;
+      color: var(--ink);
+      font-weight: 700;
+      padding-top: 14px;
+      border-top: 1px dashed var(--line);
+    }
+    .sol-card .price span { color: var(--amber); }
+
+    /* Close */
+    .close-card {
+      background: var(--navy);
+      color: white;
+      border-radius: 22px;
+      padding: 56px 44px;
+      max-width: 880px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .close-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 50%, rgba(245,130,32,0.13), transparent 55%),
+                  radial-gradient(circle at 70% 50%, rgba(245,130,32,0.08), transparent 55%);
+      pointer-events: none;
+    }
+    .close-card > * { position: relative; }
+    .close-card h2 {
+      font-size: clamp(26px, 3.4vw, 38px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+    .close-card h2 em { font-style: normal; color: var(--amber); }
+    .close-card p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.65;
+      max-width: 620px;
+      margin: 0 auto 14px;
+    }
+    .close-sig {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      font-size: 14px;
+      color: rgba(255,255,255,0.65);
+    }
+    .close-sig strong { color: white; }
+
+    /* Footer */
+    footer {
+      background: var(--navy-deep);
+      color: rgba(255,255,255,0.5);
+      padding: 50px 48px 36px;
+      font-size: 13px;
+      border-top: 1px solid var(--amber);
+      text-align: center;
+    }
+    footer .small {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-top: 8px;
+    }
+
+    /* Mobile */
+    @media (max-width: 700px) {
+      .nav { padding: 16px 20px; }
+      .cover { padding: 64px 20px 76px; }
+      .cover h1 { font-size: clamp(32px, 8vw, 56px); }
+      .section { padding: 64px 20px; }
+      .section.navy { padding: 64px 20px; }
+      .section-band { padding-left: 20px; padding-right: 20px; }
+      .stat-band { grid-template-columns: 1fr; gap: 24px; padding: 36px 0; }
+      .who-grid { grid-template-columns: 1fr; gap: 16px; }
+      .sol-grid { grid-template-columns: 1fr; }
+      .phase-list::before { left: 23px; top: 40px; bottom: 40px; }
+      .phase { gap: 18px; padding: 18px 0; }
+      .phase-num { flex: 0 0 48px; width: 48px; height: 48px; font-size: 16px; }
+      .plan-card { padding: 28px 24px; }
+      .close-card { padding: 44px 28px; }
+      footer { padding: 40px 20px 32px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Private banner -->
+<div class="private-banner">
+  <span class="dot"></span>Private · for context only · not for distribution
+</div>
+
+<!-- Minimal nav -->
+<nav class="nav">
+  <a href="index.html" class="nav-brand" aria-label="TradieBack">
+    <svg viewBox="0 0 720 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <text x="20" y="80" font-family="Arial Black, Helvetica, sans-serif" font-weight="900" font-size="80" letter-spacing="1"><tspan fill="#FFFFFF">TRADIE</tspan><tspan fill="#F58220">BACK</tspan></text>
+    </svg>
+  </a>
+  <span class="nav-meta">Founder pitch · May 2026</span>
+</nav>
+
+<!-- Cover -->
+<section class="cover">
+  <div class="cover-inner">
+    <div class="cover-tag"><span style="width:7px;height:7px;border-radius:50%;background:var(--amber);"></span>The short version</div>
+    <h1>TradieBack — the operating platform <em>for NZ + AU tradies</em></h1>
+    <p class="sub">Built by someone who's spent nearly a decade on construction sites. The mission: keep great tradies on the tools by running the digital side for them.</p>
+    <div class="cover-meta">
+      <span>Founded 2025</span>
+      <span class="dot-sep">·</span>
+      <span>Wellington, NZ</span>
+      <span class="dot-sep">·</span>
+      <span>NZ + AU only</span>
+    </div>
+  </div>
+</section>
+
+<!-- What it is -->
+<section class="section white">
+  <div class="accent-bar"></div>
+  <h2 class="section-h">What it <em>is</em></h2>
+  <p class="section-lede">TradieBack is a done-for-you operating platform for trade businesses. We hand a tradie a complete website + back-office system + lead generation engine — built, configured, and running — in 7 days. They stay on the tools. We run everything else.</p>
+
+  <div class="sol-grid">
+    <div class="sol-card">
+      <div class="tag">Service 01 · Live</div>
+      <h3>Tradie Launch</h3>
+      <p>The 7-day install. Custom website + CRM + invoicing + automated reviews/quotes/payments — all bundled, all built for tradies. Replaces ~$12K/year of disconnected software + agency fees.</p>
+      <div class="price">From <span>$5K install · $99/mo</span></div>
+    </div>
+    <div class="sol-card">
+      <div class="tag">Service 02 · Beta</div>
+      <h3>Tradie Leads</h3>
+      <p>The growth engine. Google + Meta ads, local SEO, Google Business management, review automation, lead qualification. Runs once Launch is live. First qualified lead in 30 days or month's free.</p>
+      <div class="price">From <span>$799/mo · ad spend direct to Google</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- The market -->
+<section class="section bone">
+  <div class="accent-bar"></div>
+  <h2 class="section-h">The market — <em>bigger than you think</em></h2>
+  <p class="section-lede">There are hundreds of thousands of small trade businesses across New Zealand and Australia. Most are solo operators or crews under 10 people. Almost all of them run $200K–$2M revenue and almost none of them have proper digital infrastructure.</p>
+
+  <div class="stat-band">
+    <div>
+      <div class="stat-num">50K+</div>
+      <div class="stat-label">Active trade businesses in NZ alone (Stats NZ, construction sector)</div>
+    </div>
+    <div>
+      <div class="stat-num">400K+</div>
+      <div class="stat-label">Trade businesses across Australia — solo to small crew</div>
+    </div>
+    <div>
+      <div class="stat-num">~450K</div>
+      <div class="stat-label">Combined NZ + AU addressable market for TradieBack</div>
+    </div>
+  </div>
+
+  <p style="font-size:15px;color:var(--muted);max-width:720px;line-height:1.65;margin-top:24px;">Even capturing <strong style="color:var(--navy);">0.1% of the combined market</strong> = ~450 paying clients at $99/mo = roughly <strong style="color:var(--navy);">$535K/year recurring</strong> from the platform alone. Plus install revenue. Plus Tradie Leads on top.</p>
+</section>
+
+<!-- The problem -->
+<section class="section white">
+  <div class="accent-bar"></div>
+  <h2 class="section-h">The problem — <em>great on the tools, drowning everywhere else</em></h2>
+  <p class="section-lede">Tradies are world-class at their craft. They're also the worst-served small business segment when it comes to digital. The same tradie who can rebuild a hot water cylinder blindfolded can't get past page 3 on Google — because nobody's ever taught them, and the agencies that try don't speak their language.</p>
+
+  <div class="pain-list">
+    <div class="pain-item">
+      <div class="x">✕</div>
+      <div class="pain-item-body">
+        <strong>Websites that haven't been updated since 2016</strong>
+        <span>Loading in 8+ seconds on mobile. No click-to-call. No reviews displayed. Built once, never touched again.</span>
+      </div>
+    </div>
+    <div class="pain-item">
+      <div class="x">✕</div>
+      <div class="pain-item-body">
+        <strong>Quoting at 9pm after a 12-hour day</strong>
+        <span>Tools down at 5. Quotes typed up at the kitchen table 'til 9. Missed dinner. Missed the kids. Lost the job to the tradie who got their quote out faster.</span>
+      </div>
+    </div>
+    <div class="pain-item">
+      <div class="x">✕</div>
+      <div class="pain-item-body">
+        <strong>Five disconnected tools that don't talk</strong>
+        <span>Square for payments. Trello for jobs. Gmail for quotes. Xero for books. Some Facebook page for marketing. $420/mo and nothing actually works together.</span>
+      </div>
+    </div>
+    <div class="pain-item">
+      <div class="x">✕</div>
+      <div class="pain-item-body">
+        <strong>$5K cookie-cutter agency websites</strong>
+        <span>A 22-year-old account manager who can't tell a sparkie from a chippie. Six-month lock-in. Three months in, the tradie cancels and goes back to word-of-mouth.</span>
+      </div>
+    </div>
+    <div class="pain-item">
+      <div class="x">✕</div>
+      <div class="pain-item-body">
+        <strong>The cowboys win on Google</strong>
+        <span>Brilliant tradies sit on page 3 while a fly-by-night with a clean website and a paid ad campaign takes the calls. It's not skill — it's visibility.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Who it's for / not -->
+<section class="section bone-warm">
+  <div class="accent-bar"></div>
+  <h2 class="section-h">Who it's <em>for</em></h2>
+  <p class="section-lede">TradieBack is intentionally narrow. The platform works because every decision in it was built for one specific business type — and we say no to everything else.</p>
+
+  <div class="who-grid">
+    <div class="who-col yes">
+      <div class="who-head"><span>✓</span> Built for</div>
+      <ul>
+        <li>NZ + AU trade businesses</li>
+        <li>Solo operators to crews of 10</li>
+        <li>$200K–$2M annual revenue</li>
+        <li>Plumbers, sparkies, builders, roofers, painters, concreters, landscapers, plasterers</li>
+        <li>Owner who wants to stay on the tools</li>
+      </ul>
+    </div>
+    <div class="who-col no">
+      <div class="who-head"><span>✕</span> Not for</div>
+      <ul>
+        <li>Multi-site or multi-state companies</li>
+        <li>$5M+ revenue (different problems)</li>
+        <li>Non-trades — no cafés, no lawyers, no dentists, no real estate</li>
+        <li>Anyone outside NZ or Australia</li>
+        <li>Owners who want to be on the computer all day</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- How it runs -->
+<section class="section white">
+  <div class="accent-bar"></div>
+  <h2 class="section-h">How the business runs — <em>solo first, team second</em></h2>
+  <p class="section-lede">TradieBack is small on purpose. The whole point is to keep delivery quality high while the platform scales. The plan is to grow on revenue, not on outside money.</p>
+
+  <div class="phase-list">
+    <div class="phase now">
+      <div class="phase-num">01</div>
+      <div class="phase-body">
+        <div class="phase-tag">Now · 2025 → mid 2026</div>
+        <h3>Solo founder mode</h3>
+        <p>Mathieson runs everything — sales, install, design, copy, automation, support. First 4–10 founder clients onboarded and proven. AI does the heavy lifting on copy + design drafts so one person can ship like a small team.</p>
+      </div>
+    </div>
+    <div class="phase">
+      <div class="phase-num">02</div>
+      <div class="phase-body">
+        <div class="phase-tag">Q3 2026 → Q1 2027</div>
+        <h3>+1 contractor</h3>
+        <p>Once monthly recurring covers it, bring in a part-time designer or ads specialist on contract. Mathieson stays on delivery — close to clients, never delegates the relationship.</p>
+      </div>
+    </div>
+    <div class="phase">
+      <div class="phase-num">03</div>
+      <div class="phase-body">
+        <div class="phase-tag">2027+</div>
+        <h3>Small team of 3–5</h3>
+        <p>Designer · ads manager · client success · admin. Mathieson stays close to product and delivery. Never grows beyond the point where every client still gets the founder on a call.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- My runway -->
+<section class="section navy">
+  <div class="section-inner">
+    <div class="accent-bar"></div>
+    <h2 class="section-h">My runway — <em>building it the right way, not the fast way</em></h2>
+    <p class="section-lede">I'm not putting all my eggs in one basket. TradieBack is a serious build with a long horizon — but I refuse to be on the computer 24/7 and refuse to burn out before clients arrive. The plan is to build it in parallel with the right day job, in the right network.</p>
+
+    <div class="plan-card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.1); color: rgba(255,255,255,0.85);">
+      <div class="plan-card-head" style="border-color: rgba(255,255,255,0.12);">
+        <h3 style="color: white;">The networking move</h3>
+        <span class="tag">Mid 2026</span>
+      </div>
+      <p style="color: rgba(255,255,255,0.78);">Heading to <strong style="color: white;">Australia for an extended trip</strong> — networking inside the NZ + AU construction industry, getting deeper into the construction skills + standards on both sides of the Tasman. Every conversation is a potential client, partner, or referral.</p>
+      <p style="color: rgba(255,255,255,0.78);">Likely landing in a <strong style="color: white;">PM role in either Sydney/Brisbane or Christchurch</strong>. The PM income pays the bills while TradieBack scales. The role itself puts me in front of 30+ subcontractor trade businesses every week — exactly the people I'm building this for.</p>
+      <p style="color: rgba(255,255,255,0.78);"><strong style="color: white;">The PM role isn't a backup plan — it's the network.</strong> My first 10–20 clients are going to come from sites I'm on, conversations at smoko, sparkies I've worked with for years. When TradieBack revenue covers my drawings, the PM role ends.</p>
+    </div>
+
+    <div class="plan-card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.1); color: rgba(255,255,255,0.85); margin-top: 20px;">
+      <div class="plan-card-head" style="border-color: rgba(255,255,255,0.12);">
+        <h3 style="color: white;">Why not full-time on TradieBack now?</h3>
+        <span class="tag">Honest answer</span>
+      </div>
+      <p style="color: rgba(255,255,255,0.78);">Two reasons. <strong style="color: white;">First — I can't be on the computer all day.</strong> Construction-fit body, construction-fit brain. I do my best thinking on site, not at a desk. The PM role keeps me in the world I'm building for.</p>
+      <p style="color: rgba(255,255,255,0.78);"><strong style="color: white;">Second — I refuse to bootstrap with desperation.</strong> Tradies smell desperation in 5 seconds. Building this on a steady income means I can hold standards, say no to bad-fit clients, and grow on signal — not on pressure to make next month's rent.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 12-month picture -->
+<section class="section bone">
+  <div class="accent-bar"></div>
+  <h2 class="section-h">12-month picture — <em>where this should be</em></h2>
+  <p class="section-lede">Conservative numbers. The kind I can hit by working with the tradies in my actual network, not by burning $50K on Facebook ads to strangers.</p>
+
+  <div class="stat-band">
+    <div>
+      <div class="stat-num">15–25</div>
+      <div class="stat-label">Paying installs by May 2027 (most via referral + PM-site network)</div>
+    </div>
+    <div>
+      <div class="stat-num">$200K+</div>
+      <div class="stat-label">Annual recurring revenue from platform fees alone</div>
+    </div>
+    <div>
+      <div class="stat-num">1 + 1</div>
+      <div class="stat-label">Mathieson full-time on TradieBack + 1 contractor by Q1 2027</div>
+    </div>
+  </div>
+</section>
+
+<!-- Why me -->
+<section class="section white">
+  <div class="accent-bar"></div>
+  <h2 class="section-h">Why I'm the <em>right person</em></h2>
+  <p class="section-lede">The construction industry has plenty of "marketing for tradies" agencies. None of them are run by someone who actually spent years on construction sites. That's the only thing that matters here.</p>
+
+  <div class="phase-list">
+    <div class="phase">
+      <div class="phase-num">01</div>
+      <div class="phase-body">
+        <div class="phase-tag">Age 18 · Labourer</div>
+        <h3>Started on the tools</h3>
+        <p>First job out of school — Wellington commercial site. Carried block, dug trenches. Learned hard work before I learned anything else about the industry.</p>
+      </div>
+    </div>
+    <div class="phase">
+      <div class="phase-num">02</div>
+      <div class="phase-body">
+        <div class="phase-tag">2021 · Foreman</div>
+        <h3>Running crews</h3>
+        <p>Residential + commercial builds, crews of 8–15. Learned that managing tradies isn't about telling them what to do — it's about removing the friction so they can do their best work.</p>
+      </div>
+    </div>
+    <div class="phase">
+      <div class="phase-num">03</div>
+      <div class="phase-body">
+        <div class="phase-tag">2022–2024 · Project Manager</div>
+        <h3>PM at one of NZ's largest property developers</h3>
+        <p>$50M+ projects. Coordinated 30+ subcontractor trade businesses per build. Watched the great ones win and the talented ones get eaten by the admin. <strong>That's where the idea came from.</strong></p>
+      </div>
+    </div>
+    <div class="phase now">
+      <div class="phase-num">04</div>
+      <div class="phase-body">
+        <div class="phase-tag">2025–Now · Founder</div>
+        <h3>Building TradieBack</h3>
+        <p>Same problems I watched destroy good tradies for years. Different angle — instead of being the PM running their build, I'm the operator running their back-office.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Close -->
+<section class="section bone-warm">
+  <div class="close-card">
+    <h2>The whole point — <em>keep great tradies on the tools</em></h2>
+    <p>Every brilliant tradie who quits or gets eaten by admin is a loss. TradieBack is one person's attempt to fix that — slowly, properly, with the right people, in the right network, without burning out.</p>
+    <p>If you're reading this, it's because I want your honest take. Not the polite version.</p>
+    <div class="close-sig">
+      <strong>— Mathieson</strong><br>
+      Founder, TradieBack · mathieson@tradieback.com
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  © 2026 TradieBack · Private context page · Not for distribution
+  <div class="small">noindex · nofollow · direct URL only</div>
+</footer>
+
+</body>
+</html>
