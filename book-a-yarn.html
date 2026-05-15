@@ -327,7 +327,7 @@
       50% { opacity: 0.6; transform: scale(0.85); }
     }
     .hero h1 {
-      font-size: clamp(40px, 5.4vw, 76px);
+      font-size: clamp(30px, 6vw, 76px);
       font-weight: 800;
       letter-spacing: -0.04em;
       line-height: 0.98;
@@ -712,6 +712,15 @@
       .footer-inner { grid-template-columns: 1fr; gap: 24px; }
       .footer-links { flex-wrap: wrap; gap: 18px; }
       .footer-bottom { flex-direction: column; gap: 8px; }
+    }
+
+    /* Mobile padding sweep — narrow viewports */
+    @media (max-width: 600px) {
+      .hero { padding: 48px 20px 56px; }
+      .booking { padding: 60px 20px; }
+      .paths { padding: 60px 20px; }
+      .faq { padding: 60px 20px; }
+      .booking-cal iframe { min-height: 640px; }
     }
   </style>
 </head>
