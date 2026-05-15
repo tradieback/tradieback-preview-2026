@@ -329,6 +329,17 @@
       color: var(--navy);
       background: rgba(15, 35, 64, 0.04);
     }
+    .btn-amber-outline {
+      background: transparent;
+      color: var(--amber);
+      border-color: var(--amber);
+    }
+    .btn-amber-outline:hover {
+      background: var(--amber);
+      color: var(--navy);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px -8px rgba(245, 130, 32, 0.45);
+    }
     .btn-dark {
       background: var(--navy);
       color: white;
@@ -1762,7 +1773,7 @@
       <p class="lede reveal in" style="--delay: 0.15s">Stay on the tools. We do the rest.</p>
       <div class="hero-actions reveal in" style="--delay: 0.3s">
         <a href="book-a-yarn.html" class="btn btn-primary">Book a yarn →</a>
-        <a href="services/launch.html" class="btn btn-dark">See Tradie Launch →</a>
+        <a href="services/launch.html" class="btn btn-amber-outline">See Tradie Launch →</a>
       </div>
     </div>
 
