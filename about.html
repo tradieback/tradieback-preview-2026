@@ -705,50 +705,51 @@
       background: rgba(245, 130, 32, 0.14);
     }
     .principles .section-head p { color: rgba(255,255,255,0.62); }
-    .p-grid {
+    /* Principles — manifesto stack */
+    .principle-list {
+      max-width: 920px;
+      margin: 56px auto 0;
+    }
+    .principle-row {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+      grid-template-columns: 140px 1fr;
+      gap: 36px;
+      padding: 40px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      align-items: baseline;
     }
-    @media (max-width: 900px) {
-      .p-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 600px) {
-      .p-grid { grid-template-columns: 1fr; }
-    }
-    .p-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 18px;
-      padding: 32px 28px;
-      transition: border-color 0.3s, background 0.3s, transform 0.3s;
-    }
-    .p-card:hover {
-      border-color: var(--amber);
-      background: rgba(245, 130, 32, 0.05);
-      transform: translateY(-3px);
-    }
-    .p-num {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 36px;
-      font-weight: 700;
+    .principle-row:last-child { border-bottom: none; }
+    .principle-num {
+      font-size: clamp(64px, 8vw, 104px);
+      font-weight: 900;
       color: var(--amber);
-      letter-spacing: -0.02em;
-      line-height: 1;
-      margin-bottom: 18px;
+      letter-spacing: -0.04em;
+      line-height: 0.9;
     }
-    .p-card h3 {
-      font-size: 19px;
+    .principle-body h3 {
+      font-size: clamp(24px, 3vw, 34px);
       font-weight: 800;
       color: white;
-      letter-spacing: -0.015em;
-      margin-bottom: 10px;
-      line-height: 1.2;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      margin-bottom: 14px;
     }
-    .p-card p {
-      font-size: 14.5px;
+    .principle-body p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.62);
       line-height: 1.6;
-      color: rgba(255,255,255,0.65);
+      max-width: 620px;
+    }
+    @media (max-width: 700px) {
+      .principle-list { margin: 40px auto 0; }
+      .principle-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 32px 0;
+      }
+      .principle-num { font-size: 56px; }
+      .principle-body h3 { font-size: 22px; margin-bottom: 10px; }
+      .principle-body p { font-size: 14.5px; }
     }
 
     /* Direct line — founder block */
@@ -1143,41 +1144,39 @@
 <section class="principles">
   <div class="principles-inner">
     <div class="section-head reveal">
-      <span class="eyebrow">// How we work</span>
-      <h2>Six principles. <em>Non-negotiable.</em></h2>
+      <div style="width:56px;height:2px;background:var(--amber);margin:0 0 24px;"></div>
+      <h2>Four principles. <em>Non-negotiable</em></h2>
       <p>The rules I refuse to break. They're why TradieBack works — and why you'll never see us pivot to "but we also do cafés."</p>
     </div>
 
-    <div class="p-grid">
-      <div class="p-card reveal">
-        <div class="p-num">01</div>
-        <h3>NZ + AU tradies. That's it.</h3>
-        <p>No cafés. No lawyers. No "we also do dentists." The platform works because every decision in it was made for one type of business — yours.</p>
+    <div class="principle-list">
+      <div class="principle-row reveal">
+        <div class="principle-num">01</div>
+        <div class="principle-body">
+          <h3>NZ + AU tradies. That's it</h3>
+          <p>No cafés. No lawyers. No "we also do dentists." The platform works because every decision was made for one type of business — yours.</p>
+        </div>
       </div>
-      <div class="p-card reveal" style="--delay: 0.05s">
-        <div class="p-num">02</div>
-        <h3>You own everything.</h3>
-        <p>Your domain, your customer data, your content, your phone number. If we're not pulling our weight after the 6-month minimum — sack us, walk with everything, no exit fees.</p>
+      <div class="principle-row reveal" style="--delay: 0.05s">
+        <div class="principle-num">02</div>
+        <div class="principle-body">
+          <h3>You own everything</h3>
+          <p>Your domain, your customer data, your content, your phone number. Sack us anytime — walk with everything, no exit fees.</p>
+        </div>
       </div>
-      <div class="p-card reveal" style="--delay: 0.1s">
-        <div class="p-num">03</div>
-        <h3>Plain English. Always.</h3>
-        <p>No "synergies." No "thought leadership." No "let's circle back." Monthly report tells you how many calls came in and how much money came out. Done.</p>
+      <div class="principle-row reveal" style="--delay: 0.1s">
+        <div class="principle-num">03</div>
+        <div class="principle-body">
+          <h3>Plain English</h3>
+          <p>No "synergies." No "thought leadership." Monthly report tells you how many calls came in and how much money came out. Done.</p>
+        </div>
       </div>
-      <div class="p-card reveal" style="--delay: 0.15s">
-        <div class="p-num">04</div>
-        <h3>Outcomes over technology.</h3>
-        <p>You don't need to know what's running under the hood. You need the phone to ring, the quotes to go out fast, and the cash to land on time. We worry about the rest.</p>
-      </div>
-      <div class="p-card reveal" style="--delay: 0.2s">
-        <div class="p-num">05</div>
-        <h3>You talk to the founder.</h3>
-        <p>No account managers, no junior sales reps, no offshore support tickets. WhatsApp goes straight to my phone. If I can't pick up, you'll hear back the same day.</p>
-      </div>
-      <div class="p-card reveal" style="--delay: 0.25s">
-        <div class="p-num">06</div>
-        <h3>Ship in 7 days. Or it's free.</h3>
-        <p>If we don't have you live within 7 days of contract, your install is on us. No "design rounds," no "feedback cycles." The platform is built. Your name goes on it. Done.</p>
+      <div class="principle-row reveal" style="--delay: 0.15s">
+        <div class="principle-num">04</div>
+        <div class="principle-body">
+          <h3>You talk to the founder</h3>
+          <p>No account managers. No offshore support tickets. WhatsApp goes straight to my phone. If I can't pick up, you'll hear back the same day.</p>
+        </div>
       </div>
     </div>
   </div>
