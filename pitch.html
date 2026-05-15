@@ -118,9 +118,67 @@
       pointer-events: none;
     }
     .cover-inner {
-      max-width: 1080px;
+      max-width: 1180px;
       margin: 0 auto;
       position: relative;
+      display: grid;
+      grid-template-columns: 1.4fr 0.85fr;
+      gap: 60px;
+      align-items: center;
+    }
+    @media (max-width: 960px) {
+      .cover-inner { grid-template-columns: 1fr; gap: 36px; }
+    }
+    .cover-portrait {
+      position: relative;
+      max-width: 380px;
+      margin-left: auto;
+    }
+    @media (max-width: 960px) {
+      .cover-portrait { max-width: 220px; margin: 0 auto; }
+    }
+    .cover-portrait-frame {
+      aspect-ratio: 4/5;
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 40px 90px -28px rgba(0,0,0,0.5);
+      position: relative;
+    }
+    .cover-portrait-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 15%;
+      display: block;
+    }
+    .cover-portrait-frame::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 55%, rgba(15, 35, 64, 0.6) 100%);
+      pointer-events: none;
+    }
+    .cover-portrait-caption {
+      position: absolute;
+      left: 20px;
+      bottom: 16px;
+      color: white;
+      z-index: 1;
+    }
+    .cover-portrait-caption strong {
+      display: block;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      margin-bottom: 2px;
+    }
+    .cover-portrait-caption span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.14em;
+      color: rgba(255,255,255,0.78);
+      text-transform: uppercase;
     }
     .cover-eyebrow {
       display: inline-flex;
@@ -535,15 +593,63 @@
     /* Product split */
     .product-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
       margin-top: 36px;
+    }
+    @media (max-width: 1000px) {
+      .product-grid { grid-template-columns: 1fr; gap: 18px; }
     }
     .product-card {
       background: white;
       border: 1px solid var(--line);
       border-radius: 20px;
-      padding: 36px 34px;
+      padding: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .product-card-image {
+      aspect-ratio: 16/10;
+      overflow: hidden;
+      background: var(--bone-warm);
+      position: relative;
+    }
+    .product-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .product-card-image .stamp {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: var(--amber);
+      color: var(--navy);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      font-weight: 800;
+      padding: 5px 10px;
+      border-radius: 6px;
+      text-transform: uppercase;
+    }
+    .product-card-image.placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%);
+      color: var(--amber);
+    }
+    .product-card-image.placeholder .icon {
+      font-size: 64px;
+      opacity: 0.4;
+    }
+    .product-card-body {
+      padding: 28px 28px 32px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
     }
     .product-card .badge {
       display: inline-block;
@@ -968,15 +1074,27 @@
 <!-- ═════════════════ COVER ═════════════════ -->
 <section class="cover">
   <div class="cover-inner">
-    <div class="cover-eyebrow"><span style="width:7px;height:7px;border-radius:50%;background:var(--amber);"></span>Executive summary</div>
-    <h1>The operating platform <em>for NZ + AU trade businesses</em></h1>
-    <p class="cover-sub">Built by a former Project Manager with nearly a decade in NZ construction. Targeting the ~450,000 small trade businesses across New Zealand and Australia — a market with zero direct competitors bundling website, back-office, and lead generation under one roof.</p>
+    <div>
+      <div class="cover-eyebrow"><span style="width:7px;height:7px;border-radius:50%;background:var(--amber);"></span>Executive summary</div>
+      <h1>The operating platform <em>for NZ + AU trade businesses</em></h1>
+      <p class="cover-sub">Built by a former Project Manager with nearly a decade in NZ construction. Targeting the ~450,000 small trade businesses across New Zealand and Australia — a market with zero direct competitors bundling website, back-office, and lead generation under one roof.</p>
 
-    <div class="summary-card">
-      <h3>The thesis in 60 seconds</h3>
-      <p>Trade businesses in NZ + AU are <strong>world-class on the tools and the worst-served small-business segment when it comes to digital infrastructure.</strong> They cobble together $5,000 agency websites, $420/month of disconnected software, and ad-hoc lead generation — and still lose work to whoever happens to outrank them on Google.</p>
-      <p>TradieBack consolidates all of that into <em>one operating platform</em>, installed in 7 days, run for them month-to-month. Two services: <strong>Tradie Launch</strong> (website + back-office, live) and <strong>Tradie Leads</strong> (growth engine, in beta).</p>
-      <p>The business is intentionally <strong>capital-efficient and founder-led</strong>. Solo today, AI-augmented delivery, scaling to a small team only when monthly recurring revenue justifies it. The founder's runway is funded by his own labour (a planned Project Manager role across NZ + AU) — which doubles as the primary GTM channel.</p>
+      <div class="summary-card">
+        <h3>The thesis in 60 seconds</h3>
+        <p>Trade businesses in NZ + AU are <strong>world-class on the tools and the worst-served small-business segment when it comes to digital infrastructure.</strong> They cobble together $5,000 agency websites, $420/month of disconnected software, and ad-hoc lead generation — and still lose work to whoever happens to outrank them on Google.</p>
+        <p>TradieBack consolidates all of that into <em>one operating platform</em>, installed in 7 days, run for them month-to-month. Three services: <strong>Tradie Launch</strong> (website + back-office, live), <strong>Tradie Leads</strong> (growth engine, in beta), and <strong>Tradie Admin</strong> (books · GST · debtor chase, coming Q4 2026).</p>
+        <p>The business is intentionally <strong>capital-efficient and founder-led</strong>. Solo today, AI-augmented delivery, scaling to a small team only when monthly recurring revenue justifies it. The founder's runway is funded by his own labour (a planned Project Manager role across NZ + AU) — which doubles as the primary GTM channel.</p>
+      </div>
+    </div>
+
+    <div class="cover-portrait">
+      <div class="cover-portrait-frame">
+        <img src="assets/founder/mathieson.jpg" alt="Mathieson Moller — founder of TradieBack">
+        <div class="cover-portrait-caption">
+          <strong>Mathieson Moller</strong>
+          <span>Founder · Ex-construction PM</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1048,7 +1166,38 @@
       <div class="section-num-tag">The problem · quantified</div>
     </div>
     <h2 class="section-h">The cost of being <em>"great on the tools, drowning everywhere else"</em></h2>
-    <p class="section-lede">The honest cost of bad digital infrastructure for a typical NZ plumber doing <strong>$800,000 in annual revenue.</strong> These aren't projected losses — these are real, recoverable revenue gaps we've measured in actual conversations with tradies.</p>
+    <p class="section-lede">Most tradies are world-class craftsmen and the worst-served small-business segment when it comes to digital. They didn't pick up the tools to learn Google algorithm updates. They want to be on site — so anything online genuinely struggles, and three specific failures cost them work every single week.</p>
+
+    <div class="pain-list" style="margin-bottom: 56px;">
+      <div class="pain-item">
+        <div class="pain-num">01</div>
+        <div class="pain-body">
+          <strong>No website — or a website built in 2016</strong>
+          <span>The vast majority of NZ + AU tradies either have <em>no website at all</em> or one so dated and slow that it actively works against them. When a homeowner searches "plumber Wellington" at 9pm with a burst pipe, the tradie isn't there to be found. <em>Word of mouth alone caps revenue at whatever the local network gossip can carry.</em> Every job won by a competitor with a half-decent website is a job the better tradie never even knew existed.</span>
+        </div>
+      </div>
+      <div class="pain-item">
+        <div class="pain-num">02</div>
+        <div class="pain-body">
+          <strong>Google Business Profile is a graveyard — no reviews, no posts, no photos</strong>
+          <span>Competitor has 80+ reviews. Tradie has 6. Competitor posts 3x a week. Tradie hasn't posted since 2022. Competitor has answered every question in the Q&amp;A. Tradie's profile has 4 unanswered questions sitting there for two years. <em>When a potential customer DOES find them, the profile looks abandoned.</em> Customers infer "cowboy" or "out of business" and just call the next one on the list. Credibility is binary online — and an unoptimized profile fails the test in two seconds.</span>
+        </div>
+      </div>
+      <div class="pain-item">
+        <div class="pain-num">03</div>
+        <div class="pain-body">
+          <strong>Social media looks dormant — they look out of business</strong>
+          <span>A homeowner doing due diligence on a $30K bathroom job is going to check the tradie's Facebook or Instagram. Last post: December 2022. Three photos from 2019. <em>Their automatic conclusion: "this business has folded — call someone else."</em> The tradie isn't out of business — they're flat-out on jobs and have no time, no system, and no idea what to post. The lost customer never tells them they bounced.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pull-quote">
+      <p>"Tradies aren't tech-savvy and have no time to learn. That's a problem for them — and the entire reason this opportunity exists. The same thing that makes them bad at digital makes them <em>desperate for the right partner to run it for them.</em>"</p>
+      <span class="src">— The structural opportunity</span>
+    </div>
+
+    <p class="section-lede" style="margin-top: 40px;">Stack those three failures together and the cost compounds fast. Here's the honest maths for a typical NZ plumber doing <strong>$800,000 in annual revenue.</strong> Not projected losses — real, recoverable revenue gaps we've measured in actual conversations with tradies.</p>
 
     <div class="cost-table">
       <div class="cost-row">
@@ -1144,52 +1293,92 @@
       <div class="section-num">04</div>
       <div class="section-num-tag">The product · two services</div>
     </div>
-    <h2 class="section-h">Two services. <em>One integrated platform</em></h2>
-    <p class="section-lede">Tradie Launch is the foundation — a website plus the back-office software that runs it. Tradie Leads is the engine that drives traffic and converts it into work. They're sold separately but designed to work together. Both are live as of May 2026.</p>
+    <h2 class="section-h">Three services. <em>One integrated platform</em></h2>
+    <p class="section-lede">Tradie Launch is the foundation — a website plus the back-office software that runs it. Tradie Leads is the engine that drives traffic. Tradie Admin (Q4 2026) is the books + GST + debtor chase layer powered by AI. Sold separately, designed to compound together.</p>
 
     <div class="product-grid">
       <div class="product-card">
-        <div class="badge">Service 01 · Live</div>
-        <h3>Tradie Launch</h3>
-        <p class="product-desc">A complete 7-day install: custom website, branded CRM, invoicing, payments, automation, reviews, and ongoing maintenance — all configured and handed over in a single sprint.</p>
-        <ul>
-          <li>Custom mobile-first website (no templates)</li>
-          <li>CRM with lead pipeline + customer database</li>
-          <li>Invoicing + Stripe payments + auto-reminders</li>
-          <li>Auto-text-back on every missed call (60 seconds)</li>
-          <li>Review request automation after every job</li>
-          <li>Quote follow-up sequences (day 1, 3, 7)</li>
-          <li>Hosting · maintenance · light edits included</li>
-        </ul>
-        <div class="pricing">
-          <span class="lbl">Pricing</span>
-          <span class="val">$5,000 install <span class="amber">·</span> $99/mo Tradie Care</span>
+        <div class="product-card-image">
+          <img src="assets/hero-website.jpg" alt="Tradie Launch — modern website on laptop">
+          <span class="stamp">Live</span>
+        </div>
+        <div class="product-card-body">
+          <div class="badge">Service 01</div>
+          <h3>Tradie Launch</h3>
+          <p class="product-desc">A complete 7-day install: custom website, branded CRM, invoicing, payments, automation, reviews, and ongoing maintenance — all configured and handed over in a single sprint.</p>
+          <ul>
+            <li>Custom mobile-first website (no templates)</li>
+            <li>CRM with lead pipeline + customer database</li>
+            <li>Invoicing + Stripe payments + auto-reminders</li>
+            <li>Auto-text-back on every missed call (60 seconds)</li>
+            <li>Review request automation after every job</li>
+            <li>Quote follow-up sequences (day 1, 3, 7)</li>
+            <li>Hosting · maintenance · light edits included</li>
+          </ul>
+          <div class="pricing">
+            <span class="lbl">Pricing</span>
+            <span class="val">$5,000 install <span class="amber">·</span> $99/mo Tradie Care</span>
+          </div>
         </div>
       </div>
 
       <div class="product-card">
-        <div class="badge">Service 02 · Beta</div>
-        <h3>Tradie Leads</h3>
-        <p class="product-desc">The growth engine that runs on top of Tradie Launch. Six channels managed by one operator: Google + Meta ads, local SEO, Google Business management, review velocity, and qualification.</p>
-        <ul>
-          <li>Google Ads (call + form campaigns)</li>
-          <li>Meta Ads (lead form objective)</li>
-          <li>Local SEO (suburb pages + schema)</li>
-          <li>Google Business Profile management</li>
-          <li>Automated review acquisition (weekly)</li>
-          <li>Lead qualification + booking automation</li>
-          <li>Monthly performance report (calls, jobs, cost)</li>
-        </ul>
-        <div class="pricing">
-          <span class="lbl">Pricing</span>
-          <span class="val">$799/mo <span class="amber">·</span> ad spend direct to Google/Meta (no markup)</span>
+        <div class="product-card-image">
+          <img src="assets/marketing-hero.jpg" alt="Tradie Leads — top of the map pack">
+          <span class="stamp">Beta</span>
+        </div>
+        <div class="product-card-body">
+          <div class="badge">Service 02</div>
+          <h3>Tradie Leads</h3>
+          <p class="product-desc">The growth engine that runs on top of Tradie Launch. Six channels managed by one operator: Google + Meta ads, local SEO, Google Business management, review velocity, and qualification.</p>
+          <ul>
+            <li>Google Ads (call + form campaigns)</li>
+            <li>Meta Ads (lead form objective)</li>
+            <li>Local SEO (suburb pages + schema)</li>
+            <li>Google Business Profile management</li>
+            <li>Automated review acquisition (weekly)</li>
+            <li>Lead qualification + booking automation</li>
+            <li>Monthly performance report (calls, jobs, cost)</li>
+          </ul>
+          <div class="pricing">
+            <span class="lbl">Pricing</span>
+            <span class="val">$799/mo <span class="amber">·</span> ad spend direct (no markup)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-card-image placeholder">
+          <span class="stamp" style="background: rgba(245,130,32,0.85); color: white;">Q4 2026</span>
+          <div class="icon" style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 4v16M16 14l-2 2 4 4"/></svg>
+            <span style="font-size:11px;letter-spacing:0.16em;font-weight:700;text-transform:uppercase;color:rgba(255,255,255,0.6);">AI back-office</span>
+          </div>
+        </div>
+        <div class="product-card-body">
+          <div class="badge">Service 03 · Coming</div>
+          <h3>Tradie Admin</h3>
+          <p class="product-desc">The AI-driven back-office layer. Replaces a part-time bookkeeper for a fraction of the cost. Built on top of the same operating platform — books, GST, and debtor chase running automatically.</p>
+          <ul>
+            <li>Xero / MYOB sync + reconciliation</li>
+            <li>GST returns prepared automatically</li>
+            <li>Debtor chase via AI voice + email + SMS</li>
+            <li>Supplier invoice capture + categorisation</li>
+            <li>Cashflow dashboard (real, not lagging)</li>
+            <li>Weekly money summary to WhatsApp</li>
+            <li>Tax-time pack auto-generated for accountant</li>
+          </ul>
+          <div class="pricing">
+            <span class="lbl">Pricing · indicative</span>
+            <span class="val">From $299/mo <span class="amber">·</span> launch Q4 2026</span>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="body-block" style="margin-top: 40px;">
-      <p><strong>Why these two, in this order:</strong> The platform has to be solid before traffic is worth running. Sending paid traffic to a slow, untracked, conversion-poor site is the most common mistake tradies make. Tradie Launch fixes the conversion infrastructure first — then Tradie Leads can profitably drive volume into it.</p>
-      <p><strong>Why bundled:</strong> A tradie running both services with us replaces ~$1,400/month of disconnected software + agency fees + ad management with a single integrated $898/month subscription. That's the natural upgrade path — and the source of our highest-LTV clients.</p>
+    <div class="body-block" style="margin-top: 48px;">
+      <p><strong>Why this order, why this stacking:</strong> Launch fixes the conversion infrastructure first — sending paid traffic to a slow site is the most common mistake tradies make. Leads adds qualified traffic once the site converts. Admin (the AI-driven back-office) consolidates the bookkeeping + debtor chase layer that tradies currently outsource piece-by-piece. <em>Each service makes the next more valuable.</em></p>
+      <p><strong>The full-stack value</strong> for a bundled client running all three services: replaces ~$1,800/month of disconnected software, agency fees, bookkeeper, and ad management — with one integrated platform at ~$1,200/month. <em>That's the path to highest-LTV clients.</em></p>
     </div>
   </div>
 </section>
@@ -1410,6 +1599,7 @@
       <p><strong>How a solo operator delivers at agency quality:</strong></p>
       <p>Every install is <strong>80% pre-built and 20% custom.</strong> Site templates, automation workflows, email sequences, and lead-qualification logic are all built once and re-configured per client. The 20% that's custom — brand, copy, photos, suburb-specific SEO — is exactly the work that AI accelerates from days to hours.</p>
       <p><strong>The delivery stack:</strong> Claude (copy + content + technical implementation), Midjourney (custom visuals + photography), Cursor/Claude Code (rapid site customisation), GoHighLevel (CRM + automation backbone), Netlify (hosting), Stripe (payments). <strong>One operator can ship like a 5-person agency without compromise on quality.</strong></p>
+      <p><strong>The AI Brain — internal product roadmap:</strong> Beyond delivery, we're building an internal AI layer that does the work of a small operations team. v1 (live now): drafts copy, designs first-pass layouts, generates suburb-specific SEO content, writes ad creative. v2 (Q3 2026): runs client onboarding interviews end-to-end. v3 (Q4 2026): powers Tradie Admin's books + debtor chase + GST workflows. <em>Long-term: the AI Brain becomes a partial product — a Co-Pilot tradies can talk to directly for quotes, scheduling, customer FAQs.</em></p>
       <p><strong>The hiring trigger:</strong> the founder hires <em>only</em> when delivery time-per-client exceeds 1.5x the budgeted hours for three consecutive installs. Not when revenue "looks good" — when the operating model breaks.</p>
     </div>
 
@@ -1684,10 +1874,17 @@
         </div>
       </div>
       <div class="milestone">
+        <div class="ts">Q4<br>2026</div>
+        <div class="body">
+          <strong>Tradie Admin beta launch · AI Brain v1 operational</strong>
+          <span>Third service goes live in private beta: AI-driven books + GST + debtor chase. First 3–5 beta clients selected from existing Launch base. AI delivery pipeline upgraded to handle Admin workflows end-to-end.</span>
+        </div>
+      </div>
+      <div class="milestone">
         <div class="ts">Q1<br>2027</div>
         <div class="body">
           <strong>15–20 installs · $150K+ ARR · referral system live</strong>
-          <span>First incentivized referral round. PM-role network producing inbound. First contractor onboarded (designer or ads specialist, ~10 hrs/week).</span>
+          <span>First incentivized referral round. PM-role network producing inbound. First contractor onboarded (designer or ads specialist, ~10 hrs/week). Tradie Admin exits beta with first paying clients on $299/mo.</span>
         </div>
       </div>
       <div class="milestone">
