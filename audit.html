@@ -641,76 +641,155 @@
       line-height: 1.6;
     }
 
-    /* Sample report cards */
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-    @media (max-width: 900px) { .grid-3 { grid-template-columns: 1fr; } }
-    .sample-card {
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 32px 28px;
-      transition: transform 0.4s, box-shadow 0.4s, border-color 0.4s;
-      position: relative;
+    /* Sample reports — alternating editorial rows */
+    .sample-rows {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 90px;
+      margin-top: 60px;
     }
-    .sample-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 24px 60px -22px rgba(15, 35, 64, 0.16);
-      border-color: var(--amber);
+    .sample-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
     }
-    .sample-num {
-      font-family: 'JetBrains Mono', monospace;
+    .sample-row.reverse .sample-mock { order: 2; }
+    @media (max-width: 900px) {
+      .sample-rows { gap: 56px; margin-top: 40px; }
+      .sample-row { grid-template-columns: 1fr; gap: 32px; }
+      .sample-row.reverse .sample-mock { order: 0; }
+    }
+    .sample-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
       font-size: 11px;
       color: var(--amber);
-      letter-spacing: 0.16em;
-      font-weight: 700;
+      letter-spacing: 0.14em;
+      font-weight: 800;
       text-transform: uppercase;
+      margin-bottom: 16px;
     }
-    .sample-icon {
-      width: 50px;
-      height: 50px;
-      border-radius: 14px;
-      background: var(--amber-soft);
-      color: var(--amber);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 4px;
+    .sample-eyebrow .num {
+      background: var(--amber);
+      color: var(--navy);
+      border-radius: 100px;
+      padding: 3px 9px;
+      font-size: 10.5px;
+      letter-spacing: 0.1em;
     }
-    .sample-icon svg { width: 24px; height: 24px; }
-    .sample-card h3 {
-      font-size: 20px;
+    .sample-copy h3 {
+      font-size: clamp(28px, 3vw, 38px);
       font-weight: 800;
       color: var(--navy);
-      letter-spacing: -0.02em;
-      line-height: 1.2;
+      letter-spacing: -0.025em;
+      line-height: 1.05;
+      margin-bottom: 18px;
     }
-    .sample-card p {
-      font-size: 14.5px;
+    .sample-copy p {
+      font-size: 16px;
       color: var(--muted);
-      line-height: 1.6;
+      line-height: 1.65;
+      margin-bottom: 26px;
     }
-    .sample-cta {
+    .sample-link {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      margin-top: auto;
-      padding-top: 16px;
-      color: var(--amber);
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
       font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      transition: gap 0.3s;
+      font-size: 14.5px;
+      color: var(--navy);
+      border-bottom: 1.5px solid var(--amber);
+      padding-bottom: 4px;
+      transition: gap 0.25s, color 0.2s;
     }
-    .sample-card:hover .sample-cta { gap: 14px; }
+    .sample-link:hover { gap: 14px; color: var(--amber); }
+    .sample-link svg { width: 14px; height: 14px; }
+
+    /* Mock report card */
+    .sample-mock {
+      background: white;
+      border-radius: 18px;
+      padding: 26px 28px 24px;
+      border: 1px solid var(--line);
+      box-shadow: 0 30px 70px -22px rgba(15, 35, 64, 0.22);
+      position: relative;
+      transition: transform 0.5s, box-shadow 0.5s;
+      display: block;
+    }
+    .sample-mock:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 36px 84px -22px rgba(15, 35, 64, 0.28);
+    }
+    .sample-mock-stamp {
+      position: absolute;
+      top: -12px;
+      right: 22px;
+      background: var(--amber);
+      color: var(--navy);
+      font-size: 9.5px;
+      letter-spacing: 0.18em;
+      font-weight: 800;
+      padding: 5px 11px;
+      border-radius: 100px;
+      box-shadow: 0 4px 14px -4px rgba(245, 130, 32, 0.5);
+    }
+    .sample-mock-head {
+      font-size: 10.5px;
+      color: var(--muted);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .sample-mock-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.015em;
+      margin-bottom: 16px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
+    }
+    .mock-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 11px 0;
+      font-size: 13px;
+      color: var(--ink);
+    }
+    .mock-row + .mock-row { border-top: 1px dashed var(--line-warm); }
+    .mock-row .lbl {
+      flex: 1;
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .mock-row .bar {
+      flex: 0 0 80px;
+      height: 5px;
+      background: var(--bone-warm);
+      border-radius: 100px;
+      overflow: hidden;
+    }
+    .mock-row .bar > span {
+      display: block;
+      height: 100%;
+      border-radius: 100px;
+    }
+    .mock-row .bar > span.bad { background: #E55353; }
+    .mock-row .bar > span.mid { background: var(--amber); }
+    .mock-row .bar > span.good { background: var(--green); }
+    .mock-row .score {
+      flex: 0 0 38px;
+      text-align: right;
+      font-weight: 800;
+      font-size: 12.5px;
+      color: var(--navy);
+    }
 
     /* Inclusions strip */
     .incl {
@@ -1257,27 +1336,63 @@
       <p>Based on a fictional Wellington plumber. Three parts, every page real — just the numbers are made up.</p>
     </div>
 
-    <div class="grid-3">
-      <a href="audit-sample-website.html" class="sample-card reveal">
-        <div class="sample-icon"><svg><use href="#i-monitor"/></svg></div>
-        <h3>Website audit</h3>
-        <p>Speed, mobile, trust signals, lead capture — scored and ranked by cost. Each finding has a recommended fix and rough $ impact.</p>
-        <div class="sample-cta">See sample <svg width="14" height="14"><use href="#i-arrow"/></svg></div>
-      </a>
+    <div class="sample-rows">
+      <!-- Row 1: Website -->
+      <div class="sample-row reveal">
+        <a href="audit-sample-website.html" class="sample-mock">
+          <div class="sample-mock-stamp">SAMPLE</div>
+          <div class="sample-mock-head">Visibility · Website</div>
+          <div class="sample-mock-title">Score 4.2 / 10</div>
+          <div class="mock-row"><span class="lbl">Speed (mobile)</span><span class="bar"><span class="bad" style="width:32%"></span></span><span class="score">3.2</span></div>
+          <div class="mock-row"><span class="lbl">Trust signals</span><span class="bar"><span class="mid" style="width:60%"></span></span><span class="score">6.0</span></div>
+          <div class="mock-row"><span class="lbl">Lead capture</span><span class="bar"><span class="bad" style="width:20%"></span></span><span class="score">2.0</span></div>
+          <div class="mock-row"><span class="lbl">Mobile fit</span><span class="bar"><span class="mid" style="width:55%"></span></span><span class="score">5.5</span></div>
+        </a>
+        <div class="sample-copy">
+          <div class="sample-eyebrow"><span class="num">01</span> Website audit</div>
+          <h3>What's costing you jobs</h3>
+          <p>Speed, mobile, trust signals, lead capture — scored and ranked by cost. Each finding has a recommended fix and a rough $ impact.</p>
+          <a href="audit-sample-website.html" class="sample-link">See the sample <svg><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
 
-      <a href="audit-sample-seo.html" class="sample-card reveal" style="--delay: 0.05s">
-        <div class="sample-icon"><svg><use href="#i-search"/></svg></div>
-        <h3>SEO audit</h3>
-        <p>10 money keywords benchmarked against your top competitor. Where you rank, where they rank, and the fix plan to close the gap.</p>
-        <div class="sample-cta">See sample <svg width="14" height="14"><use href="#i-arrow"/></svg></div>
-      </a>
+      <!-- Row 2: SEO -->
+      <div class="sample-row reverse reveal">
+        <a href="audit-sample-seo.html" class="sample-mock">
+          <div class="sample-mock-stamp">SAMPLE</div>
+          <div class="sample-mock-head">10 money keywords</div>
+          <div class="sample-mock-title">Wellington · Plumber</div>
+          <div class="mock-row"><span class="lbl">"emergency plumber wellington"</span><span class="bar"><span class="bad" style="width:18%"></span></span><span class="score">#18</span></div>
+          <div class="mock-row"><span class="lbl">"hot water cylinder repair"</span><span class="bar"><span class="mid" style="width:55%"></span></span><span class="score">#9</span></div>
+          <div class="mock-row"><span class="lbl">"blocked drain wellington"</span><span class="bar"><span class="bad" style="width:22%"></span></span><span class="score">#14</span></div>
+          <div class="mock-row"><span class="lbl">"plumber near me"</span><span class="bar"><span class="bad" style="width:12%"></span></span><span class="score">#24</span></div>
+        </a>
+        <div class="sample-copy">
+          <div class="sample-eyebrow"><span class="num">02</span> SEO audit</div>
+          <h3>Where you rank vs your nearest rival</h3>
+          <p>10 money keywords benchmarked against your top competitor. Where you rank, where they rank, and the fix plan to close the gap.</p>
+          <a href="audit-sample-seo.html" class="sample-link">See the sample <svg><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
 
-      <a href="audit-sample-gmb.html" class="sample-card reveal" style="--delay: 0.1s">
-        <div class="sample-icon"><svg><use href="#i-pin"/></svg></div>
-        <h3>Google Business audit</h3>
-        <p>Side-by-side vs local competitors — reviews, photos, posts, Q&amp;A. Plus the 5 things to fix this week to climb the map pack.</p>
-        <div class="sample-cta">See sample <svg width="14" height="14"><use href="#i-arrow"/></svg></div>
-      </a>
+      <!-- Row 3: GBP -->
+      <div class="sample-row reveal">
+        <a href="audit-sample-gmb.html" class="sample-mock">
+          <div class="sample-mock-stamp">SAMPLE</div>
+          <div class="sample-mock-head">Google Business · head-to-head</div>
+          <div class="sample-mock-title">You vs Wellington Plumbers Ltd</div>
+          <div class="mock-row"><span class="lbl">Reviews</span><span class="bar"><span class="bad" style="width:25%"></span></span><span class="score">23</span></div>
+          <div class="mock-row"><span class="lbl">Photos</span><span class="bar"><span class="bad" style="width:30%"></span></span><span class="score">12</span></div>
+          <div class="mock-row"><span class="lbl">Recent posts</span><span class="bar"><span class="bad" style="width:4%"></span></span><span class="score">0</span></div>
+          <div class="mock-row"><span class="lbl">Categories</span><span class="bar"><span class="good" style="width:80%"></span></span><span class="score">4</span></div>
+        </a>
+        <div class="sample-copy">
+          <div class="sample-eyebrow"><span class="num">03</span> Google Business audit</div>
+          <h3>Why competitors win the map pack</h3>
+          <p>Side-by-side vs local competitors — reviews, photos, posts, Q&amp;A. Plus the 5 things to fix this week to climb the map pack.</p>
+          <a href="audit-sample-gmb.html" class="sample-link">See the sample <svg><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
     </div>
 
     <div class="incl reveal">
