@@ -391,7 +391,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 30%;
+      object-position: center 20%;
     }
     .hero-portrait::after {
       content: '';
@@ -543,51 +543,75 @@
       margin: 0 auto;
     }
 
-    .story-blocks {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
+    /* Story — vertical timeline */
+    .story-tl {
+      max-width: 720px;
+      margin: 56px auto 0;
+      position: relative;
+    }
+    .story-tl::before {
+      content: '';
+      position: absolute;
+      left: 29px;
+      top: 50px;
+      bottom: 50px;
+      width: 2px;
+      background: rgba(245,130,32,0.25);
+    }
+    .st {
+      display: flex;
       gap: 28px;
-      max-width: 980px;
-      margin: 0 auto;
+      padding: 20px 0;
+      align-items: flex-start;
+      position: relative;
     }
-    @media (max-width: 800px) {
-      .story-blocks { grid-template-columns: 1fr; }
-    }
-    .story-card {
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 34px 32px;
-      transition: transform 0.4s, box-shadow 0.4s;
-    }
-    .story-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 24px 60px -22px rgba(15, 35, 64, 0.16);
-    }
-    .story-card .num {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--amber);
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      margin-bottom: 14px;
-    }
-    .story-card h3 {
-      font-size: 22px;
+    .st-num {
+      flex: 0 0 60px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--bone-warm);
+      border: 2px solid var(--amber);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
       font-weight: 800;
-      letter-spacing: -0.02em;
+      color: var(--amber);
+      position: relative;
+      z-index: 1;
+    }
+    .st-body { padding-top: 10px; flex: 1; }
+    .st-tag {
+      font-size: 10px;
+      color: var(--amber);
+      letter-spacing: 0.18em;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .st-body h3 {
+      font-size: clamp(20px, 2.4vw, 26px);
+      font-weight: 800;
       color: var(--navy);
-      margin-bottom: 12px;
+      letter-spacing: -0.02em;
       line-height: 1.2;
+      margin-bottom: 8px;
     }
-    .story-card p {
-      font-size: 15px;
-      line-height: 1.65;
+    .st-body p {
+      font-size: 15.5px;
       color: var(--muted);
+      line-height: 1.6;
+      margin: 0;
     }
-    .story-card p + p { margin-top: 12px; }
-    .story-card strong { color: var(--ink); font-weight: 700; }
+    @media (max-width: 600px) {
+      .story-tl { margin: 40px auto 0; }
+      .story-tl::before { left: 23px; top: 40px; bottom: 40px; }
+      .st { gap: 18px; padding: 16px 0; }
+      .st-num { flex: 0 0 48px; width: 48px; height: 48px; font-size: 17px; }
+      .st-body h3 { font-size: 18px; }
+      .st-body p { font-size: 14px; }
+    }
 
     /* Timeline */
     .timeline-section {
@@ -1035,38 +1059,43 @@
 <section class="story">
   <div class="story-inner">
     <div class="section-head reveal">
-      <span class="eyebrow">// The story</span>
-      <h2>Why TradieBack <em>exists.</em></h2>
+      <div style="width:56px;height:2px;background:var(--amber);margin:0 0 24px;"></div>
+      <h2>Why TradieBack <em>exists</em></h2>
       <p>Two things became obvious from a decade on NZ construction sites. The platform is the answer to both.</p>
     </div>
 
-    <div class="story-blocks">
-      <div class="story-card reveal">
-        <div class="num">// 01 · The problem</div>
-        <h3>Brilliant tradies, broken back-office.</h3>
-        <p>The best tradies I worked with on site weren't winning more work because they were better tradesmen. They were <strong>worse off</strong> — too busy, too good to advertise, too tired at 8pm to send a quote.</p>
-        <p>Their phone rang once a week from word-of-mouth. The Google search results showed five other companies before theirs. Their books were a kitchen-table mess of receipts and unpaid invoices.</p>
+    <div class="story-tl reveal">
+      <div class="st">
+        <div class="st-num">01</div>
+        <div class="st-body">
+          <div class="st-tag">The problem</div>
+          <h3>Brilliant tradies, broken back-office</h3>
+          <p>The best tradies on site weren't winning more work. Too busy, too good to advertise, too tired at 8pm to send a quote.</p>
+        </div>
       </div>
-
-      <div class="story-card reveal" style="--delay: 0.1s">
-        <div class="num">// 02 · The agency trap</div>
-        <h3>Marketing agencies don't speak tradie.</h3>
-        <p>Every "marketing solution" I saw a tradie sign up for was the same — $5,000 cookie-cutter website, generic SEO package, six-month lock-in, and a 22-year-old account manager who couldn't tell a sparkie from a chippie.</p>
-        <p>Three months in, the tradie cancelled, ate the loss, and went back to word-of-mouth. <strong>The whole industry was set up to fail them.</strong></p>
+      <div class="st">
+        <div class="st-num">02</div>
+        <div class="st-body">
+          <div class="st-tag">The agency trap</div>
+          <h3>Agencies don't speak tradie</h3>
+          <p>Every $5K cookie-cutter website I saw a tradie buy ended the same way — cancelled at month three, back to word-of-mouth.</p>
+        </div>
       </div>
-
-      <div class="story-card reveal" style="--delay: 0.2s">
-        <div class="num">// 03 · What I knew</div>
-        <h3>Construction PM discipline. Applied to small business.</h3>
-        <p>Running $50M+ builds taught me one thing — the <strong>system runs the project</strong>, not the people. When the system is right, mediocre operators ship great work. When it's wrong, the best foreman in the country burns out.</p>
-        <p>Same with trade businesses. The tradie isn't the bottleneck. The system around them is.</p>
+      <div class="st">
+        <div class="st-num">03</div>
+        <div class="st-body">
+          <div class="st-tag">What I knew</div>
+          <h3>The system runs the project</h3>
+          <p>Construction taught me one thing — get the system right and average operators ship great work. Get it wrong and the best foreman burns out.</p>
+        </div>
       </div>
-
-      <div class="story-card reveal" style="--delay: 0.3s">
-        <div class="num">// 04 · The build</div>
-        <h3>One platform. Built once. Rolled out to every tradie.</h3>
-        <p>TradieBack is the system I'd want if I went back to my mate Wayne — third-generation Wellington plumber, $800K/yr, drowning in admin — and told him "let me fix this for you."</p>
-        <p>Tradie Launch installs the platform in 7 days. Tradie Leads gets the phone ringing. <strong>You stay on the tools. The system runs the rest.</strong></p>
+      <div class="st">
+        <div class="st-num">04</div>
+        <div class="st-body">
+          <div class="st-tag">The build</div>
+          <h3>One platform. Every tradie</h3>
+          <p>TradieBack is the system I'd hand to Wayne — Wellington plumber, $800K/yr, drowning in admin — and say "I've got this."</p>
+        </div>
       </div>
     </div>
   </div>
