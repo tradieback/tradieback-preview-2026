@@ -758,43 +758,25 @@
       padding: 110px 48px;
     }
     .direct-inner {
-      max-width: 1100px;
+      max-width: 680px;
       margin: 0 auto;
-      display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: 64px;
-      align-items: center;
+      text-align: center;
     }
-    @media (max-width: 900px) {
-      .direct-inner { grid-template-columns: 1fr; gap: 40px; }
-    }
-    .direct-photo {
-      aspect-ratio: 1 / 1;
-      border-radius: 22px;
+    .direct-avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
       overflow: hidden;
+      margin: 0 auto 28px;
       background: var(--bone-warm);
-      border: 1px solid var(--line);
-      box-shadow: 0 24px 60px -20px rgba(15, 35, 64, 0.18);
+      border: 3px solid white;
+      box-shadow: 0 18px 44px -14px rgba(15, 35, 64, 0.22);
     }
-    .direct-photo img {
+    .direct-avatar img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-    }
-    .direct-content .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--amber-soft);
-      color: var(--amber);
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      padding: 7px 14px;
-      border-radius: 100px;
-      margin-bottom: 22px;
+      object-position: center 35%;
     }
     .direct-content h2 {
       font-size: clamp(30px, 3.6vw, 44px);
@@ -810,12 +792,19 @@
       line-height: 1.7;
       color: var(--muted);
       margin-bottom: 16px;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
     }
     .direct-list {
       display: grid;
       gap: 12px;
-      margin-top: 28px;
-      margin-bottom: 28px;
+      margin-top: 32px;
+      margin-bottom: 32px;
+      max-width: 460px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: left;
     }
     .direct-list .row {
       display: flex;
@@ -833,17 +822,19 @@
       transform: translateX(2px);
     }
     .direct-list .ico {
-      width: 32px;
-      height: 32px;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
       background: var(--amber-soft);
       color: var(--amber);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 16px;
       flex-shrink: 0;
+      transition: background 0.2s, color 0.2s;
     }
+    .direct-list .ico svg { width: 18px; height: 18px; display: block; }
+    .direct-list .row:hover .ico { background: var(--amber); color: white; }
     .direct-list .row strong {
       color: var(--navy);
       font-weight: 700;
@@ -858,71 +849,38 @@
     }
 
     /* Final CTA */
-    .final-cta {
+    .final {
       background: var(--navy);
-      color: white;
-      padding: 110px 48px;
+      padding: 130px 32px;
       text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.08);
       position: relative;
       overflow: hidden;
     }
-    .final-cta::before {
+    .final::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at center, rgba(245,130,32,0.13), transparent 65%);
+      background:
+        radial-gradient(circle at 20% 50%, rgba(245,130,32,0.12), transparent 50%),
+        radial-gradient(circle at 80% 50%, rgba(245,130,32,0.08), transparent 50%);
       pointer-events: none;
     }
-    .final-cta-inner {
-      max-width: 720px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
-    .final-cta .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(245, 130, 32, 0.14);
-      color: var(--amber);
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      padding: 7px 14px;
-      border-radius: 100px;
+    .final-inner { max-width: 720px; margin: 0 auto; position: relative; }
+    .final h2 {
+      font-size: clamp(36px, 4.8vw, 64px);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.04;
+      color: white;
       margin-bottom: 24px;
     }
-    .final-cta h2 {
-      font-size: clamp(32px, 4.2vw, 54px);
-      font-weight: 800;
-      letter-spacing: -0.035em;
-      line-height: 1.05;
-      margin-bottom: 18px;
-    }
-    .final-cta h2 em { font-style: normal; color: var(--amber); }
-    .final-cta p {
-      font-size: 17px;
-      color: rgba(255,255,255,0.7);
-      margin-bottom: 36px;
-      max-width: 520px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .final-actions {
-      display: flex;
-      gap: 14px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .final-cta .btn-ghost {
-      color: white;
-      border-color: rgba(255,255,255,0.2);
-    }
-    .final-cta .btn-ghost:hover {
-      border-color: var(--amber);
-      background: rgba(245, 130, 32, 0.08);
+    .final h2 em { font-style: normal; color: var(--amber); }
+    .final p {
+      font-size: 19px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.78);
+      margin-bottom: 44px;
     }
 
     /* Footer */
@@ -1106,35 +1064,35 @@
 <section class="timeline-section">
   <div class="timeline-inner">
     <div class="section-head reveal">
-      <span class="eyebrow">// The credibility</span>
-      <h2>From labourer at 17 <em>to here.</em></h2>
+      <div style="width:56px;height:2px;background:var(--amber);margin:0 0 24px;"></div>
+      <h2>From labourer at 18 <em>to here</em></h2>
       <p>Why I'm the right person to build this — the short version.</p>
     </div>
 
     <div class="timeline">
       <div class="tl-row reveal">
         <div class="tl-dot"></div>
-        <div class="tl-year">// CHAPTER 01 · LABOURER</div>
-        <div class="tl-title">Started on the tools at 17.</div>
-        <div class="tl-detail">First job out of school — Wellington commercial site. Carried block, dug trenches, learned what hard work actually looks like before I learned anything else about the industry.</div>
+        <div class="tl-year">LABOURER · AGE 18</div>
+        <div class="tl-title">Started on the tools</div>
+        <div class="tl-detail">First job out of school — Wellington commercial site. Carried block, dug trenches. Learned what hard work actually looks like before I learned anything else about the industry.</div>
       </div>
       <div class="tl-row reveal" style="--delay: 0.1s">
         <div class="tl-dot"></div>
-        <div class="tl-year">// CHAPTER 02 · FOREMAN</div>
-        <div class="tl-title">Foreman on residential + commercial builds.</div>
-        <div class="tl-detail">Ran crews of 8–15. Learned that managing tradies isn't about telling them what to do — it's about removing the friction so they can do their best work.</div>
+        <div class="tl-year">2021 · FOREMAN</div>
+        <div class="tl-title">Running crews on residential + commercial</div>
+        <div class="tl-detail">Crews of 8–15. Learned that managing tradies isn't about telling them what to do — it's about removing the friction so they can do their best work.</div>
       </div>
       <div class="tl-row reveal" style="--delay: 0.2s">
         <div class="tl-dot"></div>
-        <div class="tl-year">// CHAPTER 03 · PROJECT MANAGER</div>
-        <div class="tl-title">PM at one of NZ's largest property developers.</div>
-        <div class="tl-detail">Ran $50M+ projects across NZ. Coordinated 30+ subcontractor trade businesses per build. Saw firsthand how the great ones won — and how the talented ones got eaten by the admin.</div>
+        <div class="tl-year">2022–2024 · PROJECT MANAGER</div>
+        <div class="tl-title">PM at one of NZ's largest property developers</div>
+        <div class="tl-detail">$50M+ projects. Coordinated 30+ subcontractor trade businesses per build. Saw firsthand how the great ones won — and how the talented ones got eaten by the admin.</div>
       </div>
       <div class="tl-row now reveal" style="--delay: 0.3s">
         <div class="tl-dot"></div>
-        <div class="tl-year">// CHAPTER 04 · FOUNDER · NOW</div>
-        <div class="tl-title">Building TradieBack.</div>
-        <div class="tl-detail">Same problems I watched destroy good tradies for nearly a decade. Different angle — instead of being the PM running their build, I'm the operator running their back-office. The platform stays. The tradies don't burn out.</div>
+        <div class="tl-year">2025–NOW · FOUNDER</div>
+        <div class="tl-title">Building TradieBack</div>
+        <div class="tl-detail">Same problems I watched destroy good tradies for years. Different angle — instead of being the PM running their build, I'm the operator running their back-office.</div>
       </div>
     </div>
   </div>
@@ -1185,34 +1143,37 @@
 <!-- Direct line -->
 <section class="direct">
   <div class="direct-inner">
-    <div class="reveal">
-      <div class="direct-photo">
-        <img src="assets/founder/mathieson.jpg" alt="Mathieson Moller">
-      </div>
+    <div class="direct-avatar reveal">
+      <img src="assets/founder/mathieson.jpg" alt="Mathieson Moller">
     </div>
     <div class="direct-content reveal" style="--delay: 0.1s">
-      <span class="eyebrow">// Direct line</span>
-      <h2>You'll be talking to <em>me.</em></h2>
-      <p>TradieBack is small on purpose. There are 4 founder spots and 1 free pilot spot — that's the round. Every install in 2026 runs through me directly.</p>
+      <h2>You'll be talking to <em>me</em></h2>
+      <p>TradieBack is small on purpose. Every install in 2026 runs through me directly.</p>
       <p>If you've got a question that doesn't fit a sales call, the fastest way to me is below.</p>
 
       <div class="direct-list">
         <a href="https://wa.me/message/SONH7ANNNV2GK1" target="_blank" rel="noopener" class="row">
-          <div class="ico">💬</div>
+          <div class="ico">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.4.5-.5.2-.2.2-.3.3-.5.1-.2.1-.4 0-.5-.1-.2-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .2.2 2.1 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.2-.3-.2-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.4c1.4.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+          </div>
           <div>
             <strong>WhatsApp Mathieson</strong>
             <span>Fastest · usually replied within the hour</span>
           </div>
         </a>
         <a href="mailto:mathieson@tradieback.com?subject=Direct enquiry" class="row">
-          <div class="ico">✉</div>
+          <div class="ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16a1 1 0 011 1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V7a1 1 0 011-1z"/><path d="M3.5 7l8.5 6 8.5-6"/></svg>
+          </div>
           <div>
             <strong>mathieson@tradieback.com</strong>
             <span>Direct inbox · 24-hr response</span>
           </div>
         </a>
         <a href="https://www.linkedin.com/in/mathieson-moller" target="_blank" rel="noopener" class="row">
-          <div class="ico">in</div>
+          <div class="ico">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
+          </div>
           <div>
             <strong>LinkedIn</strong>
             <span>Connect with me · Wellington-based</span>
@@ -1226,14 +1187,19 @@
 </section>
 
 <!-- Final CTA -->
-<section class="final-cta">
-  <div class="final-cta-inner">
-    <span class="eyebrow reveal">// Take the spot</span>
-    <h2 class="reveal" style="--delay: 0.05s">Two free pilots. <em>Before June 17.</em></h2>
-    <p class="reveal" style="--delay: 0.1s">Pre-launch, we're taking on two NZ + AU tradies as the first case studies. Free 7-day install · 3 months free hosting + maintenance · 1 month free Leads beta. Founder spots open June 17 with locked-in rates for the first 4 clients.</p>
-    <div class="final-actions reveal" style="--delay: 0.2s">
-      <a href="book-a-yarn.html" class="btn btn-primary">Apply for a pilot spot →</a>
-      <a href="audit.html" class="btn btn-ghost">Get a free audit first</a>
+<section class="final">
+  <div class="final-inner">
+    <div class="reveal" style="width:56px;height:2px;background:var(--amber);margin:0 auto 28px;"></div>
+    <h2 class="reveal" style="--delay: 0.1s">Ready for a <em>free yarn?</em></h2>
+    <p class="reveal" style="--delay: 0.2s">20 minutes. No pitch. Straight talk about your business and what's next.</p>
+    <div class="reveal" style="--delay: 0.3s; display: flex; flex-direction: column; align-items: center; gap: 18px; margin-top: 32px;">
+      <a href="book-a-yarn.html#book" style="display:inline-flex;align-items:center;gap:12px;background:var(--amber);color:var(--navy);padding:18px 40px;border-radius:100px;font-weight:800;font-size:16px;letter-spacing:-0.01em;text-decoration:none;box-shadow:0 18px 44px -10px rgba(245,130,32,0.5);transition:transform .3s, box-shadow .3s;">
+        Book a yarn <span style="font-size:18px;">→</span>
+      </a>
+      <a href="https://wa.me/message/SONH7ANNNV2GK1" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;color:rgba(255,255,255,0.85);font-weight:600;font-size:14.5px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.3);padding:8px 4px;min-height:44px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="#25D366" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.4.5-.5.2-.2.2-.3.3-.5.1-.2.1-.4 0-.5-.1-.2-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .2.2 2.1 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.2-.3-.2-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.4c1.4.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+        Or WhatsApp Mathieson
+      </a>
     </div>
   </div>
 </section>
