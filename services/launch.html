@@ -1342,7 +1342,80 @@
   </div>
 </section>
 
-<!-- What you get: 6 things in every build -->
+<!-- What you get: Website | Software split -->
+<style>
+  .split-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    max-width: 1080px;
+    margin: 60px auto 0;
+  }
+  .split-col-label {
+    font-size: 11px;
+    color: var(--amber);
+    letter-spacing: 0.18em;
+    font-weight: 800;
+    text-transform: uppercase;
+    padding-bottom: 16px;
+    margin-bottom: 8px;
+    border-bottom: 2px solid var(--amber);
+  }
+  .split-row {
+    display: flex;
+    gap: 18px;
+    padding: 22px 0;
+    border-bottom: 1px solid rgba(15, 35, 64, 0.07);
+    align-items: flex-start;
+  }
+  .split-row:last-child { border-bottom: none; }
+  .sr-num {
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: white;
+    border: 1.5px solid var(--amber);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--amber);
+  }
+  .split-row.featured .sr-num {
+    background: var(--amber);
+    color: var(--navy);
+    box-shadow: 0 8px 20px -6px rgba(245,130,32,0.45);
+  }
+  .sr-body { flex: 1; padding-top: 4px; }
+  .sr-flag {
+    display: inline-block;
+    font-size: 10px;
+    color: var(--amber);
+    letter-spacing: 0.16em;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .sr-body h3 {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--navy);
+    letter-spacing: -0.015em;
+    margin: 0 0 4px;
+    line-height: 1.25;
+  }
+  .sr-body p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.55;
+    margin: 0;
+  }
+  @media (max-width: 800px) {
+    .split-grid { grid-template-columns: 1fr; gap: 12px; }
+  }
+</style>
 <section class="section bone" id="whats-in">
   <div class="section-inner">
     <div class="section-head reveal">
@@ -1350,86 +1423,62 @@
       <h2 class="h2">Six things in your <em>Tradie Launch</em></h2>
       <p>Most agencies hand you a website then disappear. We hand you the website + the software running behind it — all bundled, all yours.</p>
     </div>
-    <div class="grid-3">
-      <div class="fc reveal">
-        <div class="fc-tag">01 · FOUNDATION</div>
-        <div class="fc-icon"><svg><use href="#i-monitor"/></svg></div>
-        <h3>Built to convert</h3>
-        <p>Loads fast, works on phones, one tap to call or WhatsApp.</p>
-        <ul class="fc-list">
-          <li><span class="check">✓</span>Mobile-first — 85% of searches are on phones</li>
-          <li><span class="check">✓</span>Click-to-call + WhatsApp on every page</li>
-          <li><span class="check">✓</span>Under 2 seconds load — hand-built, no bloat</li>
-        </ul>
-        <div class="fc-result"><span class="pulse"></span>Customers call, not bounce</div>
+
+    <div class="split-grid reveal">
+      <!-- LEFT: The Website -->
+      <div class="split-col">
+        <div class="split-col-label">The website</div>
+        <div class="split-row">
+          <div class="sr-num">01</div>
+          <div class="sr-body">
+            <h3>Built to convert</h3>
+            <p>Loads fast, mobile-first, one tap to call or WhatsApp.</p>
+          </div>
+        </div>
+        <div class="split-row featured">
+          <div class="sr-num">02</div>
+          <div class="sr-body">
+            <span class="sr-flag">★ Highest impact</span>
+            <h3>SEO-ready from day one</h3>
+            <p>Schema, suburb pages, GBP — ready to rank for "[trade] in [suburb]".</p>
+          </div>
+        </div>
+        <div class="split-row">
+          <div class="sr-num">03</div>
+          <div class="sr-body">
+            <h3>Trust built in</h3>
+            <p>Google reviews on-site, real job photos, SSL + privacy + pro details.</p>
+          </div>
+        </div>
       </div>
 
-      <div class="fc featured reveal" style="--delay: 0.05s">
-        <div class="fc-flag">★ HIGHEST IMPACT</div>
-        <div class="fc-tag">02 · SEO</div>
-        <div class="fc-icon"><svg><use href="#i-search"/></svg></div>
-        <h3>SEO-ready from day one</h3>
-        <p>Everything Google needs to rank you for your trade + your suburbs. No retrofitting later.</p>
-        <ul class="fc-list">
-          <li><span class="check">✓</span>Schema markup — tells Google your trade + location</li>
-          <li><span class="check">✓</span>Suburb pages — rank for "[trade] in [suburb]"</li>
-          <li><span class="check">✓</span>Google Business Profile linked + integrated</li>
-        </ul>
-        <div class="fc-result"><span class="pulse"></span>Visible on Google from launch</div>
-      </div>
-
-      <div class="fc reveal" style="--delay: 0.1s">
-        <div class="fc-tag">03 · TRUST</div>
-        <div class="fc-icon"><svg><use href="#i-shield"/></svg></div>
-        <h3>Trust built in</h3>
-        <p>Real reviews, real photos, real people. Customers decide you're legit before they even call.</p>
-        <ul class="fc-list">
-          <li><span class="check">✓</span>Google reviews pulled onto your site</li>
-          <li><span class="check">✓</span>Real job photos — before/after that sells for you</li>
-          <li><span class="check">✓</span>SSL, privacy policy, about page — pro details</li>
-        </ul>
-        <div class="fc-result"><span class="pulse"></span>Looks legit, is legit</div>
-      </div>
-
-      <div class="fc reveal" style="--delay: 0.15s">
-        <div class="fc-tag">04 · CRM</div>
-        <div class="fc-icon"><svg><use href="#i-search"/></svg></div>
-        <h3>Built-in CRM</h3>
-        <p>Every lead, quote, and job tracked in one place. No spreadsheets, no Post-its.</p>
-        <ul class="fc-list">
-          <li><span class="check">✓</span>Form submissions logged automatically</li>
-          <li><span class="check">✓</span>Pipeline stages: lead → quote → job → won</li>
-          <li><span class="check">✓</span>SMS + email + WhatsApp from inside the CRM</li>
-        </ul>
-        <div class="fc-result"><span class="pulse"></span>Nothing falls through</div>
-      </div>
-
-      <div class="fc reveal" style="--delay: 0.2s">
-        <div class="fc-tag">05 · BOOK + BILL</div>
-        <div class="fc-icon"><svg><use href="#i-calc"/></svg></div>
-        <h3>Calendar + invoicing</h3>
-        <p>Customers book directly from your site. You bill them from the same dashboard.</p>
-        <ul class="fc-list">
-          <li><span class="check">✓</span>Online booking synced to your calendar</li>
-          <li><span class="check">✓</span>Stripe payments built in — tap, pay, done</li>
-          <li><span class="check">✓</span>Auto reminders + receipts to clients</li>
-        </ul>
-        <div class="fc-result"><span class="pulse"></span>Book + bill in one</div>
-      </div>
-
-      <div class="fc reveal" style="--delay: 0.25s">
-        <div class="fc-tag">06 · HOSTING</div>
-        <div class="fc-icon"><svg><use href="#i-shield"/></svg></div>
-        <h3>Hosting + maintenance</h3>
-        <p>Hosting, SSL, uptime, and small content swaps — sorted, no extra fees.</p>
-        <ul class="fc-list">
-          <li><span class="check">✓</span>99.9% uptime, SSL forever</li>
-          <li><span class="check">✓</span>15 min/mo of text + image swaps included</li>
-          <li><span class="check">✓</span>No "ticket queue", no hourly rate</li>
-        </ul>
-        <div class="fc-result"><span class="pulse"></span>Sorted forever</div>
+      <!-- RIGHT: The Software -->
+      <div class="split-col">
+        <div class="split-col-label">The software</div>
+        <div class="split-row">
+          <div class="sr-num">04</div>
+          <div class="sr-body">
+            <h3>Built-in CRM</h3>
+            <p>Every lead, quote and job tracked. Pipeline + SMS + email + WhatsApp.</p>
+          </div>
+        </div>
+        <div class="split-row">
+          <div class="sr-num">05</div>
+          <div class="sr-body">
+            <h3>Calendar + invoicing</h3>
+            <p>Online booking + Stripe payments + auto reminders, one dashboard.</p>
+          </div>
+        </div>
+        <div class="split-row">
+          <div class="sr-num">06</div>
+          <div class="sr-body">
+            <h3>Hosting + maintenance</h3>
+            <p>99.9% uptime, SSL forever, 15 min/mo of content swaps — no extra fees.</p>
+          </div>
+        </div>
       </div>
     </div>
+
     <p class="section-foot">All six bundled into Tradie Launch from day one. Your code, your data, your domain — yours forever.</p>
     <div class="reveal" style="--delay: 0.3s; text-align: center; margin-top: 32px;">
       <a href="../book-a-yarn.html" style="display:inline-flex;align-items:center;gap:8px;color:var(--amber);font-weight:700;font-size:15px;border-bottom:1px solid var(--amber);padding-bottom:2px;font-style:italic;">Get all six built in 7 days <span style="font-style:normal;">→</span></a>
