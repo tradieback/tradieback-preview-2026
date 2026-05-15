@@ -1004,50 +1004,60 @@
     }
     .ask-sig strong { color: white; font-size: 16px; }
 
-    /* Sticky section nav (desktop only) */
-    .deck-nav {
-      display: none;
-    }
-    @media (min-width: 1280px) {
+    /* Sticky section nav — minimal dot indicator */
+    .deck-nav { display: none; }
+    @media (min-width: 1200px) {
       .deck-nav {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
         position: fixed;
-        left: 24px;
+        left: 28px;
         top: 50%;
         transform: translateY(-50%);
         z-index: 50;
-        background: rgba(255,255,255,0.85);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border: 1px solid var(--line);
-        border-radius: 14px;
-        padding: 14px 8px;
-        box-shadow: 0 24px 60px -20px rgba(15,35,64,0.16);
       }
       .deck-nav a {
         display: flex;
         align-items: center;
-        gap: 10px;
-        padding: 7px 14px 7px 10px;
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 10.5px;
+        gap: 14px;
+        text-decoration: none;
+        position: relative;
+      }
+      .deck-nav a .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(15, 35, 64, 0.22);
+        transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+        flex-shrink: 0;
+      }
+      .deck-nav a .lbl {
+        font-size: 12.5px;
         font-weight: 700;
-        letter-spacing: 0.06em;
-        color: var(--muted-light);
-        border-radius: 8px;
-        transition: color 0.2s, background 0.2s;
+        letter-spacing: -0.005em;
+        color: var(--navy);
+        background: rgba(255,255,255,0.92);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        padding: 4px 10px;
+        border-radius: 6px;
+        box-shadow: 0 8px 20px -8px rgba(15,35,64,0.18);
+        opacity: 0;
+        transform: translateX(-6px);
+        transition: opacity 0.2s, transform 0.2s;
+        pointer-events: none;
         white-space: nowrap;
       }
-      .deck-nav a:hover {
-        color: var(--amber);
-        background: var(--amber-soft);
+      .deck-nav a:hover .dot {
+        background: var(--amber);
+        transform: scale(1.5);
+        box-shadow: 0 0 0 4px rgba(245,130,32,0.18);
       }
-      .deck-nav a .n {
-        font-weight: 800;
-        color: var(--navy);
-        min-width: 18px;
+      .deck-nav a:hover .lbl {
+        opacity: 1;
+        transform: translateX(0);
       }
-      .deck-nav a:hover .n { color: var(--amber); }
     }
 
     /* Footer */
@@ -1156,22 +1166,22 @@
   </div>
 </div>
 
-<!-- Sticky section nav (desktop only) -->
+<!-- Sticky section nav — minimal dots (desktop only) -->
 <aside class="deck-nav" aria-label="Pitch sections">
-  <a href="#s01"><span class="n">01</span> Opportunity</a>
-  <a href="#s02"><span class="n">02</span> Problem</a>
-  <a href="#s03"><span class="n">03</span> Market</a>
-  <a href="#s04"><span class="n">04</span> Product</a>
-  <a href="#s04b"><span class="n">·</span> Built &amp; live</a>
-  <a href="#s05"><span class="n">05</span> Economics</a>
-  <a href="#s06"><span class="n">06</span> Competition</a>
-  <a href="#s07"><span class="n">07</span> GTM</a>
-  <a href="#s08"><span class="n">08</span> Team</a>
-  <a href="#s09"><span class="n">09</span> Founder</a>
-  <a href="#s10"><span class="n">10</span> Financials</a>
-  <a href="#s11"><span class="n">11</span> Risks</a>
-  <a href="#s12"><span class="n">12</span> Milestones</a>
-  <a href="#s13"><span class="n">13</span> The Ask</a>
+  <a href="#s01" aria-label="Opportunity"><span class="dot"></span><span class="lbl">Opportunity</span></a>
+  <a href="#s02" aria-label="Problem"><span class="dot"></span><span class="lbl">Problem</span></a>
+  <a href="#s03" aria-label="Market"><span class="dot"></span><span class="lbl">Market</span></a>
+  <a href="#s04" aria-label="Product"><span class="dot"></span><span class="lbl">Product</span></a>
+  <a href="#s04b" aria-label="Built and live"><span class="dot"></span><span class="lbl">Built &amp; live</span></a>
+  <a href="#s05" aria-label="Unit economics"><span class="dot"></span><span class="lbl">Economics</span></a>
+  <a href="#s06" aria-label="Competition"><span class="dot"></span><span class="lbl">Competition</span></a>
+  <a href="#s07" aria-label="Go-to-market"><span class="dot"></span><span class="lbl">GTM</span></a>
+  <a href="#s08" aria-label="Team"><span class="dot"></span><span class="lbl">Team</span></a>
+  <a href="#s09" aria-label="Founder strategy"><span class="dot"></span><span class="lbl">Founder</span></a>
+  <a href="#s10" aria-label="Financial projections"><span class="dot"></span><span class="lbl">Financials</span></a>
+  <a href="#s11" aria-label="Risks"><span class="dot"></span><span class="lbl">Risks</span></a>
+  <a href="#s12" aria-label="Milestones"><span class="dot"></span><span class="lbl">Milestones</span></a>
+  <a href="#s13" aria-label="The ask"><span class="dot"></span><span class="lbl">The Ask</span></a>
 </aside>
 
 <!-- ═════════════════ 01 — OPPORTUNITY ═════════════════ -->
