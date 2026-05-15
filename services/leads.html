@@ -1401,53 +1401,113 @@
   </div>
 </section>
 
-<!-- Three problems we solve -->
+<!-- Three problems we solve — vertical timeline -->
+<style>
+  .timeline {
+    max-width: 720px;
+    margin: 60px auto 0;
+    position: relative;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 29px;
+    top: 50px;
+    bottom: 50px;
+    width: 2px;
+    background: rgba(245,130,32,0.25);
+  }
+  .ts {
+    display: flex;
+    gap: 28px;
+    padding: 20px 0;
+    align-items: flex-start;
+    position: relative;
+  }
+  .ts-num {
+    flex: 0 0 60px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--bone);
+    border: 2px solid var(--amber);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--amber);
+    position: relative;
+    z-index: 1;
+  }
+  .ts.featured .ts-num {
+    background: var(--amber);
+    color: var(--navy);
+    box-shadow: 0 12px 28px -8px rgba(245,130,32,0.45);
+  }
+  .ts-body { padding-top: 10px; flex: 1; }
+  .ts-tag {
+    font-size: 10px;
+    color: var(--amber);
+    letter-spacing: 0.18em;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .ts-body h3 {
+    font-size: clamp(18px, 2.2vw, 22px);
+    font-weight: 800;
+    color: var(--navy);
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    margin: 0 0 6px;
+  }
+  .ts-body p {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.55;
+    margin: 0;
+  }
+  @media (max-width: 600px) {
+    .timeline { margin: 40px auto 0; }
+    .timeline::before { left: 23px; top: 40px; bottom: 40px; }
+    .ts { gap: 18px; padding: 16px 0; }
+    .ts-num { flex: 0 0 48px; width: 48px; height: 48px; font-size: 17px; }
+    .ts-body h3 { font-size: 17px; }
+    .ts-body p { font-size: 14px; }
+  }
+</style>
 <section class="section bone" id="whats-in">
   <div class="section-inner">
     <div class="section-head reveal">
-      <div class="eyebrow">Three problems</div>
+      <div style="width:56px;height:2px;background:var(--amber);margin:0 0 24px;"></div>
       <h2 class="h2">Three problems most tradies hit. <em>Three things we solve</em></h2>
       <p>Once your website's up and the operating platform is running, you'll hit one of three problems. Tradie Leads is built to solve them in order.</p>
     </div>
-    <div class="grid-3">
-      <div class="fc reveal">
-        <div class="fc-tag">PROBLEM 01</div>
-        <div class="fc-icon"><svg><use href="#i-megaphone"/></svg></div>
-        <h3>"I get leads but they're tyre-kickers."</h3>
-        <p>Every "I'll think about it" call costs you 20 minutes. We screen leads before they reach you.</p>
-        <ul class="fc-list">
-          <li><span class="check">✓</span>Every lead qualified for real job intent</li>
-          <li><span class="check">✓</span>Tyre-kickers logged but kept off your phone</li>
-          <li><span class="check">✓</span>Only ready-to-book leads hit your calendar</li>
-        </ul>
-        <div class="fc-result"><span class="pulse"></span>No more wasted phone time</div>
+    <div class="timeline reveal">
+      <div class="ts">
+        <div class="ts-num">01</div>
+        <div class="ts-body">
+          <div class="ts-tag">Tyre-kickers</div>
+          <h3>"I get leads but they're tyre-kickers"</h3>
+          <p>Every lead qualified for real job intent. Only ready-to-book leads hit your calendar.</p>
+        </div>
       </div>
-
-      <div class="fc featured reveal" style="--delay: 0.05s">
-        <div class="fc-flag">★ THE BIG WIN</div>
-        <div class="fc-tag">PROBLEM 02</div>
-        <div class="fc-icon"><svg><use href="#i-sheet"/></svg></div>
-        <h3>"I don't know what to do with the leads I do get."</h3>
-        <p>Quoted but no answer. Booked but no-show. We close the loop after the lead lands.</p>
-        <ul class="fc-list">
-          <li><span class="check">✓</span>Qualified leads auto-booked into your calendar</li>
-          <li><span class="check">✓</span>Quote follow-up sequences (day 1 · 3 · 7)</li>
-          <li><span class="check">✓</span>Confirmation + reminder SMS before every appointment</li>
-        </ul>
-        <div class="fc-result"><span class="pulse"></span>More quoted jobs become won jobs</div>
+      <div class="ts featured">
+        <div class="ts-num">02</div>
+        <div class="ts-body">
+          <div class="ts-tag">The big win</div>
+          <h3>"I don't know what to do with the leads I do get"</h3>
+          <p>Qualified leads auto-booked. Quote follow-ups fire day 1, 3, 7. More quoted jobs become won jobs.</p>
+        </div>
       </div>
-
-      <div class="fc reveal" style="--delay: 0.1s">
-        <div class="fc-tag">PROBLEM 03</div>
-        <div class="fc-icon"><svg><use href="#i-search"/></svg></div>
-        <h3>"I don't have enough leads."</h3>
-        <p>Word-of-mouth tapped out. Google Business dormant. We turn the volume up — paid + organic.</p>
-        <ul class="fc-list">
-          <li><span class="check">✓</span>Google Ads + Meta Ads — paid lead flow from week 2</li>
-          <li><span class="check">✓</span>Local SEO + GBP — organic compounds month over month</li>
-          <li><span class="check">✓</span>Social + blog — keeps you visible to past + future customers</li>
-        </ul>
-        <div class="fc-result"><span class="pulse"></span>Phone ringing every week</div>
+      <div class="ts">
+        <div class="ts-num">03</div>
+        <div class="ts-body">
+          <div class="ts-tag">Volume</div>
+          <h3>"I don't have enough leads"</h3>
+          <p>Paid (Google + Meta) rings the phone in week 2. Organic (SEO + GBP) compounds every month.</p>
+        </div>
       </div>
     </div>
     <p class="section-foot">All three solved. All bundled. No upsells, no "bronze/silver/gold" rubbish.</p>
@@ -1645,19 +1705,6 @@
         <summary>Why is this better than running my own ads?</summary>
         <div class="faq-body">If you've got the time, knowledge, and patience to learn it yourself — go for it. Most tradies don't. Setting up a campaign that doesn't burn money on tyre-kickers takes weeks of testing. Our Ads + landing page + qualification stack is built once, refined weekly, and actually converts. Your job is to answer qualified leads — not babysit a Google Ads dashboard at 9pm.</div>
       </details>
-    </div>
-  </div>
-</section>
-
-<!-- Bridge to Launch -->
-<section class="bridge">
-  <div class="bridge-inner reveal">
-    <div class="bridge-icon"><svg><use href="#i-monitor"/></svg></div>
-    <div class="bridge-content">
-      <div class="eyebrow" style="margin-bottom:14px;">Start here first</div>
-      <h3>Leads is the optional add-on. <em>Tradie Launch is the foundation</em></h3>
-      <p>Every TradieBack client starts with <strong>Tradie Launch</strong> — the 7-day install that gets the website + CRM + invoicing live. Leads only kicks in once Launch is sorted. Pilot Launch clients get 1 month of Leads beta free.</p>
-      <a href="launch.html" class="bridge-link">See Tradie Launch <svg width="16" height="16"><use href="#i-arrow"/></svg></a>
     </div>
   </div>
 </section>
