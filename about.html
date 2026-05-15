@@ -329,7 +329,7 @@
       50% { opacity: 0.6; transform: scale(0.85); }
     }
     .hero h1 {
-      font-size: clamp(40px, 5.4vw, 72px);
+      font-size: clamp(30px, 6vw, 72px);
       font-weight: 800;
       letter-spacing: -0.04em;
       line-height: 0.98;
@@ -926,6 +926,18 @@
       .footer-inner { grid-template-columns: 1fr; gap: 24px; }
       .footer-links { flex-wrap: wrap; gap: 18px; }
       .footer-bottom { flex-direction: column; gap: 8px; }
+    }
+
+    /* Mobile padding sweep — narrow viewports */
+    @media (max-width: 600px) {
+      .hero { padding: 48px 20px 56px; }
+      .quote-band { padding: 70px 20px; }
+      .story { padding: 70px 20px; }
+      .timeline-section { padding: 70px 20px; }
+      .principles { padding: 70px 20px; }
+      .direct { padding: 70px 20px; }
+      .principle-num { font-size: 48px; }
+      .principle-row { padding: 28px 0; }
     }
   </style>
 </head>
