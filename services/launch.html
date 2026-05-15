@@ -81,9 +81,30 @@
     }
     .topbar .accent { color: var(--amber); }
 
+    .announcement {
+      background: var(--navy-deep);
+      color: rgba(255,255,255,0.9);
+      text-align: center;
+      padding: 9px 20px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      border-bottom: 1px solid rgba(245,130,32,0.25);
+      position: sticky;
+      top: 0;
+      z-index: 101;
+    }
+    .announcement a {
+      color: var(--amber);
+      border-bottom: 1px solid rgba(245,130,32,0.5);
+      padding-bottom: 1px;
+      margin-left: 4px;
+      transition: border-color 0.2s;
+    }
+    .announcement a:hover { border-color: var(--amber); }
     /* Nav */
     .nav {
-      background: rgba(248, 246, 241, 0.88);
+      background: var(--navy);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       padding: 22px 48px;
@@ -91,9 +112,9 @@
       align-items: center;
       justify-content: space-between;
       position: sticky;
-      top: 0;
+      top: 38px;
       z-index: 100;
-      border-bottom: 1px solid var(--line);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
       transition: transform 0.3s ease-out;
       will-change: transform;
     }
@@ -107,7 +128,7 @@
     .nav-brand svg { height: 100%; width: auto; display: block; }
     .nav-links { display: flex; gap: 36px; align-items: center; }
     .nav-links > a, .nav-dd > .nav-dd-trigger {
-      color: var(--navy); font-size: 16px; font-weight: 700; letter-spacing: -0.005em;
+      color: white; font-size: 16px; font-weight: 700; letter-spacing: -0.005em;
       transition: color 0.2s; cursor: pointer; display: inline-flex; align-items: center; gap: 5px;
     }
     .nav-links a:hover, .nav-dd:hover .nav-dd-trigger { color: var(--amber); }
@@ -158,14 +179,14 @@
       display: none;
       width: 42px; height: 42px;
       background: transparent;
-      border: 1.5px solid var(--line-warm);
+      border: 1.5px solid rgba(255,255,255,0.2);
       border-radius: 10px;
       flex-direction: column; justify-content: center; align-items: center; gap: 4px;
       cursor: pointer; padding: 0;
       transition: border-color 0.2s, background 0.2s;
     }
-    .nav-burger:hover { border-color: var(--amber); background: rgba(245,130,32,0.06); }
-    .nav-burger span { display: block; width: 18px; height: 2px; background: var(--navy); border-radius: 2px; transition: transform 0.25s, opacity 0.25s; }
+    .nav-burger:hover { border-color: var(--amber); background: rgba(245,130,32,0.12); }
+    .nav-burger span { display: block; width: 18px; height: 2px; background: white; border-radius: 2px; transition: transform 0.25s, opacity 0.25s; }
     @media (max-width: 800px) { .nav-burger { display: flex; } }
     .mobile-menu {
       position: fixed; inset: 0; background: var(--navy); z-index: 200;
@@ -1107,6 +1128,7 @@
       color: rgba(255,255,255,0.5);
       padding: 60px 32px 36px;
       font-size: 13px;
+      border-top: 1px solid var(--amber);
     }
     .footer-inner {
       max-width: 1180px; margin: 0 auto;
@@ -1118,8 +1140,8 @@
     .footer-brand {
       color: white;
       font-weight: 800;
-      font-size: clamp(38px, 4.6vw, 56px);
-      letter-spacing: -0.035em;
+      font-size: clamp(22px, 2.4vw, 28px);
+      letter-spacing: -0.025em;
       line-height: 1;
     }
     .footer-brand em { color: var(--amber); font-style: normal; }
@@ -1157,12 +1179,16 @@
   </defs>
 </svg>
 
+<!-- Announcement strip -->
+<div class="announcement">
+  Live in NZ + AU · Founder cohort open —<a href="../audit.html">grab a free audit →</a>
+</div>
+
 <!-- Nav -->
 <nav class="nav">
   <a href="../index.html" class="nav-brand" aria-label="TradieBack — NZ · AU">
-    <svg viewBox="0 0 720 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <text x="20" y="92" font-family="Arial Black, Helvetica, sans-serif" font-weight="900" font-size="80" letter-spacing="1"><tspan fill="#0F2340">TRADIE</tspan><tspan fill="#F58220">BACK</tspan></text>
-      <text x="22" y="120" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-weight="500" font-size="14" fill="#94A3B8" letter-spacing="1.2">// NZ · AU</text>
+    <svg viewBox="0 0 720 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <text x="20" y="80" font-family="Arial Black, Helvetica, sans-serif" font-weight="900" font-size="80" letter-spacing="1"><tspan fill="#FFFFFF">TRADIE</tspan><tspan fill="#F58220">BACK</tspan></text>
     </svg>
   </a>
   <div class="nav-links">
@@ -1673,34 +1699,35 @@
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
           </a>
         </div>
-        <div style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; background: rgba(46, 204, 113, 0.12); border-radius: 100px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #2ECC71; letter-spacing: 0.14em; font-weight: 600;">
+        <div style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; background: rgba(46, 204, 113, 0.12); border-radius: 100px; font-size: 11px; color: #2ECC71; letter-spacing: 0.14em; font-weight: 700; text-transform: uppercase;">
           <span style="width: 7px; height: 7px; border-radius: 50%; background: #2ECC71; animation: pulse 2.4s ease-in-out infinite;"></span>
-          // SYSTEM ONLINE · NZ &amp; AU
+          NZ + AU
         </div>
       </div>
       <div style="display: flex; flex-direction: column; gap: 12px;">
-        <h4 style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--amber); letter-spacing: 0.16em; font-weight: 700; text-transform: uppercase; margin-bottom: 8px;">// SERVICES</h4>
+        <h4 style="font-size: 11px; color: var(--amber); letter-spacing: 0.16em; font-weight: 800; text-transform: uppercase; margin-bottom: 8px;">Services</h4>
         <a href="launch.html" class="footer-col-link" style="color: rgba(255,255,255,0.65); font-size: 14.5px; transition: color 0.2s;">Tradie Launch</a>
         <a href="leads.html" class="footer-col-link" style="color: rgba(255,255,255,0.65); font-size: 14.5px; transition: color 0.2s;">Tradie Leads <span style="color:var(--amber);font-size:10px;font-weight:700;letter-spacing:0.1em;">BETA</span></a>
+        <a href="../audit.html" class="footer-col-link" style="color: rgba(255,255,255,0.65); font-size: 14.5px; transition: color 0.2s;">Free audit</a>
         <a href="../roadmap.html" class="footer-col-link" style="color: rgba(255,255,255,0.65); font-size: 14.5px; transition: color 0.2s;">See the full roadmap</a>
       </div>
       <div style="display: flex; flex-direction: column; gap: 12px;">
-        <h4 style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--amber); letter-spacing: 0.16em; font-weight: 700; text-transform: uppercase; margin-bottom: 8px;">// COMPANY</h4>
+        <h4 style="font-size: 11px; color: var(--amber); letter-spacing: 0.16em; font-weight: 800; text-transform: uppercase; margin-bottom: 8px;">Company</h4>
         <a href="../about.html" class="footer-col-link" style="color: rgba(255,255,255,0.65); font-size: 14.5px; transition: color 0.2s;">About</a>
-        <a href="../audit.html" class="footer-col-link" style="color: rgba(255,255,255,0.65); font-size: 14.5px; transition: color 0.2s;">Free audit</a>
         <a href="../book-a-yarn.html" class="footer-col-link" style="color: rgba(255,255,255,0.65); font-size: 14.5px; transition: color 0.2s;">Book a yarn</a>
       </div>
       <div style="display: flex; flex-direction: column; gap: 12px;">
-        <h4 style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--amber); letter-spacing: 0.16em; font-weight: 700; text-transform: uppercase; margin-bottom: 8px;">// CONTACT</h4>
-        <a href="mailto:hello@tradieback.com" class="footer-col-link" style="color: rgba(255,255,255,0.65); font-size: 14.5px; transition: color 0.2s; word-break: break-all;">hello@tradieback.com</a>
+        <h4 style="font-size: 11px; color: var(--amber); letter-spacing: 0.16em; font-weight: 800; text-transform: uppercase; margin-bottom: 8px;">Contact</h4>
+        <a href="mailto:mathieson@tradieback.com" class="footer-col-link" style="color: rgba(255,255,255,0.65); font-size: 14.5px; transition: color 0.2s; word-break: break-all;">mathieson@tradieback.com</a>
         <a href="https://wa.me/message/SONH7ANNNV2GK1" target="_blank" rel="noopener" class="footer-col-link" style="color: rgba(255,255,255,0.65); font-size: 14.5px; transition: color 0.2s;">WhatsApp Us</a>
       </div>
     </div>
     <div class="footer-bottom-row" style="display: flex; justify-content: space-between; align-items: center; padding-top: 28px; gap: 20px; flex-wrap: wrap;">
-      <span style="font-size: 13px; color: rgba(255,255,255,0.4);">© 2026 TradieBack · We get tradies jobs. And we get tradies paid.</span>
+      <span style="font-size: 13px; color: rgba(255,255,255,0.4);">© 2026 TradieBack · NZ + AU</span>
       <span style="display: flex; gap: 18px;">
         <a href="../privacy.html" class="footer-legal-link" style="font-size: 13px; color: rgba(255,255,255,0.4); transition: color 0.2s;">Privacy</a>
         <a href="../terms.html" class="footer-legal-link" style="font-size: 13px; color: rgba(255,255,255,0.4); transition: color 0.2s;">Terms</a>
+        <a href="../sitemap.xml" class="footer-legal-link" style="font-size: 13px; color: rgba(255,255,255,0.4); transition: color 0.2s;">Sitemap</a>
       </span>
     </div>
   </div>
