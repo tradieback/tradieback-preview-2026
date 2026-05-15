@@ -1514,95 +1514,144 @@
   </div>
 </section>
 
-<!-- The channels we run -->
+<!-- Six channels — Reach | Trust split -->
+<style>
+  .split-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    max-width: 1080px;
+    margin: 60px auto 0;
+  }
+  .split-col-label {
+    font-size: 11px;
+    color: var(--amber);
+    letter-spacing: 0.18em;
+    font-weight: 800;
+    text-transform: uppercase;
+    padding-bottom: 16px;
+    margin-bottom: 8px;
+    border-bottom: 2px solid var(--amber);
+  }
+  .split-row {
+    display: flex;
+    gap: 18px;
+    padding: 22px 0;
+    border-bottom: 1px solid rgba(15, 35, 64, 0.07);
+    align-items: flex-start;
+  }
+  .split-row:last-child { border-bottom: none; }
+  .sr-num {
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 1.5px solid var(--amber);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--amber);
+  }
+  .split-row.featured .sr-num {
+    background: var(--amber);
+    color: var(--navy);
+    box-shadow: 0 8px 20px -6px rgba(245,130,32,0.45);
+  }
+  .sr-body { flex: 1; padding-top: 4px; }
+  .sr-flag {
+    display: inline-block;
+    font-size: 10px;
+    color: var(--amber);
+    letter-spacing: 0.16em;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .sr-body h3 {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--navy);
+    letter-spacing: -0.015em;
+    margin: 0 0 4px;
+    line-height: 1.25;
+  }
+  .sr-body p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.55;
+    margin: 0;
+  }
+  @media (max-width: 800px) {
+    .split-grid { grid-template-columns: 1fr; gap: 12px; }
+  }
+</style>
 <section class="section white">
   <div class="section-inner">
     <div class="section-head reveal">
-      <div class="eyebrow">The channels we run</div>
+      <div style="width:56px;height:2px;background:var(--amber);margin:0 0 24px;"></div>
       <h2 class="h2">Six channels. <em>One operator</em></h2>
-      <p>Paid + organic working together. Paid rings the phone in week 2. Organic compounds for years. We run both — same Loom-led monthly review across all of it.</p>
+      <p>Paid + organic working together. Paid rings the phone in week 2. Organic compounds for years. Same monthly review across all of it.</p>
     </div>
-    <div class="grid-3">
-      <div class="fc reveal">
-        <div class="fc-tag">01 · GOOGLE ADS</div>
-        <div class="fc-icon"><svg><use href="#i-search"/></svg></div>
-        <h3>Google Ads</h3>
-        <p>Search campaigns + Local Services Ads where eligible. Targeting tuned to your trade + suburbs.</p>
-        <ul class="fc-list">
-          <li><span class="check">✓</span>Conversion-built landing page</li>
-          <li><span class="check">✓</span>Weekly bid + ad copy optimisation</li>
-          <li><span class="check">✓</span>Ad spend paid direct to Google · no markup</li>
-        </ul>
-        <div class="fc-result"><span class="pulse"></span>Phone rings week 2</div>
+
+    <div class="split-grid reveal">
+      <!-- LEFT: Reach -->
+      <div class="split-col">
+        <div class="split-col-label">Reach</div>
+        <div class="split-row">
+          <div class="sr-num">01</div>
+          <div class="sr-body">
+            <h3>Google Ads</h3>
+            <p>Search campaigns + Local Services Ads. Ad spend direct to Google — no markup.</p>
+          </div>
+        </div>
+        <div class="split-row">
+          <div class="sr-num">02</div>
+          <div class="sr-body">
+            <h3>Meta Ads</h3>
+            <p>Facebook + Instagram targeting homeowners in your suburbs. Visual creative from your job photos.</p>
+          </div>
+        </div>
+        <div class="split-row">
+          <div class="sr-num">03</div>
+          <div class="sr-body">
+            <h3>Local SEO + GBP</h3>
+            <p>Suburb pages, schema, NAP consistency, weekly Google Business posts. Compounds for years.</p>
+          </div>
+        </div>
       </div>
 
-      <div class="fc reveal" style="--delay: 0.05s">
-        <div class="fc-tag">02 · META ADS · NEW</div>
-        <div class="fc-icon"><svg><use href="#i-megaphone"/></svg></div>
-        <h3>Facebook + Instagram Ads</h3>
-        <p>Targeting homeowner mums in your suburbs — the people Google searches less but Facebook scrolls more.</p>
-        <ul class="fc-list">
-          <li><span class="check">✓</span>Visual creative from your job photos</li>
-          <li><span class="check">✓</span>Suburb + interest targeting (renos, new builds)</li>
-          <li><span class="check">✓</span>Same landing page, second channel</li>
-        </ul>
-        <div class="fc-result"><span class="pulse"></span>Reach beyond Google</div>
-      </div>
-
-      <div class="fc reveal" style="--delay: 0.1s">
-        <div class="fc-tag">03 · LOCAL SEO</div>
-        <div class="fc-icon"><svg><use href="#i-pin"/></svg></div>
-        <h3>Local SEO + GBP</h3>
-        <p>Compounds for years. Suburb pages, schema, NAP consistency, weekly Google Business posts.</p>
-        <ul class="fc-list">
-          <li><span class="check">✓</span>Suburb-by-suburb keyword targeting</li>
-          <li><span class="check">✓</span>Google Business Profile rebuilt + posted to weekly</li>
-          <li><span class="check">✓</span>Service area pages for every suburb that pays</li>
-        </ul>
-        <div class="fc-result"><span class="pulse"></span>Ranks higher every month</div>
-      </div>
-
-      <div class="fc reveal" style="--delay: 0.15s">
-        <div class="fc-tag">04 · SOCIAL</div>
-        <div class="fc-icon"><svg><use href="#i-sheet"/></svg></div>
-        <h3>2 social posts/week</h3>
-        <p>Facebook + Instagram, from real job photos you WhatsApp over. Stops the "are they still trading?" doubt.</p>
-        <ul class="fc-list">
-          <li><span class="check">✓</span>2 posts/week · FB + IG cross-posted</li>
-          <li><span class="check">✓</span>Captions in your voice · hashtags + tagging done</li>
-          <li><span class="check">✓</span>You send the photos · we handle the rest</li>
-        </ul>
-        <div class="fc-result"><span class="pulse"></span>Always looks alive</div>
-      </div>
-
-      <div class="fc reveal" style="--delay: 0.2s">
-        <div class="fc-tag">05 · BLOG</div>
-        <div class="fc-icon"><svg><use href="#i-monitor"/></svg></div>
-        <h3>1 blog post/month</h3>
-        <p>Long-tail SEO that compounds. "How much does a [trade] cost in [suburb]" type articles that capture customers at research stage.</p>
-        <ul class="fc-list">
-          <li><span class="check">✓</span>Suburb + trade keyword targeting</li>
-          <li><span class="check">✓</span>12 ranking pages per year, per client</li>
-          <li><span class="check">✓</span>Written in plain English, in your voice</li>
-        </ul>
-        <div class="fc-result"><span class="pulse"></span>SEO that pays in month 6+</div>
-      </div>
-
-      <div class="fc featured reveal" style="--delay: 0.25s">
-        <div class="fc-flag">★ THE RELATIONSHIP</div>
-        <div class="fc-tag">06 · MONTHLY OPERATING REVIEW</div>
-        <div class="fc-icon"><svg><use href="#i-pin"/></svg></div>
-        <h3>Mathieson reviews your business · every month</h3>
-        <p>1-page report + 5-min Loom video from Mathieson · plus Month 6 retention check + Month 11 annual refresh. The human-led layer over the platform.</p>
-        <ul class="fc-list">
-          <li><span class="check">✓</span>Cost per lead · cost per booked job · ROI by channel</li>
-          <li><span class="check">✓</span>Top-performing keywords · phone call tracking · real attribution</li>
-          <li><span class="check">✓</span>Month 6 + Month 11 strategic reviews · WhatsApp direct line</li>
-        </ul>
-        <div class="fc-result"><span class="pulse"></span>You always know what's working</div>
+      <!-- RIGHT: Trust -->
+      <div class="split-col">
+        <div class="split-col-label">Trust</div>
+        <div class="split-row">
+          <div class="sr-num">04</div>
+          <div class="sr-body">
+            <h3>2 social posts/week</h3>
+            <p>FB + IG cross-posted from your job photos. Stops the "are they still trading?" doubt.</p>
+          </div>
+        </div>
+        <div class="split-row">
+          <div class="sr-num">05</div>
+          <div class="sr-body">
+            <h3>1 blog post/month</h3>
+            <p>"How much does a [trade] cost in [suburb]" — long-tail SEO that pays in month 6+.</p>
+          </div>
+        </div>
+        <div class="split-row featured">
+          <div class="sr-num">06</div>
+          <div class="sr-body">
+            <span class="sr-flag">★ The relationship</span>
+            <h3>Monthly Operating Review</h3>
+            <p>1-page report + 5-min Loom from Mathieson. Cost per lead, ROI by channel, what's working.</p>
+          </div>
+        </div>
       </div>
     </div>
-    <p class="section-foot">All bundled. Six-month minimum. Then month-to-month forever after. <strong>This is where the ongoing relationship lives</strong> — Launch sets it up, Leads runs it.</p>
+
+    <p class="section-foot">All bundled. Six-month minimum. Month-to-month after that. <strong>Launch sets it up. Leads runs it.</strong></p>
   </div>
 </section>
 
