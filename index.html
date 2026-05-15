@@ -97,8 +97,29 @@
     .topbar .accent { color: var(--amber); }
 
     /* ─────────── NAV ─────────── */
+    .announcement {
+      background: var(--navy-deep);
+      color: rgba(255,255,255,0.9);
+      text-align: center;
+      padding: 9px 20px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      border-bottom: 1px solid rgba(245,130,32,0.25);
+      position: sticky;
+      top: 0;
+      z-index: 101;
+    }
+    .announcement a {
+      color: var(--amber);
+      border-bottom: 1px solid rgba(245,130,32,0.5);
+      padding-bottom: 1px;
+      margin-left: 4px;
+      transition: border-color 0.2s;
+    }
+    .announcement a:hover { border-color: var(--amber); }
     .nav {
-      background: rgba(248, 246, 241, 0.85);
+      background: var(--navy);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       padding: 22px 48px;
@@ -106,9 +127,9 @@
       align-items: center;
       justify-content: space-between;
       position: sticky;
-      top: 0;
+      top: 38px;
       z-index: 100;
-      border-bottom: 1px solid var(--line);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
       transition: transform 0.3s ease-out;
       will-change: transform;
     }
@@ -122,7 +143,7 @@
     .nav-brand svg { height: 100%; width: auto; display: block; }
     .nav-links { display: flex; gap: 36px; align-items: center; }
     .nav-links > a, .nav-dd > .nav-dd-trigger {
-      color: var(--navy); font-size: 16px; font-weight: 700; letter-spacing: -0.005em;
+      color: white; font-size: 16px; font-weight: 700; letter-spacing: -0.005em;
       transition: color 0.2s; cursor: pointer; display: inline-flex; align-items: center; gap: 5px;
     }
     .nav-links a:hover, .nav-dd:hover .nav-dd-trigger { color: var(--amber); }
@@ -170,7 +191,7 @@
       display: none;
       width: 42px; height: 42px;
       background: transparent;
-      border: 1.5px solid var(--line-warm);
+      border: 1.5px solid rgba(255,255,255,0.2);
       border-radius: 10px;
       flex-direction: column;
       justify-content: center;
@@ -180,12 +201,12 @@
       padding: 0;
       transition: border-color 0.2s, background 0.2s;
     }
-    .nav-burger:hover { border-color: var(--amber); background: rgba(245,130,32,0.06); }
+    .nav-burger:hover { border-color: var(--amber); background: rgba(245,130,32,0.12); }
     .nav-burger span {
       display: block;
       width: 18px;
       height: 2px;
-      background: var(--navy);
+      background: white;
       border-radius: 2px;
       transition: transform 0.25s, opacity 0.25s;
     }
@@ -1726,12 +1747,16 @@
 </head>
 <body>
 
+<!-- ─────────── ANNOUNCEMENT STRIP ─────────── -->
+<div class="announcement">
+  Live in NZ + AU · Founder cohort open —<a href="audit.html">grab a free audit →</a>
+</div>
+
 <!-- ─────────── NAV ─────────── -->
 <nav class="nav">
   <a href="index.html" class="nav-brand" aria-label="TradieBack — NZ · AU">
-    <svg viewBox="0 0 720 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <text x="20" y="92" font-family="Arial Black, Helvetica, sans-serif" font-weight="900" font-size="80" letter-spacing="1"><tspan fill="#0F2340">TRADIE</tspan><tspan fill="#F58220">BACK</tspan></text>
-      <text x="22" y="120" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-weight="500" font-size="14" fill="#94A3B8" letter-spacing="1.2">// NZ · AU</text>
+    <svg viewBox="0 0 720 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <text x="20" y="80" font-family="Arial Black, Helvetica, sans-serif" font-weight="900" font-size="80" letter-spacing="1"><tspan fill="#FFFFFF">TRADIE</tspan><tspan fill="#F58220">BACK</tspan></text>
     </svg>
   </a>
   <div class="nav-links">
