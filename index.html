@@ -430,7 +430,7 @@
       50% { opacity: 0.6; transform: scale(0.85); }
     }
     .hero h1 {
-      font-size: clamp(40px, 5.2vw, 72px);
+      font-size: clamp(30px, 6vw, 72px);
       font-weight: 800;
       letter-spacing: -0.038em;
       line-height: 1.02;
@@ -620,7 +620,7 @@
       .hero { padding: 50px 24px 80px; }
       .hero-inner { grid-template-columns: 1fr; gap: 56px; padding-top: 20px; }
       .hero-photo { max-width: 460px; margin: 0 auto; }
-      .hero h1 { font-size: clamp(40px, 9vw, 64px); }
+      .hero h1 { font-size: clamp(30px, 9vw, 64px); }
       .hero .lede { font-size: 17px; }
     }
     @media (max-width: 600px) {
@@ -1745,6 +1745,20 @@
       .footer-links { flex-wrap: wrap; gap: 18px; }
       .footer-bottom { flex-direction: column; gap: 8px; }
     }
+
+    /* Mobile padding sweep — narrow viewports */
+    @media (max-width: 600px) {
+      .trades-strip { padding: 36px 20px; }
+      .guarantee { padding: 70px 20px; }
+      .founder { padding: 70px 20px; }
+      .how { padding: 70px 20px; }
+      .final { padding: 80px 20px; }
+      section[style*="padding: 100px 48px"],
+      section[style*="padding: 110px 48px"] {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1765,7 +1779,7 @@
     <div class="nav-dd">
       <a href="services/launch.html" class="nav-dd-trigger">Services <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5l3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <div class="nav-dd-menu">
-        <div class="nav-dd-label">// WHAT YOU CAN BUY</div>
+        <div class="nav-dd-label">What you can buy</div>
         <a href="services/launch.html" class="nav-dd-item"><strong>Tradie Launch</strong><span>The 7-day install · live now</span></a>
         <a href="services/leads.html" class="nav-dd-item"><strong>Tradie Leads <span style="color:var(--amber);font-size:10px;">BETA</span></strong><span>Growth engine · in test mode</span></a>
       </div>
@@ -1786,12 +1800,12 @@
   </button>
   <div class="mobile-menu-inner">
     <div class="mobile-menu-section">
-      <div class="mobile-menu-label">// Services</div>
+      <div class="mobile-menu-label">Services</div>
       <a href="services/launch.html">Tradie Launch</a>
       <a href="services/leads.html">Tradie Leads <span class="mm-tag">BETA</span></a>
     </div>
     <div class="mobile-menu-section">
-      <div class="mobile-menu-label">// Company</div>
+      <div class="mobile-menu-label">Company</div>
       <a href="about.html">About</a>
       <a href="audit.html">Free audit</a>
     </div>
