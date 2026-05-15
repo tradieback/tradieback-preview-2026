@@ -319,7 +319,7 @@
       50% { opacity: 0.6; transform: scale(0.85); }
     }
     .hero h1 {
-      font-size: clamp(40px, 5.4vw, 70px);
+      font-size: clamp(30px, 6vw, 70px);
       font-weight: 800;
       letter-spacing: -0.04em;
       line-height: 0.98;
@@ -873,6 +873,12 @@
     @media (max-width: 700px) {
       .trust-pills { grid-template-columns: repeat(2, 1fr); }
     }
+    @media (max-width: 480px) {
+      .trust-pills { grid-template-columns: 1fr; gap: 8px; }
+      .trust-pill { padding: 12px 14px; display: flex; align-items: center; gap: 12px; text-align: left; }
+      .trust-pill .num { margin-bottom: 0; }
+      .trust-pill .lbl { font-size: 12px; }
+    }
     .trust-pill {
       background: rgba(255,255,255,0.04);
       border: 1px solid rgba(255,255,255,0.08);
@@ -925,8 +931,12 @@
     .form-wrap iframe {
       width: 100%;
       height: 680px;
+      max-height: 90vh;
       border: none;
       display: block;
+    }
+    @media (max-width: 600px) {
+      .form-wrap iframe { height: 720px; max-height: none; }
     }
     .reassure {
       text-align: center;
@@ -1148,6 +1158,17 @@
       .footer-inner { grid-template-columns: 1fr; gap: 24px; }
       .footer-links { flex-wrap: wrap; gap: 18px; }
       .footer-bottom { flex-direction: column; gap: 8px; }
+    }
+
+    /* Mobile padding sweep — narrow viewports */
+    @media (max-width: 600px) {
+      .hero { padding: 48px 20px 56px; }
+      .section { padding: 70px 20px; }
+      .request { padding: 70px 20px; }
+      .final { padding: 70px 20px; }
+      .steps { grid-template-columns: 1fr; }
+      .sample-rows { gap: 56px; }
+      .sample-row { gap: 24px !important; }
     }
   </style>
 </head>
