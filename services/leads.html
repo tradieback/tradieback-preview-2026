@@ -1096,14 +1096,19 @@
     .cta {
       background: var(--navy);
       color: white;
-      padding: 110px 48px 80px;
+      padding: 130px 32px;
+      text-align: center;
       position: relative;
       overflow: hidden;
+      border-top: 1px solid rgba(255,255,255,0.08);
     }
     .cta::before {
       content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse at center top, rgba(245,130,32,0.13), transparent 60%);
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 50%, rgba(245,130,32,0.12), transparent 50%),
+        radial-gradient(circle at 80% 50%, rgba(245,130,32,0.08), transparent 50%);
       pointer-events: none;
     }
     .cta-inner { max-width: 880px; margin: 0 auto; position: relative; }
