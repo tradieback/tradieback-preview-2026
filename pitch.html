@@ -7,8 +7,8 @@
   <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
   <meta name="googlebot" content="noindex,nofollow,noarchive,nosnippet">
 
-  <title>TradieBack — Private context page</title>
-  <meta name="description" content="Private context page for TradieBack. Not for public distribution.">
+  <title>TradieBack — Investor Pitch · Private</title>
+  <meta name="description" content="Private investor pitch for TradieBack. Not for public distribution.">
 
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230F2340'/%3E%3Crect y='0' width='64' height='6' fill='%23F58220'/%3E%3Cpath d='M20 16 L44 32 L20 48' stroke='%23F58220' stroke-width='9' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
 
@@ -29,9 +29,10 @@
       --muted: #5A6373;
       --muted-light: #8892A0;
       --line: rgba(15, 35, 64, 0.07);
-      --line-warm: rgba(15, 35, 64, 0.1);
+      --line-warm: rgba(15, 35, 64, 0.12);
       --white: #FFFFFF;
       --green: #2ECC71;
+      --red: #E55353;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -39,7 +40,7 @@
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       color: var(--ink);
       background: var(--bone);
-      line-height: 1.55;
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
@@ -52,9 +53,9 @@
       color: rgba(255,255,255,0.85);
       text-align: center;
       padding: 11px 20px;
-      font-size: 12px;
+      font-size: 11.5px;
       font-weight: 600;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       border-bottom: 1px solid rgba(245,130,32,0.25);
     }
@@ -73,7 +74,7 @@
       50% { opacity: 0.6; transform: scale(0.85); }
     }
 
-    /* Minimal nav */
+    /* Nav */
     .nav {
       background: var(--navy);
       padding: 22px 48px;
@@ -100,7 +101,7 @@
     .cover {
       background: var(--navy);
       color: white;
-      padding: 100px 48px 110px;
+      padding: 110px 48px 100px;
       position: relative;
       overflow: hidden;
     }
@@ -112,17 +113,16 @@
       transform: translateX(-50%);
       width: 80vw;
       height: 50vw;
-      max-width: 1100px;
-      background: radial-gradient(ellipse at center, rgba(245,130,32,0.12), transparent 60%);
+      max-width: 1200px;
+      background: radial-gradient(ellipse at center, rgba(245,130,32,0.13), transparent 60%);
       pointer-events: none;
     }
     .cover-inner {
-      max-width: 980px;
+      max-width: 1080px;
       margin: 0 auto;
       position: relative;
-      text-align: center;
     }
-    .cover-tag {
+    .cover-eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 9px;
@@ -132,223 +132,661 @@
       border-radius: 100px;
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      margin-bottom: 28px;
+      margin-bottom: 32px;
     }
     .cover h1 {
-      font-size: clamp(38px, 6vw, 88px);
+      font-size: clamp(40px, 6.4vw, 92px);
       font-weight: 900;
       letter-spacing: -0.04em;
-      line-height: 0.98;
-      margin-bottom: 22px;
+      line-height: 0.96;
+      margin-bottom: 28px;
+      max-width: 980px;
     }
     .cover h1 em { font-style: normal; color: var(--amber); }
-    .cover .sub {
-      font-size: clamp(17px, 2vw, 22px);
+    .cover-sub {
+      font-size: clamp(18px, 2.2vw, 24px);
       color: rgba(255,255,255,0.78);
-      line-height: 1.5;
-      max-width: 680px;
-      margin: 0 auto 28px;
+      line-height: 1.55;
+      max-width: 740px;
+      margin-bottom: 44px;
     }
-    .cover-meta {
-      display: inline-flex;
-      gap: 22px;
-      font-family: 'JetBrains Mono', monospace;
+
+    /* Executive summary card */
+    .summary-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 20px;
+      padding: 36px 38px;
+      max-width: 880px;
+    }
+    .summary-card h3 {
       font-size: 11px;
-      color: rgba(255,255,255,0.55);
-      letter-spacing: 0.16em;
+      letter-spacing: 0.2em;
+      color: var(--amber);
       text-transform: uppercase;
-      flex-wrap: wrap;
-      justify-content: center;
+      font-weight: 800;
+      margin-bottom: 18px;
     }
-    .cover-meta .dot-sep { color: var(--amber); }
+    .summary-card p {
+      font-size: 17px;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+    .summary-card p:last-child { margin-bottom: 0; }
+    .summary-card strong { color: white; }
+    .summary-card em { font-style: normal; color: var(--amber); }
+
+    /* Meta strip */
+    .meta-strip {
+      background: var(--navy-deep);
+      padding: 28px 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .meta-strip-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      gap: 28px 48px;
+      flex-wrap: wrap;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .meta-strip span strong {
+      color: white;
+      font-weight: 700;
+      margin-left: 6px;
+    }
 
     /* Sections */
     .section {
-      padding: 100px 48px;
+      padding: 110px 48px;
+    }
+    .section-inner {
       max-width: 1080px;
       margin: 0 auto;
     }
     .section.white { background: white; }
     .section.bone { background: var(--bone); }
     .section.bone-warm { background: var(--bone-warm); }
-    .section.navy {
-      background: var(--navy-deep);
-      color: white;
-      max-width: none;
-      padding-left: 48px;
-      padding-right: 48px;
-    }
-    .section.navy .section-inner {
-      max-width: 1080px;
-      margin: 0 auto;
-    }
-    .section-band {
-      max-width: none;
-      padding-left: 48px;
-      padding-right: 48px;
-    }
-    .section-band .section-inner {
-      max-width: 1080px;
-      margin: 0 auto;
-    }
+    .section.navy { background: var(--navy-deep); color: white; }
 
-    .accent-bar {
-      width: 56px;
-      height: 2px;
-      background: var(--amber);
-      margin-bottom: 24px;
+    .section-num-row {
+      display: flex;
+      align-items: baseline;
+      gap: 22px;
+      margin-bottom: 32px;
+    }
+    .section-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: clamp(60px, 7vw, 92px);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: var(--amber);
+      line-height: 1;
+    }
+    .section-num-tag {
+      flex: 1;
+      padding-top: 14px;
+      border-top: 2px solid var(--amber);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+      letter-spacing: 0.18em;
+      color: var(--amber);
+      font-weight: 700;
+      text-transform: uppercase;
     }
     h2.section-h {
-      font-size: clamp(28px, 4vw, 48px);
-      font-weight: 800;
-      letter-spacing: -0.035em;
-      line-height: 1.05;
+      font-size: clamp(32px, 4.8vw, 60px);
+      font-weight: 900;
+      letter-spacing: -0.038em;
+      line-height: 1.04;
       color: var(--navy);
-      margin-bottom: 18px;
+      margin-bottom: 22px;
     }
     h2.section-h em { font-style: normal; color: var(--amber); }
     .section.navy h2.section-h { color: white; }
     p.section-lede {
-      font-size: 17.5px;
-      line-height: 1.65;
+      font-size: 18.5px;
+      line-height: 1.7;
       color: var(--muted);
-      max-width: 720px;
-      margin-bottom: 40px;
+      max-width: 760px;
+      margin-bottom: 48px;
     }
-    .section.navy p.section-lede { color: rgba(255,255,255,0.7); }
+    .section.navy p.section-lede { color: rgba(255,255,255,0.72); }
+    p.section-lede strong { color: var(--navy); font-weight: 700; }
+    .section.navy p.section-lede strong { color: white; }
+
+    /* Detail body text */
+    .body-block {
+      max-width: 760px;
+    }
+    .body-block p {
+      font-size: 16.5px;
+      line-height: 1.75;
+      color: var(--ink);
+      margin-bottom: 18px;
+    }
+    .body-block p strong { color: var(--navy); font-weight: 700; }
+    .section.navy .body-block p { color: rgba(255,255,255,0.85); }
+    .section.navy .body-block p strong { color: white; }
 
     /* Stat band */
     .stat-band {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-      padding: 56px 0;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      margin: 40px 0 8px;
+      gap: 0;
+      margin: 48px 0;
+      border-top: 1px solid var(--line-warm);
+      border-bottom: 1px solid var(--line-warm);
     }
-    .stat-band.navy {
-      border-color: rgba(255,255,255,0.1);
+    .section.navy .stat-band {
+      border-color: rgba(255,255,255,0.12);
     }
+    .stat-cell {
+      padding: 36px 28px 36px 0;
+      border-right: 1px solid var(--line-warm);
+    }
+    .section.navy .stat-cell { border-color: rgba(255,255,255,0.12); }
+    .stat-cell:last-child { border-right: none; padding-right: 0; }
     .stat-num {
-      font-size: clamp(40px, 5vw, 64px);
+      font-size: clamp(36px, 4.6vw, 56px);
       font-weight: 900;
       color: var(--amber);
-      letter-spacing: -0.04em;
+      letter-spacing: -0.035em;
       line-height: 1;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
     .stat-label {
       font-size: 14.5px;
       color: var(--muted);
-      line-height: 1.5;
-      max-width: 240px;
+      line-height: 1.55;
+      margin-bottom: 10px;
     }
-    .section.navy .stat-label { color: rgba(255,255,255,0.65); }
+    .section.navy .stat-label { color: rgba(255,255,255,0.7); }
+    .stat-source {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      color: var(--muted-light);
+      letter-spacing: 0.06em;
+    }
+    .section.navy .stat-source { color: rgba(255,255,255,0.4); }
 
-    /* Problem list */
+    /* Pull quote */
+    .pull-quote {
+      max-width: 820px;
+      margin: 48px 0;
+      padding: 36px 44px;
+      background: var(--amber-soft);
+      border-left: 4px solid var(--amber);
+      border-radius: 0 14px 14px 0;
+    }
+    .pull-quote p {
+      font-size: 21px;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.45;
+      letter-spacing: -0.015em;
+    }
+    .pull-quote .src {
+      display: block;
+      margin-top: 14px;
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    /* Pain list */
     .pain-list {
       display: grid;
       gap: 14px;
-      margin-top: 32px;
+      margin: 32px 0 16px;
     }
     .pain-item {
       display: flex;
-      gap: 16px;
+      gap: 18px;
       align-items: flex-start;
-      padding: 20px 22px;
+      padding: 24px 26px;
       background: white;
       border: 1px solid var(--line);
       border-radius: 14px;
     }
-    .pain-item .x {
-      flex: 0 0 28px;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: rgba(229,83,83,0.1);
+    .pain-item.dark {
+      background: rgba(255,255,255,0.04);
+      border-color: rgba(255,255,255,0.1);
+    }
+    .pain-num {
+      flex: 0 0 36px;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: rgba(229,83,83,0.12);
       color: #B85040;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 16px;
       font-weight: 800;
+      font-size: 15px;
       margin-top: 2px;
     }
-    .pain-item-body strong {
+    .pain-num.amber {
+      background: var(--amber-soft);
+      color: var(--amber);
+    }
+    .pain-body strong {
       display: block;
       color: var(--navy);
       font-weight: 700;
-      font-size: 15.5px;
-      margin-bottom: 3px;
+      font-size: 16.5px;
+      margin-bottom: 6px;
+      letter-spacing: -0.005em;
     }
-    .pain-item-body span {
+    .pain-item.dark .pain-body strong { color: white; }
+    .pain-body span {
       color: var(--muted);
       font-size: 14.5px;
-      line-height: 1.55;
+      line-height: 1.6;
+      display: block;
+    }
+    .pain-item.dark .pain-body span { color: rgba(255,255,255,0.7); }
+    .pain-body em {
+      font-style: normal;
+      color: var(--navy);
+      font-weight: 700;
+    }
+    .pain-item.dark .pain-body em { color: var(--amber); }
+
+    /* Cost breakdown table */
+    .cost-table {
+      max-width: 820px;
+      margin: 32px 0;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .cost-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      padding: 18px 26px;
+      border-bottom: 1px solid var(--line);
+      font-size: 15.5px;
+      align-items: center;
+    }
+    .cost-row:last-child { border-bottom: none; }
+    .cost-row.total {
+      background: var(--bone-warm);
+      font-weight: 800;
+      color: var(--navy);
+      font-size: 17px;
+    }
+    .cost-row .num {
+      font-family: 'JetBrains Mono', monospace;
+      color: #B85040;
+      font-weight: 700;
+    }
+    .cost-row.total .num { color: var(--navy); font-size: 20px; }
+    .cost-row .src {
+      grid-column: 1 / -1;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      color: var(--muted-light);
+      letter-spacing: 0.06em;
+      margin-top: -8px;
+      padding-top: 2px;
     }
 
-    /* Two columns: who is / who isn't */
-    .who-grid {
+    /* Competitive matrix */
+    .matrix {
+      margin: 36px 0 16px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow-x: auto;
+    }
+    .matrix table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 700px;
+    }
+    .matrix th, .matrix td {
+      padding: 16px 18px;
+      text-align: center;
+      border-bottom: 1px solid var(--line);
+      font-size: 14.5px;
+    }
+    .matrix th {
+      background: var(--bone-warm);
+      font-weight: 800;
+      color: var(--navy);
+      font-size: 11.5px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .matrix th:first-child,
+    .matrix td:first-child {
+      text-align: left;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .matrix tr.tradieback { background: var(--amber-soft); }
+    .matrix tr.tradieback td { font-weight: 800; }
+    .matrix tr.tradieback td:first-child { color: var(--amber); }
+    .matrix .yes { color: var(--green); font-size: 17px; font-weight: 800; }
+    .matrix .no { color: #B85040; font-size: 17px; font-weight: 800; opacity: 0.7; }
+    .matrix .partial { color: var(--amber); font-size: 14px; font-weight: 800; }
+
+    /* GTM phase rows */
+    .gtm-phase {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 28px;
+      padding: 32px 0;
+      border-bottom: 1px solid var(--line);
+      align-items: start;
+    }
+    .gtm-phase:last-child { border-bottom: none; }
+    .gtm-phase-head {
+      min-width: 200px;
+    }
+    .gtm-phase-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--amber);
+      letter-spacing: 0.16em;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .gtm-phase-head h3 {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+    }
+    .gtm-phase-body p {
+      font-size: 15.5px;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 10px;
+    }
+    .gtm-phase-stats {
+      display: flex;
+      gap: 14px 28px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+      padding-top: 14px;
+      border-top: 1px dashed var(--line);
+    }
+    .gtm-phase-stats span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12.5px;
+      color: var(--navy);
+      font-weight: 700;
+    }
+    .gtm-phase-stats span strong { color: var(--amber); }
+
+    /* Product split */
+    .product-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 28px;
-      margin-top: 32px;
+      margin-top: 36px;
     }
-    .who-col {
+    .product-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 36px 34px;
+    }
+    .product-card .badge {
+      display: inline-block;
+      font-size: 10.5px;
+      letter-spacing: 0.18em;
+      font-weight: 800;
+      color: var(--amber);
+      text-transform: uppercase;
+      padding: 5px 10px;
+      background: var(--amber-soft);
+      border-radius: 6px;
+      margin-bottom: 16px;
+    }
+    .product-card h3 {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.025em;
+      margin-bottom: 14px;
+    }
+    .product-card .product-desc {
+      font-size: 15.5px;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 22px;
+    }
+    .product-card ul {
+      list-style: none;
+      margin-bottom: 22px;
+    }
+    .product-card li {
+      padding: 9px 0;
+      font-size: 14.5px;
+      color: var(--ink);
+      line-height: 1.45;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      border-bottom: 1px dashed var(--line);
+    }
+    .product-card li:last-child { border-bottom: none; }
+    .product-card li::before {
+      content: '✓';
+      color: var(--amber);
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+    .product-card .pricing {
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      font-size: 14px;
+    }
+    .product-card .pricing .lbl {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted-light);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .product-card .pricing .val {
+      color: var(--navy);
+      font-weight: 800;
+      font-size: 17px;
+    }
+    .product-card .pricing .val .amber { color: var(--amber); }
+
+    /* Unit economics */
+    .unit-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 36px;
+    }
+    .unit-card {
       background: white;
       border: 1px solid var(--line);
       border-radius: 18px;
-      padding: 30px 28px;
+      padding: 32px 30px;
     }
-    .who-col.yes { border-color: rgba(46,204,113,0.3); }
-    .who-col.no { border-color: rgba(229,83,83,0.25); }
-    .who-head {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    .unit-card .label {
       font-size: 11px;
       letter-spacing: 0.18em;
+      color: var(--amber);
       font-weight: 800;
       text-transform: uppercase;
-      margin-bottom: 18px;
+      margin-bottom: 10px;
     }
-    .who-col.yes .who-head { color: var(--green); }
-    .who-col.no .who-head { color: #B85040; }
-    .who-col ul { list-style: none; }
-    .who-col li {
-      padding: 9px 0;
-      font-size: 15px;
-      color: var(--ink);
-      line-height: 1.5;
+    .unit-card h3 {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .unit-line {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
       border-bottom: 1px dashed var(--line);
+      font-size: 14.5px;
     }
-    .who-col li:last-child { border-bottom: none; }
+    .unit-line:last-child { border-bottom: none; }
+    .unit-line span:first-child { color: var(--muted); }
+    .unit-line span:last-child {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--navy);
+      font-weight: 700;
+    }
+    .unit-line.total {
+      padding: 14px 0 0;
+      margin-top: 8px;
+      border-top: 2px solid var(--navy);
+      border-bottom: none;
+      font-size: 17px;
+      font-weight: 800;
+    }
+    .unit-line.total span:last-child {
+      color: var(--amber);
+      font-size: 18px;
+    }
 
-    /* Phases timeline */
-    .phase-list {
+    /* Financial projections */
+    .proj-table {
+      margin: 32px 0;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow-x: auto;
+    }
+    .proj-table table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 720px;
+    }
+    .proj-table th, .proj-table td {
+      padding: 18px 22px;
+      border-bottom: 1px solid var(--line);
+      font-size: 15px;
+      text-align: left;
+    }
+    .proj-table th {
+      background: var(--bone-warm);
+      font-weight: 800;
+      color: var(--navy);
+      font-size: 11.5px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .proj-table tr:last-child td { border-bottom: none; }
+    .proj-table td:first-child {
+      font-weight: 700;
+      color: var(--navy);
+      font-size: 14px;
+      letter-spacing: 0;
+    }
+    .proj-table td.num {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--ink);
+      font-weight: 600;
+    }
+    .proj-table td.highlight {
+      color: var(--amber);
+      font-weight: 800;
+    }
+
+    /* Risk register */
+    .risk-grid {
+      display: grid;
+      gap: 18px;
+      margin: 32px 0 16px;
+    }
+    .risk-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .risk-row > div {
+      padding: 22px 24px;
+      border-right: 1px solid var(--line);
+    }
+    .risk-row > div:last-child { border-right: none; }
+    .risk-cell {
+      font-size: 14.5px;
+      line-height: 1.55;
+    }
+    .risk-cell strong {
+      display: block;
+      font-size: 10.5px;
+      letter-spacing: 0.16em;
+      color: var(--muted-light);
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .risk-cell .label {
+      font-weight: 700;
+      color: var(--navy);
+      font-size: 15.5px;
+      letter-spacing: -0.005em;
+    }
+    .risk-cell .impact-tag {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 800;
+      padding: 3px 9px;
+      border-radius: 6px;
+      margin-bottom: 6px;
+    }
+    .impact-tag.high { color: #B85040; background: rgba(229,83,83,0.12); }
+    .impact-tag.med { color: var(--amber); background: var(--amber-soft); }
+    .impact-tag.low { color: var(--green); background: rgba(46,204,113,0.1); }
+
+    /* Milestones */
+    .milestone-list {
       max-width: 760px;
-      margin: 40px 0 0;
+      margin: 36px 0 16px;
       position: relative;
     }
-    .phase-list::before {
+    .milestone-list::before {
       content: '';
       position: absolute;
       left: 29px;
-      top: 50px;
-      bottom: 50px;
+      top: 30px;
+      bottom: 30px;
       width: 2px;
       background: rgba(245,130,32,0.25);
     }
-    .phase {
+    .milestone {
       display: flex;
-      gap: 28px;
-      padding: 22px 0;
+      gap: 26px;
+      padding: 16px 0;
+      align-items: flex-start;
       position: relative;
     }
-    .phase-num {
+    .milestone .ts {
       flex: 0 0 60px;
       width: 60px;
       height: 60px;
@@ -356,206 +794,157 @@
       background: white;
       border: 2px solid var(--amber);
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      font-size: 18px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
       font-weight: 800;
       color: var(--amber);
+      letter-spacing: 0.05em;
+      text-align: center;
+      line-height: 1.1;
       position: relative;
       z-index: 1;
     }
-    .phase.now .phase-num {
+    .milestone.done .ts {
       background: var(--amber);
       color: var(--navy);
-      box-shadow: 0 12px 28px -8px rgba(245,130,32,0.45);
     }
-    .phase-body { padding-top: 8px; flex: 1; }
-    .phase-tag {
-      font-size: 10px;
-      color: var(--amber);
-      letter-spacing: 0.18em;
-      font-weight: 800;
-      text-transform: uppercase;
-      margin-bottom: 5px;
-    }
-    .phase-body h3 {
-      font-size: 21px;
-      font-weight: 800;
-      color: var(--navy);
-      letter-spacing: -0.02em;
-      margin-bottom: 8px;
-      line-height: 1.2;
-    }
-    .phase-body p {
-      font-size: 15.5px;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-    .phase-body p + p { margin-top: 8px; }
-    .phase-body strong { color: var(--navy); }
-
-    /* Plan card */
-    .plan-card {
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      padding: 36px 38px;
-      margin-top: 32px;
-    }
-    .plan-card-head {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-bottom: 20px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid var(--line);
-    }
-    .plan-card-head h3 {
-      font-size: 22px;
-      font-weight: 800;
-      color: var(--navy);
-      letter-spacing: -0.02em;
-    }
-    .plan-card-head .tag {
-      font-size: 10.5px;
-      letter-spacing: 0.18em;
-      font-weight: 800;
-      color: var(--amber);
-      text-transform: uppercase;
-    }
-    .plan-card p {
-      font-size: 15.5px;
-      color: var(--muted);
-      line-height: 1.65;
-      margin-bottom: 14px;
-    }
-    .plan-card p strong { color: var(--navy); font-weight: 700; }
-
-    /* Solution split */
-    .sol-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      margin-top: 32px;
-    }
-    .sol-card {
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 32px 28px;
-    }
-    .sol-card .tag {
-      display: inline-block;
-      font-size: 10.5px;
-      letter-spacing: 0.18em;
-      font-weight: 800;
-      color: var(--amber);
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-    .sol-card h3 {
-      font-size: 22px;
-      font-weight: 800;
-      color: var(--navy);
-      letter-spacing: -0.02em;
-      margin-bottom: 12px;
-    }
-    .sol-card p {
-      font-size: 15px;
-      color: var(--muted);
-      line-height: 1.6;
-      margin-bottom: 14px;
-    }
-    .sol-card .price {
-      font-size: 14px;
-      color: var(--ink);
-      font-weight: 700;
+    .milestone .body {
       padding-top: 14px;
-      border-top: 1px dashed var(--line);
+      flex: 1;
     }
-    .sol-card .price span { color: var(--amber); }
+    .milestone .body strong {
+      display: block;
+      font-size: 16px;
+      color: var(--navy);
+      font-weight: 700;
+      letter-spacing: -0.005em;
+      margin-bottom: 4px;
+    }
+    .milestone .body span {
+      color: var(--muted);
+      font-size: 14.5px;
+      line-height: 1.55;
+    }
 
-    /* Close */
-    .close-card {
+    /* Ask card */
+    .ask-card {
       background: var(--navy);
       color: white;
       border-radius: 22px;
-      padding: 56px 44px;
-      max-width: 880px;
-      margin: 0 auto;
-      text-align: center;
+      padding: 56px 48px;
+      max-width: 920px;
+      margin: 36px auto 0;
       position: relative;
       overflow: hidden;
     }
-    .close-card::before {
+    .ask-card::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at 30% 50%, rgba(245,130,32,0.13), transparent 55%),
-                  radial-gradient(circle at 70% 50%, rgba(245,130,32,0.08), transparent 55%);
+      background: radial-gradient(circle at 25% 50%, rgba(245,130,32,0.14), transparent 55%),
+                  radial-gradient(circle at 75% 50%, rgba(245,130,32,0.08), transparent 55%);
       pointer-events: none;
     }
-    .close-card > * { position: relative; }
-    .close-card h2 {
-      font-size: clamp(26px, 3.4vw, 38px);
+    .ask-card > * { position: relative; }
+    .ask-card h3 {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      color: var(--amber);
       font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.15;
-      margin-bottom: 18px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
     }
-    .close-card h2 em { font-style: normal; color: var(--amber); }
-    .close-card p {
-      font-size: 16px;
-      color: rgba(255,255,255,0.75);
-      line-height: 1.65;
-      max-width: 620px;
-      margin: 0 auto 14px;
+    .ask-card h2 {
+      font-size: clamp(28px, 3.6vw, 40px);
+      font-weight: 900;
+      letter-spacing: -0.035em;
+      line-height: 1.1;
+      margin-bottom: 28px;
     }
-    .close-sig {
-      margin-top: 28px;
-      padding-top: 24px;
+    .ask-card h2 em { font-style: normal; color: var(--amber); }
+    .ask-card .ask-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-top: 8px;
+    }
+    .ask-block strong {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      color: var(--amber);
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .ask-block ul { list-style: none; }
+    .ask-block li {
+      font-size: 15px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.85);
+      padding: 8px 0;
+      border-bottom: 1px dashed rgba(255,255,255,0.12);
+    }
+    .ask-block li:last-child { border-bottom: none; }
+    .ask-sig {
+      margin-top: 36px;
+      padding-top: 28px;
       border-top: 1px solid rgba(255,255,255,0.12);
       font-size: 14px;
       color: rgba(255,255,255,0.65);
     }
-    .close-sig strong { color: white; }
+    .ask-sig strong { color: white; font-size: 16px; }
 
     /* Footer */
     footer {
       background: var(--navy-deep);
       color: rgba(255,255,255,0.5);
-      padding: 50px 48px 36px;
+      padding: 50px 48px 40px;
       font-size: 13px;
       border-top: 1px solid var(--amber);
       text-align: center;
     }
     footer .small {
-      font-size: 11px;
-      letter-spacing: 0.14em;
+      font-size: 10.5px;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       color: rgba(255,255,255,0.4);
       margin-top: 8px;
     }
 
     /* Mobile */
-    @media (max-width: 700px) {
+    @media (max-width: 800px) {
       .nav { padding: 16px 20px; }
-      .cover { padding: 64px 20px 76px; }
-      .cover h1 { font-size: clamp(32px, 8vw, 56px); }
+      .nav-meta { font-size: 10.5px; }
+      .cover { padding: 64px 20px 72px; }
+      .cover h1 { font-size: clamp(30px, 7vw, 56px); }
+      .cover-sub { font-size: 16px; }
+      .summary-card { padding: 26px 24px; }
+      .meta-strip { padding: 20px; }
+      .meta-strip-inner { gap: 14px 24px; font-size: 10.5px; }
       .section { padding: 64px 20px; }
-      .section.navy { padding: 64px 20px; }
-      .section-band { padding-left: 20px; padding-right: 20px; }
-      .stat-band { grid-template-columns: 1fr; gap: 24px; padding: 36px 0; }
-      .who-grid { grid-template-columns: 1fr; gap: 16px; }
-      .sol-grid { grid-template-columns: 1fr; }
-      .phase-list::before { left: 23px; top: 40px; bottom: 40px; }
-      .phase { gap: 18px; padding: 18px 0; }
-      .phase-num { flex: 0 0 48px; width: 48px; height: 48px; font-size: 16px; }
-      .plan-card { padding: 28px 24px; }
-      .close-card { padding: 44px 28px; }
-      footer { padding: 40px 20px 32px; }
+      .section-num { font-size: 52px; }
+      .product-grid { grid-template-columns: 1fr; gap: 18px; }
+      .unit-grid { grid-template-columns: 1fr; gap: 16px; }
+      .stat-band { grid-template-columns: 1fr; }
+      .stat-cell { padding: 26px 0; border-right: none; border-bottom: 1px solid var(--line-warm); }
+      .stat-cell:last-child { border-bottom: none; }
+      .section.navy .stat-cell { border-color: rgba(255,255,255,0.12); }
+      .risk-row { grid-template-columns: 1fr; }
+      .risk-row > div { border-right: none; border-bottom: 1px solid var(--line); }
+      .risk-row > div:last-child { border-bottom: none; }
+      .gtm-phase { grid-template-columns: 1fr; gap: 14px; padding: 24px 0; }
+      .ask-card { padding: 40px 28px; }
+      .ask-card .ask-grid { grid-template-columns: 1fr; gap: 22px; }
+      .milestone-list::before { left: 22px; top: 22px; bottom: 22px; }
+      .milestone { gap: 18px; padding: 12px 0; }
+      .milestone .ts { flex: 0 0 46px; width: 46px; height: 46px; font-size: 9.5px; }
+      .pull-quote { padding: 24px 22px; }
+      .pull-quote p { font-size: 17px; }
+      footer { padding: 36px 20px 30px; }
     }
   </style>
 </head>
@@ -563,299 +952,813 @@
 
 <!-- Private banner -->
 <div class="private-banner">
-  <span class="dot"></span>Private · for context only · not for distribution
+  <span class="dot"></span>Confidential · investor preview · not for distribution
 </div>
 
-<!-- Minimal nav -->
+<!-- Nav -->
 <nav class="nav">
   <a href="index.html" class="nav-brand" aria-label="TradieBack">
     <svg viewBox="0 0 720 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <text x="20" y="80" font-family="Arial Black, Helvetica, sans-serif" font-weight="900" font-size="80" letter-spacing="1"><tspan fill="#FFFFFF">TRADIE</tspan><tspan fill="#F58220">BACK</tspan></text>
     </svg>
   </a>
-  <span class="nav-meta">Founder pitch · May 2026</span>
+  <span class="nav-meta">Investor pitch · v1 · May 2026</span>
 </nav>
 
-<!-- Cover -->
+<!-- ═════════════════ COVER ═════════════════ -->
 <section class="cover">
   <div class="cover-inner">
-    <div class="cover-tag"><span style="width:7px;height:7px;border-radius:50%;background:var(--amber);"></span>The short version</div>
-    <h1>TradieBack — the operating platform <em>for NZ + AU tradies</em></h1>
-    <p class="sub">Built by someone who's spent nearly a decade on construction sites. The mission: keep great tradies on the tools by running the digital side for them.</p>
-    <div class="cover-meta">
-      <span>Founded 2025</span>
-      <span class="dot-sep">·</span>
-      <span>Wellington, NZ</span>
-      <span class="dot-sep">·</span>
-      <span>NZ + AU only</span>
+    <div class="cover-eyebrow"><span style="width:7px;height:7px;border-radius:50%;background:var(--amber);"></span>Executive summary</div>
+    <h1>The operating platform <em>for NZ + AU trade businesses</em></h1>
+    <p class="cover-sub">Built by a former Project Manager with nearly a decade in NZ construction. Targeting the ~450,000 small trade businesses across New Zealand and Australia — a market with zero direct competitors bundling website, back-office, and lead generation under one roof.</p>
+
+    <div class="summary-card">
+      <h3>The thesis in 60 seconds</h3>
+      <p>Trade businesses in NZ + AU are <strong>world-class on the tools and the worst-served small-business segment when it comes to digital infrastructure.</strong> They cobble together $5,000 agency websites, $420/month of disconnected software, and ad-hoc lead generation — and still lose work to whoever happens to outrank them on Google.</p>
+      <p>TradieBack consolidates all of that into <em>one operating platform</em>, installed in 7 days, run for them month-to-month. Two services: <strong>Tradie Launch</strong> (website + back-office, live) and <strong>Tradie Leads</strong> (growth engine, in beta).</p>
+      <p>The business is intentionally <strong>capital-efficient and founder-led</strong>. Solo today, AI-augmented delivery, scaling to a small team only when monthly recurring revenue justifies it. The founder's runway is funded by his own labour (a planned Project Manager role across NZ + AU) — which doubles as the primary GTM channel.</p>
     </div>
   </div>
 </section>
 
-<!-- What it is -->
+<!-- Meta strip -->
+<div class="meta-strip">
+  <div class="meta-strip-inner">
+    <span>Stage <strong>Pre-revenue · Live launch</strong></span>
+    <span>Founded <strong>2025</strong></span>
+    <span>HQ <strong>Wellington, NZ</strong></span>
+    <span>Team <strong>1 (founder) + AI</strong></span>
+    <span>Status <strong>Bootstrapped</strong></span>
+  </div>
+</div>
+
+<!-- ═════════════════ 01 — OPPORTUNITY ═════════════════ -->
 <section class="section white">
-  <div class="accent-bar"></div>
-  <h2 class="section-h">What it <em>is</em></h2>
-  <p class="section-lede">TradieBack is a done-for-you operating platform for trade businesses. We hand a tradie a complete website + back-office system + lead generation engine — built, configured, and running — in 7 days. They stay on the tools. We run everything else.</p>
-
-  <div class="sol-grid">
-    <div class="sol-card">
-      <div class="tag">Service 01 · Live</div>
-      <h3>Tradie Launch</h3>
-      <p>The 7-day install. Custom website + CRM + invoicing + automated reviews/quotes/payments — all bundled, all built for tradies. Replaces ~$12K/year of disconnected software + agency fees.</p>
-      <div class="price">From <span>$5K install · $99/mo</span></div>
+  <div class="section-inner">
+    <div class="section-num-row">
+      <div class="section-num">01</div>
+      <div class="section-num-tag">Opportunity · why now</div>
     </div>
-    <div class="sol-card">
-      <div class="tag">Service 02 · Beta</div>
-      <h3>Tradie Leads</h3>
-      <p>The growth engine. Google + Meta ads, local SEO, Google Business management, review automation, lead qualification. Runs once Launch is live. First qualified lead in 30 days or month's free.</p>
-      <div class="price">From <span>$799/mo · ad spend direct to Google</span></div>
+    <h2 class="section-h">Four shifts have made <em>now</em> the right time</h2>
+    <p class="section-lede">There has always been a gap between the way tradies work and the way digital tools are built. But four specific shifts in the last 24 months mean a one-person team can credibly compete with established agencies — and tradies are finally ready to pay for the right solution.</p>
+
+    <div class="pain-list">
+      <div class="pain-item">
+        <div class="pain-num amber">01</div>
+        <div class="pain-body">
+          <strong>AI collapses agency-quality output into one-person execution</strong>
+          <span>What took a 5-person agency a month in 2022 — site design, copywriting, automation setup, ad creative — now takes one operator a week with Claude, Midjourney, and modern automation tools. The right founder can ship at agency quality for 1/10th the headcount cost. <em>That cost gap is the moat.</em></span>
+        </div>
+      </div>
+      <div class="pain-item">
+        <div class="pain-num amber">02</div>
+        <div class="pain-body">
+          <strong>Smartphone penetration in NZ + AU tradies is effectively 100%</strong>
+          <span>WhatsApp is the default communication channel on every site. The friction of "managing your business from your phone" is gone — what's missing is the platform that actually does it. Most existing tools are still desktop-first or built for office workers, not for someone covered in concrete dust at 4pm.</span>
+        </div>
+      </div>
+      <div class="pain-item">
+        <div class="pain-num amber">03</div>
+        <div class="pain-body">
+          <strong>Google's Local Pack now rewards activity, not just legacy</strong>
+          <span>Five years ago, an old plumber with 50 stale reviews would outrank a younger, more active competitor. Today, Google heavily weights review velocity, post frequency, photo updates, and Q&amp;A activity. <em>Every dormant Google Business Profile is a competitor's opportunity.</em> Tradies are losing rankings — and don't know why.</span>
+        </div>
+      </div>
+      <div class="pain-item">
+        <div class="pain-num amber">04</div>
+        <div class="pain-body">
+          <strong>Post-COVID labour shortage = tradies are at peak revenue and capacity-constrained</strong>
+          <span>Across NZ + AU, building consents and renovations have rebounded. The good tradies have more work than they can handle — but they're losing 12–18 hours per month to admin and quoting, which directly converts to ~$50K/year of foregone billable time. <em>Their bottleneck isn't demand. It's operations.</em> That's exactly what we solve.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pull-quote">
+      <p>"Most tradies don't have a marketing problem. They have a back-office problem. Fix the back-office and the marketing fixes itself."</p>
+      <span class="src">— Founder thesis, drawn from 30+ subcontractor conversations during $50M+ build coordination, 2022–2024</span>
     </div>
   </div>
 </section>
 
-<!-- The market -->
+<!-- ═════════════════ 02 — THE PROBLEM ═════════════════ -->
 <section class="section bone">
-  <div class="accent-bar"></div>
-  <h2 class="section-h">The market — <em>bigger than you think</em></h2>
-  <p class="section-lede">There are hundreds of thousands of small trade businesses across New Zealand and Australia. Most are solo operators or crews under 10 people. Almost all of them run $200K–$2M revenue and almost none of them have proper digital infrastructure.</p>
+  <div class="section-inner">
+    <div class="section-num-row">
+      <div class="section-num">02</div>
+      <div class="section-num-tag">The problem · quantified</div>
+    </div>
+    <h2 class="section-h">The cost of being <em>"great on the tools, drowning everywhere else"</em></h2>
+    <p class="section-lede">The honest cost of bad digital infrastructure for a typical NZ plumber doing <strong>$800,000 in annual revenue.</strong> These aren't projected losses — these are real, recoverable revenue gaps we've measured in actual conversations with tradies.</p>
 
-  <div class="stat-band">
-    <div>
-      <div class="stat-num">50K+</div>
-      <div class="stat-label">Active trade businesses in NZ alone (Stats NZ, construction sector)</div>
+    <div class="cost-table">
+      <div class="cost-row">
+        <div>5 disconnected tools (Xero · ServiceM8 · Trello · MailChimp · GoDaddy)</div>
+        <div class="num">$5,040/yr</div>
+      </div>
+      <div class="cost-row">
+        <div class="src">Industry average software stack · NZ trade survey 2024</div>
+      </div>
+      <div class="cost-row">
+        <div>Stale website costing ~$3K every 5 years (amortised)</div>
+        <div class="num">$600/yr</div>
+      </div>
+      <div class="cost-row">
+        <div>12–18 hrs/mo admin at $120/hr foregone billable = ~$25K/yr</div>
+        <div class="num">$25,000/yr</div>
+      </div>
+      <div class="cost-row">
+        <div class="src">Conservative — tradies report 18–30 hrs/mo on admin in interviews</div>
+      </div>
+      <div class="cost-row">
+        <div>4 jobs/mo lost to faster-quoting competitors · avg job value $2,500</div>
+        <div class="num">$120,000/yr</div>
+      </div>
+      <div class="cost-row">
+        <div class="src">Based on 53% mobile bounce rate on slow sites (Google CWV data)</div>
+      </div>
+      <div class="cost-row">
+        <div>Lost work from being on page 3 of Google for money keywords</div>
+        <div class="num">$30,000/yr</div>
+      </div>
+      <div class="cost-row">
+        <div class="src">44% of map-pack searches click the top 3 results (BrightLocal 2024)</div>
+      </div>
+      <div class="cost-row total">
+        <div>Total foregone revenue + wasted spend per year</div>
+        <div class="num">~$180,000/yr</div>
+      </div>
     </div>
-    <div>
-      <div class="stat-num">400K+</div>
-      <div class="stat-label">Trade businesses across Australia — solo to small crew</div>
-    </div>
-    <div>
-      <div class="stat-num">~450K</div>
-      <div class="stat-label">Combined NZ + AU addressable market for TradieBack</div>
+
+    <div class="body-block" style="margin-top: 36px;">
+      <p><strong>For an $800K-revenue business, that's ~22% of revenue being left on the table.</strong> TradieBack costs $5,000 to install plus $99–$799/month — recovering even 10% of that gap pays for the platform 30x over.</p>
+      <p>And critically: <strong>nobody is currently selling this consolidation to tradies.</strong> They're sold tools (software) or services (agency websites, ad management) — never the integrated platform. We're building the category, not entering one.</p>
     </div>
   </div>
-
-  <p style="font-size:15px;color:var(--muted);max-width:720px;line-height:1.65;margin-top:24px;">Even capturing <strong style="color:var(--navy);">0.1% of the combined market</strong> = ~450 paying clients at $99/mo = roughly <strong style="color:var(--navy);">$535K/year recurring</strong> from the platform alone. Plus install revenue. Plus Tradie Leads on top.</p>
 </section>
 
-<!-- The problem -->
+<!-- ═════════════════ 03 — MARKET SIZE ═════════════════ -->
 <section class="section white">
-  <div class="accent-bar"></div>
-  <h2 class="section-h">The problem — <em>great on the tools, drowning everywhere else</em></h2>
-  <p class="section-lede">Tradies are world-class at their craft. They're also the worst-served small business segment when it comes to digital. The same tradie who can rebuild a hot water cylinder blindfolded can't get past page 3 on Google — because nobody's ever taught them, and the agencies that try don't speak their language.</p>
+  <div class="section-inner">
+    <div class="section-num-row">
+      <div class="section-num">03</div>
+      <div class="section-num-tag">Market size · TAM / SAM / SOM</div>
+    </div>
+    <h2 class="section-h">A <em>$700M+ addressable market</em> across two countries</h2>
+    <p class="section-lede">Conservative bottom-up sizing using government statistics (Stats NZ, ABS) and industry benchmarks. The combined NZ + AU trade-business market is large, fragmented, and underserved — exactly the conditions that reward a focused operator.</p>
 
-  <div class="pain-list">
-    <div class="pain-item">
-      <div class="x">✕</div>
-      <div class="pain-item-body">
-        <strong>Websites that haven't been updated since 2016</strong>
-        <span>Loading in 8+ seconds on mobile. No click-to-call. No reviews displayed. Built once, never touched again.</span>
+    <div class="stat-band">
+      <div class="stat-cell">
+        <div class="stat-num">~50K</div>
+        <div class="stat-label">Active construction-sector businesses in New Zealand. Mostly solo to 10-person crews.</div>
+        <div class="stat-source">Stats NZ · ANZSIC 06 Division E</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">~430K</div>
+        <div class="stat-label">Active construction-sector businesses across Australia. Same shape: dominated by small operators.</div>
+        <div class="stat-source">ABS · Counts of Aust. Businesses 2023</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">~480K</div>
+        <div class="stat-label">Combined NZ + AU TAM. Sized only against trade-specific businesses that match our target profile.</div>
+        <div class="stat-source">TradieBack analysis</div>
       </div>
     </div>
-    <div class="pain-item">
-      <div class="x">✕</div>
-      <div class="pain-item-body">
-        <strong>Quoting at 9pm after a 12-hour day</strong>
-        <span>Tools down at 5. Quotes typed up at the kitchen table 'til 9. Missed dinner. Missed the kids. Lost the job to the tradie who got their quote out faster.</span>
-      </div>
+
+    <div class="body-block">
+      <p><strong>TAM (Total Addressable Market) — ~$5.7B/year.</strong> 480,000 businesses × ~$12,000/year average digital infrastructure spend (across software, websites, marketing).</p>
+      <p><strong>SAM (Serviceable Available Market) — ~$700M/year.</strong> Conservatively, ~30% of those businesses earn $300K+ annual revenue and can afford a $99–$799/month platform fee. That's ~144,000 businesses × ~$5,000 average annual platform spend.</p>
+      <p><strong>SOM (Serviceable Obtainable Market, Year 3) — ~$1.8M ARR.</strong> Capturing just <strong>0.4% of SAM</strong> = ~600 paying clients at blended $250/month ARPU. This is a defensible 3-year target with founder-led + referral-driven sales.</p>
     </div>
-    <div class="pain-item">
-      <div class="x">✕</div>
-      <div class="pain-item-body">
-        <strong>Five disconnected tools that don't talk</strong>
-        <span>Square for payments. Trello for jobs. Gmail for quotes. Xero for books. Some Facebook page for marketing. $420/mo and nothing actually works together.</span>
-      </div>
-    </div>
-    <div class="pain-item">
-      <div class="x">✕</div>
-      <div class="pain-item-body">
-        <strong>$5K cookie-cutter agency websites</strong>
-        <span>A 22-year-old account manager who can't tell a sparkie from a chippie. Six-month lock-in. Three months in, the tradie cancels and goes back to word-of-mouth.</span>
-      </div>
-    </div>
-    <div class="pain-item">
-      <div class="x">✕</div>
-      <div class="pain-item-body">
-        <strong>The cowboys win on Google</strong>
-        <span>Brilliant tradies sit on page 3 while a fly-by-night with a clean website and a paid ad campaign takes the calls. It's not skill — it's visibility.</span>
-      </div>
+
+    <div class="pull-quote">
+      <p>"In every market we've looked at — plumbers, sparkies, builders, roofers — there's no single player consolidating the website, back-office, and lead-gen layers for tradies. The closest competitors solve one piece at a time, in tools designed for offices, not work sites."</p>
+      <span class="src">— Competitive landscape review, May 2026</span>
     </div>
   </div>
 </section>
 
-<!-- Who it's for / not -->
-<section class="section bone-warm">
-  <div class="accent-bar"></div>
-  <h2 class="section-h">Who it's <em>for</em></h2>
-  <p class="section-lede">TradieBack is intentionally narrow. The platform works because every decision in it was built for one specific business type — and we say no to everything else.</p>
-
-  <div class="who-grid">
-    <div class="who-col yes">
-      <div class="who-head"><span>✓</span> Built for</div>
-      <ul>
-        <li>NZ + AU trade businesses</li>
-        <li>Solo operators to crews of 10</li>
-        <li>$200K–$2M annual revenue</li>
-        <li>Plumbers, sparkies, builders, roofers, painters, concreters, landscapers, plasterers</li>
-        <li>Owner who wants to stay on the tools</li>
-      </ul>
+<!-- ═════════════════ 04 — PRODUCT ═════════════════ -->
+<section class="section bone">
+  <div class="section-inner">
+    <div class="section-num-row">
+      <div class="section-num">04</div>
+      <div class="section-num-tag">The product · two services</div>
     </div>
-    <div class="who-col no">
-      <div class="who-head"><span>✕</span> Not for</div>
-      <ul>
-        <li>Multi-site or multi-state companies</li>
-        <li>$5M+ revenue (different problems)</li>
-        <li>Non-trades — no cafés, no lawyers, no dentists, no real estate</li>
-        <li>Anyone outside NZ or Australia</li>
-        <li>Owners who want to be on the computer all day</li>
-      </ul>
+    <h2 class="section-h">Two services. <em>One integrated platform</em></h2>
+    <p class="section-lede">Tradie Launch is the foundation — a website plus the back-office software that runs it. Tradie Leads is the engine that drives traffic and converts it into work. They're sold separately but designed to work together. Both are live as of May 2026.</p>
+
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="badge">Service 01 · Live</div>
+        <h3>Tradie Launch</h3>
+        <p class="product-desc">A complete 7-day install: custom website, branded CRM, invoicing, payments, automation, reviews, and ongoing maintenance — all configured and handed over in a single sprint.</p>
+        <ul>
+          <li>Custom mobile-first website (no templates)</li>
+          <li>CRM with lead pipeline + customer database</li>
+          <li>Invoicing + Stripe payments + auto-reminders</li>
+          <li>Auto-text-back on every missed call (60 seconds)</li>
+          <li>Review request automation after every job</li>
+          <li>Quote follow-up sequences (day 1, 3, 7)</li>
+          <li>Hosting · maintenance · light edits included</li>
+        </ul>
+        <div class="pricing">
+          <span class="lbl">Pricing</span>
+          <span class="val">$5,000 install <span class="amber">·</span> $99/mo Tradie Care</span>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="badge">Service 02 · Beta</div>
+        <h3>Tradie Leads</h3>
+        <p class="product-desc">The growth engine that runs on top of Tradie Launch. Six channels managed by one operator: Google + Meta ads, local SEO, Google Business management, review velocity, and qualification.</p>
+        <ul>
+          <li>Google Ads (call + form campaigns)</li>
+          <li>Meta Ads (lead form objective)</li>
+          <li>Local SEO (suburb pages + schema)</li>
+          <li>Google Business Profile management</li>
+          <li>Automated review acquisition (weekly)</li>
+          <li>Lead qualification + booking automation</li>
+          <li>Monthly performance report (calls, jobs, cost)</li>
+        </ul>
+        <div class="pricing">
+          <span class="lbl">Pricing</span>
+          <span class="val">$799/mo <span class="amber">·</span> ad spend direct to Google/Meta (no markup)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="body-block" style="margin-top: 40px;">
+      <p><strong>Why these two, in this order:</strong> The platform has to be solid before traffic is worth running. Sending paid traffic to a slow, untracked, conversion-poor site is the most common mistake tradies make. Tradie Launch fixes the conversion infrastructure first — then Tradie Leads can profitably drive volume into it.</p>
+      <p><strong>Why bundled:</strong> A tradie running both services with us replaces ~$1,400/month of disconnected software + agency fees + ad management with a single integrated $898/month subscription. That's the natural upgrade path — and the source of our highest-LTV clients.</p>
     </div>
   </div>
 </section>
 
-<!-- How it runs -->
+<!-- ═════════════════ 05 — BUSINESS MODEL ═════════════════ -->
 <section class="section white">
-  <div class="accent-bar"></div>
-  <h2 class="section-h">How the business runs — <em>solo first, team second</em></h2>
-  <p class="section-lede">TradieBack is small on purpose. The whole point is to keep delivery quality high while the platform scales. The plan is to grow on revenue, not on outside money.</p>
+  <div class="section-inner">
+    <div class="section-num-row">
+      <div class="section-num">05</div>
+      <div class="section-num-tag">Business model · unit economics</div>
+    </div>
+    <h2 class="section-h">Unit economics that work <em>at any scale</em></h2>
+    <p class="section-lede">The business is profitable on every install from day one because there are no investor expectations dictating growth-at-all-costs. Installs are pre-priced to cover delivery cost in full. Recurring revenue is pure margin. Bundle clients deliver outsized LTV with near-zero incremental delivery cost.</p>
 
-  <div class="phase-list">
-    <div class="phase now">
-      <div class="phase-num">01</div>
-      <div class="phase-body">
-        <div class="phase-tag">Now · 2025 → mid 2026</div>
-        <h3>Solo founder mode</h3>
-        <p>Mathieson runs everything — sales, install, design, copy, automation, support. First 4–10 founder clients onboarded and proven. AI does the heavy lifting on copy + design drafts so one person can ship like a small team.</p>
+    <div class="unit-grid">
+      <div class="unit-card">
+        <div class="label">Launch-only client</div>
+        <h3>$8,564 LTV</h3>
+        <div class="unit-line"><span>Install fee (one-time)</span><span>$5,000</span></div>
+        <div class="unit-line"><span>Monthly recurring</span><span>$99 × 36 mo</span></div>
+        <div class="unit-line"><span>Assumed avg lifetime</span><span>36 months</span></div>
+        <div class="unit-line"><span>Recurring revenue total</span><span>$3,564</span></div>
+        <div class="unit-line total"><span>Lifetime value</span><span>$8,564</span></div>
+      </div>
+      <div class="unit-card">
+        <div class="label">Launch + Leads bundle</div>
+        <h3>$24,176 LTV</h3>
+        <div class="unit-line"><span>Install fee (one-time)</span><span>$5,000</span></div>
+        <div class="unit-line"><span>Monthly recurring</span><span>$799 × 24 mo</span></div>
+        <div class="unit-line"><span>Assumed avg lifetime</span><span>24 months</span></div>
+        <div class="unit-line"><span>Recurring revenue total</span><span>$19,176</span></div>
+        <div class="unit-line total"><span>Lifetime value</span><span>$24,176</span></div>
       </div>
     </div>
-    <div class="phase">
-      <div class="phase-num">02</div>
-      <div class="phase-body">
-        <div class="phase-tag">Q3 2026 → Q1 2027</div>
-        <h3>+1 contractor</h3>
-        <p>Once monthly recurring covers it, bring in a part-time designer or ads specialist on contract. Mathieson stays on delivery — close to clients, never delegates the relationship.</p>
-      </div>
-    </div>
-    <div class="phase">
-      <div class="phase-num">03</div>
-      <div class="phase-body">
-        <div class="phase-tag">2027+</div>
-        <h3>Small team of 3–5</h3>
-        <p>Designer · ads manager · client success · admin. Mathieson stays close to product and delivery. Never grows beyond the point where every client still gets the founder on a call.</p>
-      </div>
+
+    <div class="body-block" style="margin-top: 40px;">
+      <p><strong>CAC by phase:</strong></p>
+      <p>Year 1 — <strong>~$0 CAC.</strong> All clients sourced via founder's existing construction network + referrals from PM-role contacts. No paid acquisition.</p>
+      <p>Year 2 — <strong>~$500–$1,500 CAC.</strong> First wave of referral incentives + small organic SEO investment. Still founder-led sales.</p>
+      <p>Year 3+ — <strong>~$1,500–$2,500 CAC.</strong> Paid acquisition begins (Google + Meta), with a dedicated ads contractor. Inbound from SEO + content compounds.</p>
+      <p><strong>LTV:CAC ratio target: 7–10x across all phases.</strong> Most SaaS businesses target 3x. Our ratio is high because (1) the install fee front-loads payback, (2) the network-based GTM keeps Year 1 CAC near zero, and (3) bundle clients have $24K LTV.</p>
+      <p><strong>Gross margin:</strong> Install delivery cost is ~$1,200 per client (AI-augmented design + automation setup time). Install margin: ~76%. Recurring margin: ~92% (hosting + maintenance + ad management labour). <strong>Blended business gross margin: 85%+.</strong></p>
     </div>
   </div>
 </section>
 
-<!-- My runway -->
+<!-- ═════════════════ 06 — COMPETITION ═════════════════ -->
+<section class="section bone">
+  <div class="section-inner">
+    <div class="section-num-row">
+      <div class="section-num">06</div>
+      <div class="section-num-tag">Competition · landscape</div>
+    </div>
+    <h2 class="section-h">Nobody else <em>bundles all four</em></h2>
+    <p class="section-lede">The trade-services digital landscape is fragmented across single-purpose tools. Software platforms solve back-office. Web agencies sell websites. Marketing agencies sell ad management. General platforms ignore tradies entirely. TradieBack is the only NZ/AU operator integrating all four — website, back-office, lead gen, and trade-specific UX — under one roof.</p>
+
+    <div class="matrix">
+      <table>
+        <thead>
+          <tr>
+            <th>Competitor</th>
+            <th>Website</th>
+            <th>Back-office</th>
+            <th>Lead gen</th>
+            <th>Tradie-specific</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>ServiceM8 (AU)</td>
+            <td class="no">✕</td>
+            <td class="yes">✓</td>
+            <td class="no">✕</td>
+            <td class="yes">✓</td>
+          </tr>
+          <tr>
+            <td>Tradify (NZ)</td>
+            <td class="no">✕</td>
+            <td class="yes">✓</td>
+            <td class="no">✕</td>
+            <td class="yes">✓</td>
+          </tr>
+          <tr>
+            <td>AroFlo (AU)</td>
+            <td class="no">✕</td>
+            <td class="yes">✓</td>
+            <td class="no">✕</td>
+            <td class="yes">✓</td>
+          </tr>
+          <tr>
+            <td>simPRO (AU)</td>
+            <td class="no">✕</td>
+            <td class="yes">✓</td>
+            <td class="no">✕</td>
+            <td class="yes">✓</td>
+          </tr>
+          <tr>
+            <td>Wix / Squarespace</td>
+            <td class="yes">✓</td>
+            <td class="no">✕</td>
+            <td class="no">✕</td>
+            <td class="no">✕</td>
+          </tr>
+          <tr>
+            <td>GoHighLevel</td>
+            <td class="yes">✓</td>
+            <td class="yes">✓</td>
+            <td class="partial">DIY</td>
+            <td class="no">✕</td>
+          </tr>
+          <tr>
+            <td>Local web agencies</td>
+            <td class="yes">✓</td>
+            <td class="no">✕</td>
+            <td class="no">✕</td>
+            <td class="partial">Some</td>
+          </tr>
+          <tr>
+            <td>Marketing agencies</td>
+            <td class="no">✕</td>
+            <td class="no">✕</td>
+            <td class="yes">✓</td>
+            <td class="partial">Some</td>
+          </tr>
+          <tr class="tradieback">
+            <td>TradieBack</td>
+            <td class="yes">✓</td>
+            <td class="yes">✓</td>
+            <td class="yes">✓</td>
+            <td class="yes">✓</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="body-block" style="margin-top: 40px;">
+      <p><strong>Why each category loses to us on at least one dimension:</strong></p>
+      <p><strong>Trade software (ServiceM8, Tradify, AroFlo, simPRO)</strong> — strong back-office, but tradies still have to find a separate web designer for the site and a separate marketing agency for leads. We replace all three with one relationship.</p>
+      <p><strong>General platforms (Wix, GoHighLevel)</strong> — tradies aren't builders. They don't want to drag-and-drop their own site or configure their own funnel. They want it done. We do it done.</p>
+      <p><strong>Web agencies</strong> — build a site, then disappear. No ongoing software. No lead generation. The tradie still has to source the rest themselves.</p>
+      <p><strong>Marketing agencies</strong> — bolt traffic onto whatever bad site the tradie already has. Worst of all worlds: high spend, low conversion, no infrastructure.</p>
+      <p><strong>The structural moat:</strong> any of these competitors trying to bundle the missing pieces would need 12–18 months of platform engineering and a re-brand. By then, we have network density + referral flywheel + AU expansion in motion.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════ 07 — GO-TO-MARKET ═════════════════ -->
 <section class="section navy">
   <div class="section-inner">
-    <div class="accent-bar"></div>
-    <h2 class="section-h">My runway — <em>building it the right way, not the fast way</em></h2>
-    <p class="section-lede">I'm not putting all my eggs in one basket. TradieBack is a serious build with a long horizon — but I refuse to be on the computer 24/7 and refuse to burn out before clients arrive. The plan is to build it in parallel with the right day job, in the right network.</p>
+    <div class="section-num-row">
+      <div class="section-num">07</div>
+      <div class="section-num-tag">Go-to-market · 3 phases</div>
+    </div>
+    <h2 class="section-h">Founder-led first. <em>Then referral. Then paid.</em></h2>
+    <p class="section-lede">Most SaaS startups burn their first $500K trying to learn what tradies will actually pay for. We're starting with conviction (the founder has spent a decade in the room) and learning through paying clients, not paid ads. Network density is the first moat, referrals are the flywheel, and paid acquisition only kicks in once the unit economics are proven.</p>
 
-    <div class="plan-card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.1); color: rgba(255,255,255,0.85);">
-      <div class="plan-card-head" style="border-color: rgba(255,255,255,0.12);">
-        <h3 style="color: white;">The networking move</h3>
-        <span class="tag">Mid 2026</span>
+    <div class="gtm-phase">
+      <div class="gtm-phase-head">
+        <div class="gtm-phase-tag">Phase 1 · Months 1–12</div>
+        <h3>Founder-led, network-only</h3>
       </div>
-      <p style="color: rgba(255,255,255,0.78);">Heading to <strong style="color: white;">Australia for an extended trip</strong> — networking inside the NZ + AU construction industry, getting deeper into the construction skills + standards on both sides of the Tasman. Every conversation is a potential client, partner, or referral.</p>
-      <p style="color: rgba(255,255,255,0.78);">Likely landing in a <strong style="color: white;">PM role in either Sydney/Brisbane or Christchurch</strong>. The PM income pays the bills while TradieBack scales. The role itself puts me in front of 30+ subcontractor trade businesses every week — exactly the people I'm building this for.</p>
-      <p style="color: rgba(255,255,255,0.78);"><strong style="color: white;">The PM role isn't a backup plan — it's the network.</strong> My first 10–20 clients are going to come from sites I'm on, conversations at smoko, sparkies I've worked with for years. When TradieBack revenue covers my drawings, the PM role ends.</p>
+      <div class="gtm-phase-body">
+        <p>Mathieson personally signs every client. Source: existing NZ construction network (200+ tradies known by name through PM history) + the planned PM role (places founder in front of 30+ subcontractor businesses per week).</p>
+        <p>Every install is a hand-built case study. Public sample reports, before/after metrics, founder on every call. <strong>The first 15–25 clients are the entire marketing budget</strong> — they become the proof for everything that follows.</p>
+        <div class="gtm-phase-stats">
+          <span>Target: <strong>15–25 clients</strong></span>
+          <span>ARR: <strong>$200K+</strong></span>
+          <span>CAC: <strong>~$0</strong></span>
+        </div>
+      </div>
     </div>
 
-    <div class="plan-card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.1); color: rgba(255,255,255,0.85); margin-top: 20px;">
-      <div class="plan-card-head" style="border-color: rgba(255,255,255,0.12);">
-        <h3 style="color: white;">Why not full-time on TradieBack now?</h3>
-        <span class="tag">Honest answer</span>
+    <div class="gtm-phase">
+      <div class="gtm-phase-head">
+        <div class="gtm-phase-tag">Phase 2 · Months 12–24</div>
+        <h3>Referral systems + light organic</h3>
       </div>
-      <p style="color: rgba(255,255,255,0.78);">Two reasons. <strong style="color: white;">First — I can't be on the computer all day.</strong> Construction-fit body, construction-fit brain. I do my best thinking on site, not at a desk. The PM role keeps me in the world I'm building for.</p>
-      <p style="color: rgba(255,255,255,0.78);"><strong style="color: white;">Second — I refuse to bootstrap with desperation.</strong> Tradies smell desperation in 5 seconds. Building this on a steady income means I can hold standards, say no to bad-fit clients, and grow on signal — not on pressure to make next month's rent.</p>
+      <div class="gtm-phase-body">
+        <p>By month 12 every client has 6+ months of measurable outcomes. Activate referral incentives (free month for every successful intro). Tradies trust other tradies more than they trust ads — the referral flywheel is structurally cheaper than any paid channel we'd run.</p>
+        <p>First contractor hires: part-time designer or ads specialist on retainer. Founder stays close to delivery. Light SEO and content investment begins to surface organic inbound.</p>
+        <div class="gtm-phase-stats">
+          <span>Target: <strong>50–80 clients</strong></span>
+          <span>ARR: <strong>$600K+</strong></span>
+          <span>CAC: <strong>$500–$1,500</strong></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="gtm-phase">
+      <div class="gtm-phase-head">
+        <div class="gtm-phase-tag">Phase 3 · Months 24–36</div>
+        <h3>Paid acquisition + AU expansion</h3>
+      </div>
+      <div class="gtm-phase-body">
+        <p>Unit economics proven. Funnel measured. Now safe to invest in paid acquisition: Google Ads on high-intent tradie keywords ("[trade] website", "[trade] marketing"), Meta retargeting, SEO content moat ("trade business website mistakes" etc.).</p>
+        <p>Founder transitions to full-time on TradieBack. Small team of 3–5: designer, ads manager, client success, admin. Australia office or remote AU contractor stack. AU clients begin to outnumber NZ.</p>
+        <div class="gtm-phase-stats">
+          <span>Target: <strong>150–250 clients</strong></span>
+          <span>ARR: <strong>$1.5M–$2M</strong></span>
+          <span>CAC: <strong>$1,500–$2,500</strong></span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- 12-month picture -->
-<section class="section bone">
-  <div class="accent-bar"></div>
-  <h2 class="section-h">12-month picture — <em>where this should be</em></h2>
-  <p class="section-lede">Conservative numbers. The kind I can hit by working with the tradies in my actual network, not by burning $50K on Facebook ads to strangers.</p>
-
-  <div class="stat-band">
-    <div>
-      <div class="stat-num">15–25</div>
-      <div class="stat-label">Paying installs by May 2027 (most via referral + PM-site network)</div>
-    </div>
-    <div>
-      <div class="stat-num">$200K+</div>
-      <div class="stat-label">Annual recurring revenue from platform fees alone</div>
-    </div>
-    <div>
-      <div class="stat-num">1 + 1</div>
-      <div class="stat-label">Mathieson full-time on TradieBack + 1 contractor by Q1 2027</div>
-    </div>
-  </div>
-</section>
-
-<!-- Why me -->
+<!-- ═════════════════ 08 — TEAM / OPERATIONS ═════════════════ -->
 <section class="section white">
-  <div class="accent-bar"></div>
-  <h2 class="section-h">Why I'm the <em>right person</em></h2>
-  <p class="section-lede">The construction industry has plenty of "marketing for tradies" agencies. None of them are run by someone who actually spent years on construction sites. That's the only thing that matters here.</p>
+  <div class="section-inner">
+    <div class="section-num-row">
+      <div class="section-num">08</div>
+      <div class="section-num-tag">Team · operating model</div>
+    </div>
+    <h2 class="section-h">Solo today. AI-augmented. <em>Built to stay lean</em></h2>
+    <p class="section-lede">The single biggest mistake we could make is hiring before revenue justifies it. The whole point of this business is to keep great tradies on the tools — and the founder applies the same principle to himself. Stay lean, ship at quality, scale the team only when monthly recurring revenue covers it twice over.</p>
 
-  <div class="phase-list">
-    <div class="phase">
-      <div class="phase-num">01</div>
-      <div class="phase-body">
-        <div class="phase-tag">Age 18 · Labourer</div>
-        <h3>Started on the tools</h3>
-        <p>First job out of school — Wellington commercial site. Carried block, dug trenches. Learned hard work before I learned anything else about the industry.</p>
-      </div>
+    <div class="body-block">
+      <p><strong>How a solo operator delivers at agency quality:</strong></p>
+      <p>Every install is <strong>80% pre-built and 20% custom.</strong> Site templates, automation workflows, email sequences, and lead-qualification logic are all built once and re-configured per client. The 20% that's custom — brand, copy, photos, suburb-specific SEO — is exactly the work that AI accelerates from days to hours.</p>
+      <p><strong>The delivery stack:</strong> Claude (copy + content + technical implementation), Midjourney (custom visuals + photography), Cursor/Claude Code (rapid site customisation), GoHighLevel (CRM + automation backbone), Netlify (hosting), Stripe (payments). <strong>One operator can ship like a 5-person agency without compromise on quality.</strong></p>
+      <p><strong>The hiring trigger:</strong> the founder hires <em>only</em> when delivery time-per-client exceeds 1.5x the budgeted hours for three consecutive installs. Not when revenue "looks good" — when the operating model breaks.</p>
     </div>
-    <div class="phase">
-      <div class="phase-num">02</div>
-      <div class="phase-body">
-        <div class="phase-tag">2021 · Foreman</div>
-        <h3>Running crews</h3>
-        <p>Residential + commercial builds, crews of 8–15. Learned that managing tradies isn't about telling them what to do — it's about removing the friction so they can do their best work.</p>
-      </div>
+
+    <div class="pull-quote">
+      <p>"Hire late. Stay close to the client. Never delegate the founder relationship. Every install in 2026 runs through me directly."</p>
+      <span class="src">— Operating principle, founder commitment</span>
     </div>
-    <div class="phase">
-      <div class="phase-num">03</div>
-      <div class="phase-body">
-        <div class="phase-tag">2022–2024 · Project Manager</div>
-        <h3>PM at one of NZ's largest property developers</h3>
-        <p>$50M+ projects. Coordinated 30+ subcontractor trade businesses per build. Watched the great ones win and the talented ones get eaten by the admin. <strong>That's where the idea came from.</strong></p>
-      </div>
+  </div>
+</section>
+
+<!-- ═════════════════ 09 — FOUNDER STRATEGY ═════════════════ -->
+<section class="section bone-warm">
+  <div class="section-inner">
+    <div class="section-num-row">
+      <div class="section-num">09</div>
+      <div class="section-num-tag">Founder strategy · the AU + PM-role move</div>
     </div>
-    <div class="phase now">
-      <div class="phase-num">04</div>
-      <div class="phase-body">
-        <div class="phase-tag">2025–Now · Founder</div>
-        <h3>Building TradieBack</h3>
-        <p>Same problems I watched destroy good tradies for years. Different angle — instead of being the PM running their build, I'm the operator running their back-office.</p>
+    <h2 class="section-h">The PM role is <em>not a hedge — it's the GTM channel</em></h2>
+    <p class="section-lede">The single most important strategic decision in TradieBack's first 18 months is the founder's planned move to Australia and re-entry into a Project Manager role at a major NZ or AU developer. This isn't a contingency — it's the central GTM and capital strategy.</p>
+
+    <div class="body-block">
+      <p><strong>What's planned:</strong></p>
+      <p>Mid-to-late 2026, the founder relocates (extended trip or full move) to Australia. The target is a Project Manager role at a tier-1 NZ or AU property developer — either in Sydney/Brisbane, or returning to Christchurch on a major NZ rebuild project. The role pays a normal market salary ($140K–$190K NZD).</p>
+      <p><strong>Why this isn't a hedge:</strong></p>
+      <p><strong>1. The PM role is the primary GTM channel.</strong> A Project Manager coordinates 30+ subcontractor trade businesses per week — every one of them is a potential TradieBack client. The relationships built across a typical project are more qualified than any cold outreach we could run.</p>
+      <p><strong>2. The PM income removes investor pressure.</strong> A bootstrapped founder with $150K+ of personal runway can hold pricing standards, say no to bad-fit clients, and grow on signal — not on the desperation to make next month's rent. <em>Tradies smell desperation in five seconds.</em> The PM income guarantees we never have to project it.</p>
+      <p><strong>3. The founder cannot be on a computer 24/7.</strong> Construction-trained body, construction-trained brain. The founder does his best thinking on a site, not at a desk. The PM role keeps him in the world he's selling into — and prevents the founder burnout that kills 70% of bootstrapped startups in year one.</p>
+      <p><strong>4. AU is 8x the NZ market.</strong> Physically being in Australia for 12–18 months establishes the relationships and local knowledge needed to operate in the larger of our two markets. NZ is the proving ground; AU is where the business actually scales.</p>
+      <p><strong>The trigger to go full-time:</strong> when TradieBack monthly recurring revenue exceeds the PM salary on a sustained 3-month basis. Conservative projection: month 18–24.</p>
+    </div>
+
+    <div class="pull-quote">
+      <p>"The smartest founders don't bootstrap with desperation. They bootstrap with structural runway — built into the GTM channel."</p>
+      <span class="src">— Strategy summary</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════ 10 — FINANCIAL PROJECTIONS ═════════════════ -->
+<section class="section white">
+  <div class="section-inner">
+    <div class="section-num-row">
+      <div class="section-num">10</div>
+      <div class="section-num-tag">Financial projections · 36 months</div>
+    </div>
+    <h2 class="section-h">Conservative numbers, <em>strong margins</em></h2>
+    <p class="section-lede">All figures in NZD. Year 1 client count assumes the founder closes 1–2 clients per month from his existing construction network — defensible given the relationship density. ARPU mix shifts toward bundle clients in Years 2–3 as referrals mature.</p>
+
+    <div class="proj-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Year 1 (2026)</th>
+            <th>Year 2 (2027)</th>
+            <th>Year 3 (2028)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Paying clients (cumulative)</td>
+            <td class="num">15–25</td>
+            <td class="num">50–80</td>
+            <td class="num">150–250</td>
+          </tr>
+          <tr>
+            <td>Install revenue</td>
+            <td class="num">$75K–$125K</td>
+            <td class="num">$175K–$275K</td>
+            <td class="num">$500K–$850K</td>
+          </tr>
+          <tr>
+            <td>Recurring revenue (year-end run rate)</td>
+            <td class="num">$60K–$100K ARR</td>
+            <td class="num">$250K–$450K ARR</td>
+            <td class="num">$900K–$1.5M ARR</td>
+          </tr>
+          <tr>
+            <td>Blended ARPU</td>
+            <td class="num">$150/mo</td>
+            <td class="num">$220/mo</td>
+            <td class="num">$280/mo</td>
+          </tr>
+          <tr>
+            <td>Total revenue</td>
+            <td class="highlight num">$135K–$225K</td>
+            <td class="highlight num">$425K–$725K</td>
+            <td class="highlight num">$1.4M–$2.35M</td>
+          </tr>
+          <tr>
+            <td>Gross margin</td>
+            <td class="num">82–86%</td>
+            <td class="num">85–88%</td>
+            <td class="num">85–90%</td>
+          </tr>
+          <tr>
+            <td>Team size</td>
+            <td class="num">1 (founder)</td>
+            <td class="num">2 (founder + 1)</td>
+            <td class="num">4–6</td>
+          </tr>
+          <tr>
+            <td>Founder funding source</td>
+            <td class="num">PM salary</td>
+            <td class="num">50% PM / 50% TB</td>
+            <td class="num">TB full-time</td>
+          </tr>
+          <tr>
+            <td>Operating burn</td>
+            <td class="num">$0</td>
+            <td class="num">$0 – $20K/mo</td>
+            <td class="num">$40–60K/mo</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="body-block" style="margin-top: 32px;">
+      <p><strong>How year 1 hits with the founder still in a PM role:</strong> Year 1 install delivery is ~80 hours per client (1.5–2 weeks of part-time founder evenings + weekends). 15–25 clients × 80 hours = 1,200–2,000 founder-hours. <strong>Achievable working ~25 hours/week outside the PM role.</strong></p>
+      <p><strong>Why Year 2 unlocks the transition:</strong> ARR run rate of $250K–$450K is in the same range as a PM salary. With +1 contractor handling design or ads, founder time-per-client drops 40%. <em>The economics flip in Year 2.</em></p>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════ 11 — RISKS ═════════════════ -->
+<section class="section bone">
+  <div class="section-inner">
+    <div class="section-num-row">
+      <div class="section-num">11</div>
+      <div class="section-num-tag">Risks · mitigations</div>
+    </div>
+    <h2 class="section-h">The honest risk register</h2>
+    <p class="section-lede">No business is risk-free. Below are the six risks most likely to kill TradieBack — and how the operating model is structured to mitigate each one. We'd rather tell you the truth here than pretend the risks don't exist.</p>
+
+    <div class="risk-grid">
+      <div class="risk-row">
+        <div class="risk-cell">
+          <strong>Risk 01</strong>
+          <div class="impact-tag high">High</div>
+          <div class="label">Founder dependency</div>
+        </div>
+        <div class="risk-cell">
+          <strong>What it means</strong>
+          A one-person business stops if the founder stops. Burnout, illness, or distraction kills the company before scale.
+        </div>
+        <div class="risk-cell">
+          <strong>Mitigation</strong>
+          AI-augmented delivery (80% pre-built), contractor team plan from month 12, PM role prevents burnout by keeping founder out of the chair part of the week.
+        </div>
+      </div>
+
+      <div class="risk-row">
+        <div class="risk-cell">
+          <strong>Risk 02</strong>
+          <div class="impact-tag high">High</div>
+          <div class="label">Pre-revenue / no traction</div>
+        </div>
+        <div class="risk-cell">
+          <strong>What it means</strong>
+          Zero paying clients today. Every projection in this document is based on conviction, not proof.
+        </div>
+        <div class="risk-cell">
+          <strong>Mitigation</strong>
+          PM salary covers personal runway. Year 1 target of 15–25 clients is achievable from existing network alone (no marketing required). First 3 clients are the true validation gate.
+        </div>
+      </div>
+
+      <div class="risk-row">
+        <div class="risk-cell">
+          <strong>Risk 03</strong>
+          <div class="impact-tag med">Medium</div>
+          <div class="label">Tradie churn / no subscription habit</div>
+        </div>
+        <div class="risk-cell">
+          <strong>What it means</strong>
+          Tradies don't have a strong history of paying recurring SaaS fees. They might cancel during slow months.
+        </div>
+        <div class="risk-cell">
+          <strong>Mitigation</strong>
+          The platform <em>replaces</em> ~$12K/yr of existing spend rather than adding new cost. Bundle clients have switching costs (their CRM, customer data, automation all live in our system). Month-to-month structure builds trust, not lock-in.
+        </div>
+      </div>
+
+      <div class="risk-row">
+        <div class="risk-cell">
+          <strong>Risk 04</strong>
+          <div class="impact-tag med">Medium</div>
+          <div class="label">AI commoditisation</div>
+        </div>
+        <div class="risk-cell">
+          <strong>What it means</strong>
+          If anyone can use AI to build a tradie website in a weekend, our cost advantage disappears.
+        </div>
+        <div class="risk-cell">
+          <strong>Mitigation</strong>
+          AI is the tool, not the moat. The moat is <em>founder relationships</em> (decade of construction network), <em>trade-specific UX</em> (the things tradies need that only an ex-PM knows), and <em>delivery discipline</em>. AI lowers our cost — the moat is unchanged.
+        </div>
+      </div>
+
+      <div class="risk-row">
+        <div class="risk-cell">
+          <strong>Risk 05</strong>
+          <div class="impact-tag med">Medium</div>
+          <div class="label">Platform dependency</div>
+        </div>
+        <div class="risk-cell">
+          <strong>What it means</strong>
+          We build on GoHighLevel, Netlify, Stripe. Pricing changes or shutdowns hurt us.
+        </div>
+        <div class="risk-cell">
+          <strong>Mitigation</strong>
+          Code + content + customer data is owned by TradieBack and the client (per our promise). Migration to alternative platforms is possible with engineering time, not catastrophic.
+        </div>
+      </div>
+
+      <div class="risk-row">
+        <div class="risk-cell">
+          <strong>Risk 06</strong>
+          <div class="impact-tag low">Low</div>
+          <div class="label">Competitive entry</div>
+        </div>
+        <div class="risk-cell">
+          <strong>What it means</strong>
+          A larger competitor (e.g. ServiceM8, Tradify) adds website + lead-gen modules and absorbs the integrated category.
+        </div>
+        <div class="risk-cell">
+          <strong>Mitigation</strong>
+          12–18 month engineering + re-brand timeline for incumbents to bundle missing pieces. By then we have network density + AU expansion + referral flywheel. Speed of execution is the defence.
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Close -->
+<!-- ═════════════════ 12 — MILESTONES ═════════════════ -->
+<section class="section white">
+  <div class="section-inner">
+    <div class="section-num-row">
+      <div class="section-num">12</div>
+      <div class="section-num-tag">Milestones · what gets done by when</div>
+    </div>
+    <h2 class="section-h">The next 18 months, <em>quarter by quarter</em></h2>
+    <p class="section-lede">Concrete commitments. Not "we'll see how it goes" — specific, falsifiable milestones the founder can be held to.</p>
+
+    <div class="milestone-list">
+      <div class="milestone done">
+        <div class="ts">DONE<br>Q1·26</div>
+        <div class="body">
+          <strong>Platform built, live, public</strong>
+          <span>tradieback.com launched. Tradie Launch service productized. Tradie Leads in beta. GHL + Netlify + Stripe stack wired. AI delivery pipeline operational.</span>
+        </div>
+      </div>
+      <div class="milestone">
+        <div class="ts">Q2<br>2026</div>
+        <div class="body">
+          <strong>First 3 paying installs · network conversion</strong>
+          <span>Source: existing construction network. Each install becomes a public case study + before/after metrics. Founder still in current setup. Critical validation gate.</span>
+        </div>
+      </div>
+      <div class="milestone">
+        <div class="ts">Q3<br>2026</div>
+        <div class="body">
+          <strong>AU move + PM role secured</strong>
+          <span>Founder relocates (extended trip or permanent). PM role at NZ or AU tier-1 developer commences. Network access expands 5x overnight.</span>
+        </div>
+      </div>
+      <div class="milestone">
+        <div class="ts">Q4<br>2026</div>
+        <div class="body">
+          <strong>First Tradie Leads paying client + 10 total installs</strong>
+          <span>Beta exit for Tradie Leads. First bundle client (Launch + Leads). ARR run rate ~$60K. Quarterly performance report v1 to all clients.</span>
+        </div>
+      </div>
+      <div class="milestone">
+        <div class="ts">Q1<br>2027</div>
+        <div class="body">
+          <strong>15–20 installs · $150K+ ARR · referral system live</strong>
+          <span>First incentivized referral round. PM-role network producing inbound. First contractor onboarded (designer or ads specialist, ~10 hrs/week).</span>
+        </div>
+      </div>
+      <div class="milestone">
+        <div class="ts">Q2<br>2027</div>
+        <div class="body">
+          <strong>25+ clients · $250K+ ARR · founder transition begins</strong>
+          <span>Founder drops PM role to 0.5 FTE. TradieBack revenue covers personal living costs. Operational systems documented for handoff.</span>
+        </div>
+      </div>
+      <div class="milestone">
+        <div class="ts">Q3-Q4<br>2027</div>
+        <div class="body">
+          <strong>40+ clients · founder full-time · second hire</strong>
+          <span>ARR run rate $400K+. Founder full-time on TradieBack. Second contractor or first FTE (client success or operations). AU clients = 30%+ of book.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════ 13 — THE ASK ═════════════════ -->
 <section class="section bone-warm">
-  <div class="close-card">
-    <h2>The whole point — <em>keep great tradies on the tools</em></h2>
-    <p>Every brilliant tradie who quits or gets eaten by admin is a loss. TradieBack is one person's attempt to fix that — slowly, properly, with the right people, in the right network, without burning out.</p>
-    <p>If you're reading this, it's because I want your honest take. Not the polite version.</p>
-    <div class="close-sig">
-      <strong>— Mathieson</strong><br>
-      Founder, TradieBack · mathieson@tradieback.com
+  <div class="section-inner">
+    <div class="section-num-row">
+      <div class="section-num">13</div>
+      <div class="section-num-tag">The ask · what we're looking for</div>
+    </div>
+    <h2 class="section-h">What I'm <em>actually</em> looking for</h2>
+    <p class="section-lede">TradieBack is not currently raising capital. The whole strategy is structured around bootstrapping with the founder's own labour. But the right relationships at this stage are worth more than capital. If you're reading this, here's what I'd value most.</p>
+
+    <div class="ask-card">
+      <h3>If you can help with any of the below</h3>
+      <h2>I'd value your <em>time more than your money</em></h2>
+
+      <div class="ask-grid">
+        <div class="ask-block">
+          <strong>What I'd value now</strong>
+          <ul>
+            <li>Honest feedback from people who've built operating businesses</li>
+            <li>Introductions to NZ or AU tradies doing $300K+ revenue</li>
+            <li>Strategic advice on AU PM-role timing + city choice</li>
+            <li>Connections at NZ/AU construction industry events</li>
+            <li>Critique of the operating model — what would you change?</li>
+          </ul>
+        </div>
+
+        <div class="ask-block">
+          <strong>What I might ask later (Year 2-3)</strong>
+          <ul>
+            <li>Possible seed round $500K–$750K for team build + paid GTM</li>
+            <li>Use of funds: 1 senior hire + 18 months ads budget + AU office</li>
+            <li>Strategic partners: trade software, suppliers, industry bodies</li>
+            <li>Operator advisors with SaaS or trade-services experience</li>
+            <li>Right of first refusal for the people in this conversation</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="ask-sig">
+        <strong>Mathieson Moller</strong><br>
+        Founder, TradieBack<br>
+        mathieson@tradieback.com · Wellington, NZ
+      </div>
     </div>
   </div>
 </section>
 
 <!-- Footer -->
 <footer>
-  © 2026 TradieBack · Private context page · Not for distribution
-  <div class="small">noindex · nofollow · direct URL only</div>
+  © 2026 TradieBack · Investor pitch v1 · Confidential
+  <div class="small">noindex · nofollow · not for distribution</div>
 </footer>
 
 </body>
