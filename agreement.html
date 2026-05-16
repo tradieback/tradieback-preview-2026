@@ -391,7 +391,6 @@
       <h3>TradieBack ("we")</h3>
       <div class="line">
         <strong>Mathieson Moller</strong> trading as TradieBack<br>
-        NZBN: <span class="fill" contenteditable="true" data-placeholder="NZBN or 'sole trader'"></span><br>
         Wellington, New Zealand<br>
         mathieson@tradieback.com
       </div>
@@ -399,10 +398,9 @@
     <div class="party">
       <h3>Client ("you")</h3>
       <div class="line">
-        <strong><span class="fill" contenteditable="true" data-placeholder="Trading name"></span></strong><br>
-        Owner: <span class="fill" contenteditable="true" data-placeholder="Full name"></span><br>
-        NZBN / ABN: <span class="fill" contenteditable="true" data-placeholder="NZBN or ABN"></span><br>
-        <span class="fill" contenteditable="true" data-placeholder="Email"></span> · <span class="fill" contenteditable="true" data-placeholder="Phone"></span>
+        <strong>{{contact.company_name}}</strong><br>
+        Owner: {{contact.first_name}} {{contact.last_name}}<br>
+        {{contact.email}} · {{contact.phone}}
       </div>
     </div>
   </div>
@@ -414,17 +412,17 @@
       <li>Custom mobile-first website designed around your brand, services, and service area</li>
       <li>Branded CRM with lead pipeline and customer database</li>
       <li>Online quoting + invoicing with Stripe card payments</li>
-      <li>Automated email + SMS workflows (booking confirmations, reminders, review requests, quote follow-ups)</li>
-      <li>Auto-text-back on missed calls within 60 seconds</li>
+      <li>Booking confirmations and appointment reminders configured</li>
       <li>Google Business Profile optimisation guidance</li>
       <li>Domain configuration and sending email setup</li>
     </ul>
-    <p>Ongoing <strong>Tradie Cover</strong> begins the day your site goes live (see section 4 for what's included).</p>
+    <p>Active growth automations — auto-text-back on missed calls, review request campaigns, paid lead generation — are part of <strong>Tradie Leads</strong>, not Tradie Launch (see section 3). Ongoing <strong>Tradie Cover</strong> begins the day your site goes live (see section 4 for what's included).</p>
   </section>
 
   <section class="clause">
     <h2><span class="num">2</span> Timeline</h2>
-    <p>The 7-day install clock starts on the day you submit a complete intake form and upload required content (logo + 8–15 job photos) to the Google Drive folder we provide. We commit to delivering the live site within <strong>7 working days</strong> of intake completion. If we miss that through our own delay (not yours), we keep working at no extra cost until the site is live.</p>
+    <p>The 7-day install clock starts on the day you submit a complete intake form <strong>and</strong> upload required content (logo + 8–15 job photos) to the Google Drive folder we provide. We commit to delivering the live site within <strong>7 working days</strong> of intake completion.</p>
+    <p>If we miss the 7-day deadline through our own delay, we keep working at no extra cost until the site is live. <strong>This continuation does not apply where the delay is caused by you</strong> — including but not limited to incomplete intake answers, missing photos or logo, slow feedback on drafts (over 2 business days), or unresponsiveness. The 7-day clock pauses whenever we're waiting on you and resumes when we receive what we asked for.</p>
   </section>
 
   <section class="clause">
@@ -435,7 +433,7 @@
     </div>
     <div class="price-line">
       <div class="label"><strong>Tradie Cover · months 1–3</strong> · monthly</div>
-      <div class="amount">NZD $<span class="fill" contenteditable="true" data-placeholder="0 / 99"></span> + GST</div>
+      <div class="amount">NZD $0 + GST <span style="color:var(--muted);font-weight:500;">(free)</span></div>
     </div>
     <div class="price-line">
       <div class="label"><strong>Tradie Cover · month 4 onwards</strong> · monthly</div>
@@ -450,35 +448,28 @@
 
   <section class="clause">
     <h2><span class="num">4</span> What Tradie Cover includes</h2>
-    <p>Tradie Cover is the ongoing monthly plan that keeps your platform running. It covers:</p>
+    <p>Tradie Cover is the ongoing monthly plan that keeps your platform online and running. It covers three things:</p>
     <div class="cover-detail">
       <div class="col">
         <h4>Included</h4>
         <ul>
-          <li>Website hosting (fast global CDN)</li>
-          <li>Domain renewal (~$30/yr value)</li>
-          <li>CRM + customer database access</li>
-          <li>Invoicing + Stripe payments platform</li>
-          <li>Automated email + SMS workflows running</li>
-          <li>Auto-text-back on missed calls</li>
-          <li>Review request automation</li>
-          <li>Light content edits (text, photos, services — up to 30 min/mo)</li>
-          <li>Security updates + platform maintenance</li>
-          <li>Email/WhatsApp support (1 business day response)</li>
+          <li><strong>Website hosting</strong> — fast global CDN, SSL, domain renewal</li>
+          <li><strong>Website maintenance</strong> — security updates, platform updates, light content edits (text, photos, services — up to 30 min/mo), email/WhatsApp support (1 business day response)</li>
+          <li><strong>Software access</strong> — CRM, customer database, online quoting + invoicing, Stripe payments, booking calendar, email + SMS sending platform</li>
         </ul>
       </div>
       <div class="col out">
-        <h4>Not included</h4>
+        <h4>Not included (lives in Tradie Leads)</h4>
         <ul>
-          <li>Custom development beyond light edits</li>
-          <li>Stripe transaction fees (paid by you direct)</li>
-          <li>Paid ads or lead generation (that's Tradie Leads)</li>
-          <li>Full redesigns or new feature builds</li>
-          <li>Third-party software fees (Xero, MYOB, etc.)</li>
+          <li>Auto-text-back on missed calls</li>
+          <li>Review request automation</li>
+          <li>Active lead-gen email + SMS campaigns</li>
+          <li>Paid ads (Google + Meta) and ad management</li>
+          <li>Local SEO + Google Business Profile management</li>
         </ul>
       </div>
     </div>
-    <p style="margin-top:6px;">Light edits over 30 min/mo are charged at NZD $80/hr + GST or rolled into a custom scope. Always quoted before any work starts.</p>
+    <p style="margin-top:6px;">Also not included: custom development beyond light edits, full redesigns, third-party software fees (Xero, MYOB, etc.), and Stripe transaction fees (paid by you direct). Light edits over 30 min/mo are charged at NZD $80/hr + GST or rolled into a custom scope. Always quoted before any work starts.</p>
   </section>
 
 </div>
@@ -497,19 +488,7 @@
   </section>
 
   <section class="clause">
-    <h2><span class="num">6</span> Testimonial obligation (only where install fee is $0)</h2>
-    <p class="conditional-note">Where the install fee in section 3 is set to $0, the following applies. Where the install fee is paid, this section does not apply and can be ignored.</p>
-    <p>In exchange for the waived install fee, you agree to:</p>
-    <ul>
-      <li>Give us honest feedback during the install — the rough version, not the polite one</li>
-      <li>Allow us to use your business name and before/after results in TradieBack's marketing</li>
-      <li>Provide a written review and/or a short (3–5 minute) video testimonial within 60 days of go-live (your choice of format)</li>
-      <li>Be available for one introduction conversation with another tradie in the following 6 months (no obligation to convert — just an introduction)</li>
-    </ul>
-  </section>
-
-  <section class="clause">
-    <h2><span class="num">7</span> Your responsibilities</h2>
+    <h2><span class="num">6</span> Your responsibilities</h2>
     <p>To keep the 7-day clock running, you agree to:</p>
     <ul>
       <li>Submit the intake form within 7 days of signing this agreement</li>
@@ -521,12 +500,12 @@
   </section>
 
   <section class="clause">
-    <h2><span class="num">8</span> What we don't guarantee</h2>
+    <h2><span class="num">7</span> What we don't guarantee</h2>
     <p>We warrant the install is performed with reasonable skill and care to industry standards. We do <strong>not</strong> guarantee specific business outcomes (lead volume, Google ranking, revenue increase) — those depend on your market, pricing, service quality, and factors outside our control. <strong>Our total liability under this agreement is capped at the greater of (a) total fees paid in the preceding 12 months, or (b) NZD $5,000.</strong> Neither party is liable for indirect, consequential, or loss-of-profit damages.</p>
   </section>
 
   <section class="clause">
-    <h2><span class="num">9</span> Termination</h2>
+    <h2><span class="num">8</span> Termination</h2>
     <ul>
       <li>Either party can end this agreement with <strong>30 days' written notice</strong> for convenience</li>
       <li>Either party can end immediately for material breach not remedied within 14 days of written notice</li>
@@ -535,8 +514,8 @@
   </section>
 
   <section class="clause">
-    <h2><span class="num">10</span> Confidentiality + governing law</h2>
-    <p>Both parties keep each other's business information confidential (except where public, legally required, or covered by marketing permission in section 6). This agreement is governed by the laws of New Zealand; disputes are resolved in the courts of Wellington. This document is the complete agreement; changes must be in writing and signed by both parties.</p>
+    <h2><span class="num">9</span> Confidentiality + governing law</h2>
+    <p>Both parties keep each other's business information confidential (except where public or legally required). This agreement is governed by the laws of New Zealand; disputes are resolved in the courts of Wellington. This document is the complete agreement; changes must be in writing and signed by both parties.</p>
   </section>
 
   <!-- Signatures -->
@@ -560,7 +539,7 @@
       <h4>Signed by Client</h4>
       <div class="row">
         <span class="label">Name</span>
-        <span class="fill" contenteditable="true" data-placeholder="Client full name" style="display:block;border-bottom:1px solid var(--ink);min-height:22px;padding:0;"></span>
+        <span class="name-prefilled" style="display:block;border-bottom:1px solid var(--ink);min-height:22px;padding:0 0 2px;">{{contact.first_name}} {{contact.last_name}}</span>
       </div>
       <div class="row">
         <span class="label">Signature</span>
