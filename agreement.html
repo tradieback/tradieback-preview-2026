@@ -398,9 +398,9 @@
     <div class="party">
       <h3>Client ("you")</h3>
       <div class="line">
-        <strong>{{contact.company_name}}</strong><br>
-        Owner: {{contact.first_name}} {{contact.last_name}}<br>
-        {{contact.email}} · {{contact.phone}}
+        <strong><span class="fill" contenteditable="true" data-placeholder="Trading name"></span></strong><br>
+        Owner: <span class="fill" contenteditable="true" data-placeholder="Full name"></span><br>
+        <span class="fill" contenteditable="true" data-placeholder="Email"></span> · <span class="fill" contenteditable="true" data-placeholder="Phone"></span>
       </div>
     </div>
   </div>
@@ -539,7 +539,7 @@
       <h4>Signed by Client</h4>
       <div class="row">
         <span class="label">Name</span>
-        <span class="name-prefilled" style="display:block;border-bottom:1px solid var(--ink);min-height:22px;padding:0 0 2px;">{{contact.first_name}} {{contact.last_name}}</span>
+        <span class="fill" contenteditable="true" data-placeholder="Client full name" style="display:block;border-bottom:1px solid var(--ink);min-height:22px;padding:0;"></span>
       </div>
       <div class="row">
         <span class="label">Signature</span>
