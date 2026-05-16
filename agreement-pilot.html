@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+
+  <title>TradieBack Founder Pilot Agreement</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+
+  <style>
+    :root {
+      --navy: #0F2340;
+      --amber: #F58220;
+      --ink: #1A2238;
+      --muted: #5A6373;
+      --line: rgba(15, 35, 64, 0.12);
+      --bone: #F8F6F1;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--ink);
+      background: #DDDDDD;
+      line-height: 1.55;
+      font-size: 11.5pt;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Toolbar for screen viewing (hidden on print) */
+    .toolbar {
+      background: var(--navy);
+      color: white;
+      padding: 14px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    }
+    .toolbar .left {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .toolbar .left span {
+      color: var(--amber);
+      margin-right: 8px;
+    }
+    .toolbar .right {
+      display: flex;
+      gap: 12px;
+    }
+    .toolbar button {
+      background: var(--amber);
+      color: var(--navy);
+      border: none;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .toolbar button:hover { background: #E37418; }
+    .toolbar .hint {
+      font-size: 12px;
+      color: rgba(255,255,255,0.7);
+    }
+    @media print { .toolbar { display: none; } }
+
+    /* Page (A4 size) */
+    .page {
+      width: 21cm;
+      min-height: 29.7cm;
+      margin: 24px auto;
+      padding: 1.8cm 2cm;
+      background: white;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+      position: relative;
+    }
+    @media print {
+      body { background: white; }
+      .page {
+        margin: 0;
+        padding: 1.6cm 1.8cm;
+        box-shadow: none;
+        page-break-after: always;
+      }
+      .page:last-child { page-break-after: auto; }
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding-bottom: 18px;
+      border-bottom: 2px solid var(--navy);
+      margin-bottom: 24px;
+    }
+    .header .brand {
+      font-size: 20pt;
+      font-weight: 900;
+      letter-spacing: -0.025em;
+      color: var(--navy);
+      line-height: 1;
+    }
+    .header .brand em { font-style: normal; color: var(--amber); }
+    .header .doc-meta {
+      text-align: right;
+      font-size: 9pt;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+    .header .doc-meta strong {
+      display: block;
+      color: var(--navy);
+      font-size: 10pt;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+
+    h1.doc-title {
+      font-size: 18pt;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+    .doc-sub {
+      font-size: 10.5pt;
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    /* Parties block */
+    .parties {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-bottom: 22px;
+      padding: 16px 18px;
+      background: var(--bone);
+      border-left: 3px solid var(--amber);
+      border-radius: 0 6px 6px 0;
+    }
+    .party h3 {
+      font-size: 9pt;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--amber);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .party .line {
+      font-size: 10.5pt;
+      line-height: 1.5;
+      color: var(--ink);
+    }
+    .party .line strong { color: var(--navy); font-weight: 700; }
+
+    /* Editable fields */
+    .fill {
+      display: inline-block;
+      min-width: 80px;
+      padding: 0 4px;
+      background: rgba(245, 130, 32, 0.10);
+      border-bottom: 1px dashed var(--amber);
+      color: var(--navy);
+      font-weight: 600;
+      outline: none;
+    }
+    .fill:focus {
+      background: rgba(245, 130, 32, 0.18);
+      border-bottom-color: var(--navy);
+    }
+    .fill:empty::before {
+      content: attr(data-placeholder);
+      color: var(--muted);
+      font-weight: 400;
+      font-style: italic;
+    }
+    @media print {
+      .fill {
+        background: transparent;
+        border-bottom: 1px solid var(--ink);
+        font-weight: 600;
+      }
+      .fill:empty::before {
+        color: transparent;
+      }
+    }
+
+    /* Section */
+    section.clause {
+      margin-bottom: 16px;
+      page-break-inside: avoid;
+    }
+    section.clause h2 {
+      font-size: 11pt;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.005em;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+    section.clause h2 .num {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 4px;
+      background: var(--amber);
+      color: var(--navy);
+      font-size: 9.5pt;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    section.clause p {
+      font-size: 10.5pt;
+      color: var(--ink);
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+    section.clause p:last-child { margin-bottom: 0; }
+    section.clause ul {
+      list-style: none;
+      padding-left: 32px;
+      margin-bottom: 8px;
+    }
+    section.clause li {
+      font-size: 10.5pt;
+      line-height: 1.5;
+      color: var(--ink);
+      padding: 2px 0;
+      position: relative;
+    }
+    section.clause li::before {
+      content: '·';
+      color: var(--amber);
+      font-weight: 800;
+      position: absolute;
+      left: -14px;
+      font-size: 13pt;
+      top: -2px;
+    }
+    section.clause strong { color: var(--navy); font-weight: 700; }
+
+    /* Signature block */
+    .signatures {
+      margin-top: 28px;
+      padding-top: 22px;
+      border-top: 2px solid var(--navy);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+    .sig-block h4 {
+      font-size: 9pt;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--amber);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .sig-block .row {
+      margin-bottom: 14px;
+      font-size: 10.5pt;
+      line-height: 1.4;
+    }
+    .sig-block .row .label {
+      display: block;
+      font-size: 8.5pt;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 3px;
+      font-weight: 600;
+    }
+    .sig-block .sig-line {
+      display: block;
+      border-bottom: 1px solid var(--ink);
+      height: 30px;
+      margin-bottom: 4px;
+    }
+    .sig-block .row .name-prefilled {
+      color: var(--navy);
+      font-weight: 600;
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 18px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+      font-size: 8.5pt;
+      color: var(--muted);
+      text-align: center;
+      letter-spacing: 0.02em;
+    }
+
+    /* Print-only fixes */
+    @media print {
+      @page {
+        size: A4;
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Screen-only toolbar -->
+<div class="toolbar">
+  <div class="left"><span>●</span> TradieBack Founder Pilot Agreement · Editable Template</div>
+  <div class="right">
+    <span class="hint">Click any highlighted field to edit · Then ⌘P → Save as PDF</span>
+    <button onclick="window.print()">Print / Save PDF</button>
+  </div>
+</div>
+
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="brand">TRADIE<em>BACK</em></div>
+    <div class="doc-meta">
+      <strong>Service Agreement</strong>
+      Founder Pilot · v1<br>
+      Effective: <span class="fill" contenteditable="true" data-placeholder="Date"></span>
+    </div>
+  </div>
+
+  <h1 class="doc-title">Tradie Launch — Founder Pilot Service Agreement</h1>
+  <p class="doc-sub">This agreement covers the build and ongoing platform support for one (1) Tradie Launch install, delivered under the Founder Pilot programme.</p>
+
+  <!-- Parties -->
+  <div class="parties">
+    <div class="party">
+      <h3>TradieBack ("we")</h3>
+      <div class="line">
+        <strong>Mathieson Moller</strong> trading as TradieBack<br>
+        NZBN: <span class="fill" contenteditable="true" data-placeholder="NZBN"></span><br>
+        Wellington, New Zealand<br>
+        mathieson@tradieback.com
+      </div>
+    </div>
+    <div class="party">
+      <h3>Client ("you")</h3>
+      <div class="line">
+        <strong><span class="fill" contenteditable="true" data-placeholder="Client trading name"></span></strong><br>
+        Owner: <span class="fill" contenteditable="true" data-placeholder="Full name"></span><br>
+        NZBN / ABN: <span class="fill" contenteditable="true" data-placeholder="NZBN or ABN"></span><br>
+        <span class="fill" contenteditable="true" data-placeholder="Email"></span> · <span class="fill" contenteditable="true" data-placeholder="Phone"></span>
+      </div>
+    </div>
+  </div>
+
+  <section class="clause">
+    <h2><span class="num">1</span> What we'll deliver</h2>
+    <p>We'll build and hand over the <strong>Tradie Launch</strong> install — a complete operating platform for your trade business, including:</p>
+    <ul>
+      <li>A custom mobile-first website designed around your brand, services, and service area</li>
+      <li>Branded CRM with lead pipeline and customer database</li>
+      <li>Online quoting + invoicing with Stripe card payments</li>
+      <li>Automated email + SMS workflows (booking confirmations, reminders, review requests, quote follow-ups)</li>
+      <li>Auto-text-back on missed calls within 60 seconds</li>
+      <li>Google Business Profile optimisation guidance</li>
+      <li>Domain configuration and sending email setup</li>
+      <li>Ongoing Tradie Care — maintenance, light edits, hosting, and platform support</li>
+    </ul>
+  </section>
+
+  <section class="clause">
+    <h2><span class="num">2</span> Timeline</h2>
+    <p>The 7-day install clock starts on the day you submit a complete intake form and upload required content (logo + 8–15 job photos) to the Google Drive folder we provide.</p>
+    <p>We commit to delivering the live site within <strong>7 working days</strong> of intake completion. If we miss that through our own delay (not yours), we keep working at no extra cost until the site is live.</p>
+  </section>
+
+  <section class="clause">
+    <h2><span class="num">3</span> Pricing — Founder Pilot</h2>
+    <p>Because you're one of our first three Founder Pilot clients, the standard install fee is <strong>waived in full</strong>. In exchange, you agree to the obligations in section 5 below.</p>
+    <ul>
+      <li><strong>Install fee:</strong> NZD $0 (normally $3,000–$5,000 + GST)</li>
+      <li><strong>Tradie Care (months 1–3):</strong> NZD $0</li>
+      <li><strong>Tradie Care from month 4 onwards:</strong> NZD $99/month + GST, billed via Stripe</li>
+      <li><strong>Tradie Leads (optional add-on):</strong> NZD $1,500/month + GST. Ad spend paid by you direct to Google and Meta. No markup.</li>
+    </ul>
+    <p>You can cancel ongoing Tradie Care at any time with 14 days' written notice. No exit fees.</p>
+  </section>
+
+  <section class="clause">
+    <h2><span class="num">4</span> You own everything</h2>
+    <p>From day one, you own — free and clear:</p>
+    <ul>
+      <li>The domain name registered for your business</li>
+      <li>All site code, content, copy, and images created for you</li>
+      <li>All customer data captured through the platform (leads, bookings, invoices, reviews)</li>
+    </ul>
+    <p>If you ever leave, we'll provide a full export of your data and help with handover within 14 days. We retain rights to our underlying platform templates, build methodology, and any reusable modules we've built across clients.</p>
+  </section>
+
+</div>
+
+<div class="page">
+
+  <section class="clause">
+    <h2><span class="num">5</span> Founder Pilot obligations</h2>
+    <p>In exchange for the waived install fee and three months of free Tradie Care, you agree to:</p>
+    <ul>
+      <li>Give us honest feedback during the install — the rough version, not the polite one</li>
+      <li>Allow us to use your business name and before/after results in TradieBack's marketing (website, social media, sales conversations)</li>
+      <li>Provide a written review and a short (3–5 minute) video testimonial within 60 days of your site going live</li>
+      <li>Be available for one introduction conversation with another tradie in the following 6 months (no obligation to convert — just an introduction)</li>
+    </ul>
+  </section>
+
+  <section class="clause">
+    <h2><span class="num">6</span> Your responsibilities</h2>
+    <p>To keep the 7-day clock running, you agree to:</p>
+    <ul>
+      <li>Submit the intake form within 7 days of signing this agreement</li>
+      <li>Upload requested content (logo, 8–15 job photos, brand assets) to the Drive folder within 7 days of receiving the link</li>
+      <li>Respond to feedback or content questions within 2 business days during the install</li>
+      <li>Provide accurate business information for the website</li>
+      <li>Maintain valid trade licences and insurance for the trade represented on the site</li>
+    </ul>
+  </section>
+
+  <section class="clause">
+    <h2><span class="num">7</span> What we don't guarantee</h2>
+    <p>We warrant that the install will be done with reasonable skill, care, and to industry standards. We do <strong>not</strong> guarantee specific business outcomes (e.g., lead volume, Google ranking position, revenue increase) — those depend on your market, your pricing, your service quality, and factors outside our control.</p>
+    <p><strong>Our total liability under this agreement is capped at the total fees you've paid us in the 12 months before any claim.</strong> Neither party is liable for indirect, consequential, or loss-of-profit damages.</p>
+  </section>
+
+  <section class="clause">
+    <h2><span class="num">8</span> Termination</h2>
+    <p>Either party can end this agreement:</p>
+    <ul>
+      <li>For convenience, with <strong>30 days' written notice</strong></li>
+      <li>Immediately for material breach not remedied within 14 days of written notice</li>
+    </ul>
+    <p>On termination, you keep all data, code, content, and domain (per section 4). You pay any outstanding fees due up to the termination date. We help with the handover.</p>
+  </section>
+
+  <section class="clause">
+    <h2><span class="num">9</span> Confidentiality</h2>
+    <p>Both parties agree to keep each other's business, financial, and operational information confidential — except for information that becomes public through no fault of the receiving party, information disclosed under legal obligation, or marketing references explicitly permitted under section 5.</p>
+  </section>
+
+  <section class="clause">
+    <h2><span class="num">10</span> Governing law</h2>
+    <p>This agreement is governed by the laws of New Zealand. Any disputes will be resolved in the courts of Wellington, New Zealand. This document is the complete agreement between the parties; any changes must be in writing and signed by both.</p>
+  </section>
+
+  <!-- Signatures -->
+  <div class="signatures">
+    <div class="sig-block">
+      <h4>Signed for TradieBack</h4>
+      <div class="row">
+        <span class="label">Name</span>
+        <span class="name-prefilled">Mathieson Moller</span>
+      </div>
+      <div class="row">
+        <span class="label">Signature</span>
+        <span class="sig-line"></span>
+      </div>
+      <div class="row">
+        <span class="label">Date</span>
+        <span class="sig-line" style="height: 22px;"></span>
+      </div>
+    </div>
+    <div class="sig-block">
+      <h4>Signed by Client</h4>
+      <div class="row">
+        <span class="label">Name</span>
+        <span class="fill" contenteditable="true" data-placeholder="Client full name" style="display:block;border-bottom:1px solid var(--ink);min-height:22px;padding:0;"></span>
+      </div>
+      <div class="row">
+        <span class="label">Signature</span>
+        <span class="sig-line"></span>
+      </div>
+      <div class="row">
+        <span class="label">Date</span>
+        <span class="sig-line" style="height: 22px;"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    TradieBack · Founder Pilot Service Agreement v1 · Page 2 of 2 · Confidential between the parties named above
+  </div>
+
+</div>
+
+</body>
+</html>
