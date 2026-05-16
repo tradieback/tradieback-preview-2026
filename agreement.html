@@ -156,6 +156,35 @@
     }
     .party .line strong { color: var(--navy); font-weight: 700; }
 
+    /* Client party fillable rows — same sizing as signature block */
+    .party-row {
+      margin-bottom: 8px;
+      font-size: 10pt;
+      line-height: 1.4;
+    }
+    .party-row:last-child { margin-bottom: 0; }
+    .party-label {
+      display: block;
+      font-size: 8pt;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 3px;
+      font-weight: 600;
+    }
+    .party-fill {
+      display: block;
+      border-bottom: 1px solid var(--ink);
+      min-height: 22px;
+      padding: 0;
+      background: transparent;
+      min-width: 0;
+      width: 100%;
+    }
+    @media print {
+      .party-fill { border-bottom: 1px solid var(--ink); }
+    }
+
     /* Editable fill fields */
     .fill {
       display: inline-block;
@@ -397,10 +426,21 @@
     </div>
     <div class="party">
       <h3>Client ("you")</h3>
-      <div class="line">
-        <strong><span class="fill" contenteditable="true" data-placeholder="Trading name"></span></strong><br>
-        Owner: <span class="fill" contenteditable="true" data-placeholder="Full name"></span><br>
-        <span class="fill" contenteditable="true" data-placeholder="Email"></span> · <span class="fill" contenteditable="true" data-placeholder="Phone"></span>
+      <div class="party-row">
+        <span class="party-label">Trading name</span>
+        <span class="fill party-fill" contenteditable="true" data-placeholder="Trading name"></span>
+      </div>
+      <div class="party-row">
+        <span class="party-label">Owner full name</span>
+        <span class="fill party-fill" contenteditable="true" data-placeholder="Full name"></span>
+      </div>
+      <div class="party-row">
+        <span class="party-label">Email</span>
+        <span class="fill party-fill" contenteditable="true" data-placeholder="Email"></span>
+      </div>
+      <div class="party-row">
+        <span class="party-label">Phone</span>
+        <span class="fill party-fill" contenteditable="true" data-placeholder="Phone"></span>
       </div>
     </div>
   </div>
