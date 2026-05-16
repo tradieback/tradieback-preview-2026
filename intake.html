@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0F2340">
+  <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+  <meta name="googlebot" content="noindex,nofollow,noarchive,nosnippet">
+
+  <title>Tradie Launch Intake — TradieBack</title>
+  <meta name="description" content="Client intake for Tradie Launch. Private — not for public distribution.">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230F2340'/%3E%3Crect y='0' width='64' height='6' fill='%23F58220'/%3E%3Cpath d='M20 16 L44 32 L20 48' stroke='%23F58220' stroke-width='9' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap">
+
+  <style>
+    :root {
+      --navy: #0F2340;
+      --navy-deep: #081428;
+      --amber: #F58220;
+      --amber-warm: #E37418;
+      --amber-soft: rgba(245, 130, 32, 0.08);
+      --bone: #F8F6F1;
+      --bone-warm: #F1EDE3;
+      --ink: #1A2238;
+      --muted: #5A6373;
+      --muted-light: #8892A0;
+      --line: rgba(15, 35, 64, 0.07);
+      --line-warm: rgba(15, 35, 64, 0.12);
+      --white: #FFFFFF;
+      --green: #2ECC71;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--ink);
+      background: var(--bone);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* Private banner */
+    .private-banner {
+      background: var(--navy-deep);
+      color: rgba(255,255,255,0.85);
+      text-align: center;
+      padding: 11px 20px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(245,130,32,0.25);
+    }
+    .private-banner .dot {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--amber);
+      margin-right: 8px;
+      vertical-align: middle;
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(0.85); }
+    }
+
+    /* Nav */
+    .nav {
+      background: var(--navy);
+      padding: 22px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .nav-brand {
+      display: inline-flex;
+      align-items: center;
+      height: clamp(40px, 4vw, 54px);
+    }
+    .nav-brand svg { height: 100%; width: auto; display: block; }
+    .nav-meta {
+      font-size: 12px;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    /* Hero */
+    .hero {
+      background: var(--navy);
+      color: white;
+      padding: 70px 48px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -10%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80vw;
+      height: 50vw;
+      max-width: 1000px;
+      background: radial-gradient(ellipse at center, rgba(245,130,32,0.10), transparent 60%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 820px;
+      margin: 0 auto;
+      position: relative;
+      text-align: center;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: rgba(245,130,32,0.14);
+      color: var(--amber);
+      padding: 7px 14px;
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-size: clamp(30px, 5vw, 56px);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+    .hero h1 em { font-style: normal; color: var(--amber); }
+    .hero-sub {
+      font-size: clamp(16px, 1.6vw, 18px);
+      color: rgba(255,255,255,0.78);
+      line-height: 1.6;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    /* Quick brief panel */
+    .brief {
+      max-width: 880px;
+      margin: 56px auto 0;
+      padding: 0 48px;
+    }
+    .brief-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 32px 36px;
+      box-shadow: 0 20px 50px -22px rgba(15, 35, 64, 0.14);
+    }
+    .brief-card h2 {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.015em;
+      margin-bottom: 18px;
+    }
+    .brief-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-bottom: 4px;
+    }
+    .brief-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .brief-item .num {
+      flex: 0 0 30px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--amber-soft);
+      color: var(--amber);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 800;
+    }
+    .brief-item .txt {
+      font-size: 14.5px;
+      color: var(--ink);
+      line-height: 1.55;
+    }
+    .brief-item .txt strong {
+      display: block;
+      color: var(--navy);
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+    .brief-item .txt span {
+      color: var(--muted);
+      font-size: 13.5px;
+    }
+    @media (max-width: 700px) {
+      .brief { padding: 0 20px; }
+      .brief-card { padding: 24px 22px; }
+      .brief-list { grid-template-columns: 1fr; gap: 14px; }
+    }
+
+    /* Form section */
+    .form-section {
+      max-width: 880px;
+      margin: 36px auto 0;
+      padding: 0 48px 100px;
+    }
+    .form-wrap {
+      background: white;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      box-shadow: 0 30px 80px -22px rgba(15, 35, 64, 0.18);
+    }
+    .form-wrap iframe {
+      width: 100%;
+      min-height: 900px;
+      border: none;
+      display: block;
+    }
+    @media (max-width: 700px) {
+      .form-section { padding: 0 20px 70px; }
+      .form-wrap iframe { min-height: 1100px; }
+    }
+    .reassure {
+      text-align: center;
+      margin-top: 22px;
+      font-size: 13.5px;
+      color: var(--muted);
+      letter-spacing: 0.01em;
+    }
+    .reassure .check {
+      color: var(--amber);
+      font-weight: 800;
+      margin-right: 6px;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--navy-deep);
+      color: rgba(255,255,255,0.5);
+      padding: 40px 48px 32px;
+      font-size: 13px;
+      border-top: 1px solid var(--amber);
+      text-align: center;
+    }
+    footer .small {
+      font-size: 10.5px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-top: 8px;
+    }
+
+    @media (max-width: 700px) {
+      .nav { padding: 16px 20px; }
+      .nav-meta { font-size: 10.5px; }
+      .hero { padding: 48px 20px 56px; }
+      footer { padding: 32px 20px 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Private banner -->
+<div class="private-banner">
+  <span class="dot"></span>Private · TradieBack client intake · not for public distribution
+</div>
+
+<!-- Nav -->
+<nav class="nav">
+  <a href="index.html" class="nav-brand" aria-label="TradieBack">
+    <svg viewBox="0 0 720 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <text x="20" y="80" font-family="Arial Black, Helvetica, sans-serif" font-weight="900" font-size="80" letter-spacing="1"><tspan fill="#FFFFFF">TRADIE</tspan><tspan fill="#F58220">BACK</tspan></text>
+    </svg>
+  </a>
+  <span class="nav-meta">Tradie Launch · Client intake</span>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow"><span style="width:7px;height:7px;border-radius:50%;background:var(--amber);"></span>Welcome to Tradie Launch</div>
+    <h1>Tell us about your business — <em>we'll handle the rest</em></h1>
+    <p class="hero-sub">About 15 minutes. Six short steps. The more detail you give, the better your site reflects who you actually are.</p>
+  </div>
+</section>
+
+<!-- Quick brief -->
+<div class="brief">
+  <div class="brief-card">
+    <h2>Before you start</h2>
+    <div class="brief-list">
+      <div class="brief-item">
+        <div class="num">1</div>
+        <div class="txt">
+          <strong>Allow ~15–20 minutes</strong>
+          <span>You can't save and come back, so set aside the time.</span>
+        </div>
+      </div>
+      <div class="brief-item">
+        <div class="num">2</div>
+        <div class="txt">
+          <strong>No file uploads in here</strong>
+          <span>Logo + photos go to a Drive folder I'll send after.</span>
+        </div>
+      </div>
+      <div class="brief-item">
+        <div class="num">3</div>
+        <div class="txt">
+          <strong>Plain English wins</strong>
+          <span>No marketing jargon. Talk like you would at smoko.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Form -->
+<section class="form-section">
+  <div class="form-wrap">
+    <iframe src="https://api.tradieback.com/widget/survey/FuaZ7bK1NDGVUaheF6QG" id="FuaZ7bK1NDGVUaheF6QG" title="Tradie Launch Intake"></iframe>
+  </div>
+  <script src="https://api.tradieback.com/js/form_embed.js"></script>
+
+  <p class="reassure">
+    <span class="check">✓</span>
+    Your info is only used to build your site · Not shared with anyone else · Stored privately in our CRM
+  </p>
+</section>
+
+<!-- Footer -->
+<footer>
+  © 2026 TradieBack · Client intake · Confidential
+  <div class="small">noindex · nofollow · direct URL only</div>
+</footer>
+
+</body>
+</html>
